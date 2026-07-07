@@ -1,0 +1,71 @@
+---
+import { Image as AstroImage } from 'astro:assets';
+
+export interface Props {
+    src: any;
+    alt?: string;
+    width?: number;
+    height?: number;
+    tag?: 'div' | 'figure';
+    caption?: string;
+    class?: string;
+    sizes?: string;
+    widths?: number[];
+    loading?: 'eager' | 'lazy';
+}
+
+const {
+    src,
+    alt = '',
+    tag = 'div',
+    width,
+    height,
+    caption,
+    class: propsClass,
+    widths = [720, 1440, 1800],
+    sizes = '(max-width: 720px) 720px, (max-width: 1440px) 1440px, 1800px',
+    loading = 'lazy',
+    ...rest
+} = Astro.props;
+
+// Set the tag based on the prop
+const Tag = tag === 'figure' ? 'figure' : 'div';
+const CaptionTag = tag === 'figure' ? 'figcaption' : 'div';
+
+// Set the onload event based on the loading prop
+const onLoad = `this.closest('.c-image')?.classList?.add('is-loaded');`;
+
+const classes = [
+    'c-image',
+    width && height && '-cover',
+    loading === 'lazy' && '-lazy-load',
+    propsClass
+];
+---
+
+{
+    src && (
+        <Tag class:list={classes} style={{ '--width': width, '--height': height }} {...rest}>
+            <div class="c-image_inner">
+                <AstroImage
+                    class="c-image_img"
+                    inferSize={typeof src === 'string'}
+                    src={src}
+                    widths={widths}
+                    sizes={sizes}
+                    width={width}
+                    height={height}
+                    alt={alt}
+                    loading={loading}
+                    onload={onLoad}
+                />
+            </div>
+
+            {caption && <CaptionTag class="c-image_caption">{caption}</CaptionTag>}
+        </Tag>
+    )
+}
+
+<style>
+    @import 'Image.css';
+</style>

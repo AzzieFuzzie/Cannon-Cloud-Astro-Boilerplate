@@ -1,0 +1,33 @@
+---
+import { Icon as AstroIcon } from 'astro-icon/components';
+
+interface Props {
+    name: string;
+    class?: string;
+    ariaLabel?: string;
+}
+
+const { name, ariaLabel, class: propsClass, ...rest } = Astro.props;
+
+const computedAriaLabel = ariaLabel ?? undefined;
+const computedArialHidden = computedAriaLabel ? 'false' : 'true';
+const computedFocusable = computedAriaLabel ? 'true' : 'false';
+
+const classes = ['c-icon', propsClass];
+
+const svgClassName = `svg-${name}`;
+---
+
+<span class:list={classes} {...rest}>
+    <AstroIcon
+        name={name}
+        class={svgClassName}
+        aria-label={computedAriaLabel}
+        aria-hidden={computedArialHidden}
+        focusable={computedFocusable}
+    />
+</span>
+
+<style>
+    @import 'Icon.css';
+</style>
