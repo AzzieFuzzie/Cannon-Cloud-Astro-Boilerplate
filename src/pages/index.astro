@@ -5,62 +5,297 @@ import Wysiwyg from '@components/Wysiwyg/Wysiwyg.astro';
 import Accordion from '@components/Accordion/Accordion.astro';
 ---
 
-<Layout title="Welcome to the Locomotive Astro Boilerplate.">
-    <header class="container">
-        <h1 class="heading-lg">Welcome to the Locomotive Astro Boilerplate.</h1>
-    </header>
+<Layout title="Home">
+    <div>
+        <div class="home__wrapper">
+            {/* Hero Section */}
+            <section class="hero" data-animation="pin">
+                <div class="hero__text" data-animation="title">
+                    <h1 data-editable="source" data-path="/src/pages/index.astro" data-key="slogan">
+                        Pigalle by Villamoura the home of Exceptional Seafood and Grills
+                    </h1>
+                </div>
 
-    <div class="container mt-fluid-xl">
-        <div class="grid grid-cols-12 gap-gutter">
-            <div class="text-body col-span-full md:col-span-4">
-                <Wysiwyg>
-                    <Fragment
-                        set:html={`<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque quam, nam omnis sunt laudantium tenetur obcaecati? Inventore eos vitae id repellat cum possimus voluptates nam voluptatum, assumenda, atque nesciunt debitis?</p>`}
+                <mux-background-video
+                    class="hero__video"
+                    src="https://stream.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs.m3u8"
+                    max-resolution="1080p"
+                    preload="auto"
+                >
+                    <img
+                        slot="poster"
+                        src="https://image.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs/thumbnail.webp?time=0.5&width=1920"
+                        alt="Pigalle Background Video Layout Poster"
+                        style="width: 100%; height: 100%; object-fit: cover;"
                     />
-                </Wysiwyg>
+                </mux-background-video>
+            </section>
 
-                <Button href="/about" class="mt-fluid-sm"> Learn More </Button>
-            </div>
-
-            <div class="col-span-full text-body-sm md:col-span-4">
-                <Wysiwyg tag="article">
-                    <Fragment
-                        set:html={`<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque quam, nam omnis sunt laudantium tenetur obcaecati? Inventore eos vitae id repellat cum possimus voluptates nam voluptatum, assumenda, atque nesciunt debitis?</p>`}
-                    />
-                    <Button href="https://google.ca" target="_blank" class="mt-fluid-sm">
-                        Visit Us
-                    </Button>
-                </Wysiwyg>
-            </div>
-
-            <div class="col-span-full text-body-sm md:col-span-4">
-                <Wysiwyg>
-                    <Fragment
-                        set:html={`<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque quam, nam omnis sunt laudantium tenetur obcaecati? Inventore eos vitae id repellat cum possimus voluptates nam voluptatum, assumenda, atque nesciunt debitis?</p>`}
-                    />
-                </Wysiwyg>
-            </div>
-
-            <div class="col-span-full text-body-sm md:col-span-4">
-                <Accordion label="Accordion summary">
-                    <Wysiwyg>
-                        <Fragment
-                            set:html={`<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque quam, nam omnis sunt laudantium tenetur obcaecati? Inventore eos vitae id repellat cum possimus voluptates nam voluptatum, assumenda, atque nesciunt debitis?</p>`}
-                        />
-                    </Wysiwyg>
-                </Accordion>
-                <Accordion label="Accordion summary">
-                    <Wysiwyg>
-                        <Fragment
-                            set:html={`<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque quam, nam omnis sunt laudantium tenetur obcaecati? Inventore eos vitae id repellat cum possimus voluptates nam voluptatum, assumenda, atque nesciunt debitis?</p>`}
-                        />
-                    </Wysiwyg>
-                </Accordion>
-            </div>
+            {/* Tagline Card Section */}
+            <section class="tagline__card__wrapper section--large--padding">
+                <div class="tagline">
+                    <h2
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="taglineHeading"
+                        data-animation="text"
+                        class="tagline__heading"
+                    >
+                        Nestled in the heart of Sandton at Nelson Mandela Square, Pigalle by
+                        Villamoura offers more than just a meal — it’s an experience.
+                    </h2>
+                    <a class="button" href="/book/" data-animation="fade">
+                        <span
+                            data-editable="source"
+                            data-path="/src/pages/index.astro"
+                            data-key="taglineButton"
+                            class="button__label">Book A Reservation</span
+                        >
+                    </a>
+                </div>
+            </section>
         </div>
 
-        <!-- Placeholder -->
-        <div class="mt-fluid-xl h-[50vh] w-full bg-black opacity-50"></div>
-        <div class="bg-grey mt-fluid-xl h-[50vh] w-full"></div>
+        {/* About Section */}
+        <section class="about__card__wrapper">
+            <div class="about__card">
+                <div class="about__card__left">
+                    <div class="image__wrapper">
+                        <img
+                            class="about__card__image"
+                            src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85"
+                            sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
+                            alt="Cozy bistro interior dining room lighting"
+                            data-animation="image_reveal_horizontal"
+                        />
+                    </div>
+                    {/* Component or placeholder for +svg-decorative('mint') */}
+                    <div class="svg-decorative--mint"></div>
+                </div>
+
+                <div class="about__card__right">
+                    <h6
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="aboutHeading"
+                        class="about__card__heading"
+                    >
+                        Our Story
+                    </h6>
+                    <p
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="aboutDescription"
+                        class="h4 about__card__description"
+                    >
+                        Pigalle by Villamoura serves Portuguese and Mediterranean Inspired cuisine
+                        with a classic South African twist.
+                    </p>
+                    <a class="button" href="/about/">
+                        <span
+                            data-editable="source"
+                            data-path="/src/pages/index.astro"
+                            data-key="aboutButton"
+                            class="button__label">Meet the Chefs</span
+                        >
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        {/* Our Food Section */}
+        <section class="section--medium--padding food__card__wrapper">
+            <div class="food">
+                <div class="food__left">
+                    <h6
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="foodHeading"
+                        class="food__heading"
+                    >
+                        The Menu
+                    </h6>
+                    <p
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="foodDescription"
+                        class="h4 food__description"
+                    >
+                        From ocean-fresh seafood to flame-grilled perfection.
+                    </p>
+                    <a class="button" href="/menu/">
+                        <span
+                            data-editable="source"
+                            data-path="/src/pages/index.astro"
+                            data-key="foodButton"
+                            class="button__label">Explore Plates</span
+                        >
+                    </a>
+                </div>
+
+                <div class="food__right">
+                    <div class="carousel">
+                        <div class="carousel__slide" data-animation="image_reveal_horizontal">
+                            <div class="carousel__image__wrapper" data-animation="carousel">
+                                <img
+                                    class="carousel__image"
+                                    src="#"
+                                    sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
+                                    alt="#"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    {/* Component or placeholder for +svg-decorative('rosemary') */}
+                    <div class="svg-decorative--rosemary"></div>
+
+                    <div class="carousel__controls">
+                        <button class="carousel__button">
+                            <span class="btn__prev carousel__button__label">prev</span>
+                        </button>
+                        <button class="carousel__button">
+                            <span class="btn__next carousel__button__label">next</span>
+                        </button>
+                        <div class="carousel__counter">
+                            <span>food gallery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {/* Private Events Section */}
+        <section class="section--small--padding events__card__wrapper">
+            <div
+                class="events"
+                style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80'); background-size: cover; background-position: center;"
+                data-animation="scale"
+            >
+                <div class="events__content">
+                    <h2
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="eventsHeading"
+                        class="events__heading"
+                        data-animation="title"
+                    >
+                        Private Events
+                    </h2>
+                    <p
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="eventsDescription"
+                        class="events__description"
+                        data-animation="paragraph"
+                    >
+                        We accommodate for all types of events including birthdays, corporate event,
+                        pre-wedding occasions and more.
+                    </p>
+                    <a class="events__button" href="/book/" data-animation="fade">
+                        <span
+                            data-editable="source"
+                            data-path="/src/pages/index.astro"
+                            data-key="eventsButton"
+                            class="button__label events__button__label">Make A Booking</span
+                        >
+                    </a>
+                </div>
+            </div>
+            {/* Component or placeholder for +svg-decorative('orange') */}
+            <div class="svg-decorative--orange"></div>
+        </section>
+
+        {/* FAQ Section */}
+        <section class="faq__section">
+            <div class="faq">
+                <div class="faq__container">
+                    <h2
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="faqHeading"
+                        class="faq__heading"
+                        data-animation="title"
+                    >
+                        FAQ'S
+                    </h2>
+                    <dl class="faq__accordian" data-animation="faq">
+                        <div class="faq__item" data-animation="line">
+                            <button class="faq__question" data-animation="faq">
+                                <dt class="faq__question__text">
+                                    <span
+                                        data-editable="source"
+                                        data-path="/src/pages/index.astro"
+                                        data-key="faqQuestion1">question</span
+                                    >
+                                </dt>
+                                <svg
+                                    class="faq__icon"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 22 23"
+                                    height="23"
+                                    width="22"
+                                >
+                                    <path
+                                        fill="black"
+                                        d="M0.261719 12.4793V10.8271H10.1748V0.914062H11.8269V10.8271H21.74V12.4793H11.8269V22.3923H10.1748V12.4793H0.261719Z"
+                                    ></path>
+                                </svg>
+                            </button>
+                            <dd class="faq__answer">
+                                <p
+                                    data-editable="source"
+                                    data-path="/src/pages/index.astro"
+                                    data-key="faqAnswer1"
+                                >
+                                    answer
+                                </p>
+                            </dd>
+                            <div class="faq__line"></div>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="icon__wrapper">
+                {/* Component or placeholders for wheat_plant and seed_plant */}
+                <div class="svg-decorative--wheat"></div>
+                <div class="svg-decorative--seed"></div>
+            </div>
+        </section>
+
+        {/* Reviews Section */}
+        <section class="section--small--padding reviews" data-animation="reviews_slider">
+            <div class="reviews__wrapper">
+                <div class="reviews__track">
+                    <div class="reviews__quote__wrapper">
+                        <span class="reviews__quote">&ldquo;</span>
+                    </div>
+                    <div class="reviews__slider">
+                        <div class="reviews__slide">
+                            <div class="reviews__item">
+                                <h3
+                                    data-editable="source"
+                                    data-path="/src/pages/index.astro"
+                                    data-key="reviewText1"
+                                    class="reviews__text"
+                                >
+                                    text
+                                </h3>
+                                <h6
+                                    data-editable="source"
+                                    data-path="/src/pages/index.astro"
+                                    data-key="reviewName1"
+                                    class="reviews__name"
+                                >
+                                    name
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews__dots" role="tablist" aria-label="Review Navigation"></div>
+            </div>
+        </section>
     </div>
 </Layout>
