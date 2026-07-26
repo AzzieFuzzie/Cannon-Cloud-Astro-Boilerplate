@@ -64,8 +64,8 @@ export default defineConfig({
     fonts: [
         {
             provider: fontProviders.local(),
-            name: 'Source Sans Pro',
-            cssVariable: '--custom-font-sans',
+            name: 'Roslindale Display Narrow',
+            cssVariable: '--custom-rd-narrow',
             fallbacks: ['sans-serif'],
             options: {
                 variants: [
@@ -73,13 +73,39 @@ export default defineConfig({
                         weight: 400,
                         style: 'normal',
                         display: 'swap',
-                        src: ['./src/assets/fonts/SourceSans3-Regular.woff2']
-                    },
+                        src: ['./src/assets/fonts/RoslindaleDspNar-Regular.woff2']
+                    }
+                ]
+            }
+        },
+        {
+            provider: fontProviders.local(),
+            name: 'Roslindale Display Condensed',
+            cssVariable: '--custom-rd-condensed',
+            fallbacks: ['sans-serif'],
+            options: {
+                variants: [
                     {
-                        weight: 700,
+                        weight: 300,
+                        style: 'italic',
+                        display: 'swap',
+                        src: ['./src/assets/fonts/RoslindaleDspCd-LtIt.woff2']
+                    }
+                ]
+            }
+        },
+        {
+            provider: fontProviders.local(),
+            name: 'Lato',
+            cssVariable: '--custom-lato',
+            fallbacks: ['sans-serif'],
+            options: {
+                variants: [
+                    {
+                        weight: 400,
                         style: 'normal',
                         display: 'swap',
-                        src: ['./src/assets/fonts/SourceSans3-Bold.woff2']
+                        src: ['./src/assets/fonts/Lato-Regular.woff2']
                     }
                 ]
             }

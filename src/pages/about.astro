@@ -13,7 +13,7 @@ import Wysiwyg from '@components/Wysiwyg/Wysiwyg.astro';
 
     <div class="container mt-fluid-xl">
         <div>
-            <Image
+            <!-- <Image
                 src={import('@images/printer.jpg')}
                 alt="Placeholder alt"
                 caption="Static image & Loading eager"
@@ -21,51 +21,52 @@ import Wysiwyg from '@components/Wysiwyg/Wysiwyg.astro';
                 width={500}
                 height={200}
             />
-        </div>
-        <div class="grid grid-cols-2 gap-gutter">
-            <div>
-                <Image
-                    src="https://locomotive.ca/uploads/careers/pltropics-2000w.jpg"
-                    alt="Placeholder alt"
-                    caption="Loading lazy native"
-                    loading="lazy"
-                    width={500}
-                    height={500}
-                />
-            </div>
-            <div>
-                <Image
-                    src="https://locomotive.ca/uploads/careers/fullscreen-image-2000w.jpg"
-                    alt="Placeholder alt"
-                    caption="Loading lazy native + locomotive-scroll inview anim"
-                    loading="lazy"
-                    width={500}
-                    height={500}
-                    data-scroll
-                    data-scroll-repeat
-                />
-            </div>
-        </div>
-        <div class="grid grid-cols-12 gap-gutter">
-            <div class="col-span-full text-body-sm md:col-span-6">
-                <Wysiwyg>
-                    <Fragment
-                        set:html={`<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque quam, nam omnis sunt laudantium tenetur obcaecati? Inventore eos vitae id repellat cum possimus voluptates nam voluptatum, assumenda, atque nesciunt debitis?</p>`}
+        </div> -->
+            <div class="grid grid-cols-2 gap-gutter">
+                <div>
+                    <Image
+                        src="https://locomotive.ca/uploads/careers/pltropics-2000w.jpg"
+                        alt="Placeholder alt"
+                        caption="Loading lazy native"
+                        loading="lazy"
+                        width={500}
+                        height={500}
                     />
-                </Wysiwyg>
+                </div>
+                <div>
+                    <Image
+                        src="https://locomotive.ca/uploads/careers/fullscreen-image-2000w.jpg"
+                        alt="Placeholder alt"
+                        caption="Loading lazy native + locomotive-scroll inview anim"
+                        loading="lazy"
+                        width={500}
+                        height={500}
+                        data-scroll
+                        data-scroll-repeat
+                    />
+                </div>
+            </div>
+            <div class="grid grid-cols-12 gap-gutter">
+                <div class="text-body-sm col-span-full md:col-span-6">
+                    <Wysiwyg>
+                        <Fragment
+                            set:html={`<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque quam, nam omnis sunt laudantium tenetur obcaecati? Inventore eos vitae id repellat cum possimus voluptates nam voluptatum, assumenda, atque nesciunt debitis?</p>`}
+                        />
+                    </Wysiwyg>
+                </div>
+
+                <div class="text-body-sm col-span-full md:col-span-6">
+                    <Wysiwyg>
+                        <Fragment
+                            set:html={`<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque quam, nam omnis sunt laudantium tenetur obcaecati? Inventore eos vitae id repellat cum possimus voluptates nam voluptatum, assumenda, atque nesciunt debitis?</p>`}
+                        />
+                    </Wysiwyg>
+                </div>
             </div>
 
-            <div class="col-span-full text-body-sm md:col-span-6">
-                <Wysiwyg>
-                    <Fragment
-                        set:html={`<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque quam, nam omnis sunt laudantium tenetur obcaecati? Inventore eos vitae id repellat cum possimus voluptates nam voluptatum, assumenda, atque nesciunt debitis?</p>`}
-                    />
-                </Wysiwyg>
-            </div>
+            <!-- Placeholder -->
+            <div class="mt-fluid-xl h-[50vh] w-full bg-black opacity-50"></div>
+            <div class="mt-fluid-xl h-[50vh] w-full bg-gray-200"></div>
         </div>
-
-        <!-- Placeholder -->
-        <div class="mt-fluid-xl h-[50vh] w-full bg-black opacity-50"></div>
-        <div class="mt-fluid-xl h-[50vh] w-full bg-gray-200"></div>
     </div>
 </Layout>

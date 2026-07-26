@@ -1,19 +1,76 @@
-@utility heading-xl {
-    font-size: var(--text-heading-xl);
-    font-family: var(--font-sans);
-    font-style: normal;
-    line-height: 0.85;
-}
+/* ==========================================
+   Typography Utilities (Derived from @theme)
+   ========================================== */
 
-@utility heading-lg {
-    font-size: var(--text-heading-lg);
-    font-family: var(--font-sans);
-    font-style: normal;
+@utility heading-h1 {
+    font-family: var(--font-rd-narrow, serif);
+    font-size: var(--text-heading-h1);
     line-height: 1;
+    letter-spacing: 0;
 }
 
-@utility text-body {
-    font-size: var(--text-body-sm);
-    font-style: normal;
-    line-height: 1.35;
+@utility heading-h2 {
+    font-family: var(--font-rd-narrow, serif);
+    font-size: var(--text-heading-h2);
+    line-height: 1.2;
+    letter-spacing: 0;
+
+    @media (max-width: 699px) {
+        line-height: 1.1;
+    }
+}
+
+@utility heading-h3 {
+    font-family: var(--font-rd-narrow, serif);
+    font-size: var(--text-heading-h3);
+    line-height: 1.3;
+    letter-spacing: 0;
+
+    @media (max-width: 699px) {
+        line-height: 1.1;
+    }
+}
+
+@utility heading-h4 {
+    font-family: var(--font-lato, sans-serif);
+    font-size: var(--text-heading-h4);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+}
+
+@utility heading-h5 {
+    font-family: var(--font-lato, sans-serif);
+    font-size: var(--text-heading-h5);
+    line-height: 1.1;
+    letter-spacing: 0;
+
+    @media (max-width: 699px) {
+        line-height: 1.3;
+    }
+}
+
+@utility heading-h6 {
+    font-family: var(--font-lato, sans-serif);
+    font-size: 1rem; /* Fixed 16px */
+    line-height: 1.3;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+@utility body-base {
+    font-family: var(--font-lato, sans-serif);
+    font-size: var(--text-body-base);
+    line-height: 1.5;
+    letter-spacing: 0;
+
+    @media (max-width: 699px) {
+        line-height: 1.4;
+    }
+}
+
+@utility body-small {
+    font-family: var(--font-lato, sans-serif);
+    font-size: var(--text-body-sm); /* Uses your existing --text-body-sm */
+    line-height: 1.4;
+    letter-spacing: 0;
 }

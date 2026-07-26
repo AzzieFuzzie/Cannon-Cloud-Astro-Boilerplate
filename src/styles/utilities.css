@@ -4,3 +4,41 @@
     @apply mx-auto w-full px-unit-md;
     @apply max-w-none;
 }
+
+@utility grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* ==========================================
+   Structural Spacing Utilities
+   ========================================== */
+
+/* Page container wrapper (consistent top/bottom padding across all pages) */
+@utility page-wrapper {
+    padding-top: var(--spacing-fluid-xl);
+    padding-bottom: var(--spacing-fluid-2xl);
+}
+
+/* Section vertical rhythm */
+@utility section-spacing-xl {
+    padding-top: var(--spacing-fluid-2xl);
+    padding-bottom: var(--spacing-fluid-2xl);
+}
+
+@utility section-spacing-3xl {
+    padding-top: var(--spacing-fluid-3xl);
+    padding-bottom: var(--spacing-fluid-3xl);
+}
+
+@utility section-spacing-md {
+    padding-top: var(--spacing-fluid-md);
+    padding-bottom: var(--spacing-fluid-md);
+}
+
+/* Horizontal gutter */
+@utility container-gutter {
+    padding-left: var(--spacing-fluid-sm);
+    padding-right: var(--spacing-fluid-sm);
+}

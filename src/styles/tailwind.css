@@ -3,15 +3,21 @@
 :root {
     --unit-sm: 10px;
     --unit-md: 20px;
+    --grid-columns: 12;
+    --spacing-gutter: 20px;
 }
 
 @theme static {
-    --font-sans: var(--custom-font-sans);
+    --font-lato: var(--custom-lato);
+    --font-rd-narrow: var(--custom-rd-narrow);
+    --font-rd-condensed: var(--custom-rd-condensed);
 
-    --text-heading-xl: utopia.clamp(60, 120);
-    --text-heading-lg: utopia.clamp(48, 80);
-    --text-body-sm: utopia.clamp(14, 16);
-    --text-button: utopia.clamp(16, 20);
+    --text-heading-h1: utopia.clamp(40, 90);
+    --text-heading-h2: utopia.clamp(28, 50);
+    --text-heading-h3: utopia.clamp(24, 36);
+    --text-heading-h4: utopia.clamp(26, 30);
+    --text-heading-h5: utopia.clamp(18, 24);
+    --text-body-base: utopia.clamp(16, 18);
 
     --color-black: #000000;
     --color-white: #ffffff;
