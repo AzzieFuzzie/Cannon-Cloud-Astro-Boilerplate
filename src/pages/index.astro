@@ -34,7 +34,7 @@ const faqs = [
 ---
 
 <Layout title="Home">
-    <div class="home__wrapper">
+    <div class="space-y-fluid-4xl">
         {/* Hero Section */}
         <section
             class="relative flex h-dvh w-screen items-end justify-end overflow-x-hidden p-fluid-md"
@@ -49,14 +49,17 @@ const faqs = [
                 data-animation="title"
             >
                 <div class="hero__text" data-animation="title">
-                    <h1
+                    <Wysiwyg
+                        tag="h1"
                         class="heading-h1 text-white"
                         data-editable="source"
                         data-path="/src/pages/index.astro"
                         data-key="slogan"
                     >
-                        Pigalle by Villamoura the home of Exceptional Seafood and Grills
-                    </h1>
+                        <Fragment
+                            set:html={`Pigalle <em> by </em>Villamoura <em>the</em> home <em>of</em> Exceptional Seafood <em>and</em> Grills`}
+                        />
+                    </Wysiwyg>
                 </div>
             </div>
 
@@ -66,19 +69,25 @@ const faqs = [
                 src="https://stream.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs.m3u8"
                 max-resolution="1080p"
                 preload="auto"
+                muted
+                autoplay
+                loop
             >
                 <img
                     slot="poster"
                     src="https://image.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs/thumbnail.webp?time=0.5&width=1920"
                     alt="Pigalle Background Video Layout Poster"
                     class="h-full w-full object-cover"
+                    data-editable="source"
+                    data-path="/src/pages/index.astro"
+                    data-key="heroPosterImage"
                 />
             </mux-background-video>
         </section>
 
         {/* Tagline Card Section */}
         <section
-            class="section-spacing-3xl mx-auto max-w-[clamp(80ch,70vw,90ch)]"
+            class="mx-auto max-w-[clamp(80ch,70vw,90ch)]"
             data-animation="fade"
             data-editable="source"
             data-path="/src/pages/index.astro"
@@ -114,9 +123,7 @@ const faqs = [
         </section>
 
         {/* About Section */}
-        <section
-            class="section-spacing-3xl container grid grid-cols-1 items-center gap-gutter lg:grid-cols-2"
-        >
+        <section class="container grid grid-cols-1 items-center gap-gutter lg:grid-cols-2">
             {/* Left: Image */}
             <div class="w-full">
                 <div class="overflow-hidden">
@@ -125,17 +132,20 @@ const faqs = [
                         src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85"
                         alt="Oyster dining table dish"
                         data-animation="image_reveal_horizontal"
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="aboutImage"
                     />
                 </div>
             </div>
 
             {/* Right: Text Content */}
-            <div class="space-y-fluid-sm lg:pl-fluid-md">
+            <div class="lg:pl-fluid-md">
                 <h6
                     data-editable="source"
                     data-path="/src/pages/index.astro"
                     data-key="aboutSubheading"
-                    class="heading-h6 font-medium tracking-widest text-black/60 uppercase"
+                    class="heading-h6 pb-fluid-xs font-medium tracking-widest text-black/60 uppercase"
                 >
                     ABOUT
                 </h6>
@@ -144,13 +154,13 @@ const faqs = [
                     data-editable="source"
                     data-path="/src/pages/index.astro"
                     data-key="aboutDescription"
-                    class="heading-h3 max-w-[28ch] leading-snug font-normal text-black"
+                    class="heading-h3 max-w-[28ch] pb-fluid-xs leading-snug font-normal text-black"
                 >
                     Pigalle by Villamoura serves Portuguese and Mediterranean Inspired cuisine with
                     a classic South African twist.
                 </h2>
 
-                <div class="pt-fluid-xs">
+                <div class="">
                     <a
                         class="inline-block border-b border-black pb-1 text-xs font-semibold tracking-widest text-black uppercase transition-opacity hover:opacity-70"
                         href="/about/"
@@ -169,14 +179,31 @@ const faqs = [
 
         {/* Our Food Section */}
         <section
-            class="section-spacing container grid grid-cols-1 items-center gap-gutter lg:grid-cols-2"
+            class="lg:grid-col-star container grid grid-cols-1 items-center gap-gutter lg:grid-cols-2"
         >
-            <div>
+            <div class="order-1 w-full lg:order-2">
+                <div>
+                    <div data-animation="image_reveal_horizontal">
+                        <div data-animation="carousel">
+                            <img
+                                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85"
+                                sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
+                                alt="Food platter"
+                                data-editable="source"
+                                data-path="/src/pages/index.astro"
+                                data-key="foodGalleryImage"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-2 lg:order-1">
                 <h6
                     data-editable="source"
                     data-path="/src/pages/index.astro"
                     data-key="foodHeading"
-                    class="heading-h6 font-medium tracking-widest text-black/60 uppercase"
+                    class="heading-h6 pb-fluid-xs font-medium tracking-widest text-black/60 uppercase"
                 >
                     The Menu
                 </h6>
@@ -184,10 +211,11 @@ const faqs = [
                     data-editable="source"
                     data-path="/src/pages/index.astro"
                     data-key="foodDescription"
-                    class="heading-h3 font-medium tracking-widest text-black/60 uppercase"
+                    class="heading-h3 pb-fluid-xs font-medium tracking-widest uppercase"
                 >
                     From ocean-fresh seafood to flame-grilled perfection.
                 </p>
+
                 <a class="button" href="/menu/">
                     <span
                         data-editable="source"
@@ -199,37 +227,10 @@ const faqs = [
                     </span>
                 </a>
             </div>
-
-            <div class="w-full">
-                <div>
-                    <div data-animation="image_reveal_horizontal">
-                        <div data-animation="carousel">
-                            <img
-                                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85"
-                                sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
-                                alt="Food platter"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
-        {/* Carousel Controls */}
-        <div class="carousel__controls">
-            <button class="carousel__button">
-                <span class="btn__prev carousel__button__label">prev</span>
-            </button>
-            <button class="carousel__button">
-                <span class="btn__next carousel__button__label">next</span>
-            </button>
-            <div class="carousel__counter">
-                <span>food gallery</span>
-            </div>
-        </div>
-
         {/* Private Events Section */}
-        <section class="section-spacing relative h-full w-full overflow-hidden bg-black text-white">
+        <section class="relative h-full w-full overflow-hidden bg-black text-white">
             {/* Background Image & Overlay */}
             <div class="absolute inset-0 z-0">
                 <img
@@ -237,13 +238,14 @@ const faqs = [
                     alt="Private events ambiance"
                     class="h-full w-full object-cover object-center"
                     data-animation="scale"
+                    data-editable="source"
+                    data-path="/src/pages/index.astro"
+                    data-key="eventsBackgroundImage"
                 />
-                <div class="absolute inset-0 bg-black/40"></div>
             </div>
 
-            {/* Main Content Grid */}
-            <div class="grid-12 relative z-10 container min-h-[70vh] items-center">
-                <div class="col-span-12 space-y-fluid-sm py-fluid-lg lg:col-span-5 lg:col-start-7">
+            <div class="relative z-10 container mx-auto py-fluid-xl">
+                <div class="max-w-[40rem] px-fluid-sm lg:px-0">
                     <h2
                         data-editable="source"
                         data-path="/src/pages/index.astro"
@@ -297,7 +299,7 @@ const faqs = [
         </section>
 
         {/* FAQ Section */}
-        <section class="bg-grey section-spacing relative w-full overflow-hidden text-black">
+        <section class="relative w-full overflow-hidden">
             <div class="grid-12 relative z-10 container">
                 <div class="col-span-12 lg:col-span-7 lg:col-start-4">
                     <h2
@@ -396,5 +398,84 @@ const faqs = [
                 <div class="reviews__dots" role="tablist" aria-label="Review Navigation"></div>
             </div>
         </section>
+    </div>
+
+    <!-- Outer wrapper with overflow-hidden and optional fade mask -->
+    <div class="group relative flex overflow-x-hidden py-8">
+        <!-- Marquee track 1 -->
+        <div
+            class="animate-marquee flex shrink-0 items-center gap-6 group-hover:[animation-play-state:paused]"
+        >
+            <img
+                class="h-32 w-48 rounded-lg object-cover"
+                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500"
+                alt="Food 1"
+                data-editable="source"
+                data-path="/src/pages/index.astro"
+                data-key="marqueeImage1"
+            />
+            <img
+                class="h-32 w-48 rounded-lg object-cover"
+                src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500"
+                alt="Food 2"
+                data-editable="source"
+                data-path="/src/pages/index.astro"
+                data-key="marqueeImage2"
+            />
+            <img
+                class="h-32 w-48 rounded-lg object-cover"
+                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500"
+                alt="Food 3"
+                data-editable="source"
+                data-path="/src/pages/index.astro"
+                data-key="marqueeImage3"
+            />
+            <img
+                class="h-32 w-48 rounded-lg object-cover"
+                src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500"
+                alt="Food 4"
+                data-editable="source"
+                data-path="/src/pages/index.astro"
+                data-key="marqueeImage4"
+            />
+
+            <!-- Marquee track 2 (exact duplicate for seamless loop) -->
+            <div
+                class="animate-marquee aria-hidden:true flex shrink-0 items-center gap-6 group-hover:[animation-play-state:paused]"
+            >
+                <img
+                    class="h-32 w-48 rounded-lg object-cover"
+                    src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500"
+                    alt="Food 1"
+                    data-editable="source"
+                    data-path="/src/pages/index.astro"
+                    data-key="marqueeImage5"
+                />
+                <img
+                    class="h-32 w-48 rounded-lg object-cover"
+                    src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500"
+                    alt="Food 2"
+                    data-editable="source"
+                    data-path="/src/pages/index.astro"
+                    data-key="marqueeImage6"
+                />
+                <img
+                    class="h-32 w-48 rounded-lg object-cover"
+                    src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500"
+                    alt="Food 3"
+                    data-editable="source"
+                    data-path="/src/pages/index.astro"
+                    data-key="marqueeImage7"
+                />
+                <img
+                    class="h-32 w-48 rounded-lg object-cover"
+                    src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500"
+                    alt="Food 4"
+                    data-editable="source"
+                    data-path="/src/pages/index.astro"
+                    data-key="marqueeImage8"
+                />
+            </div>
+        </div>
     </div>
 </Layout>

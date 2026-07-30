@@ -10,20 +10,17 @@
 
 /* Global styles */
 :root {
-    :root {
-        /* Brand Palette */
-        --color-light-grey: #6a6a6a;
-        --color-accent-grey: #cbc4b1;
-        --color-grey: #efedea;
-        --color-white: #ffffff;
-        --color-off-white: rgba(250, 249, 246, 0.7);
-        --color-black: #000000;
-        --color-gold: #dec16b;
+    --color-light-grey: #6a6a6a;
+    --color-accent-grey: #cbc4b1;
+    --color-grey: #efedea;
+    --color-white: #ffffff;
+    --color-off-white: rgba(250, 249, 246, 0.7);
+    --color-black: #000000;
+    --color-gold: #dec16b;
 
-        /* Theme Tokens */
-        --color-primary: var(--color-black);
-        --color-secondary: var(--color-white);
-    }
+    /* Theme Tokens */
+    --color-primary: var(--color-black);
+    --color-secondary: var(--color-white);
 }
 
 html {
@@ -32,7 +29,7 @@ html {
 }
 
 body {
-    background: var(--color-light-grey);
+    background: var(--color-grey);
     color: var(--color-primary);
 }
 

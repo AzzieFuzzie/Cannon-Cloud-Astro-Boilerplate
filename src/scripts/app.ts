@@ -1,3 +1,4 @@
+import '@mux/mux-background-video/html';
 import { Transitions } from '@scripts/classes/Transitions';
 import { Scroll } from '@scripts/classes/Scroll';
 
