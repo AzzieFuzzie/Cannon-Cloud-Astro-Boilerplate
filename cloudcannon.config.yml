@@ -9,4 +9,3 @@ markdown:
 collections_config:
   pages:
     path: src/pages
-    icon: wysiwyg
