@@ -66,44 +66,17 @@ const faqs = [
             data-path="/src/pages/index.astro"
             data-key="heroSection"
         >
-            {/* Title Container */}
-            <div
-                class="pointer-events-none absolute right-fluid-md bottom-fluid-md z-10 max-w-[clamp(90ch,70%,120ch)] text-right"
-                data-animation="title"
-            >
-                <div class="hero__text" data-animation="title">
-                    <Wysiwyg
-                        class="heading-h1 text-white"
-                        data-editable="source"
-                        data-key="slogan"
-                        data-path="/src/pages/index.astro"
-                        tag="h1"
-                    >
-                        <Fragment <em set:html="{`Pigalle"> by </Fragment>Villamoura <em>the</em> home
-                        <em>of</em> Exceptional Seafood <em>and</em> Grills`} />
-                    </Wysiwyg>
-                </div>
+            {/* Title Container */} <p>
+            <div class="pointer-events-none absolute right-fluid-md bottom-fluid-md z-10 max-w-[clamp(90ch,70%,120ch)] text-right" data-animation="title">
+             <div class="hero__text" data-animation="title">
+              <wysiwyg class="heading-h1 text-white" data-editable="source" data-key="slogan" data-path="/src/pages/index.astro" tag="h1">
+               <fragment <em set:html="{`Pigalle"> by </fragment>Villamoura <em>the</em> home
+               <em>of</em> Exceptional Seafood <em>and</em> Grills`} />
+              </wysiwyg>
+             </div>
             </div>
-
-            {/* Background Video */}
-            <mux-background-video
-                class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover select-none"
-                src="https://stream.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs.m3u8"
-                max-resolution="1080p"
-                preload="auto"
-                muted
-                autoplay
-                loop
-            >
-                <img
-                    slot="poster"
-                    src="https://image.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs/thumbnail.webp?time=0.5&width=1920"
-                    alt="Pigalle Background Video Layout Poster"
-                    class="h-full w-full object-cover"
-                    data-editable="source"
-                    data-path="/src/pages/index.astro"
-                    data-key="heroPosterImage"
-                />
+            </p> {/* Background Video */} <mux-background-video class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover select-none" src="https://stream.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs.m3u8" max-resolution="1080p" preload="auto" muted autoplay loop>
+             <img slot="poster" src="https://image.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs/thumbnail.webp?time=0.5&width=1920" alt="Pigalle Background Video Layout Poster" class="h-full w-full object-cover" data-editable="source" data-path="/src/pages/index.astro" data-key="heroPosterImage" />
             </mux-background-video>
         </section>
 
@@ -252,7 +225,7 @@ const faqs = [
                     data-editable="source"
                     data-path="/src/pages/index.astro"
                     data-key="eventsBackgroundImage"
-                /><p><img src="/uploads/Home/pigalle-shoot-day-1-46-1.webp" /></p></div>
+                /><p><img src="/uploads/Home/pigalle-shoot-day-1-46-1.webp" /><img src="" /><img src="/uploads/Home/pigalle-shoot-day-1-46-1.webp" /></p></div>
 
             <div
                 class="relative z-10 col-start-6 col-end-12 flex h-full flex-col items-center justify-center py-fluid-xl"
@@ -458,7 +431,7 @@ const faqs = [
                  <p></p>
                  <p><img class="h-32 w-48 rounded-lg object-cover" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500" alt="Food 6" data-editable="source" data-path="/src/pages/index.astro" data-key="marqueeImage6" /> </p>
                  <p></p>
-                 <p><img class="h-32 w-48 rounded-lg object-cover" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="Food 7" data-editable="source" data-path="/src/pages/index.astro" data-key="marqueeImage7" /> </p>
+                 <p><img class="h-32 w-48 rounded-lg object-cover" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="Food 7" data-editable="source" data-path="/src/pages/index.astro" data-key="marqueeImage7" /></p>
                  <p></p>
                  <p><img class="h-32 w-48 rounded-lg object-cover" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500" alt="Food 8" data-editable="source" data-path="/src/pages/index.astro" data-key="marqueeImage8" /></p>
                 </div>
