@@ -4,6 +4,29 @@ import Button from '@components/Button/Button.astro';
 import Wysiwyg from '@components/Wysiwyg/Wysiwyg.astro';
 import Accordion from '@components/Accordion/Accordion.astro';
 
+const reviews = [
+    {
+        text: 'He went out of his way to make our Anniversary special. Thank you for the wonderful service and delicious food!',
+        name: 'SIBABALO'
+    },
+    {
+        text: 'Pigalle Restaurant in Sandton offers a refined dining experience, perfect for those looking to enjoy a blend of Mediterranean and continental cuisine in an elegant setting.',
+        name: 'PAUL GOVENDER'
+    },
+    {
+        text: '5 star venue for sure, everything is just so consistent from the great setup to the delicious food!',
+        name: 'DAN M'
+    },
+    {
+        text: '5 star venue for sure, everything is just so consistent from the great setup to the delicious food!',
+        name: 'DAN M'
+    },
+    {
+        text: '5 star venue for sure, everything is just so consistent from the great setup to the delicious food!',
+        name: 'DAN M'
+    }
+];
+
 const faqs = [
     {
         key: 'faq1',
@@ -50,15 +73,14 @@ const faqs = [
             >
                 <div class="hero__text" data-animation="title">
                     <Wysiwyg
-                        tag="h1"
                         class="heading-h1 text-white"
                         data-editable="source"
-                        data-path="/src/pages/index.astro"
                         data-key="slogan"
+                        data-path="/src/pages/index.astro"
+                        tag="h1"
                     >
-                        <Fragment
-                            set:html={`Pigalle <em> by </em>Villamoura <em>the</em> home <em>of</em> Exceptional Seafood <em>and</em> Grills`}
-                        />
+                        <Fragment <em set:html="{`Pigalle"> by </Fragment>Villamoura <em>the</em> home
+                        <em>of</em> Exceptional Seafood <em>and</em> Grills`} />
                     </Wysiwyg>
                 </div>
             </div>
@@ -179,7 +201,7 @@ const faqs = [
 
         {/* Our Food Section */}
         <section
-            class="lg:grid-col-star container grid grid-cols-1 items-center gap-gutter lg:grid-cols-2"
+            class="lg:grid-col-start container grid grid-cols-1 items-center gap-gutter lg:grid-cols-2"
         >
             <div class="order-1 w-full lg:order-2">
                 <div>
@@ -230,7 +252,9 @@ const faqs = [
         </section>
 
         {/* Private Events Section */}
-        <section class="relative h-full w-full overflow-hidden bg-black text-white">
+        <section
+            class="relative grid h-full min-h-screen w-full grid-cols-12 overflow-hidden bg-black text-white"
+        >
             {/* Background Image & Overlay */}
             <div class="absolute inset-0 z-0">
                 <img
@@ -244,7 +268,9 @@ const faqs = [
                 />
             </div>
 
-            <div class="relative z-10 container mx-auto py-fluid-xl">
+            <div
+                class="relative z-10 col-start-6 col-end-12 flex h-full flex-col items-center justify-center py-fluid-xl"
+            >
                 <div class="max-w-[40rem] px-fluid-sm lg:px-0">
                     <h2
                         data-editable="source"
@@ -317,9 +343,9 @@ const faqs = [
                             faqs.map((faq, index) => (
                                 <div class="border-b border-black/15">
                                     <Accordion
-                                        label={faq.question}
-                                        name="faq-accordion"
                                         class="group cursor-pointer py-fluid-xs text-base font-medium text-black md:text-lg"
+                                        label="{faq.question}"
+                                        name="faq-accordion"
                                     >
                                         <p
                                             data-editable="source"
@@ -365,83 +391,62 @@ const faqs = [
         </section>
 
         {/* Reviews Section */}
-        <section class="section--small--padding reviews" data-animation="reviews_slider">
-            <div class="reviews__wrapper">
-                <div class="reviews__track">
-                    <div class="reviews__quote__wrapper">
-                        <span class="reviews__quote">&ldquo;</span>
-                    </div>
-                    <div class="reviews__slider">
-                        <div class="reviews__slide">
-                            <div class="reviews__item">
-                                <h3
-                                    data-editable="source"
-                                    data-path="/src/pages/index.astro"
-                                    data-key="reviewText1"
-                                    class="reviews__text"
+        <section class="section--small--padding reviews relative overflow-hidden py-20">
+            <div class="reviews__wrapper mx-auto flex w-full max-w-7xl flex-col items-center px-4">
+                <!-- Large Decorative Quote Mark -->
+                <div class="reviews__quote__wrapper mb-8">
+                    <span class="reviews__quote font-serif text-6xl text-neutral-400">&ldquo;</span>
+                </div>
+
+                <!-- Track Container -->
+                <div class="reviews-track-container relative w-full">
+                    <div
+                        class="reviews-track no-scrollbar flex items-center gap-6 overflow-x-auto px-[10%] pt-4 pb-8 md:px-[25%]"
+                    >
+                        {
+                            reviews.map((review, index) => (
+                                <div
+                                    class="review-slide w-[85vw] shrink-0 scale-95 cursor-pointer opacity-30 blur-[0.5px] transition-all duration-300 md:w-[600px]"
+                                    data-index={index}
                                 >
-                                    text
-                                </h3>
-                                <h6
-                                    data-editable="source"
-                                    data-path="/src/pages/index.astro"
-                                    data-key="reviewName1"
-                                    class="reviews__name"
-                                >
-                                    name
-                                </h6>
-                            </div>
-                        </div>
+                                    <div class="reviews__item flex flex-col items-center px-4 text-center">
+                                        <h3 class="reviews__text mb-6">
+                                            <p class="heading-h3 font-serif text-xl leading-relaxed text-neutral-900 md:text-3xl">
+                                                {review.text}
+                                            </p>
+                                        </h3>
+                                        <h6 class="reviews__name">
+                                            <p class="heading-h6 text-xs font-semibold tracking-widest text-neutral-800 uppercase md:text-sm">
+                                                - {review.name}
+                                            </p>
+                                        </h6>
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
 
-                <div class="reviews__dots" role="tablist" aria-label="Review Navigation"></div>
+                <!-- Pagination Navigation Dots -->
+                <div class="reviews-nav mt-8 flex items-center justify-center gap-3">
+                    {
+                        reviews.map((_, index) => (
+                            <button
+                                class="review-dot h-2.5 w-2.5 rounded-full bg-neutral-300 transition-all duration-300"
+                                data-index={index}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))
+                    }
+                </div>
             </div>
         </section>
-    </div>
 
-    <!-- Outer wrapper with overflow-hidden and optional fade mask -->
-    <div class="group relative flex overflow-x-hidden py-8">
-        <!-- Marquee track 1 -->
-        <div
-            class="animate-marquee flex shrink-0 items-center gap-6 group-hover:[animation-play-state:paused]"
-        >
-            <img
-                class="h-32 w-48 rounded-lg object-cover"
-                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500"
-                alt="Food 1"
-                data-editable="source"
-                data-path="/src/pages/index.astro"
-                data-key="marqueeImage1"
-            />
-            <img
-                class="h-32 w-48 rounded-lg object-cover"
-                src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500"
-                alt="Food 2"
-                data-editable="source"
-                data-path="/src/pages/index.astro"
-                data-key="marqueeImage2"
-            />
-            <img
-                class="h-32 w-48 rounded-lg object-cover"
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500"
-                alt="Food 3"
-                data-editable="source"
-                data-path="/src/pages/index.astro"
-                data-key="marqueeImage3"
-            />
-            <img
-                class="h-32 w-48 rounded-lg object-cover"
-                src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500"
-                alt="Food 4"
-                data-editable="source"
-                data-path="/src/pages/index.astro"
-                data-key="marqueeImage4"
-            />
-
-            <!-- Marquee track 2 (exact duplicate for seamless loop) -->
+        {/* Marquee Section */}
+        <div class="group relative flex overflow-x-hidden py-8">
+            {/* Marquee track 1 */}
             <div
-                class="animate-marquee aria-hidden:true flex shrink-0 items-center gap-6 group-hover:[animation-play-state:paused]"
+                class="animate-marquee flex shrink-0 items-center gap-6 group-hover:[animation-play-state:paused]"
             >
                 <img
                     class="h-32 w-48 rounded-lg object-cover"
@@ -449,7 +454,7 @@ const faqs = [
                     alt="Food 1"
                     data-editable="source"
                     data-path="/src/pages/index.astro"
-                    data-key="marqueeImage5"
+                    data-key="marqueeImage1"
                 />
                 <img
                     class="h-32 w-48 rounded-lg object-cover"
@@ -457,7 +462,7 @@ const faqs = [
                     alt="Food 2"
                     data-editable="source"
                     data-path="/src/pages/index.astro"
-                    data-key="marqueeImage6"
+                    data-key="marqueeImage2"
                 />
                 <img
                     class="h-32 w-48 rounded-lg object-cover"
@@ -465,7 +470,7 @@ const faqs = [
                     alt="Food 3"
                     data-editable="source"
                     data-path="/src/pages/index.astro"
-                    data-key="marqueeImage7"
+                    data-key="marqueeImage3"
                 />
                 <img
                     class="h-32 w-48 rounded-lg object-cover"
@@ -473,8 +478,46 @@ const faqs = [
                     alt="Food 4"
                     data-editable="source"
                     data-path="/src/pages/index.astro"
-                    data-key="marqueeImage8"
+                    data-key="marqueeImage4"
                 />
+
+                {/* Marquee track 2 (exact duplicate for seamless loop) */}
+                <div
+                    class="animate-marquee aria-hidden:true flex shrink-0 items-center gap-6 group-hover:[animation-play-state:paused]"
+                >
+                    <img
+                        class="h-32 w-48 rounded-lg object-cover"
+                        src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500"
+                        alt="Food 5"
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="marqueeImage5"
+                    />
+                    <img
+                        class="h-32 w-48 rounded-lg object-cover"
+                        src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500"
+                        alt="Food 6"
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="marqueeImage6"
+                    />
+                    <img
+                        class="h-32 w-48 rounded-lg object-cover"
+                        src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500"
+                        alt="Food 7"
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="marqueeImage7"
+                    />
+                    <img
+                        class="h-32 w-48 rounded-lg object-cover"
+                        src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500"
+                        alt="Food 8"
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="marqueeImage8"
+                    />
+                </div>
             </div>
         </div>
     </div>
