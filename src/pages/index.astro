@@ -5,7 +5,7 @@ import Wysiwyg from '@components/Wysiwyg/Wysiwyg.astro';
 import Accordion from '@components/Accordion/Accordion.astro';
 const eventsBackgroundImage =
     'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80';
-
+const eventsImageAlt = 'Private events ambiance';
 const reviews = [
     {
         text: 'He went out of his way to make our Anniversary special. Thank you for the wonderful service and delicious food!',
@@ -263,16 +263,21 @@ const faqs = [
         class="grid-12 relative min-h-screen w-full items-center overflow-hidden bg-black text-white"
     >
         {/* Background Image & Overlay */}
+        {/* Background Image & Overlay */}
         <div class="absolute inset-0 z-0">
-            <img
-                src={eventsBackgroundImage}
-                alt="Private events ambiance"
-                class="h-full w-full object-cover object-center"
-                data-editable="image"
-                data-prop-src="eventsBackgroundImage"
-            />
+            {
+                eventsBackgroundImage && (
+                    <img
+                        src={eventsBackgroundImage}
+                        alt={eventsImageAlt}
+                        class="h-full w-full object-cover object-center"
+                        data-editable="image"
+                        data-prop-src="eventsBackgroundImage"
+                        data-prop-alt="eventsImageAlt"
+                    />
+                )
+            }
         </div>
-
         {/* Content Wrapper */}
         <div class="relative z-10 col-start-6 col-end-12 py-fluid-xl">
             <div class="max-w-[40rem] px-fluid-sm lg:px-0">
