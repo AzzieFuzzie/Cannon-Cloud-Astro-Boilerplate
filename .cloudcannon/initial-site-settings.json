@@ -1,7 +1,7 @@
 {
-  "build": {
-    "install_command": "pnpm install --frozen-lockfile",
-    "build_command": "pnpm run build",
-    "output_path": "dist"
-  }
+    "build": {
+        "install_command": "pnpm install --frozen-lockfile",
+        "build_command": "pnpm run build",
+        "output_path": "dist"
+    }
 }

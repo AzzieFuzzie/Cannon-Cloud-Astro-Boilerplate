@@ -1,47 +1,47 @@
 {
-  "version": 1,
-  "skills": {
-    "brainstorming": {
-      "source": "CloudCannon/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/brainstorming/SKILL.md",
-      "computedHash": "8733825fab968afd481a93fc6704c893387264edeafbf3e46a1ed324bd0ae1b1"
-    },
-    "cloudcannon-configuration": {
-      "source": "CloudCannon/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/cloudcannon-configuration/SKILL.md",
-      "computedHash": "319373c7f97cbb68f17aa93d4883d46b4ecffb9e7138abea25db92863c3c10cb"
-    },
-    "cloudcannon-snippets": {
-      "source": "CloudCannon/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/cloudcannon-snippets/SKILL.md",
-      "computedHash": "3f5ad5e6022aa959c91d061230429a011fb9f742a1033332d5093f2050378c7f"
-    },
-    "cloudcannon-visual-editing": {
-      "source": "CloudCannon/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/cloudcannon-visual-editing/SKILL.md",
-      "computedHash": "292baa47e8dca7cafd8a4eb3fa619ec76fe5bd63f085ede31a722b88efe46d81"
-    },
-    "make-site-multilingual": {
-      "source": "CloudCannon/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/make-site-multilingual/SKILL.md",
-      "computedHash": "73c730094410d9e77789981a4bcd697287e00e12020dad10bd05ad81e571bd7f"
-    },
-    "migrate-to-cloudcannon": {
-      "source": "CloudCannon/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/migrate-to-cloudcannon/SKILL.md",
-      "computedHash": "1def6443442e617efd9a8ecdbf5390e8db5acc526bd640438ec06da1cd23f72b"
-    },
-    "translate-site": {
-      "source": "CloudCannon/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/translate-site/SKILL.md",
-      "computedHash": "dae81d23c45810ec5945226e32da65e372f2f5a2a324efe9fd4a8cba73de53b0"
+    "version": 1,
+    "skills": {
+        "brainstorming": {
+            "source": "CloudCannon/agent-skills",
+            "sourceType": "github",
+            "skillPath": "skills/brainstorming/SKILL.md",
+            "computedHash": "8733825fab968afd481a93fc6704c893387264edeafbf3e46a1ed324bd0ae1b1"
+        },
+        "cloudcannon-configuration": {
+            "source": "CloudCannon/agent-skills",
+            "sourceType": "github",
+            "skillPath": "skills/cloudcannon-configuration/SKILL.md",
+            "computedHash": "319373c7f97cbb68f17aa93d4883d46b4ecffb9e7138abea25db92863c3c10cb"
+        },
+        "cloudcannon-snippets": {
+            "source": "CloudCannon/agent-skills",
+            "sourceType": "github",
+            "skillPath": "skills/cloudcannon-snippets/SKILL.md",
+            "computedHash": "3f5ad5e6022aa959c91d061230429a011fb9f742a1033332d5093f2050378c7f"
+        },
+        "cloudcannon-visual-editing": {
+            "source": "CloudCannon/agent-skills",
+            "sourceType": "github",
+            "skillPath": "skills/cloudcannon-visual-editing/SKILL.md",
+            "computedHash": "292baa47e8dca7cafd8a4eb3fa619ec76fe5bd63f085ede31a722b88efe46d81"
+        },
+        "make-site-multilingual": {
+            "source": "CloudCannon/agent-skills",
+            "sourceType": "github",
+            "skillPath": "skills/make-site-multilingual/SKILL.md",
+            "computedHash": "73c730094410d9e77789981a4bcd697287e00e12020dad10bd05ad81e571bd7f"
+        },
+        "migrate-to-cloudcannon": {
+            "source": "CloudCannon/agent-skills",
+            "sourceType": "github",
+            "skillPath": "skills/migrate-to-cloudcannon/SKILL.md",
+            "computedHash": "1def6443442e617efd9a8ecdbf5390e8db5acc526bd640438ec06da1cd23f72b"
+        },
+        "translate-site": {
+            "source": "CloudCannon/agent-skills",
+            "sourceType": "github",
+            "skillPath": "skills/translate-site/SKILL.md",
+            "computedHash": "dae81d23c45810ec5945226e32da65e372f2f5a2a324efe9fd4a8cba73de53b0"
+        }
     }
-  }
 }

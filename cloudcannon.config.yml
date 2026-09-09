@@ -10,10 +10,9 @@ collections_config:
   pages:
     path: src/pages
     icon: wysiwyg
-    url: "/[slug]/"
+    url: '/[slug]/'
     glob:
-      - "*.astro"
+      - '*.astro'
     _enabled_editors:
       - visual
     disable_add: true
- 
