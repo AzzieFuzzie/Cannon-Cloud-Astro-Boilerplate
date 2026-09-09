@@ -1,6 +1,8 @@
 # build output
 dist/
 
+.agents/
+
 # SVG sprite
 public/assets/images/sprite.svg
 

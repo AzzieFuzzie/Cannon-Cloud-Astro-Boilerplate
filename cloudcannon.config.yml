@@ -9,19 +9,11 @@ markdown:
 collections_config:
   pages:
     path: src/pages
-    # Add this schema configuration so CloudCannon knows about your frontmatter and data keys
-    schemas:
-      default:
-        path: src/pages/index.astro
-        frontmatter:
-          eventsBackgroundImage: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80'
-          eventsImageAlt: 'Private events ambiance'
-        inputs:
-          - key: eventsBackgroundImage
-            type: image
-          - key: eventsImageAlt
-            type: text
-          - key: eventsHeading
-            type: text
-          - key: eventsDescription
-            type: text
+    icon: wysiwyg
+    url: "/[slug]/"
+    glob:
+      - "*.astro"
+    _enabled_editors:
+      - visual
+    disable_add: true
+ 
