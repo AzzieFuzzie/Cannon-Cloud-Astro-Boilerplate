@@ -261,16 +261,18 @@ const faqs = [
     >
         {/* Background Image & Overlay */}
         <div class="absolute inset-0 z-0">
-            eventsBackgroundImage && (
-            <img
-                src={eventsBackgroundImage}
-                alt={eventsImageAlt}
-                class="h-full w-full object-cover object-center"
-                data-editable="source"
-                data-path="/src/pages/index.astro"
-                data-key="eventsBackgroundImage"
-            />
-            )
+            {
+                eventsBackgroundImage && (
+                    <img
+                        src={eventsBackgroundImage}
+                        alt={eventsImageAlt}
+                        class="h-full w-full object-cover object-center"
+                        data-editable="source"
+                        data-path="/src/pages/index.astro"
+                        data-key="eventsBackgroundImage"
+                    />
+                )
+            }
         </div>
 
         {/* Content Wrapper */}
