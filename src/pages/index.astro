@@ -3,9 +3,11 @@ import Layout from '@layouts/Layout.astro';
 import Button from '@components/Button/Button.astro';
 import Wysiwyg from '@components/Wysiwyg/Wysiwyg.astro';
 import Accordion from '@components/Accordion/Accordion.astro';
+
 const eventsBackgroundImage =
     'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80';
 const eventsImageAlt = 'Private events ambiance';
+
 const reviews = [
     {
         text: 'He went out of his way to make our Anniversary special. Thank you for the wonderful service and delicious food!',
@@ -120,13 +122,9 @@ const faqs = [
             <div
                 class="grid text-center"
                 data-editable="source"
-                <div
-                class="grid text-center"
-                data-editable="source"
                 data-path="/src/pages/index.astro"
                 data-key="taglineContainer"
             >
-                <p></p>
                 <h2
                     data-editable="source"
                     data-path="/src/pages/index.astro"
@@ -137,7 +135,7 @@ const faqs = [
                     Nestled in the heart of Sandton at Nelson Mandela Square, Pigalle by Villamoura
                     offers more than just a meal — it’s an experience.
                 </h2>
-                <p></p><a class="button" href="/book/" data-animation="fade">
+                <a class="button" href="/book/" data-animation="fade">
                     <span
                         data-editable="source"
                         data-path="/src/pages/index.astro"
@@ -263,7 +261,6 @@ const faqs = [
         class="grid-12 relative min-h-screen w-full items-center overflow-hidden bg-black text-white"
     >
         {/* Background Image & Overlay */}
-        {/* Background Image & Overlay */}
         <div class="absolute inset-0 z-0">
             {
                 eventsBackgroundImage && (
@@ -278,6 +275,7 @@ const faqs = [
                 )
             }
         </div>
+
         {/* Content Wrapper */}
         <div class="relative z-10 col-start-6 col-end-12 py-fluid-xl">
             <div class="max-w-[40rem] px-fluid-sm lg:px-0">
@@ -384,262 +382,4 @@ const faqs = [
             </div>
         </div>
     </section>
-
-    {/* Marquee Section */}
-    <div class="group relative flex overflow-x-hidden py-8">
-        {/* Marquee track 1 */}
-        <div
-            class="animate-marquee flex shrink-0 items-center gap-6 group-hover:[animation-play-state:paused]"
-        >
-            <img
-                class="h-32 w-48 rounded-lg object-cover"
-                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500"
-                alt="Food 1"
-                data-editable="source"
-                data-path="/src/pages/index.astro"
-                data-key="marqueeImage1"
-            />
-
-            <img
-                class="h-32 w-48 rounded-lg object-cover"
-                src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500"
-                alt="Food 2"
-                data-editable="source"
-                data-path="/src/pages/index.astro"
-                data-key="marqueeImage2"
-            />
-            <img
-                class="h-32 w-48 rounded-lg object-cover"
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500"
-                alt="Food 3"
-                data-editable="source"
-                data-path="/src/pages/index.astro"
-                data-key="marqueeImage3"
-            />
-            <img
-                class="h-32 w-48 rounded-lg object-cover"
-                src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500"
-                alt="Food 4"
-                data-editable="source"
-                data-path="/src/pages/index.astro"
-                data-key="marqueeImage4"
-            />
-
-            {/* Marquee track 2 (exact duplicate for seamless loop) */}
-            <div
-                class="animate-marquee aria-hidden:true flex shrink-0 items-center gap-6 group-hover:[animation-play-state:paused]"
-            >
-                <img
-                    class="h-32 w-48 rounded-lg object-cover"
-                    src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500"
-                    alt="Food 5"
-                    data-editable="source"
-                    data-path="/src/pages/index.astro"
-                    data-key="marqueeImage5"
-                />
-                <img
-                    class="h-32 w-48 rounded-lg object-cover"
-                    src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500"
-                    alt="Food 6"
-                    data-editable="source"
-                    data-path="/src/pages/index.astro"
-                    data-key="marqueeImage6"
-                />
-                <img
-                    class="h-32 w-48 rounded-lg object-cover"
-                    src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500"
-                    alt="Food 7"
-                    data-editable="source"
-                    data-path="/src/pages/index.astro"
-                    data-key="marqueeImage7"
-                />
-                <img
-                    class="h-32 w-48 rounded-lg object-cover"
-                    src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500"
-                    alt="Food 8"
-                    data-editable="source"
-                    data-path="/src/pages/index.astro"
-                    data-key="marqueeImage8"
-                />
-            </div>
-
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p>
-                <img
-                    class="h-32 w-48 rounded-lg object-cover"
-                    src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500"
-                    alt="Food 2"
-                    data-editable="source"
-                    data-path="/src/pages/index.astro"
-                    data-key="marqueeImage2"
-                />
-            </p>
-            <p></p>
-            <p>
-                <img
-                    class="h-32 w-48 rounded-lg object-cover"
-                    src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500"
-                    alt="Food 3"
-                    data-editable="source"
-                    data-path="/src/pages/index.astro"
-                    data-key="marqueeImage3"
-                />
-            </p>
-            <p></p>
-            <p>
-                <img
-                    class="h-32 w-48 rounded-lg object-cover"
-                    src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500"
-                    alt="Food 4"
-                    data-editable="source"
-                    data-path="/src/pages/index.astro"
-                    data-key="marqueeImage4"
-                />
-                {/* Marquee track 2 (exact duplicate for seamless loop) */}
-            </p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p>
-                <div
-                    class="animate-marquee aria-hidden:true flex shrink-0 items-center gap-6 group-hover:[animation-play-state:paused]"
-                >
-                    <img
-                        class="h-32 w-48 rounded-lg object-cover"
-                        src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500"
-                        alt="Food 5"
-                        data-editable="source"
-                        data-path="/src/pages/index.astro"
-                        data-key="marqueeImage5"
-                    />
-                    <img
-                        class="h-32 w-48 rounded-lg object-cover"
-                        src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500"
-                        alt="Food 6"
-                        data-editable="source"
-                        data-path="/src/pages/index.astro"
-                        data-key="marqueeImage6"
-                    />
-                    <p></p>
-                    <p></p>
-                    <p>
-                        <img
-                            class="h-32 w-48 rounded-lg object-cover"
-                            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500"
-                            alt="Food 7"
-                            data-editable="source"
-                            data-path="/src/pages/index.astro"
-                            data-key="marqueeImage7"
-                        />
-                    </p>
-                    <p></p>
-                    <p>
-                        <img
-                            class="h-32 w-48 rounded-lg object-cover"
-                            src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500"
-                            alt="Food 8"
-                            data-editable="source"
-                            data-path="/src/pages/index.astro"
-                            data-key="marqueeImage8"
-                        />
-                    </p>
-                </div>
-            </p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p>
-                <img
-                    class="h-32 w-48 rounded-lg object-cover"
-                    src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500"
-                    alt="Food 4"
-                    data-editable="source"
-                    data-path="/src/pages/index.astro"
-                    data-key="marqueeImage4"
-                />
-                {/* Marquee track 2 (exact duplicate for seamless loop) */}
-            </p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p>
-                <div
-                    class="animate-marquee aria-hidden:true flex shrink-0 items-center gap-6 group-hover:[animation-play-state:paused]"
-                >
-                    <img
-                        class="h-32 w-48 rounded-lg object-cover"
-                        src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500"
-                        alt="Food 5"
-                        data-editable="source"
-                        data-path="/src/pages/index.astro"
-                        data-key="marqueeImage5"
-                    />
-                    <p></p>
-                    <p>
-                        <img
-                            class="h-32 w-48 rounded-lg object-cover"
-                            src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500"
-                            alt="Food 6"
-                            data-editable="source"
-                            data-path="/src/pages/index.astro"
-                            data-key="marqueeImage6"
-                        />
-                    </p>
-                    <p></p>
-                    <p>
-                        <img
-                            class="h-32 w-48 rounded-lg object-cover"
-                            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500"
-                            alt="Food 7"
-                            data-editable="source"
-                            data-path="/src/pages/index.astro"
-                            data-key="marqueeImage7"
-                        />
-                    </p>
-                    <p></p>
-                    <p>
-                        <img
-                            class="h-32 w-48 rounded-lg object-cover"
-                            src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500"
-                            alt="Food 8"
-                            data-editable="source"
-                            data-path="/src/pages/index.astro"
-                            data-key="marqueeImage8"
-                        />
-                    </p>
-                </div>
-            </p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-        </div>
-        alt="Food 8" data-editable="source" data-path="/src/pages/index.astro" data-key="marqueeImage8"
-        />
-    </div>
 </Layout>
-
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
