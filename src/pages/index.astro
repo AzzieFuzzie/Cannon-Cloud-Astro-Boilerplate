@@ -3,6 +3,8 @@ import Layout from '@layouts/Layout.astro';
 import Button from '@components/Button/Button.astro';
 import Wysiwyg from '@components/Wysiwyg/Wysiwyg.astro';
 import Accordion from '@components/Accordion/Accordion.astro';
+const eventsBackgroundImage =
+    'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80';
 
 const reviews = [
     {
@@ -79,7 +81,8 @@ const faqs = [
                         data-path="/src/pages/index.astro"
                     >
                         <p>
-                            Pigalle <em>by</em> Villamoura <em>the</em> home <em>of</em> Exceptional Seafood
+                            Pigalle <em>by</em> Villamoura <em>the</em> home <em>of</em> Exceptional
+                            Seafood
                             <em>and</em> Grills
                         </p>
                     </div>
@@ -259,13 +262,12 @@ const faqs = [
             {/* Background Image & Overlay */}
             <div class="absolute inset-0 z-0">
                 <img
-                    src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80"
+                    src={eventsBackgroundImage}
                     alt="Private events ambiance"
                     class="h-full w-full object-cover object-center"
                     data-animation="scale"
-                    data-editable="source"
-                    data-path="/src/pages/index.astro"
-                    data-key="eventsBackgroundImage"
+                    data-editable="image"
+                    data-prop-src="eventsBackgroundImage"
                 />
             </div>
 
