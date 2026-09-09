@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "@astrojs/check": "^0.9.9",
+        "@cloudcannon/editable-regions": "^0.0.19",
         "@locomotivemtl/component-manager": "^1.1.0",
         "@locomotivemtl/grid-helper": "^1.0.0",
         "@mux/mux-background-video": "^0.2.3",

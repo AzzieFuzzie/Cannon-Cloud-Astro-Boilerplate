@@ -1,6 +1,6 @@
 import { defineConfig, fontProviders } from 'astro/config';
 import { loadEnv } from 'vite';
-
+import editableRegions from '@cloudcannon/editable-regions/astro-integration';
 /* PostCSS plugins */
 import postcssHelpersFunctions from '@locomotivemtl/postcss-helpers-functions';
 import postcssTailwindShortcuts from '@locomotivemtl/postcss-tailwind-shortcuts';
@@ -49,7 +49,8 @@ export default defineConfig({
     integrations: [
         icon({
             iconDir: './src/assets/svgs'
-        })
+        }),
+        editableRegions()
     ],
     server: {
         allowedHosts: SERVER_ALLOWED_HOSTS
