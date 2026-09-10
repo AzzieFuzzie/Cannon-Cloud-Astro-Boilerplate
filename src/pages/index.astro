@@ -193,13 +193,8 @@ import Layout from '@layouts/Layout.astro';
             class="grid-12 relative min-h-screen w-full items-center overflow-hidden bg-black text-white"
         >
             <div class="absolute inset-0 z-0">
-                <img
-                    src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80"
-                    alt="Private events ambiance"
-                    class="h-full w-full object-cover object-center"
-                    data-editable="source"
-                    data-path="src/pages/index.astro"
-                    data-key="eventsBackgroundImage"
+                <Fragment
+                    set:html={`<img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80" alt="Private events ambiance" class="h-full w-full object-cover object-center" data-editable="source" data-path="src/pages/index.astro" data-key="eventsBackgroundImage" />`}
                 />
             </div>
 
