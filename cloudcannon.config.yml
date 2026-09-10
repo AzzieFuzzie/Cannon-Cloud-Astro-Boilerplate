@@ -2,6 +2,28 @@ paths:
   uploads: public/uploads
   uploads_use_relative_path: false
   static: public
+
+# Enforce plain-text treatment on your keys to kill unwanted <p> tags
+_inputs:
+  slogan:
+    type: text
+  taglineHeading:
+    type: text
+  taglineButton:
+    type: text
+  aboutSubheading:
+    type: text
+  aboutDescription:
+    type: text
+  aboutButton:
+    type: text
+  foodHeading:
+    type: text
+  foodDescription:
+    type: text
+  foodButton:
+    type: text
+
 collections_config:
   pages:
     path: src/pages
@@ -25,7 +47,9 @@ collections_config:
     disable_add: true
     disable_add_folder: false
     disable_file_actions: false
+
 timezone: Africa/Johannesburg
+
 markdown:
   engine: commonmark
   options:
