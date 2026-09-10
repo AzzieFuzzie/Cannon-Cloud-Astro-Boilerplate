@@ -43,7 +43,7 @@ import Layout from '@layouts/Layout.astro';
                     src="https://image.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs/thumbnail.webp?time=0.5&width=1920"
                     alt="Pigalle Background Video Layout Poster"
                     class="h-full w-full object-cover"
-                    data-editable="source"
+                    data-editable="image"
                     data-path="src/pages/index.astro"
                     data-key="heroPosterImage"
                 />
@@ -86,7 +86,7 @@ import Layout from '@layouts/Layout.astro';
                         src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85"
                         alt="Oyster dining table dish"
                         data-animation="image_reveal_horizontal"
-                        data-editable="source"
+                        data-editable="image"
                         data-path="src/pages/index.astro"
                         data-key="aboutImage"
                     />
@@ -145,7 +145,7 @@ import Layout from '@layouts/Layout.astro';
                                 src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85"
                                 sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
                                 alt="Food platter"
-                                data-editable="source"
+                                data-editable="image"
                                 data-path="src/pages/index.astro"
                                 data-key="foodGalleryImage"
                             />
@@ -193,8 +193,13 @@ import Layout from '@layouts/Layout.astro';
             class="grid-12 relative min-h-screen w-full items-center overflow-hidden bg-black text-white"
         >
             <div class="absolute inset-0 z-0">
-                <Fragment
-                    set:html={`<img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80" alt="Private events ambiance" class="h-full w-full object-cover object-center" data-editable="source" data-path="src/pages/index.astro" data-key="eventsBackgroundImage" />`}
+                <img
+                    src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80"
+                    alt="Private events ambiance"
+                    class="h-full w-full object-cover object-center"
+                    data-editable="image"
+                    data-path="src/pages/index.astro"
+                    data-key="eventsBackgroundImage"
                 />
             </div>
 
