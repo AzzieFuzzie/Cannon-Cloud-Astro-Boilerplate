@@ -4,10 +4,6 @@ import Button from '@components/Button/Button.astro';
 import Wysiwyg from '@components/Wysiwyg/Wysiwyg.astro';
 import Accordion from '@components/Accordion/Accordion.astro';
 
-const eventsBackgroundImage =
-    'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80';
-const eventsImageAlt = 'Private events ambiance';
-
 const reviews = [
     {
         text: 'He went out of his way to make our Anniversary special. Thank you for the wonderful service and delicious food!',
@@ -66,9 +62,6 @@ const faqs = [
         <section
             class="relative flex h-dvh w-screen items-end justify-end overflow-x-hidden p-fluid-md"
             data-animation="pin"
-            data-editable="source"
-            data-path="/src/pages/index.astro"
-            data-key="heroSection"
         >
             {/* Title Container */}
             <div
@@ -80,7 +73,7 @@ const faqs = [
                         class="heading-h1 text-white"
                         data-editable="source"
                         data-key="slogan"
-                        data-path="/src/pages/index.astro"
+                        data-path="src/pages/index.astro"
                     >
                         <p>
                             Pigalle <em>by</em> Villamoura <em>the</em> home <em>of</em> Exceptional Seafood
@@ -106,27 +99,18 @@ const faqs = [
                     alt="Pigalle Background Video Layout Poster"
                     class="h-full w-full object-cover"
                     data-editable="source"
-                    data-path="/src/pages/index.astro"
+                    data-path="src/pages/index.astro"
                     data-key="heroPosterImage"
                 />
             </mux-background-video>
         </section>
 
         {/* Tagline Card Section */}
-        <section
-            class="mx-auto max-w-[clamp(80ch,70vw,90ch)]"
-            data-animation="fade"
-            data-editable="source"
-        >
-            <div
-                class="grid text-center"
-                data-editable="source"
-                data-path="/src/pages/index.astro"
-                data-key="taglineContainer"
-            >
+        <section class="mx-auto max-w-[clamp(80ch,70vw,90ch)]" data-animation="fade">
+            <div class="grid text-center">
                 <h2
                     data-editable="source"
-                    data-path="/src/pages/index.astro"
+                    data-path="src/pages/index.astro"
                     data-key="taglineHeading"
                     data-animation="text"
                     class="heading-h2 mb-fluid-md"
@@ -137,7 +121,7 @@ const faqs = [
                 <a class="button" href="/book/" data-animation="fade">
                     <span
                         data-editable="source"
-                        data-path="/src/pages/index.astro"
+                        data-path="src/pages/index.astro"
                         data-key="taglineButton"
                         class="button__label"
                     >
@@ -159,7 +143,7 @@ const faqs = [
                     alt="Oyster dining table dish"
                     data-animation="image_reveal_horizontal"
                     data-editable="source"
-                    data-path="/src/pages/index.astro"
+                    data-path="src/pages/index.astro"
                     data-key="aboutImage"
                 />
             </div>
@@ -169,7 +153,7 @@ const faqs = [
         <div class="lg:pl-fluid-md">
             <h6
                 data-editable="source"
-                data-path="/src/pages/index.astro"
+                data-path="src/pages/index.astro"
                 data-key="aboutSubheading"
                 class="heading-h6 pb-fluid-xs font-medium tracking-widest text-black/60 uppercase"
             >
@@ -178,7 +162,7 @@ const faqs = [
 
             <h2
                 data-editable="source"
-                data-path="/src/pages/index.astro"
+                data-path="src/pages/index.astro"
                 data-key="aboutDescription"
                 class="heading-h3 max-w-[28ch] pb-fluid-xs leading-snug font-normal text-black"
             >
@@ -193,7 +177,7 @@ const faqs = [
                 >
                     <span
                         data-editable="source"
-                        data-path="/src/pages/index.astro"
+                        data-path="src/pages/index.astro"
                         data-key="aboutButton"
                     >
                         OUR STORY
@@ -216,7 +200,7 @@ const faqs = [
                             sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
                             alt="Food platter"
                             data-editable="source"
-                            data-path="/src/pages/index.astro"
+                            data-path="src/pages/index.astro"
                             data-key="foodGalleryImage"
                         />
                     </div>
@@ -227,7 +211,7 @@ const faqs = [
         <div class="order-2 lg:order-1">
             <h6
                 data-editable="source"
-                data-path="/src/pages/index.astro"
+                data-path="src/pages/index.astro"
                 data-key="foodHeading"
                 class="heading-h6 pb-fluid-xs font-medium tracking-widest text-black/60 uppercase"
             >
@@ -235,7 +219,7 @@ const faqs = [
             </h6>
             <p
                 data-editable="source"
-                data-path="/src/pages/index.astro"
+                data-path="src/pages/index.astro"
                 data-key="foodDescription"
                 class="heading-h3 pb-fluid-xs font-medium tracking-widest uppercase"
             >
@@ -245,7 +229,7 @@ const faqs = [
             <a class="button" href="/menu/">
                 <span
                     data-editable="source"
-                    data-path="/src/pages/index.astro"
+                    data-path="src/pages/index.astro"
                     data-key="foodButton"
                     class="button__label"
                 >
@@ -268,11 +252,7 @@ const faqs = [
                 data-editable="source"
                 data-path="src/pages/index.astro"
                 data-key="eventsBackgroundImage"
-            /><p>
-                <img src="/uploads/Home/pigalle-shoot-day-1-46-1.webp" /><img
-                    src="/uploads/Home/pigalle-shoot-day-1-46-1.webp"
-                /><img src="/uploads/Home/pigalle-shoot-day-1-46-1.webp" />
-            </p>
+            />
         </div>
 
         {/* Content Wrapper */}
@@ -280,7 +260,7 @@ const faqs = [
             <div class="max-w-[40rem] px-fluid-sm lg:px-0">
                 <h2
                     data-editable="source"
-                    data-path="/src/pages/index.astro"
+                    data-path="src/pages/index.astro"
                     data-key="eventsHeading"
                     class="heading-h2 font-serif leading-tight text-white"
                     data-animation="title"
@@ -290,7 +270,7 @@ const faqs = [
 
                 <p
                     data-editable="source"
-                    data-path="/src/pages/index.astro"
+                    data-path="src/pages/index.astro"
                     data-key="eventsDescription"
                     class="max-w-[34ch] text-sm leading-relaxed text-white/90 md:text-base"
                     data-animation="paragraph"
@@ -307,7 +287,7 @@ const faqs = [
                     >
                         <span
                             data-editable="source"
-                            data-path="/src/pages/index.astro"
+                            data-path="src/pages/index.astro"
                             data-key="eventsButton"
                         >
                             MAKE A BOOKING
