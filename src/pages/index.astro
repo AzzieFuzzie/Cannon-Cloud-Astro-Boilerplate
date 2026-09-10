@@ -70,18 +70,10 @@ const faqs = [
             data-path="/src/pages/index.astro"
             data-key="heroSection"
         >
-            {/* Title Container */}
-            <div
-                class="pointer-events-none absolute right-fluid-md bottom-fluid-md z-10 max-w-[clamp(90ch,70%,120ch)] text-right"
-                data-animation="title"
-            >
+            {/* Title Container */} <p>
+            <div class="pointer-events-none absolute right-fluid-md bottom-fluid-md z-10 max-w-[clamp(90ch,70%,120ch)] text-right" data-animation="title">
                 <div class="hero__text" data-animation="title">
-                    <div
-                        class="heading-h1 text-white"
-                        data-editable="source"
-                        data-key="slogan"
-                        data-path="/src/pages/index.astro"
-                    >
+                    <div class="heading-h1 text-white" data-editable="source" data-key="slogan" data-path="/src/pages/index.astro">
                         <p>
                             Pigalle <em>by</em> Villamoura <em>the</em> home <em>of</em> Exceptional Seafood
                             <em>and</em> Grills
@@ -89,26 +81,8 @@ const faqs = [
                     </div>
                 </div>
             </div>
-
-            {/* Background Video */}
-            <mux-background-video
-                class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover select-none"
-                src="https://stream.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs.m3u8"
-                max-resolution="1080p"
-                preload="auto"
-                muted
-                autoplay
-                loop
-            >
-                <img
-                    slot="poster"
-                    src="https://image.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs/thumbnail.webp?time=0.5&width=1920"
-                    alt="Pigalle Background Video Layout Poster"
-                    class="h-full w-full object-cover"
-                    data-editable="source"
-                    data-path="/src/pages/index.astro"
-                    data-key="heroPosterImage"
-                />
+            </p> {/* Background Video */} <mux-background-video class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover select-none" src="https://stream.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs.m3u8" max-resolution="1080p" preload="auto" muted autoplay loop>
+                <img slot="poster" src="https://image.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs/thumbnail.webp?time=0.5&width=1920" alt="Pigalle Background Video Layout Poster" class="h-full w-full object-cover" data-editable="source" data-path="/src/pages/index.astro" data-key="heroPosterImage" />
             </mux-background-video>
         </section>
 
@@ -268,11 +242,7 @@ const faqs = [
                 data-editable="source"
                 data-path="src/pages/index.astro"
                 data-key="eventsBackgroundImage"
-            /><p>
-                <img src="/uploads/Home/pigalle-shoot-day-1-46-1.webp" /><img
-                    src="/uploads/Home/pigalle-shoot-day-1-46-1.webp"
-                /><img src="/uploads/Home/pigalle-shoot-day-1-46-1.webp" />
-            </p>
+            /><p><img src="/uploads/Home/pigalle-shoot-day-1-46-1.webp" /> <img src="/uploads/Home/pigalle-shoot-day-1-46-1.webp" /><img src="/uploads/Home/pigalle-shoot-day-1-46-1.webp" /><img src="/uploads/Home/pigalle-shoot-day-1-46-1.webp" /> </p>
         </div>
 
         {/* Content Wrapper */}
