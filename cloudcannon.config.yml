@@ -20,10 +20,10 @@ _inputs:
     type: string
 
   # Dynamic Catch-All Rule: Any frontmatter key ending with 'Image' will automatically use the asset file picker picker
-  '*Image':
-    type: image
-    options:
-      path: public/uploads
+'*ImageSrc':
+  type: image
+  options:
+    path: public/uploads
 
 collections_config:
   pages:
