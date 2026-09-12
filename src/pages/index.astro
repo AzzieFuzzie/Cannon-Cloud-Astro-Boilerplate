@@ -1,7 +1,26 @@
 ---
 import Layout from '@layouts/Layout.astro';
+
+// Frontmatter variables for dynamic CloudCannon editable images
+const heroImage =
+    'https://image.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs/thumbnail.webp?time=0.5&width=1920';
+const heroImageAlt = 'Pigalle Background Video Layout Poster';
+const heroImageTitle = 'Pigalle Poster';
+
 const foodGalleryImage =
     'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85';
+const foodGalleryImageAlt = 'Food platter';
+const foodGalleryImageTitle = 'Food Platter Dish';
+
+const aboutImageSrc =
+    'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85';
+const aboutImageAlt = 'Oyster dining table dish';
+const aboutImageTitle = 'Oyster Dining';
+
+const eventsImageSrc =
+    'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80';
+const eventsImageAlt = 'Private events ambiance';
+const eventsImageTitle = 'Private Events Ambiance';
 ---
 
 <Layout title="Home">
@@ -42,12 +61,14 @@ const foodGalleryImage =
             >
                 <img
                     slot="poster"
-                    src="https://image.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs/thumbnail.webp?time=0.5&width=1920"
-                    alt="Pigalle Background Video Layout Poster"
                     class="h-full w-full object-cover"
                     data-editable="image"
-                    data-path="src/pages/index.astro"
-                    data-key="heroPosterImage"
+                    data-prop-src="heroImage"
+                    data-prop-alt="heroImageAlt"
+                    data-prop-title="heroImageTitle"
+                    src={heroImage}
+                    title={heroImageTitle}
+                    alt={heroImageAlt}
                 />
             </mux-background-video>
 
@@ -85,12 +106,14 @@ const foodGalleryImage =
                 <div class="overflow-hidden">
                     <img
                         class="h-auto w-full object-cover"
-                        src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85"
-                        alt="Oyster dining table dish"
-                        data-animation="image_reveal_horizontal"
                         data-editable="image"
-                        data-path="src/pages/index.astro"
-                        data-key="aboutImage"
+                        data-prop-src="aboutImageSrc"
+                        data-prop-alt="aboutImageAlt"
+                        data-prop-title="aboutImageTitle"
+                        src={aboutImageSrc}
+                        title={aboutImageTitle}
+                        alt={aboutImageAlt}
+                        data-animation="image_reveal_horizontal"
                     />
                 </div>
             </div>
@@ -113,8 +136,8 @@ const foodGalleryImage =
                     data-type="text"
                     class="heading-h3 max-w-[28ch] pb-fluid-xs leading-snug font-normal text-black"
                 >
-                    Pigalle Villamoura serves Portuguese and Mediterranean Inspired cuisine with a
-                    classic South African twist.
+                    Pigalle by Villamoura serves Portuguese and Mediterranean Inspired cuisine with
+                    a classic South African twist.
                 </h2>
 
                 <div class="">
@@ -144,13 +167,15 @@ const foodGalleryImage =
                     <div data-animation="image_reveal_horizontal">
                         <div data-animation="carousel">
                             <img
-                                src={foodGalleryImage}
+                                class="h-auto w-full object-cover"
                                 sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
-                                alt="Food platter"
                                 data-editable="image"
-                                data-path="src/pages/index.astro"
-                                data-key="foodGalleryImage"
                                 data-prop-src="foodGalleryImage"
+                                data-prop-alt="foodGalleryImageAlt"
+                                data-prop-title="foodGalleryImageTitle"
+                                src={foodGalleryImage}
+                                title={foodGalleryImageTitle}
+                                alt={foodGalleryImageAlt}
                             />
                         </div>
                     </div>
@@ -197,9 +222,14 @@ const foodGalleryImage =
         >
             <div class="absolute inset-0 z-0">
                 <img
-                    src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80"
-                    alt="Private events ambiance"
                     class="h-full w-full object-cover object-center"
+                    data-editable="image"
+                    data-prop-src="eventsImageSrc"
+                    data-prop-alt="eventsImageAlt"
+                    data-prop-title="eventsImageTitle"
+                    src={eventsImageSrc}
+                    title={eventsImageTitle}
+                    alt={eventsImageAlt}
                 />
             </div>
 
