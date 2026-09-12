@@ -43,9 +43,9 @@ import home from '../data/home.json';
                     slot="poster"
                     class="h-full w-full object-cover"
                     data-editable="image"
-                    data-prop-src="heroImage"
-                    data-prop-alt="heroImageAlt"
-                    data-prop-title="heroImageTitle"
+                    data-prop-src="@data[home].heroImage"
+                    data-prop-alt="@data[home].heroImageAlt"
+                    data-prop-title="@data[home].heroImageTitle"
                     src={home.heroImage}
                     title={home.heroImageTitle}
                     alt={home.heroImageAlt}
@@ -87,9 +87,9 @@ import home from '../data/home.json';
                     <img
                         class="h-auto w-full object-cover"
                         data-editable="image"
-                        data-prop-src="aboutImageSrc"
-                        data-prop-alt="aboutImageAlt"
-                        data-prop-title="aboutImageTitle"
+                        data-prop-src="@data[home].aboutImageSrc"
+                        data-prop-alt="@data[home].aboutImageAlt"
+                        data-prop-title="@data[home].aboutImageTitle"
                         src={home.aboutImageSrc}
                         title={home.aboutImageTitle}
                         alt={home.aboutImageAlt}
@@ -150,9 +150,9 @@ import home from '../data/home.json';
                                 class="h-auto w-full object-cover"
                                 sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
                                 data-editable="image"
-                                data-prop-src="foodGalleryImage"
-                                data-prop-alt="foodGalleryImageAlt"
-                                data-prop-title="foodGalleryImageTitle"
+                                data-prop-src="@data[home].foodGalleryImage"
+                                data-prop-alt="@data[home].foodGalleryImageAlt"
+                                data-prop-title="@data[home].foodGalleryImageTitle"
                                 src={home.foodGalleryImage}
                                 title={home.foodGalleryImageTitle}
                                 alt={home.foodGalleryImageAlt}
@@ -204,9 +204,9 @@ import home from '../data/home.json';
                 <img
                     class="h-full w-full object-cover object-center"
                     data-editable="image"
-                    data-prop-src="eventsImageSrc"
-                    data-prop-alt="eventsImageAlt"
-                    data-prop-title="eventsImageTitle"
+                    data-prop-src="@data[home].eventsImageSrc"
+                    data-prop-alt="@data[home].eventsImageAlt"
+                    data-prop-title="@data[home].eventsImageTitle"
                     src={home.eventsImageSrc}
                     title={home.eventsImageTitle}
                     alt={home.eventsImageAlt}

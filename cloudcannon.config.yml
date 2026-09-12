@@ -3,6 +3,13 @@ paths:
   uploads_use_relative_path: false
   static: public
 
+# Registers src/data/home.json as a CloudCannon data source under the key "home".
+# This makes its fields resolvable via @data[home].<field> in data-prop attributes,
+# and exposes the file in the CloudCannon sidebar under Data.
+data_config:
+  home:
+    path: src/data/home.json
+
 # Clean global configuration inputs to stop unwanted <p> tags without listing every file key
 _inputs:
   # Keeps rich text block rules strictly for your hero slogan element (which uses <em> tags)
@@ -19,7 +26,13 @@ _inputs:
   '*Description':
     type: string
 
-  # Dynamic Catch-All Rule: Any frontmatter key ending with 'Image' will automatically use the asset file picker picker
+  # Dynamic Catch-All Rule: Any frontmatter key ending with 'Image' will automatically use the asset file picker
+  '*Image':
+    type: image
+    options:
+      path: public/uploads
+
+  # Dynamic Catch-All Rule: covers keys ending in 'ImageSrc' (e.g. aboutImageSrc, eventsImageSrc)
   '*ImageSrc':
     type: image
     options:
