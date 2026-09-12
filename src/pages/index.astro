@@ -1,26 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
-
-// Frontmatter variables for dynamic CloudCannon editable images
-const heroImage =
-    'https://image.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs/thumbnail.webp?time=0.5&width=1920';
-const heroImageAlt = 'Pigalle Background Video Layout Poster';
-const heroImageTitle = 'Pigalle Poster';
-
-const foodGalleryImage =
-    'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85';
-const foodGalleryImageAlt = 'Food platter';
-const foodGalleryImageTitle = 'Food Platter Dish';
-
-const aboutImageSrc =
-    'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85';
-const aboutImageAlt = 'Oyster dining table dish';
-const aboutImageTitle = 'Oyster Dining';
-
-const eventsImageSrc =
-    'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80';
-const eventsImageAlt = 'Private events ambiance';
-const eventsImageTitle = 'Private Events Ambiance';
+import home from '../data/home.json';
 ---
 
 <Layout title="Home">
@@ -66,9 +46,9 @@ const eventsImageTitle = 'Private Events Ambiance';
                     data-prop-src="heroImage"
                     data-prop-alt="heroImageAlt"
                     data-prop-title="heroImageTitle"
-                    src={heroImage}
-                    title={heroImageTitle}
-                    alt={heroImageAlt}
+                    src={home.heroImage}
+                    title={home.heroImageTitle}
+                    alt={home.heroImageAlt}
                 />
             </mux-background-video>
 
@@ -110,9 +90,9 @@ const eventsImageTitle = 'Private Events Ambiance';
                         data-prop-src="aboutImageSrc"
                         data-prop-alt="aboutImageAlt"
                         data-prop-title="aboutImageTitle"
-                        src={aboutImageSrc}
-                        title={aboutImageTitle}
-                        alt={aboutImageAlt}
+                        src={home.aboutImageSrc}
+                        title={home.aboutImageTitle}
+                        alt={home.aboutImageAlt}
                         data-animation="image_reveal_horizontal"
                     />
                 </div>
@@ -173,9 +153,9 @@ const eventsImageTitle = 'Private Events Ambiance';
                                 data-prop-src="foodGalleryImage"
                                 data-prop-alt="foodGalleryImageAlt"
                                 data-prop-title="foodGalleryImageTitle"
-                                src={foodGalleryImage}
-                                title={foodGalleryImageTitle}
-                                alt={foodGalleryImageAlt}
+                                src={home.foodGalleryImage}
+                                title={home.foodGalleryImageTitle}
+                                alt={home.foodGalleryImageAlt}
                             />
                         </div>
                     </div>
@@ -227,9 +207,9 @@ const eventsImageTitle = 'Private Events Ambiance';
                     data-prop-src="eventsImageSrc"
                     data-prop-alt="eventsImageAlt"
                     data-prop-title="eventsImageTitle"
-                    src={eventsImageSrc}
-                    title={eventsImageTitle}
-                    alt={eventsImageAlt}
+                    src={home.eventsImageSrc}
+                    title={home.eventsImageTitle}
+                    alt={home.eventsImageAlt}
                 />
             </div>
 
