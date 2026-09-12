@@ -3,26 +3,27 @@ paths:
   uploads_use_relative_path: false
   static: public
 
-# Enforce plain-text treatment on your keys to kill unwanted <p> tags
+# Clean global configuration inputs to stop unwanted <p> tags without listing every file key
 _inputs:
+  # Keeps rich text block rules strictly for your hero slogan element (which uses <em> tags)
   slogan:
     type: text
-  taglineHeading:
-    type: text
-  taglineButton:
-    type: text
-  aboutSubheading:
-    type: text
-  aboutDescription:
-    type: text
-  aboutButton:
-    type: text
-  foodHeading:
-    type: text
-  foodDescription:
-    type: text
-  foodButton:
-    type: text
+
+  # Dynamic Catch-All Rule: Any frontmatter key ending with 'Heading' or 'Subheading' treats text as a plain string
+  '*Heading':
+    type: string
+
+  # Dynamic Catch-All Rule: Any frontmatter key ending with 'Button' or 'Description' treats text as a plain string
+  '*Button':
+    type: string
+  '*Description':
+    type: string
+
+  # Dynamic Catch-All Rule: Any frontmatter key ending with 'Image' will automatically use the asset file picker picker
+  '*Image':
+    type: image
+    options:
+      path: public/uploads
 
 collections_config:
   pages:
