@@ -1,11 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
-
+import Layout from '@layouts/Layout.astro';
 const menuCategories = await getCollection('menu');
 menuCategories.sort((a, b) => (a.data.displayOrder || 0) - (b.data.displayOrder || 0));
 ---
 
-<main class="mx-auto max-w-4xl px-4 py-12">
+<Layout title="Menu">
     <h1 class="mb-12 text-center font-serif text-4xl">Our Menu</h1>
 
     {
@@ -38,4 +38,4 @@ menuCategories.sort((a, b) => (a.data.displayOrder || 0) - (b.data.displayOrder 
             </section>
         ))
     }
-</main>
+</Layout>
