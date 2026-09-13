@@ -51,9 +51,6 @@ collections_config:
       categoryName:
         type: string
         label: Category Name
-      displayOrder:
-        type: number
-        label: Display Order
       items:
         type: array
         label: Menu Items

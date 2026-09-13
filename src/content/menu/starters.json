@@ -1,12 +1,11 @@
 {
     "categoryName": "Starters",
-    "displayOrder": 1,
+
     "items": [
         {
             "name": "Pan-Seared Scallops",
             "description": "Served with garlic butter and herb reduction.",
-            "price": "R 195",
-            "dietary": ["Gluten-Free"]
+            "price": "R 195"
         },
         {
             "name": "Carpaccio of Beef",
