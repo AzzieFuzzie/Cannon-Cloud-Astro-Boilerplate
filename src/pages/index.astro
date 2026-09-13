@@ -40,23 +40,8 @@ import Accordion from '../components/Accordion/Accordion.astro';
                 preload="auto"
                 muted
                 autoplay
-                <<<<<<<
-                HEAD
                 loop></mux-background-video>
-            ======= loop >
-            <img
-                slot="poster"
-                class="h-full w-full object-cover"
-                data-editable="image"
-                data-prop-src="@data[home].heroImage"
-                data-prop-alt="@data[home].heroImageAlt"
-                data-prop-title="@data[home].heroImageTitle"
-                src={home.heroImage}
-                title={home.heroImageTitle}
-                alt={home.heroImageAlt}
-            />
         </section>
-
         <section class="mx-auto max-w-[clamp(80ch,70vw,90ch)]" data-animation="fade">
             <div class="grid text-center">
                 <h2
@@ -83,149 +68,89 @@ import Accordion from '../components/Accordion/Accordion.astro';
                 </a>
             </div>
         </section>
-        >>>>>>> b39936780cd8e31f408c515a05c4eb6443c58e7f
     </div>
-    <section class="mx-auto max-w-[clamp(80ch,70vw,90ch)]" data-animation="fade">
-        <div class="grid text-center">
+
+    {/* About Section */}
+    <section class="container grid grid-cols-1 items-center gap-gutter lg:grid-cols-2">
+        <div class="w-full">
+            <div class="overflow-hidden">
+                <Image
+                    class="h-auto w-full object-cover"
+                    data-editable="image"
+                    data-prop-src="@data[home].aboutImageSrc"
+                    data-prop-alt="@data[home].aboutImageAlt"
+                    data-prop-title="@data[home].aboutImageTitle"
+                    src={home.aboutImageSrc}
+                    title={home.aboutImageTitle}
+                    alt={home.aboutImageAlt}
+                    data-animation="image_reveal_horizontal"
+                    width={1000}
+                    height={1000}
+                />
+            </div>
+        </div>
+
+        <div class="lg:pl-fluid-md">
+            <h6
+                data-editable="source"
+                data-path="src/pages/index.astro"
+                data-key="aboutSubheading"
+                data-type="text"
+                class="heading-h6 pb-fluid-xs font-medium tracking-widest text-black/60 uppercase"
+            >
+                ABOUT
+            </h6>
+
             <h2
                 data-editable="source"
                 data-path="src/pages/index.astro"
-                data-key="taglineHeading"
+                data-key="aboutDescription"
                 data-type="text"
-                data-animation="text"
-                class="heading-h2 mb-fluid-md"
+                class="heading-h3 max-w-[28ch] pb-fluid-xs leading-snug font-normal text-black"
             >
-                <<<<<<< HEAD Nestled in the heart of Sandton at Nelson Mandela Square, Pigalle by
-                Villamoura offers more than just a meal — it’s an experience. ======= Pigalle by
-                Villamoura serves Portuguese and Mediterranean Inspired cuisine with a classic South
-                African twist. >>>>>>> b39936780cd8e31f408c515a05c4eb6443c58e7f
+                Pigalle by Villamoura serves Portuguese and Mediterranean Inspired cuisine with a
+                classic South African twist.
             </h2>
-            <a class="button" href="/book/" data-animation="fade">
-                <span
-                    data-editable="source"
-                    data-path="src/pages/index.astro"
-                    data-key="taglineButton"
-                    data-type="text"
-                    class="button__label"
+
+            <div class="">
+                <a
+                    class="inline-block border-b border-black pb-1 text-xs font-semibold tracking-widest text-black uppercase transition-opacity hover:opacity-70"
+                    href="/about/"
                 >
-                    Book A Reservation
-                </span>
-            </a>
-        </div>
-    </section>
-</Layout>
-
-{/* About Section */}
-<section class="container grid grid-cols-1 items-center gap-gutter lg:grid-cols-2">
-    <div class="w-full">
-        <div class="overflow-hidden">
-            <Image
-                class="h-auto w-full object-cover"
-                data-editable="image"
-                data-prop-src="@data[home].aboutImageSrc"
-                data-prop-alt="@data[home].aboutImageAlt"
-                data-prop-title="@data[home].aboutImageTitle"
-                src={home.aboutImageSrc}
-                title={home.aboutImageTitle}
-                alt={home.aboutImageAlt}
-                data-animation="image_reveal_horizontal"
-                width={1000}
-                height={1000}
-            />
-        </div>
-    </div>
-
-    <div class="lg:pl-fluid-md">
-        <h6
-            data-editable="source"
-            data-path="src/pages/index.astro"
-            data-key="aboutSubheading"
-            data-type="text"
-            class="heading-h6 pb-fluid-xs font-medium tracking-widest text-black/60 uppercase"
-        >
-            ABOUT
-        </h6>
-
-        <h2
-            data-editable="source"
-            data-path="src/pages/index.astro"
-            data-key="aboutDescription"
-            data-type="text"
-            class="heading-h3 max-w-[28ch] pb-fluid-xs leading-snug font-normal text-black"
-        >
-            Pigalle by Villamoura serves Portuguese and Mediterranean Inspired cuisine with a
-            classic South African twist.
-        </h2>
-
-        <div class="">
-            <a
-                class="inline-block border-b border-black pb-1 text-xs font-semibold tracking-widest text-black uppercase transition-opacity hover:opacity-70"
-                href="/about/"
-            >
-                <span
-                    data-editable="source"
-                    data-path="src/pages/index.astro"
-                    data-key="aboutButton"
-                    data-type="text"
-                >
-                    OUR STORY
-                </span>
-            </a>
-        </div>
-    </div>
-</section>
-
-<<<<<<< HEAD
-{/* Our Menu Section */}
-<section
-    class="lg:grid-col-start container grid grid-cols-1 items-center gap-gutter lg:grid-cols-2"
->
-    <div class="order-1 w-full lg:order-2">
-        <div>
-            <div data-animation="image_reveal_horizontal">
-                <div data-animation="carousel">
-                    <Image
-                        class="h-auto w-full object-cover"
-                        sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
-                        data-editable="image"
-                        data-prop-src="@data[home].foodGalleryImage"
-                        data-prop-alt="@data[home].foodGalleryImageAlt"
-                        data-prop-title="@data[home].foodGalleryImageTitle"
-                        src={home.foodGalleryImage}
-                        title={home.foodGalleryImageTitle}
-                        alt={home.foodGalleryImageAlt}
-                        width={1000}
-                        height={1000}
-                    />
-                    =======
-                    <p
+                    <span
                         data-editable="source"
                         data-path="src/pages/index.astro"
-                        data-key="eventsDescription"
+                        data-key="aboutButton"
                         data-type="text"
-                        class="max-w-[34ch] text-sm leading-relaxed text-white/90 md:text-base"
-                        data-animation="paragraph"
                     >
-                        We accommodate for all types of events including birthdays, corporate event,
-                        pre-wedding occasions and more.
-                    </p>
+                        OUR STORY
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-                    <div class="pt-fluid-xs">
-                        <a
-                            class="hover:text-accent-grey hover:border-accent-grey inline-block border-b border-white pb-1 text-xs font-semibold tracking-widest text-white uppercase transition-colors"
-                            href="/book/"
-                            data-animation="fade"
-                        >
-                            <span
-                                data-editable="source"
-                                data-path="src/pages/index.astro"
-                                data-key="eventsButton"
-                                data-type="text"
-                            >
-                                MAKE A BOOKING
-                            </span>
-                        </a>
-                        >>>>>>> b39936780cd8e31f408c515a05c4eb6443c58e7f
+    {/* Our Menu Section */}
+    <section
+        class="lg:grid-col-start container grid grid-cols-1 items-center gap-gutter lg:grid-cols-2"
+    >
+        <div class="order-1 w-full lg:order-2">
+            <div>
+                <div data-animation="image_reveal_horizontal">
+                    <div data-animation="carousel">
+                        <Image
+                            class="h-auto w-full object-cover"
+                            sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
+                            data-editable="image"
+                            data-prop-src="@data[home].foodGalleryImage"
+                            data-prop-alt="@data[home].foodGalleryImageAlt"
+                            data-prop-title="@data[home].foodGalleryImageTitle"
+                            src={home.foodGalleryImage}
+                            title={home.foodGalleryImageTitle}
+                            alt={home.foodGalleryImageAlt}
+                            width={1000}
+                            height={1000}
+                        />
                     </div>
                 </div>
             </div>
@@ -263,7 +188,7 @@ import Accordion from '../components/Accordion/Accordion.astro';
                 </span>
             </a>
         </div>
-    </div>
+    </section>
 
     {/* Private Events Section */}
     <section
@@ -328,7 +253,7 @@ import Accordion from '../components/Accordion/Accordion.astro';
             </div>
         </div>
     </section>
-</section>
+</Layout>
 
 <section class="container py-fluid-xl" aria-labelledby="faq-heading">
     <div class="mx-auto max-w-[clamp(50ch,70vw,80ch)]">
