@@ -1,6 +1,6 @@
 {
     "categoryName": "Starters",
-
+    "displayOrder": 1,
     "items": [
         {
             "name": "Pan-Seared Scallops",

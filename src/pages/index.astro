@@ -253,63 +253,72 @@ import Accordion from '../components/Accordion/Accordion.astro';
             </div>
         </div>
     </section>
-</Layout>
 
-<section class="container py-fluid-xl" aria-labelledby="faq-heading">
-    <div class="mx-auto max-w-[clamp(50ch,70vw,80ch)]">
-        <p class="heading-h6 mb-fluid-xs font-medium tracking-widest text-black/60 uppercase">
-            Frequently Asked Questions
-        </p>
-        <h2 id="faq-heading" class="heading-h2 mb-fluid-lg">Everything you need to know</h2>
+    <section class="container py-fluid-xl" aria-labelledby="faq-heading">
+        <div class="mx-auto max-w-[clamp(50ch,70vw,80ch)]">
+            <p class="heading-h6 mb-fluid-xs font-medium tracking-widest text-black/60 uppercase">
+                Frequently Asked Questions
+            </p>
+            <h2 id="faq-heading" class="heading-h2 mb-fluid-lg">Everything you need to know</h2>
 
-        <div class="border-t border-black/20">
-            <Accordion label="Do I need a reservation?" name="faq" class="border-b border-black/20">
-                <p class="max-w-[60ch] pb-fluid-sm text-sm leading-relaxed text-black/70">
-                    Reservations are recommended, especially for evenings and weekends. Walk-ins are
-                    welcome and will be seated subject to availability.
-                </p>
-            </Accordion>
+            <div class="border-t border-black/20">
+                <Accordion
+                    label="Do I need a reservation?"
+                    name="faq"
+                    class="border-b border-black/20"
+                >
+                    <p class="max-w-[60ch] pb-fluid-sm text-sm leading-relaxed text-black/70">
+                        Reservations are recommended, especially for evenings and weekends. Walk-ins
+                        are welcome and will be seated subject to availability.
+                    </p>
+                </Accordion>
 
-            <Accordion
-                label="What cuisine do you serve?"
-                name="faq"
-                class="border-b border-black/20"
-            >
-                <p class="max-w-[60ch] pb-fluid-sm text-sm leading-relaxed text-black/70">
-                    Our menu brings together Portuguese and Mediterranean-inspired dishes with a
-                    classic South African twist, including fresh seafood and flame-grilled
-                    favourites.
-                </p>
-            </Accordion>
+                <Accordion
+                    label="What cuisine do you serve?"
+                    name="faq"
+                    class="border-b border-black/20"
+                >
+                    <p class="max-w-[60ch] pb-fluid-sm text-sm leading-relaxed text-black/70">
+                        Our menu brings together Portuguese and Mediterranean-inspired dishes with a
+                        classic South African twist, including fresh seafood and flame-grilled
+                        favourites.
+                    </p>
+                </Accordion>
 
-            <Accordion
-                label="Do you cater for dietary requirements?"
-                name="faq"
-                class="border-b border-black/20"
-            >
-                <p class="max-w-[60ch] pb-fluid-sm text-sm leading-relaxed text-black/70">
-                    We are happy to accommodate most dietary requirements. Please let our team know
-                    when making your reservation so we can prepare the best experience for you.
-                </p>
-            </Accordion>
+                <Accordion
+                    label="Do you cater for dietary requirements?"
+                    name="faq"
+                    class="border-b border-black/20"
+                >
+                    <p class="max-w-[60ch] pb-fluid-sm text-sm leading-relaxed text-black/70">
+                        We are happy to accommodate most dietary requirements. Please let our team
+                        know when making your reservation so we can prepare the best experience for
+                        you.
+                    </p>
+                </Accordion>
 
-            <Accordion
-                label="Can I host a private event at Pigalle?"
-                name="faq"
-                class="border-b border-black/20"
-            >
-                <p class="max-w-[60ch] pb-fluid-sm text-sm leading-relaxed text-black/70">
-                    Yes. We host birthdays, corporate events, pre-wedding occasions and more.
-                    Contact us to discuss your plans and available options.
-                </p>
-            </Accordion>
+                <Accordion
+                    label="Can I host a private event at Pigalle?"
+                    name="faq"
+                    class="border-b border-black/20"
+                >
+                    <p class="max-w-[60ch] pb-fluid-sm text-sm leading-relaxed text-black/70">
+                        Yes. We host birthdays, corporate events, pre-wedding occasions and more.
+                        Contact us to discuss your plans and available options.
+                    </p>
+                </Accordion>
 
-            <Accordion label="Where are you located?" name="faq" class="border-b border-black/20">
-                <p class="max-w-[60ch] pb-fluid-sm text-sm leading-relaxed text-black/70">
-                    You can find us in the heart of Sandton at Nelson Mandela Square. Visit our
-                    booking page for directions and reservation details.
-                </p>
-            </Accordion>
+                <Accordion
+                    label="Where are you located?"
+                    name="faq"
+                    class="border-b border-black/20"
+                >
+                    <p class="max-w-[60ch] pb-fluid-sm text-sm leading-relaxed text-black/70">
+                        You can find us in the heart of Sandton at Nelson Mandela Square. Visit our
+                        booking page for directions and reservation details.
+                    </p>
+                </Accordion>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</Layout>

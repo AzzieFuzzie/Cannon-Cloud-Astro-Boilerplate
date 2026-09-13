@@ -1,39 +1,49 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
-const menuCategories = await getCollection('menu');
-menuCategories.sort((a, b) => (a.data.displayOrder || 0) - (b.data.displayOrder || 0));
+
+const slugify = (str: string) =>
+    str
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+
+const menuCategories = (await getCollection('menu'))
+    .filter((c) => c.data.items.length > 0) // hide empty categories automatically
+    .sort((a, b) => (a.data.displayOrder ?? 0) - (b.data.displayOrder ?? 0))
+    .map((c) => ({ ...c, slug: slugify(c.data.categoryName) }));
 ---
 
 <Layout title="Menu">
-    <h1 class="mb-12 text-center font-serif text-4xl">Our Menu</h1>
+    <nav class="sticky top-0 z-10 flex gap-4 overflow-x-auto bg-white/90 py-3 backdrop-blur">
+        {
+            menuCategories.map((c) => (
+                <a href={`#${c.slug}`} class="text-sm font-medium whitespace-nowrap">
+                    {c.data.categoryName}
+                </a>
+            ))
+        }
+    </nav>
 
     {
-        menuCategories.map((category: (typeof menuCategories)[number]) => (
-            <section class="mb-12">
+        menuCategories.map((category) => (
+            <section id={category.slug} class="mb-12 scroll-mt-24">
                 <h2 class="mb-6 border-b pb-2 text-2xl font-semibold">
                     {category.data.categoryName}
                 </h2>
-
                 <div class="grid gap-6">
-                    {category.data.items.map(
-                        (item: {
-                            name: string;
-                            description?: string;
-                            dietary?: string[];
-                            price: string | number;
-                        }) => (
-                            <div class="flex items-start justify-between">
-                                <div>
-                                    <h3 class="text-lg font-medium">{item.name}</h3>
-                                    {item.description && (
-                                        <p class="mt-1 text-sm text-gray-600">{item.description}</p>
-                                    )}
-                                </div>
-                                <span class="ml-4 text-lg font-semibold">{item.price}</span>
+                    {category.data.items.map((item) => (
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-medium">{item.name}</h3>
+                                {item.description && (
+                                    <p class="mt-1 text-sm text-gray-600">{item.description}</p>
+                                )}
                             </div>
-                        )
-                    )}
+                            <span class="ml-4 text-lg font-semibold">{item.price}</span>
+                        </div>
+                    ))}
                 </div>
             </section>
         ))

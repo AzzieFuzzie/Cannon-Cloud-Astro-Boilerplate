@@ -1,7 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const menuCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/*.json', base: './src/content/menu' }),
     schema: z.object({
         categoryName: z.string(),
         displayOrder: z.number().optional(),
@@ -9,8 +10,7 @@ const menuCollection = defineCollection({
             z.object({
                 name: z.string(),
                 description: z.string().optional(),
-                price: z.string(),
-                dietary: z.array(z.string()).optional()
+                price: z.string()
             })
         )
     })
