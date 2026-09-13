@@ -1,0 +1,18 @@
+{
+    "_schema": "default",
+    "categoryName": "Starters",
+    "items": [
+        {
+            "name": "California Roll (4 piece)",
+            "description": "Delicious fusion of flavors with creamy avocado and crisp cucumber all wrapped in seasoned sushi rice. Prawn, Salmon or Vegetarian.",
+            "price": "R 195",
+            "dietary": []
+        },
+        {
+            "name": "Carpaccio of Beef",
+            "description": "Thinly sliced beef fillet with truffle oil and parmesan shavings.",
+            "price": "R 175",
+            "dietary": []
+        }
+    ]
+}

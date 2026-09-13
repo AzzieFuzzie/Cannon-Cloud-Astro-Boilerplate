@@ -29,16 +29,6 @@ menuCategories.sort((a, b) => (a.data.displayOrder || 0) - (b.data.displayOrder 
                                     {item.description && (
                                         <p class="mt-1 text-sm text-gray-600">{item.description}</p>
                                     )}
-
-                                    {item.dietary && (
-                                        <div class="mt-2 flex gap-2">
-                                            {item.dietary.map((tag: string) => (
-                                                <span class="rounded bg-gray-100 px-2 py-0.5 text-xs">
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    )}
                                 </div>
                                 <span class="ml-4 text-lg font-semibold">{item.price}</span>
                             </div>
