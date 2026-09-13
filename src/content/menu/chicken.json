@@ -5,42 +5,42 @@
         {
             "name": "Portuguese Peri Peri Chicken Full",
             "description": "Flame grilled over an open fire and served with round chips.",
-            "price": "R 330"
+            "price": "330"
         },
         {
             "name": "Portuguese Peri Peri Chicken Half",
             "description": "Flame grilled over an open fire and served with round chips.",
-            "price": "R 180"
+            "price": "180"
         },
         {
             "name": "Portuguese Peri Peri Chicken Fillets",
             "description": "Two flame-grilled fillets served with round chips.",
-            "price": "R 190"
+            "price": "190"
         },
         {
             "name": "Chooza Chicken",
             "description": "Baby chicken marinated in our signature Chooza sauce and char-grilled served with chips.",
-            "price": "R 330"
+            "price": "330"
         },
         {
             "name": "Chooza Boneless Chicken",
             "description": "Seven tender chicken cubes finished with Chooza sauce and served with house salad and chips.",
-            "price": "R 190"
+            "price": "190"
         },
         {
             "name": "Chooza Chicken Wings",
             "description": "Four full wings char-grilled in Chooza sauce served with chips.",
-            "price": "R 150"
+            "price": "150"
         },
         {
             "name": "Chooza Chilli Lemon Prawns",
             "description": "Six pan-fried prawns topped with a house chilli, lemon and coriander sauce.",
-            "price": "R 175"
+            "price": "175"
         },
         {
             "name": "Beef Kebab",
             "description": "Two char-grilled beef kebabs served with chips and house salad.",
-            "price": "R 200"
+            "price": "200"
         }
     ]
 }

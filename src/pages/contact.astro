@@ -10,7 +10,15 @@ import Image from 'astro/components/Image.astro';
         <div class="space-y-fluid-4xl">
             <div class="grid-12">
                 <div class="col-start-1 md:col-end-6">
-                    <h1 class="heading-h3 mb-fluid-sm">Get in touch with us</h1>
+                    <h1
+                        class="heading-h3 mb-fluid-sm"
+                        data-editable="source"
+                        data-path="src/pages/contact.astro"
+                        data-key="pageHeading"
+                        data-type="text"
+                    >
+                        Get in touch with us
+                    </h1>
                     <Image
                         class="h-auto w-full object-cover"
                         data-editable="image"
@@ -28,18 +36,59 @@ import Image from 'astro/components/Image.astro';
 
                 <div class="col-start-7 my-fluid-lg md:col-end-12">
                     <div>
-                        <h4 class="heading-h6 my-fluid-xs">Phone</h4>
-                        <a href="tel:+27 11 123 4567">+27 11 123 4567</a>
+                        <h4
+                            class="heading-h6 my-fluid-xs"
+                            data-editable="source"
+                            data-path="src/pages/contact.astro"
+                            data-key="phoneLabel"
+                            data-type="text"
+                        >
+                            Phone
+                        </h4>
+                        <a
+                            href="tel:+27 11 123 4567"
+                            data-editable="source"
+                            data-path="src/pages/contact.astro"
+                            data-key="phoneNumber"
+                            data-type="text">+27 11 123 4567</a
+                        >
                     </div>
 
                     <div class="my-fluid-lg">
-                        <h4 class="heading-h6 my-fluid-xs">Email</h4>
-                        <a href="mailto:info@pigalle.co.za">info@pigalle.co.za</a>
+                        <h4
+                            class="heading-h6 my-fluid-xs"
+                            data-editable="source"
+                            data-path="src/pages/contact.astro"
+                            data-key="emailLabel"
+                            data-type="text"
+                        >
+                            Email
+                        </h4>
+                        <a
+                            href="mailto:info@pigalle.co.za"
+                            data-editable="source"
+                            data-path="src/pages/contact.astro"
+                            data-key="emailAddress"
+                            data-type="text">info@pigalle.co.za</a
+                        >
                     </div>
 
                     <div class="my-fluid-lg">
-                        <h4 class="heading-h6 my-fluid-xs">Address</h4>
-                        <p>
+                        <h4
+                            class="heading-h6 my-fluid-xs"
+                            data-editable="source"
+                            data-path="src/pages/contact.astro"
+                            data-key="addressLabel"
+                            data-type="text"
+                        >
+                            Address
+                        </h4>
+                        <p
+                            data-editable="source"
+                            data-path="src/pages/contact.astro"
+                            data-key="address"
+                            data-type="text"
+                        >
                             UO9,<br />
                             Michelangelo Towers,<br />
                             Maude St, Sandton,<br />

@@ -5,82 +5,82 @@
         {
             "name": "Prawns - 7 Queens",
             "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
-            "price": "R 325"
+            "price": "325"
         },
         {
             "name": "Prawns - 6 King Giants",
             "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
-            "price": "R 495"
+            "price": "495"
         },
         {
             "name": "Tiger Giant Prawns (3 pieces)",
             "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
-            "price": "R 600"
+            "price": "600"
         },
         {
             "name": "Medium Langoustines (6 pieces)",
             "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
-            "price": "R 900"
+            "price": "900"
         },
         {
             "name": "Large Langoustines (5 pieces)",
             "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
-            "price": "R 1250"
+            "price": "1250"
         },
         {
             "name": "XL Langoustines (4 pieces)",
             "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
-            "price": "R 1500"
+            "price": "1500"
         },
         {
             "name": "Grilled Lobster",
             "description": "2 baby lobsters grilled and finished with our signature Pigalle basting.",
-            "price": "R 675"
+            "price": "675"
         },
         {
             "name": "Lobster Thermidor",
             "description": "2 baby lobsters finished with a rich creamy mushroom sauce, parmesan and subtle sweet notes, then baked until golden.",
-            "price": "R 720"
+            "price": "720"
         },
         {
             "name": "Falklands Calamari Full Portion",
             "description": "Grilled in signature garlic lemon butter or Peri-Peri sauce served with savoury rice and chips.",
-            "price": "R 320"
+            "price": "320"
         },
         {
             "name": "Baby Kingklip",
             "description": "Kingklip on the bone finished with lemon butter sauce served with savoury rice and seasonal stir-fried vegetables.",
-            "price": "R 395"
+            "price": "395"
         },
         {
             "name": "Kingklip Fillet",
             "description": "Fresh kingklip fillet grilled to perfection and served with buttery mash and seasonal stir-fried vegetables.",
-            "price": "R 305"
+            "price": "305"
         },
         {
             "name": "Seabass Fillet",
             "description": "Fresh seabass fillet grilled to perfection and served with buttery mash and seasonal stir-fried vegetables.",
-            "price": "R 275"
+            "price": "275"
         },
         {
             "name": "Grilled Sole",
             "description": "Served with savoury rice and stir-fried vegetables.",
-            "price": "R 325"
+            "price": "325"
         },
         {
             "name": "Fried Hake",
             "description": "Golden fried hake served with chips and tartar sauce.",
-            "price": "R 245"
+            "price": "245"
         },
         {
             "name": "Teriyaki Salmon",
             "description": "Seared Norwegian salmon served with a buttery mash and julienne vegetables, pickled ginger and topped with a teriyaki glaze.",
-            "price": "R 390"
+            "price": "390"
         },
         {
             "name": "Mozambican Prawn Curry",
             "description": "Ten prawns cooked in a rich Mozambican coconut curry and served with rice.",
-            "price": "R 320"
+            "price": "320"
         }
     ]
 }
