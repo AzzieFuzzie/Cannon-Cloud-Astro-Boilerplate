@@ -38,32 +38,38 @@ _inputs:
     options:
       path: public/uploads
 
-collections_config:
-  menu:
-    path: src/content/menu
-    output: false
-    icon: restaurant_menu
-    name: Menu Categories
-    schemas:
-      default:
-        path: src/content/menu/starters.json
-    _inputs:
-      categoryName:
-        type: string
-        label: Category Name
-      displayOrder:
-        type: number
-        label: Display Order
-      items:
-        type: array
-        label: Menu Items
-        options:
-          structures:
-            value:
-              name: ''
-              description: ''
-              price: ''
-              dietary: []
+  collections_config:
+    menu:
+      path: src/content/menu
+      output: false
+      icon: restaurant_menu
+      name: Menu Categories
+      schemas:
+        default:
+          path: src/content/menu/starters.json
+      _inputs:
+        categoryName:
+          type: text
+          label: Category Name
+        displayOrder:
+          type: number
+          label: Display Order
+        items:
+          type: array
+          label: Menu Items
+          options:
+            structures:
+              value:
+                name: ''
+                description: ''
+                price: ''
+                dietary: []
+        name:
+          type: text
+        description:
+          type: textarea
+        price:
+          type: text
 
   pages:
     path: src/pages
