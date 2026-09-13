@@ -1,0 +1,19 @@
+---
+import home from '../../data/home.json';
+---
+
+<section>
+    <img
+        class="h-auto w-full object-cover"
+        data-editable="image"
+        data-prop-src="@data[home].aboutImageSrc"
+        data-prop-alt="@data[home].aboutImageAlt"
+        data-prop-title="@data[home].aboutImageTitle"
+        src={home.aboutImageSrc}
+        title={home.aboutImageTitle}
+        alt={home.aboutImageAlt}
+        data-animation="image_reveal_horizontal"
+        width={1000}
+        height={1000}
+    />
+</section>

@@ -39,6 +39,32 @@ _inputs:
       path: public/uploads
 
 collections_config:
+  menu:
+    path: src/content/menu
+    output: false
+    icon: restaurant_menu
+    name: Menu Categories
+    schemas:
+      default:
+        path: src/content/menu/starters.json
+    _inputs:
+      categoryName:
+        type: string
+        label: Category Name
+      displayOrder:
+        type: number
+        label: Display Order
+      items:
+        type: array
+        label: Menu Items
+        options:
+          structures:
+            value:
+              name: ''
+              description: ''
+              price: ''
+              dietary: []
+
   pages:
     path: src/pages
     glob:

@@ -1,78 +1,105 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Image from '@components/Image/Image.astro';
-import Wysiwyg from '@components/Wysiwyg/Wysiwyg.astro';
+import { Image } from 'astro:assets';
+import home from '../data/home.json';
 ---
 
-<Layout title="About">
-    <header class="container">
-        <h1 class="heading-h1">About</h1>
-    </header>
+<Layout title="About Us">
+    <section class="py-24">
+        <div class="container">
+            <section
+                class="min-h min-w relative flex items-center justify-center bg-[https:images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85] bg-cover bg-center bg-no-repeat"
+            >
+                <h1 class="heading-h2 tracking-wide uppercase">
+                    A taste of passion in the heart of Pigalle
+                </h1>
+            </section>
 
-    <div class="mt-fluid-xl h-[20vh] w-full bg-black"></div>
-
-    <div class="container mt-fluid-xl">
-        <div>
-            <!-- <Image
-                src={import('@images/printer.jpg')}
-                alt="Placeholder alt"
-                caption="Static image & Loading eager"
-                loading="eager"
-                width={500}
-                height={200}
-            />
-        </div> -->
-            <div class="grid grid-cols-2 gap-gutter">
-                <div>
-                    <Image
-                        src="https://locomotive.ca/uploads/careers/pltropics-2000w.jpg"
-                        alt="Placeholder alt"
-                        caption="Loading lazy native"
-                        loading="lazy"
-                        width={500}
-                        height={500}
-                        data-editable="image"
-                        data-path="/src/pages/about.astro"
-                        data-key="aboutImage1"
-                    />
-                </div>
-                <div>
-                    <Image
-                        src="https://locomotive.ca/uploads/careers/fullscreen-image-2000w.jpg"
-                        alt="Placeholder alt"
-                        caption="Loading lazy native + locomotive-scroll inview anim"
-                        loading="lazy"
-                        width={500}
-                        height={500}
-                        data-scroll
-                        data-scroll-repeat
-                        data-editable="image"
-                        data-path="/src/pages/about.astro"
-                        data-key="aboutImage2"
-                    />
-                </div>
+            <!-- Hero / Heading Section -->
+            <div class="mx-auto mb-16 max-w-4xl space-y-6 text-center">
+                <span class="tracking-widest">Our Story</span>
+                <h3 class="heading-h3"></h3>
+                Step into our Johannesburg sanctuary and dive into culinary bliss amidst the cozy elegance
+                of our dining area.
             </div>
-            <div class="grid grid-cols-12 gap-gutter">
-                <div class="text-body-sm col-span-full md:col-span-6">
-                    <Wysiwyg>
-                        <Fragment
-                            set:html={`<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque quam, nam omnis sunt laudantium tenetur obcaecati? Inventore eos vitae id repellat cum possimus voluptates nam voluptatum, assumenda, atque nesciunt debitis?</p>`}
-                        />
-                    </Wysiwyg>
-                </div>
-
-                <div class="text-body-sm col-span-full md:col-span-6">
-                    <Wysiwyg>
-                        <Fragment
-                            set:html={`<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque quam, nam omnis sunt laudantium tenetur obcaecati? Inventore eos vitae id repellat cum possimus voluptates nam voluptatum, assumenda, atque nesciunt debitis?</p>`}
-                        />
-                    </Wysiwyg>
-                </div>
-            </div>
-
-            <!-- Placeholder -->
-            <div class="mt-fluid-xl h-[50vh] w-full bg-black opacity-50"></div>
-            <div class="mt-fluid-xl h-[50vh] w-full bg-gray-200"></div>
+            <p class="body-base mx-auto max-w-2xl">
+                Prepare your taste buds for a luscious dining experience at Pigalle where our
+                masterpieces are crafted with soul and passion, delivering flavours that will leave
+                you craving more.
+            </p>
         </div>
-    </div>
+
+        <!-- Image Grid Section (12-Column Layout) -->
+        <div class="grid-12 my-16 grid items-center">
+            <!-- Image 1 -->
+            <div class="col-span-12 h-[400px] overflow-hidden md:col-span-4">
+                <Image
+                    class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                    data-editable="image"
+                    data-prop-src="@data[home].aboutImageSrc"
+                    data-prop-alt="@data[home].aboutImageAlt"
+                    data-prop-title="@data[home].aboutImageTitle"
+                    src={home.aboutImageSrc}
+                    title={home.aboutImageTitle}
+                    alt={home.aboutImageAlt}
+                    data-animation="image_reveal_horizontal"
+                    width={1000}
+                    height={1000}
+                />
+            </div>
+
+            <!-- Image 2 (Slightly offset or balanced) -->
+            <div class="col-span-12 h-[400px] overflow-hidden md:col-span-4">
+                <Image
+                    class="h-full w-full object-cover"
+                    data-editable="image"
+                    data-prop-src="@data[home].aboutImageSrc"
+                    data-prop-alt="@data[home].aboutImageAlt"
+                    data-prop-title="@data[home].aboutImageTitle"
+                    src={home.aboutImageSrc}
+                    title={home.aboutImageTitle}
+                    alt={home.aboutImageAlt}
+                    data-animation="image_reveal_horizontal"
+                    width={1000}
+                    height={1000}
+                />
+            </div>
+
+            <!-- Image 3 -->
+            <div class="col-span-12 h-[400px] overflow-hidden md:col-span-4">
+                <Image
+                    class="h-full w-full"
+                    data-editable="image"
+                    data-prop-src="@data[home].aboutImageSrc"
+                    data-prop-alt="@data[home].aboutImageAlt"
+                    data-prop-title="@data[home].aboutImageTitle"
+                    src={home.aboutImageSrc}
+                    title={home.aboutImageTitle}
+                    alt={home.aboutImageAlt}
+                    data-animation="image_reveal_horizontal"
+                    width={1000}
+                    height={1000}
+                />
+            </div>
+        </div>
+
+        <!-- Bottom Editorial Content Section -->
+        <div class="mx-auto mt-20 max-w-3xl space-y-8 text-center">
+            <h3 class="heading-h2">
+                We take pride in our food, as we source the best ingredients locally and
+                internationally.
+            </h3>
+
+            <div class="body-base space-y-4">
+                <p>
+                    Our restaurant is Fully Halaal and NIHT certified and driven by passion and the
+                    love for good food.
+                </p>
+                <p>
+                    Our eager team of staff are always happy and ready to ensure your comfort and
+                    satisfaction when you are dining with us.
+                </p>
+            </div>
+        </div>
+    </section>
 </Layout>

@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+
+const menuCategories = await getCollection('menu');
+menuCategories.sort(
+    (a: (typeof menuCategories)[number], b: (typeof menuCategories)[number]) =>
+        (a.data.displayOrder || 0) - (b.data.displayOrder || 0)
+);
+---
+
+<main class="mx-auto max-w-4xl px-4 py-12">
+    <h1 class="mb-12 text-center font-serif text-4xl">Our Menu</h1>
+
+    {
+        menuCategories.map((category: (typeof menuCategories)[number]) => (
+            <section class="mb-12">
+                <h2 class="mb-6 border-b pb-2 text-2xl font-semibold">
+                    {category.data.categoryName}
+                </h2>
+
+                <div class="grid gap-6">
+                    {category.data.items.map(
+                        (item: {
+                            name: string;
+                            description?: string;
+                            dietary?: string[];
+                            price: string | number;
+                        }) => (
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <h3 class="text-lg font-medium">{item.name}</h3>
+                                    {item.description && (
+                                        <p class="mt-1 text-sm text-gray-600">{item.description}</p>
+                                    )}
+
+                                    {item.dietary && (
+                                        <div class="mt-2 flex gap-2">
+                                            {item.dietary.map((tag: string) => (
+                                                <span class="rounded bg-gray-100 px-2 py-0.5 text-xs">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                                <span class="ml-4 text-lg font-semibold">{item.price}</span>
+                            </div>
+                        )
+                    )}
+                </div>
+            </section>
+        ))
+    }
+</main>

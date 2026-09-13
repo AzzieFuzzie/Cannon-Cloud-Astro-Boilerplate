@@ -1,0 +1,53 @@
+---
+import Layout from '@layouts/Layout.astro';
+import home from '../data/home.json';
+
+import Image from 'astro/components/Image.astro';
+---
+
+<Layout title="Contact">
+    <section class="container-gutter page-wrapper">
+        <div class="space-y-fluid-4xl">
+            <div class="grid-12">
+                <div class="col-start-1 md:col-end-6">
+                    <h1 class="heading-h3 mb-fluid-sm">Get in touch with us</h1>
+                    <Image
+                        class="h-auto w-full object-cover"
+                        data-editable="image"
+                        data-prop-src="@data[home].aboutImageSrc"
+                        data-prop-alt="@data[home].aboutImageAlt"
+                        data-prop-title="@data[home].aboutImageTitle"
+                        src={home.aboutImageSrc}
+                        title={home.aboutImageTitle}
+                        alt={home.aboutImageAlt}
+                        data-animation="image_reveal_horizontal"
+                        width={1000}
+                        height={1000}
+                    />
+                </div>
+
+                <div class="col-start-7 my-fluid-lg md:col-end-12">
+                    <div>
+                        <h4 class="heading-h6 my-fluid-xs">Phone</h4>
+                        <a href="tel:+27 11 123 4567">+27 11 123 4567</a>
+                    </div>
+
+                    <div class="my-fluid-lg">
+                        <h4 class="heading-h6 my-fluid-xs">Email</h4>
+                        <a href="mailto:info@pigalle.co.za">info@pigalle.co.za</a>
+                    </div>
+
+                    <div class="my-fluid-lg">
+                        <h4 class="heading-h6 my-fluid-xs">Address</h4>
+                        <p>
+                            UO9,<br />
+                            Michelangelo Towers,<br />
+                            Maude St, Sandton,<br />
+                            2196
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
