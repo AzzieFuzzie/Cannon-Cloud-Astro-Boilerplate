@@ -1,0 +1,61 @@
+{
+    "categoryName": "Sides",
+    "displayOrder": 10,
+    "items": [
+        {
+            "name": "Chooza Masala Chips",
+            "description": "French Chips smothered in our signature Chooza sauce.",
+            "price": "R 65"
+        },
+        {
+            "name": "Naan",
+            "description": "Tandoor baked and brushed with butter, garlic butter or plain.",
+            "price": "R 42"
+        },
+        {
+            "name": "Buttery Mash",
+            "description": "",
+            "price": "R 50"
+        },
+        {
+            "name": "Aromatic Rice",
+            "description": "",
+            "price": "R 50"
+        },
+        {
+            "name": "Stir-Fried Vegetables",
+            "description": "",
+            "price": "R 55"
+        },
+        {
+            "name": "House Salad",
+            "description": "Tomatoes, lettuce, onions and green peppers.",
+            "price": "R 55"
+        },
+        {
+            "name": "Onion Rings",
+            "description": "",
+            "price": "R 50"
+        },
+        {
+            "name": "Chips",
+            "description": "",
+            "price": "R 55"
+        },
+        {
+            "name": "Creamy Spinach",
+            "description": "",
+            "price": "R 65"
+        },
+        {
+            "name": "Butternut",
+            "description": "",
+            "price": "R 55"
+        },
+        {
+            "name": "Round Chips",
+            "description": "",
+            "price": "R 60"
+        }
+    ]
+}

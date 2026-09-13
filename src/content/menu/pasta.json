@@ -1,0 +1,26 @@
+{
+    "categoryName": "Pastas",
+    "displayOrder": 8,
+    "items": [
+        {
+            "name": "Chicken Alfredo",
+            "description": "Tender chicken strips and mushrooms folded through a rich parmesan cream sauce.",
+            "price": "R 190"
+        },
+        {
+            "name": "Creamy Pesto",
+            "description": "Homemade basil pesto.",
+            "price": "R 150"
+        },
+        {
+            "name": "Baked Chicken Pasta",
+            "description": "Spicy Napolitana sauce, peppadews, chicken and jalapeños topped with melted cheese.",
+            "price": "R 190"
+        },
+        {
+            "name": "Arrabbiata",
+            "description": "Tomatoes, basil and chilli.",
+            "price": "R 145"
+        }
+    ]
+}

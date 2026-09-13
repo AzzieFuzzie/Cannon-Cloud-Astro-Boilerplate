@@ -1,0 +1,41 @@
+{
+    "categoryName": "Platters & Combos",
+    "displayOrder": 5,
+    "items": [
+        {
+            "name": "Shellfish Platter",
+            "description": "A luxurious seafood selection featuring three queen prawns, three langoustines and a baby lobster. Served with savoury rice and chips.",
+            "price": "R 960"
+        },
+        {
+            "name": "Seafood Platter for Two",
+            "description": "An indulgent feast of mussels, kingklip fillet, grilled calamari, langoustines, queen prawns and baby lobster. Served with savoury rice and chips.",
+            "price": "R 1265"
+        },
+        {
+            "name": "Pigalle Platter",
+            "description": "A refined combination of three langoustines and three queen prawns. Served with savoury rice and chips.",
+            "price": "R 675"
+        },
+        {
+            "name": "Surf and turf",
+            "description": "A 250g fillet steak with 3 queen prawns. Served with savoury rice and chips.",
+            "price": "R 450"
+        },
+        {
+            "name": "Steak and Prawns",
+            "description": "200g rump or sirloin and 3 queens. Served with savoury rice and chips.",
+            "price": "R 305"
+        },
+        {
+            "name": "Prawns and Calamari",
+            "description": "5 queen prawns and calamari. Served with savoury rice and chips.",
+            "price": "R 375"
+        },
+        {
+            "name": "Fish and Prawns",
+            "description": "Kingklip fillet and 3 queens. Served with savoury rice and chips.",
+            "price": "R 395"
+        }
+    ]
+}

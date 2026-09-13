@@ -1,11 +1,21 @@
 {
-    "categoryName": "",
+    "categoryName": "Starters",
     "displayOrder": 1,
     "items": [
         {
-            "name": "",
-            "description": "",
-            "price": ""
+            "name": "Pan-Seared Scallops",
+            "description": "Served with garlic butter and herb reduction.",
+            "price": "R 195"
+        },
+        {
+            "name": "Carpaccio of Beef",
+            "description": "Thinly sliced beef fillet with truffle oil and parmesan shavings.",
+            "price": "R 175"
+        },
+        {
+            "name": "Escargots",
+            "description": "Baked in garlic butter and smothered in roquefort cheese.",
+            "price": "R 145"
         }
     ]
 }

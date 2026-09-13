@@ -1,0 +1,16 @@
+{
+    "categoryName": "Vegetarian",
+    "displayOrder": 9,
+    "items": [
+        {
+            "name": "Vegetarian Platter",
+            "description": "Halloumi, grilled tomatoes, spinach and butternut served with rice and chips.",
+            "price": "R 175"
+        },
+        {
+            "name": "Mozambican Vegetable & Chickpea Curry",
+            "description": "Vegetables and chickpeas simmered in a fragrant Mozambican curry and served with basmati rice.",
+            "price": "R 150"
+        }
+    ]
+}
