@@ -2,16 +2,13 @@
     "heroImage": "https://image.mux.com/NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs/thumbnail.webp?time=0.5&width=1920",
     "heroImageAlt": "Pigalle Background Video Layout Poster",
     "heroImageTitle": "Pigalle Poster",
-
     "aboutImageSrc": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85",
     "aboutImageAlt": "Oyster dining table dish",
     "aboutImageTitle": "Oyster Dining",
-
     "foodGalleryImage": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85",
     "foodGalleryImageAlt": "Food platter",
     "foodGalleryImageTitle": "Food Platter Dish",
-
-    "eventsImageSrc": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&auto=format&fit=crop&q=80",
+    "eventsImageSrc": "/uploads/Home/pigalle-shoot-day-1-46-1.webp",
     "eventsImageAlt": "Private events ambiance",
     "eventsImageTitle": "Private Events Ambiance"
 }
