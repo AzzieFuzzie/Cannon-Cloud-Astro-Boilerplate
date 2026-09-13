@@ -71,28 +71,19 @@ _inputs:
         price:
           type: text
 
-  pages:
-    path: src/pages
-    glob:
-      - '*.astro'
-    icon: wysiwyg
-    url: /[slug]/
-    disable_url: false
-    include_developer_files: false
-    preview:
-      text:
-      subtext:
-      icon:
-      icon_color:
-      icon_background_color:
-      image:
-      metadata:
-      gallery:
-    _enabled_editors:
-      - visual
-    disable_add: true
-    disable_add_folder: false
-    disable_file_actions: false
+pages:
+  path: src/pages
+  glob:
+    - '*.astro'
+  icon: wysiwyg
+  url: /[slug]/
+  disable_url: false
+  include_developer_files: false
+  _enabled_editors:
+    - visual
+  disable_add: true
+  disable_add_folder: false
+  disable_file_actions: false
 
 timezone: Africa/Johannesburg
 
