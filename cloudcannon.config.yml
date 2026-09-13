@@ -18,13 +18,13 @@ _inputs:
 
   # Dynamic Catch-All Rule: Any frontmatter key ending with 'Heading' or 'Subheading' treats text as a plain string
   '*Heading':
-    type: string
+    type: text
 
   # Dynamic Catch-All Rule: Any frontmatter key ending with 'Button' or 'Description' treats text as a plain string
   '*Button':
-    type: string
+    type: text
   '*Description':
-    type: string
+    type: text
 
   # Dynamic Catch-All Rule: Any frontmatter key ending with 'Image' will automatically use the asset file picker
   '*Image':
@@ -38,52 +38,67 @@ _inputs:
     options:
       path: public/uploads
 
-  collections_config:
-    menu:
-      path: src/content/menu
-      output: false
-      icon: restaurant_menu
-      name: Menu Categories
-      schemas:
-        default:
-          path: src/content/menu/starters.json
-      _inputs:
-        categoryName:
-          type: text
-          label: Category Name
-        displayOrder:
-          type: number
-          label: Display Order
-        items:
-          type: array
-          label: Menu Items
-          options:
-            structures:
-              value:
-                name: ''
-                description: ''
-                price: ''
-                dietary: []
-        name:
-          type: text
-        description:
-          type: textarea
-        price:
-          type: text
+collections_config:
+  menu:
+    path: src/content/menu
+    output: false
+    icon: restaurant_menu
+    name: Menu Categories
+    schemas:
+      default:
+        # NOTE: this file must exist in src/content/menu/ — it's the template
+        # CloudCannon copies when an editor clicks "Add". If you deleted
+        # starters.json, either restore it or repoint this at a real file.
+        path: src/content/menu/starters.json
+    _inputs:
+      categoryName:
+        type: text
+        label: Category Name
+      displayOrder:
+        type: number
+        label: Display Order
+      items:
+        type: array
+        label: Menu Items
+        options:
+          structures:
+            value:
+              name: ''
+              description: ''
+              price: ''
+              dietary: []
+      # Nested fields inside each menu item — required or "items" stays
+      # misconfigured (CloudCannon can't infer types for structure fields).
+      name:
+        type: text
+      description:
+        type: textarea
+      price:
+        type: text
+      dietary:
+        type: multiselect
+        options:
+          values:
+            - Vegan
+            - Vegetarian
+            - Gluten-Free
+            - Nut-Free
+            - Halal
+          allow_create: true
 
-pages:
-  path: src/pages
-  glob:
-    - '*.astro'
-  icon: wysiwyg
-  url: /[slug]/
-  disable_url: false
-  include_developer_files: false
-  _enabled_editors:
-    - visual
-  disable_add: true
-  disable_add_folder: false
-  disable_file_actions: false
+  pages:
+    path: src/pages
+    glob:
+      - '*.astro'
+    icon: wysiwyg
+    url: /[slug]/
+    disable_url: false
+    include_developer_files: false
+    _enabled_editors:
+      - visual
+    disable_add: true
+    disable_add_folder: false
+    disable_file_actions: false
 
 timezone: Africa/Johannesburg
 
