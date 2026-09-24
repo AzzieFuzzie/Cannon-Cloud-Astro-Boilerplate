@@ -1,10 +1,60 @@
-/* ==========================================
-   Typography Utilities (Derived from @theme)
-   ========================================== */
+@import 'tailwindcss';
 
+/* ==========================================
+   Base Layer (HTML Element Targeting)
+   ========================================== */
+@layer base {
+    /* Paragraphs automatically inherit body styles */
+    p {
+        @apply body-base;
+    }
+
+    /* Inline text formatting */
+    em {
+        font-family: var(--font-rd-italic, serif);
+        font-style: italic;
+    }
+
+    strong,
+    b {
+        font-weight: bold;
+    }
+
+    /* Interactive elements */
+    a,
+    button {
+        @apply text-action;
+    }
+
+    /* Headings map perfectly to their corresponding utilities */
+    h1 {
+        @apply heading-h1;
+    }
+    h2 {
+        @apply heading-h2;
+    }
+    h3 {
+        @apply heading-h3;
+    }
+    h4 {
+        @apply heading-h4;
+    }
+    h5 {
+        @apply heading-h5;
+    }
+    h6 {
+        @apply heading-h6;
+    }
+}
+
+/* ==========================================
+   Typography Utilities (Custom Classes)
+   ========================================== */
 @utility heading-h1 {
     font-family: var(--font-rd-narrow, serif);
     font-size: var(--text-heading-h1);
+    font-weight: 400; /* Forces the browser to use your exact Astro file */
+    -webkit-font-smoothing: antialiased;
     line-height: 1;
     letter-spacing: 0;
 }
@@ -14,7 +64,8 @@
     font-size: var(--text-heading-h2);
     line-height: 1.2;
     letter-spacing: 0;
-
+    font-weight: 400; /* Forces the browser to use your exact Astro file */
+    -webkit-font-smoothing: antialiased;
     @media (max-width: 699px) {
         line-height: 1.1;
     }
@@ -25,7 +76,8 @@
     font-size: var(--text-heading-h3);
     line-height: 1.3;
     letter-spacing: 0;
-
+    font-weight: 400; /* Forces the browser to use your exact Astro file */
+    -webkit-font-smoothing: antialiased;
     @media (max-width: 699px) {
         line-height: 1.1;
     }
@@ -36,6 +88,8 @@
     font-size: var(--text-heading-h4);
     line-height: 1.2;
     letter-spacing: 0.01em;
+    font-weight: 400; /* Forces the browser to use your exact Astro file */
+    -webkit-font-smoothing: antialiased;
 }
 
 @utility heading-h5 {
@@ -43,7 +97,8 @@
     font-size: var(--text-heading-h5);
     line-height: 1.1;
     letter-spacing: 0;
-
+    font-weight: 400; /* Forces the browser to use your exact Astro file */
+    -webkit-font-smoothing: antialiased;
     @media (max-width: 699px) {
         line-height: 1.3;
     }
@@ -55,22 +110,20 @@
     line-height: 1.3;
     letter-spacing: 0;
     text-transform: uppercase;
+    font-weight: 400; /* Forces the browser to use your exact Astro file */
+    -webkit-font-smoothing: antialiased;
 }
 
 @utility body-base {
     font-family: var(--font-lato, sans-serif);
     font-size: var(--text-body-base);
-    line-height: 1.5;
+    line-height: 1.3; /* Adjusted to 1.3 to match your original SCSS */
     letter-spacing: 0;
-
-    @media (max-width: 699px) {
-        line-height: 1.4;
-    }
 }
 
-@utility body-small {
+@utility text-action {
     font-family: var(--font-lato, sans-serif);
-    font-size: var(--text-body-sm); /* Uses your existing --text-body-sm */
-    line-height: 1.4;
-    letter-spacing: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: var(--text-action);
 }

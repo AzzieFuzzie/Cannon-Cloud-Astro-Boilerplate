@@ -9,7 +9,7 @@ import Icon from '../components/Icon/Icon.astro';
 const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-rd-condensed'];
 ---
 
-<html lang="en">
+<html lang="en" style="--nav-height: 80px;">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -22,7 +22,7 @@ const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-r
     <body>
         <script src="../scripts/app.ts"></script>
 
-        <div class="container grid grid-cols-2 py-fluid-md">
+        <div class="py-fluid-md container grid h-[80px] grid-cols-2">
             <div>
                 <!-- <Icon name="logo" /> -->
             </div>
@@ -112,7 +112,7 @@ const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-r
                     </div>
 
                     {/* Social Links */}
-                    <div class="space-y-2">
+                    <div class="mb-small space-y-2">
                         <h5
                             data-editable="source"
                             data-path="src/layouts/Layout.astro"
@@ -190,7 +190,7 @@ const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-r
 
                 {/* Left: Logo */}
                 <div
-                    class="col-span-12 flex items-center justify-center border-t border-white/10 pt-8 lg:col-span-6 lg:justify-start"
+                    class="col-span-12 flex items-center justify-center lg:col-span-6 lg:justify-start"
                 >
                     <img
                         src="src/assets/svgs/logo.svg"
@@ -201,7 +201,7 @@ const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-r
 
                 {/* Right: Copyright & Agency Credits */}
                 <div
-                    class="col-span-12 flex items-center justify-center pt-2 lg:col-span-6 lg:justify-end lg:border-t lg:border-white/10 lg:pt-8"
+                    class="col-span-12 flex items-center justify-center lg:col-span-6 lg:justify-end"
                 >
                     <p class="text-xs text-white/60">
                         © 2026 Pigalle by Villamoura <span class="text-gold mx-1">X</span> Goodbye Friday

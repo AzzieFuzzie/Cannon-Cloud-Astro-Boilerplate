@@ -4,7 +4,17 @@
     --unit-sm: 10px;
     --unit-md: 20px;
     --grid-columns: 12;
-    --spacing-gutter: 20px;
+
+    --grid-margin: 40px; /* from Figma */
+    --grid-gutter: 20px; /* from Figma */
+}
+
+@media (max-width: 699px) {
+    :root {
+        --grid-columns: 4;
+        --grid-margin: 12px; /* from Figma */
+        --grid-gutter: 20px; /* from Figma */
+    }
 }
 
 @theme static {
@@ -12,27 +22,38 @@
     --font-rd-narrow: var(--custom-rd-narrow);
     --font-rd-condensed: var(--custom-rd-condensed);
 
+    /* Typography perfectly matched to the min/max of the SCSS */
     --text-heading-h1: utopia.clamp(40, 90);
     --text-heading-h2: utopia.clamp(28, 50);
     --text-heading-h3: utopia.clamp(24, 36);
     --text-heading-h4: utopia.clamp(26, 30);
     --text-heading-h5: utopia.clamp(18, 24);
-    --text-body-base: utopia.clamp(16, 18);
+    --text-heading-h6: 16px;
+    --text-body-base: 16px;
+    --text-action: utopia.clamp(14, 16);
 
     --color-black: #000000;
     --color-white: #ffffff;
 
+    /* 
+     * Fluid Spacing mapped from Phone (min) to Desktop (max).
+     * Because these use the `--spacing-` prefix, Tailwind automatically 
+     * applies them to padding (p-), margin (m-), gap (gap-), etc.
+     */
+    --spacing-xxtiny: utopia.clamp(4, 5);
+    --spacing-xtiny: utopia.clamp(8, 15);
+    --spacing-tiny: utopia.clamp(15, 25);
+    --spacing-xsmall: utopia.clamp(20, 40);
+    --spacing-small: utopia.clamp(30, 60);
+    --spacing-xmedium: utopia.clamp(45, 90);
+    --spacing-medium: utopia.clamp(60, 120);
+    --spacing-large: utopia.clamp(90, 180);
+    --spacing-xlarge: utopia.clamp(120, 240);
+
+    /* Custom explicit units */
     --spacing-unit-sm: var(--unit-sm);
     --spacing-unit-md: var(--unit-md);
-    --spacing-gutter: var(--spacing-unit-md);
-    --spacing-fluid-xs: utopia.clamp(8, 10);
-    --spacing-fluid-sm: utopia.clamp(16, 24);
-    --spacing-fluid-md: utopia.clamp(24, 32);
-    --spacing-fluid-lg: utopia.clamp(32, 40);
-    --spacing-fluid-xl: utopia.clamp(40, 56);
-    --spacing-fluid-2xl: utopia.clamp(56, 80);
-    --spacing-fluid-3xl: utopia.clamp(80, 128);
-    --spacing-fluid-4xl: utopia.clamp(128, 160);
+    --spacing-gutter: var(--grid-gutter);
 
     --breakpoint-2xs: 340px;
     --breakpoint-xs: 500px;

@@ -1,6 +1,5 @@
 paths:
-  uploads: public/uploads
-  uploads_use_relative_path: false
+  uploads: src/assets/images
   static: public
 
 # Registers src/data/home.json as a CloudCannon data source under the key "home".
@@ -26,17 +25,17 @@ _inputs:
   '*Description':
     type: text
 
-  # Dynamic Catch-All Rule: Any frontmatter key ending with 'Image' will automatically use the asset file picker
+  # Dynamic Catch-All Rule: Any frontmatter key ending with 'Image' will automatically use the asset file picker mapped to src/assets
   '*Image':
     type: image
     options:
-      path: public/uploads
+      path: src/assets/uploads
 
   # Dynamic Catch-All Rule: covers keys ending in 'ImageSrc' (e.g. aboutImageSrc, eventsImageSrc)
   '*ImageSrc':
     type: image
     options:
-      path: public/uploads
+      path: src/assets/uploads
 
 collections_config:
   menu:
@@ -46,9 +45,6 @@ collections_config:
     name: Menu Categories
     schemas:
       default:
-        # NOTE: this file must exist in src/content/menu/ — it's the template
-        # CloudCannon copies when an editor clicks "Add". If you deleted
-        # starters.json, either restore it or repoint this at a real file.
         path: src/content/menu/starters.json
     _inputs:
       categoryName:
@@ -67,8 +63,6 @@ collections_config:
               description: ''
               price: ''
               dietary: []
-      # Nested fields inside each menu item — required or "items" stays
-      # misconfigured (CloudCannon can't infer types for structure fields).
       name:
         type: text
       description:

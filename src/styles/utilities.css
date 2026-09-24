@@ -1,44 +1,85 @@
-/* Note on @utility coloring syntax https://github.com/tailwindlabs/tailwindcss-intellisense/issues/1146#issuecomment-2637758061 */
-/* Fix issue of tailwind container injecting max-w */
+@import 'tailwindcss';
+
 @utility container {
-    @apply mx-auto w-full px-unit-md;
-    @apply max-w-none;
+    margin-inline: auto;
+    width: 100%;
+    max-width: none;
+    padding-inline: var(--grid-margin);
 }
 
-@utility grid-12 {
+@utility grid-layout {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+    column-gap: var(--grid-gutter);
 }
-
 /* ==========================================
-   Structural Spacing Utilities
+   Typography Utilities (Custom Classes)
    ========================================== */
-
-/* Page container wrapper (consistent top/bottom padding across all pages) */
-@utility page-wrapper {
-    padding-top: var(--spacing-fluid-xl);
-    padding-bottom: var(--spacing-fluid-2xl);
+@utility heading-h1 {
+    font-family: var(--font-rd-narrow, serif);
+    font-size: var(--text-heading-h1);
+    line-height: 1;
+    letter-spacing: 0;
 }
 
-/* Section vertical rhythm */
-@utility section-spacing-xl {
-    padding-top: var(--spacing-fluid-2xl);
-    padding-bottom: var(--spacing-fluid-2xl);
+@utility heading-h2 {
+    font-family: var(--font-rd-narrow, serif);
+    font-size: var(--text-heading-h2);
+    line-height: 1.2;
+    letter-spacing: 0;
+
+    @media (max-width: 699px) {
+        line-height: 1.1;
+    }
 }
 
-@utility section-spacing-3xl {
-    padding-top: var(--spacing-fluid-3xl);
-    padding-bottom: var(--spacing-fluid-3xl);
+@utility heading-h3 {
+    font-family: var(--font-rd-narrow, serif);
+    font-size: var(--text-heading-h3);
+    line-height: 1.3;
+    letter-spacing: 0;
+
+    @media (max-width: 699px) {
+        line-height: 1.1;
+    }
 }
 
-@utility section-spacing-md {
-    padding-top: var(--spacing-fluid-md);
-    padding-bottom: var(--spacing-fluid-md);
+@utility heading-h4 {
+    font-family: var(--font-lato, sans-serif);
+    font-size: var(--text-heading-h4);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
 }
 
-/* Horizontal gutter */
-@utility container-gutter {
-    padding-left: var(--spacing-fluid-sm);
-    padding-right: var(--spacing-fluid-sm);
+@utility heading-h5 {
+    font-family: var(--font-lato, sans-serif);
+    font-size: var(--text-heading-h5);
+    line-height: 1.1;
+    letter-spacing: 0;
+
+    @media (max-width: 699px) {
+        line-height: 1.3;
+    }
+}
+
+@utility heading-h6 {
+    font-family: var(--font-lato, sans-serif);
+    font-size: 1rem; /* Fixed 16px */
+    line-height: 1.3;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+@utility body-base {
+    font-family: var(--font-lato, sans-serif);
+    font-size: var(--text-body-base);
+    line-height: 1.3; /* Adjusted to 1.3 to match your original SCSS */
+    letter-spacing: 0;
+}
+
+@utility text-action {
+    font-family: var(--font-lato, sans-serif);
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: var(--text-action);
 }
