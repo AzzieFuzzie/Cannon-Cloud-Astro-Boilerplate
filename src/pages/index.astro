@@ -1,10 +1,12 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import home from '../data/home.json';
-
 import Image from 'astro/components/Image.astro';
 import Accordion from '../components/Accordion/Accordion.astro';
 import Button from '../components/Button/Button.astro';
+
+const taglineHeading =
+    "Nestled in the heart of Sandton at Nelson Mandela Square, Pigalle by Villamoura offers more than just a meal — it's an experience.";
 ---
 
 <Layout title="Home">
@@ -40,14 +42,11 @@ import Button from '../components/Button/Button.astro';
     <section class="mx-xtiny mb-large flex items-center justify-center" data-animation="fade">
         <div class="flex max-w-[clamp(60ch,70vw,80ch)] flex-col items-center justify-center">
             <h2
-                data-editable="source"
-                data-path="src/pages/index.astro"
-                data-key="taglineHeading"
-                data-type="text"
+                data-editable="text"
+                data-prop="taglineHeading"
                 class="heading-h2 mb-xsmall text-center"
             >
-                Nestled in the heart of Sandton at Nelson Mandela Square, Pigalle by Villamoura
-                offers more than just a meal — it’s an experience.
+                {taglineHeading}
             </h2>
             <Button class="text-center text-black" href="/about" target="_blank">Our Story</Button>
         </div>
