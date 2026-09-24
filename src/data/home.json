@@ -2,15 +2,15 @@
     "heading": "Pigalle by Villamoura the home of Exceptional Seafood and Grills",
     "taglineHeading": "Nestled in the heart of Sandton at Nelson Mandela Square, Pigalle by Villamoura offers more than just a meal — it’s an experience.",
 
-    "aboutImageSrc": "/src/assets/images/1.png",
+    "aboutImageSrc": "/src/assets/images/home/1.png",
     "aboutImageAlt": "Pigalle dining room",
     "aboutImageTitle": "About Pigalle",
 
-    "foodGalleryImage": "/src/assets/images/2.png",
+    "foodGalleryImage": "/src/assets/images/home/2.png",
     "foodGalleryImageAlt": "Seafood platter",
     "foodGalleryImageTitle": "Our Food",
 
-    "eventsImageSrc": "/src/assets/images/3.png",
+    "eventsImageSrc": "/src/assets/images/home/3.png",
     "eventsImageAlt": "Private event setup",
     "eventsImageTitle": "Private Events"
 }

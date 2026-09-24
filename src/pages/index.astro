@@ -52,219 +52,230 @@ import Button from '../components/Button/Button.astro';
             <Button class="text-center text-black" href="/about" target="_blank">Our Story</Button>
         </div>
     </section>
-</Layout>
 
-{/* About Section */}
-<section class="container mb-medium">
-    <div class="grid-layout gap-y-fluid-md items-center">
-        {/* Image */}
-        <div class="col-span-4 sm:col-span-6">
-            <Image
-                class="mb-tiny aspect-665/700 h-auto w-full object-cover"
-                sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
-                data-editable="image"
-                data-prop-src="@data[home].aboutImageSrc"
-                data-prop-alt="@data[home].aboutImageAlt"
-                data-prop-title="@data[home].aboutImageTitle"
-                src={home.aboutImageSrc}
-                title={home.aboutImageTitle}
-                alt={home.aboutImageAlt}
-                width={1330}
-                height={1400}
-            />
-        </div>
+    {/* About Section */}
+    <section class="container mb-medium">
+        <div class="grid-layout gap-y-fluid-md items-center">
+            {/* Image */}
+            <div class="col-span-4 sm:col-span-6">
+                <Image
+                    class="mb-tiny aspect-665/700 h-auto w-full object-cover"
+                    sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
+                    data-editable="image"
+                    data-prop-src="@data[home].aboutImageSrc"
+                    data-prop-alt="@data[home].aboutImageAlt"
+                    data-prop-title="@data[home].aboutImageTitle"
+                    src={home.aboutImageSrc}
+                    title={home.aboutImageTitle}
+                    alt={home.aboutImageAlt}
+                    width={1330}
+                    height={1400}
+                />
+            </div>
 
-        {/* Text */}
-        <div class="col-span-4 flex flex-col items-start text-left sm:col-span-4 sm:col-start-8">
-            <p
-                data-editable="source"
-                data-path="src/pages/index.astro"
-                data-key="aboutSubheading"
-                data-type="text"
-                class="heading-h6 pb-fluid-xs mb-xtiny font-medium tracking-widest text-black/60 uppercase"
+            {/* Text */}
+            <div
+                class="col-span-4 flex flex-col items-start text-left sm:col-span-4 sm:col-start-8"
             >
-                ABOUT
-            </p>
-
-            <h2
-                data-editable="source"
-                data-path="src/pages/index.astro"
-                data-key="aboutDescription"
-                data-type="text"
-                class="heading-h4 pb-fluid-xs mb-tiny max-w-[28ch] leading-snug font-normal text-black"
-            >
-                Pigalle by Villamoura serves Portuguese and Mediterranean Inspired cuisine with a
-                classic South African twist.
-            </h2>
-
-            <Button class="text-center text-black" href="/about">Our Story</Button>
-        </div>
-    </div>
-</section>
-
-{/* Our Menu Section */}
-<section class="container mb-large">
-    <div class="grid-layout gap-y-fluid-md items-center">
-        {/* Image (first in the code = first on mobile) */}
-        <div class="col-span-4 mb-tiny sm:col-span-6 sm:col-start-7 sm:row-start-1">
-            <Image
-                class="aspect-665/700 h-auto w-full object-cover"
-                sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
-                data-editable="image"
-                data-prop-src="@data[home].foodGalleryImage"
-                data-prop-alt="@data[home].foodGalleryImageAlt"
-                data-prop-title="@data[home].foodGalleryImageTitle"
-                src={home.foodGalleryImage}
-                title={home.foodGalleryImageTitle}
-                alt={home.foodGalleryImageAlt}
-                width={1330}
-                height={1400}
-            />
-        </div>
-
-        {/* Text (left on desktop) */}
-        <div class="col-span-4 sm:col-span-4 sm:col-start-3 sm:row-start-1">
-            <p
-                data-editable="source"
-                data-path="src/pages/index.astro"
-                data-key="foodHeading"
-                data-type="text"
-                class="heading-h6 pb-fluid-xs mb-xtiny font-medium tracking-widest text-black/60 uppercase"
-            >
-                Our Food
-            </p>
-
-            <h2
-                data-editable="source"
-                data-path="src/pages/index.astro"
-                data-key="foodDescription"
-                data-type="text"
-                class="heading-h4 pb-fluid-md mb-tiny max-w-[15ch] font-normal text-black"
-            >
-                From ocean-fresh seafood to flame-grilled perfection.
-            </h2>
-
-            <Button class="text-center text-black" href="/menu">Our Menu</Button>
-        </div>
-    </div>
-</section>
-
-{/* Private Events Section */}
-<section
-    class="grid-layout relative mb-large min-h-screen w-full items-center justify-items-center overflow-hidden text-white"
->
-    <div class="absolute inset-0 z-0">
-        <Image
-            class="h-full w-full object-cover object-center"
-            data-editable="image"
-            data-prop-src="@data[home].eventsImageSrc"
-            data-prop-alt="@data[home].eventsImageAlt"
-            data-prop-title="@data[home].eventsImageTitle"
-            src={home.eventsImageSrc}
-            title={home.eventsImageTitle}
-            alt={home.eventsImageAlt}
-            width={1000}
-            height={1000}
-        />
-    </div>
-
-    <div class="py-fluid-xl relative z-10 col-span-3 col-start-2 sm:col-start-7">
-        <div class="px-fluid-sm max-w-[40rem] lg:px-0">
-            <h2
-                data-editable="source"
-                data-path="src/pages/index.astro"
-                data-key="eventsHeading"
-                data-type="text"
-                class="heading-h2 font-serif leading-tight text-white"
-                data-animation="title"
-            >
-                Private Events
-            </h2>
-
-            <p
-                data-editable="source"
-                data-path="src/pages/index.astro"
-                data-key="eventsDescription"
-                data-type="text"
-                class="max-w-[34ch] text-sm leading-relaxed text-white/90 md:text-base"
-                data-animation="paragraph"
-            >
-                We accommodate for all types of events including birthdays, corporate event,
-                pre-wedding occasions and more.
-            </p>
-
-            <div class="pt-fluid-xs">
-                <a
-                    class="hover:text-accent-grey hover:border-accent-grey inline-block border-b border-white pb-1 text-xs font-semibold tracking-widest text-white uppercase transition-colors"
-                    href="/book/"
-                    data-animation="fade"
+                <p
+                    data-editable="source"
+                    data-path="src/pages/index.astro"
+                    data-key="aboutSubheading"
+                    data-type="text"
+                    class="heading-h6 pb-fluid-xs mb-xtiny font-medium tracking-widest text-black/60 uppercase"
                 >
-                    <span
-                        data-editable="source"
-                        data-path="src/pages/index.astro"
-                        data-key="eventsButton"
-                        data-type="text"
-                    >
-                        MAKE A BOOKING
-                    </span>
-                </a>
+                    ABOUT
+                </p>
+
+                <h2
+                    data-editable="source"
+                    data-path="src/pages/index.astro"
+                    data-key="aboutDescription"
+                    data-type="text"
+                    class="heading-h4 pb-fluid-xs mb-tiny max-w-[28ch] leading-snug font-normal text-black"
+                >
+                    Pigalle by Villamoura serves Portuguese and Mediterranean Inspired cuisine with
+                    a classic South African twist.
+                </h2>
+
+                <Button class="text-center text-black" href="/about">Our Story</Button>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="mb-large" aria-labelledby="faq-heading">
-    <div class="mx-auto max-w-[clamp(50ch,70vw,80ch)]">
-        <h2 class="mb-tiny tracking-widest uppercase">FAQ'S</h2>
+    {/* Our Menu Section */}
+    <section class="container mb-large">
+        <div class="grid-layout gap-y-fluid-md items-center">
+            {/* Image (first in the code = first on mobile) */}
+            <div class="col-span-4 mb-tiny sm:col-span-6 sm:col-start-7 sm:row-start-1">
+                <Image
+                    class="aspect-665/700 h-auto w-full object-cover"
+                    sizes="(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px"
+                    data-editable="image"
+                    data-prop-src="@data[home].foodGalleryImage"
+                    data-prop-alt="@data[home].foodGalleryImageAlt"
+                    data-prop-title="@data[home].foodGalleryImageTitle"
+                    src={home.foodGalleryImage}
+                    title={home.foodGalleryImageTitle}
+                    alt={home.foodGalleryImageAlt}
+                    width={1330}
+                    height={1400}
+                />
+            </div>
 
-        <div class="border-t border-black/20">
-            <Accordion label="Do I need a reservation?" name="faq" class="border-b border-black/20">
-                <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
-                    Reservations are recommended, especially for evenings and weekends. Walk-ins are
-                    welcome and will be seated subject to availability.
+            {/* Text (left on desktop) */}
+            <div class="col-span-4 sm:col-span-4 sm:col-start-3 sm:row-start-1">
+                <p
+                    data-editable="source"
+                    data-path="src/pages/index.astro"
+                    data-key="foodHeading"
+                    data-type="text"
+                    class="heading-h6 pb-fluid-xs mb-xtiny font-medium tracking-widest text-black/60 uppercase"
+                >
+                    Our Food
                 </p>
-            </Accordion>
 
-            <Accordion
-                label="What cuisine do you serve?"
-                name="faq"
-                class="border-b border-black/20"
-            >
-                <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
-                    Our menu brings together Portuguese and Mediterranean-inspired dishes with a
-                    classic South African twist, including fresh seafood and flame-grilled
-                    favourites.
-                </p>
-            </Accordion>
+                <h2
+                    data-editable="source"
+                    data-path="src/pages/index.astro"
+                    data-key="foodDescription"
+                    data-type="text"
+                    class="heading-h4 pb-fluid-md mb-tiny max-w-[15ch] font-normal text-black"
+                >
+                    From ocean-fresh seafood to flame-grilled perfection.
+                </h2>
 
-            <Accordion
-                label="Do you cater for dietary requirements?"
-                name="faq"
-                class="border-b border-black/20"
-            >
-                <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
-                    We are happy to accommodate most dietary requirements. Please let our team know
-                    when making your reservation so we can prepare the best experience for you.
-                </p>
-            </Accordion>
-
-            <Accordion
-                label="Can I host a private event at Pigalle?"
-                name="faq"
-                class="border-b border-black/20"
-            >
-                <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
-                    Yes. We host birthdays, corporate events, pre-wedding occasions and more.
-                    Contact us to discuss your plans and available options.
-                </p>
-            </Accordion>
-
-            <Accordion label="Where are you located?" name="faq" class="border-b border-black/20">
-                <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
-                    You can find us in the heart of Sandton at Nelson Mandela Square. Visit our
-                    booking page for directions and reservation details.
-                </p>
-            </Accordion>
+                <Button class="text-center text-black" href="/menu">Our Menu</Button>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    {/* Private Events Section */}
+    <section
+        class="grid-layout relative mb-large min-h-screen w-full items-center justify-items-center overflow-hidden text-white"
+    >
+        <div class="absolute inset-0 z-0">
+            <Image
+                class="h-full w-full object-cover object-center"
+                data-editable="image"
+                data-prop-src="@data[home].eventsImageSrc"
+                data-prop-alt="@data[home].eventsImageAlt"
+                data-prop-title="@data[home].eventsImageTitle"
+                src={home.eventsImageSrc}
+                title={home.eventsImageTitle}
+                alt={home.eventsImageAlt}
+                width={1000}
+                height={1000}
+            />
+        </div>
+
+        <div class="py-fluid-xl relative z-10 col-span-3 col-start-2 sm:col-start-7">
+            <div class="px-fluid-sm max-w-[40rem] lg:px-0">
+                <h2
+                    data-editable="source"
+                    data-path="src/pages/index.astro"
+                    data-key="eventsHeading"
+                    data-type="text"
+                    class="heading-h2 font-serif leading-tight text-white"
+                    data-animation="title"
+                >
+                    Private Events
+                </h2>
+
+                <p
+                    data-editable="source"
+                    data-path="src/pages/index.astro"
+                    data-key="eventsDescription"
+                    data-type="text"
+                    class="max-w-[34ch] text-sm leading-relaxed text-white/90 md:text-base"
+                    data-animation="paragraph"
+                >
+                    We accommodate for all types of events including birthdays, corporate event,
+                    pre-wedding occasions and more.
+                </p>
+
+                <div class="pt-fluid-xs">
+                    <a
+                        class="hover:text-accent-grey hover:border-accent-grey inline-block border-b border-white pb-1 text-xs font-semibold tracking-widest text-white uppercase transition-colors"
+                        href="/book/"
+                        data-animation="fade"
+                    >
+                        <span
+                            data-editable="source"
+                            data-path="src/pages/index.astro"
+                            data-key="eventsButton"
+                            data-type="text"
+                        >
+                            MAKE A BOOKING
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-large" aria-labelledby="faq-heading">
+        <div class="mx-auto max-w-[clamp(50ch,70vw,80ch)]">
+            <h2 class="mb-tiny tracking-widest uppercase">FAQ'S</h2>
+
+            <div class="border-t border-black/20">
+                <Accordion
+                    label="Do I need a reservation?"
+                    name="faq"
+                    class="border-b border-black/20"
+                >
+                    <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
+                        Reservations are recommended, especially for evenings and weekends. Walk-ins
+                        are welcome and will be seated subject to availability.
+                    </p>
+                </Accordion>
+
+                <Accordion
+                    label="What cuisine do you serve?"
+                    name="faq"
+                    class="border-b border-black/20"
+                >
+                    <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
+                        Our menu brings together Portuguese and Mediterranean-inspired dishes with a
+                        classic South African twist, including fresh seafood and flame-grilled
+                        favourites.
+                    </p>
+                </Accordion>
+
+                <Accordion
+                    label="Do you cater for dietary requirements?"
+                    name="faq"
+                    class="border-b border-black/20"
+                >
+                    <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
+                        We are happy to accommodate most dietary requirements. Please let our team
+                        know when making your reservation so we can prepare the best experience for
+                        you.
+                    </p>
+                </Accordion>
+
+                <Accordion
+                    label="Can I host a private event at Pigalle?"
+                    name="faq"
+                    class="border-b border-black/20"
+                >
+                    <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
+                        Yes. We host birthdays, corporate events, pre-wedding occasions and more.
+                        Contact us to discuss your plans and available options.
+                    </p>
+                </Accordion>
+
+                <Accordion
+                    label="Where are you located?"
+                    name="faq"
+                    class="border-b border-black/20"
+                >
+                    <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
+                        You can find us in the heart of Sandton at Nelson Mandela Square. Visit our
+                        booking page for directions and reservation details.
+                    </p>
+                </Accordion>
+            </div>
+        </div>
+    </section>
+</Layout>
