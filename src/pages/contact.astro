@@ -1,102 +1,155 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import home from '../data/home.json';
+import { Image } from 'astro:assets';
+import contact from '../data/contact.json';
+import site from '../data/site.json';
 
-import Image from 'astro/components/Image.astro';
+const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
+
+const mapQuery = encodeURIComponent(
+    'UO9, Michelangelo Towers, Maude St, Sandton, 2196 (Pigalle by Villamoura)'
+);
 ---
 
 <Layout title="Contact">
-    <section class="container-gutter page-wrapper">
-        <div class="space-y-fluid-4xl">
-            <div class="grid-12">
-                <div class="col-start-1 md:col-end-6">
-                    <h1
-                        class="heading-h3 mb-fluid-sm"
+    <section
+        class="sm:grid-layout min-h-screen px-(--grid-margin) pt-small pb-medium sm:items-start md:pt-medium"
+    >
+        <!-- Left: heading + image -->
+        <div class="flex flex-col items-center justify-center md:top-large md:col-span-5">
+            <h2
+                class="mb-xsmall max-w-[clamp(5ch,50%,10ch)] text-center"
+                data-editable="source"
+                data-path="src/pages/contact.astro"
+                data-key="pageHeading"
+                data-type="text"
+            >
+                Get in touch with us
+            </h2>
+
+            <Image
+                class="mb-small aspect-665/440 w-full object-cover md:mb-0 md:aspect-square"
+                data-editable="image"
+                data-prop-src="@data[contact].heroImage"
+                data-prop-alt="@data[contact].heroImageAlt"
+                data-prop-title="@data[contact].heroImageTitle"
+                src={contact.heroImage}
+                title={contact.heroImageTitle}
+                alt={contact.heroImageAlt}
+                data-animation="image_reveal_horizontal"
+                width={1000}
+                height={1000}
+            />
+        </div>
+
+        <!-- Right: details + map -->
+        <div
+            class="flex flex-col justify-center text-center sm:items-start sm:justify-start sm:text-left md:col-span-6 md:col-start-7 md:pt-[calc(var(--text-heading-h2)*1.25+var(--spacing-xsmall))]"
+        >
+            <ul class="">
+                <li class="py-tiny first:pt-0 md:py-xsmall">
+                    <h4
+                        class="mb-xxtiny text-heading-h6 tracking-wider text-black/60 uppercase"
                         data-editable="source"
                         data-path="src/pages/contact.astro"
-                        data-key="pageHeading"
+                        data-key="phoneLabel"
                         data-type="text"
                     >
-                        Get in touch with us
-                    </h1>
-                    <Image
-                        class="h-auto w-full object-cover"
-                        data-editable="image"
-                        data-prop-src="@data[home].aboutImageSrc"
-                        data-prop-alt="@data[home].aboutImageAlt"
-                        data-prop-title="@data[home].aboutImageTitle"
-                        src={home.aboutImageSrc}
-                        title={home.aboutImageTitle}
-                        alt={home.aboutImageAlt}
-                        data-animation="image_reveal_horizontal"
-                        width={1000}
-                        height={1000}
-                    />
-                </div>
+                        Phone
+                    </h4>
+                    {
+                        /* Contact details come from src/data/site.json so the link always matches the text */
+                    }
+                    <a
+                        href={toTel(site.phone)}
+                        class="body-base transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                    >
+                        <span data-editable="text" data-prop="@data[site].phone" data-type="span"
+                            >{site.phone}</span
+                        >
+                    </a>
+                </li>
 
-                <div class="col-start-7 my-fluid-lg md:col-end-12">
-                    <div>
-                        <h4
-                            class="heading-h6 my-fluid-xs"
-                            data-editable="source"
-                            data-path="src/pages/contact.astro"
-                            data-key="phoneLabel"
-                            data-type="text"
+                <li class="py-tiny md:py-xsmall">
+                    <h4
+                        class="mb-xxtiny text-heading-h6 tracking-wider text-black/60 uppercase"
+                        data-editable="source"
+                        data-path="src/pages/contact.astro"
+                        data-key="whatsappLabel"
+                        data-type="text"
+                    >
+                        Whatsapp
+                    </h4>
+                    <a
+                        href={`https://wa.me/${site.whatsapp.replace(/\D/g, '')}`}
+                        target="_blank"
+                        rel="noopener"
+                        class="body-base transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                    >
+                        <span data-editable="text" data-prop="@data[site].whatsapp" data-type="span"
+                            >{site.whatsapp}</span
                         >
-                            Phone
-                        </h4>
-                        <a
-                            href="tel:+27 11 123 4567"
-                            data-editable="source"
-                            data-path="src/pages/contact.astro"
-                            data-key="phoneNumber"
-                            data-type="text">+27 11 123 4567</a
-                        >
-                    </div>
+                    </a>
+                </li>
 
-                    <div class="my-fluid-lg">
-                        <h4
-                            class="heading-h6 my-fluid-xs"
-                            data-editable="source"
-                            data-path="src/pages/contact.astro"
-                            data-key="emailLabel"
-                            data-type="text"
+                <li class="py-tiny md:py-xsmall">
+                    <h4
+                        class="mb-xxtiny text-heading-h6 tracking-wider text-black/60 uppercase"
+                        data-editable="source"
+                        data-path="src/pages/contact.astro"
+                        data-key="emailLabel"
+                        data-type="text"
+                    >
+                        Email
+                    </h4>
+                    <a
+                        href={`mailto:${site.email}`}
+                        class="body-base transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                    >
+                        <span data-editable="text" data-prop="@data[site].email" data-type="span"
+                            >{site.email}</span
                         >
-                            Email
-                        </h4>
-                        <a
-                            href="mailto:info@pigalle.co.za"
-                            data-editable="source"
-                            data-path="src/pages/contact.astro"
-                            data-key="emailAddress"
-                            data-type="text">info@pigalle.co.za</a
-                        >
-                    </div>
+                    </a>
+                </li>
 
-                    <div class="my-fluid-lg">
-                        <h4
-                            class="heading-h6 my-fluid-xs"
-                            data-editable="source"
-                            data-path="src/pages/contact.astro"
-                            data-key="addressLabel"
-                            data-type="text"
+                <li class="py-tiny md:py-xsmall">
+                    <h4
+                        class="mb-xxtiny text-heading-h6 tracking-wider text-black/60 uppercase"
+                        data-editable="source"
+                        data-path="src/pages/contact.astro"
+                        data-key="addressLabel"
+                        data-type="text"
+                    >
+                        Address
+                    </h4>
+                    <a
+                        href={site.mapsUrl}
+                        target="_blank"
+                        rel="noopener"
+                        class="body-base block leading-snug transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                    >
+                        <span
+                            class="block"
+                            data-editable="text"
+                            data-prop="@data[site].addressLine1"
+                            data-type="span">{site.addressLine1}</span
                         >
-                            Address
-                        </h4>
-                        <p
-                            data-editable="source"
-                            data-path="src/pages/contact.astro"
-                            data-key="address"
-                            data-type="text"
+                        <span
+                            class="block"
+                            data-editable="text"
+                            data-prop="@data[site].addressLine2"
+                            data-type="span">{site.addressLine2}</span
                         >
-                            UO9,<br />
-                            Michelangelo Towers,<br />
-                            Maude St, Sandton,<br />
-                            2196
-                        </p>
-                    </div>
-                </div>
-            </div>
+                    </a>
+                </li>
+            </ul>
+
+            <iframe
+                title="Map to Pigalle by Villamoura"
+                src={`https://maps.google.com/maps?hl=en&q=${mapQuery}&z=15&output=embed`}
+                class="mt-small aspect-4/3 w-[50%] border-0 grayscale-[0.6] md:aspect-video"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 </Layout>

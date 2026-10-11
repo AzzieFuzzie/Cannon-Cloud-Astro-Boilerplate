@@ -1,6 +1,8 @@
 {
     "categoryName": "Grill & Premium Steaks",
     "displayOrder": 6,
+    "image": "/src/assets/images/home/7.png",
+    "imageAlt": "Grill & Premium Steaks at Pigalle",
     "items": [
         {
             "name": "Chilli Oven Tomahawk 800g",

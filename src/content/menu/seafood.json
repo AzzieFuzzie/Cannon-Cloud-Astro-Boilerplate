@@ -1,6 +1,8 @@
 {
     "categoryName": "Seafood",
     "displayOrder": 4,
+    "image": "/src/assets/images/home/7.png",
+    "imageAlt": "Seafood at Pigalle",
     "items": [
         {
             "name": "Prawns - 7 Queens",

@@ -1,12 +1,10 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import home from '../data/home.json';
+
 import Image from 'astro/components/Image.astro';
 import Accordion from '../components/Accordion/Accordion.astro';
 import Button from '../components/Button/Button.astro';
-
-const taglineHeading =
-    "Nestled in the heart of Sandton at Nelson Mandela Square, Pigalle by Villamoura offers more than just a meal — it's an experience.";
 ---
 
 <Layout title="Home">
@@ -42,13 +40,23 @@ const taglineHeading =
     <section class="mx-xtiny mb-large flex items-center justify-center" data-animation="fade">
         <div class="flex max-w-[clamp(60ch,70vw,80ch)] flex-col items-center justify-center">
             <h2
-                data-editable="text"
-                data-prop="taglineHeading"
+                data-editable="source"
+                data-path="src/pages/index.astro"
+                data-key="taglineHeading"
+                data-type="text"
                 class="heading-h2 mb-xsmall text-center"
             >
-                {taglineHeading}
+                Nestled in the heart of Sandton at Nelson Mandela Square, Pigalle by Villamoura
+                offers more than just a meal — it’s an experience.
             </h2>
-            <Button class="text-center text-black" href="/about" target="_blank">Our Story</Button>
+            <Button class="text-center text-black" href="/about" target="_blank">
+                <span
+                    data-editable="source"
+                    data-path="src/pages/index.astro"
+                    data-key="taglineButton"
+                    data-type="span">Our Story</span
+                >
+            </Button>
         </div>
     </section>
 
@@ -97,7 +105,14 @@ const taglineHeading =
                     a classic South African twist.
                 </h2>
 
-                <Button class="text-center text-black" href="/about">Our Story</Button>
+                <Button class="text-center text-black" href="/about">
+                    <span
+                        data-editable="source"
+                        data-path="src/pages/index.astro"
+                        data-key="aboutButton"
+                        data-type="span">Our Story</span
+                    >
+                </Button>
             </div>
         </div>
     </section>
@@ -144,7 +159,14 @@ const taglineHeading =
                     From ocean-fresh seafood to flame-grilled perfection.
                 </h2>
 
-                <Button class="text-center text-black" href="/menu">Our Menu</Button>
+                <Button class="text-center text-black" href="/menu">
+                    <span
+                        data-editable="source"
+                        data-path="src/pages/index.astro"
+                        data-key="foodButton"
+                        data-type="span">Our Menu</span
+                    >
+                </Button>
             </div>
         </div>
     </section>
@@ -215,65 +237,44 @@ const taglineHeading =
 
     <section class="mb-large" aria-labelledby="faq-heading">
         <div class="mx-auto max-w-[clamp(50ch,70vw,80ch)]">
-            <h2 class="mb-tiny tracking-widest uppercase">FAQ'S</h2>
+            <h2
+                id="faq-heading"
+                class="mb-tiny tracking-widest uppercase"
+                data-editable="source"
+                data-path="src/pages/index.astro"
+                data-key="faqHeading"
+                data-type="text"
+            >
+                FAQ&apos;S
+            </h2>
 
-            <div class="border-t border-black/20">
-                <Accordion
-                    label="Do I need a reservation?"
-                    name="faq"
-                    class="border-b border-black/20"
-                >
-                    <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
-                        Reservations are recommended, especially for evenings and weekends. Walk-ins
-                        are welcome and will be seated subject to availability.
-                    </p>
-                </Accordion>
-
-                <Accordion
-                    label="What cuisine do you serve?"
-                    name="faq"
-                    class="border-b border-black/20"
-                >
-                    <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
-                        Our menu brings together Portuguese and Mediterranean-inspired dishes with a
-                        classic South African twist, including fresh seafood and flame-grilled
-                        favourites.
-                    </p>
-                </Accordion>
-
-                <Accordion
-                    label="Do you cater for dietary requirements?"
-                    name="faq"
-                    class="border-b border-black/20"
-                >
-                    <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
-                        We are happy to accommodate most dietary requirements. Please let our team
-                        know when making your reservation so we can prepare the best experience for
-                        you.
-                    </p>
-                </Accordion>
-
-                <Accordion
-                    label="Can I host a private event at Pigalle?"
-                    name="faq"
-                    class="border-b border-black/20"
-                >
-                    <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
-                        Yes. We host birthdays, corporate events, pre-wedding occasions and more.
-                        Contact us to discuss your plans and available options.
-                    </p>
-                </Accordion>
-
-                <Accordion
-                    label="Where are you located?"
-                    name="faq"
-                    class="border-b border-black/20"
-                >
-                    <p class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70">
-                        You can find us in the heart of Sandton at Nelson Mandela Square. Visit our
-                        booking page for directions and reservation details.
-                    </p>
-                </Accordion>
+            {/* FAQs live in src/data/home.json so questions can be added, removed and reordered */}
+            <div
+                class="border-t border-black/20"
+                data-editable="array"
+                data-prop="@data[home].faqs"
+            >
+                {
+                    home.faqs.map((faq) => (
+                        <div data-editable="array-item">
+                            <Accordion
+                                label={faq.question}
+                                labelProp="question"
+                                name="faq"
+                                class="border-b border-black/20"
+                            >
+                                <p
+                                    class="pb-fluid-sm max-w-[60ch] text-sm leading-relaxed text-black/70"
+                                    data-editable="text"
+                                    data-prop="answer"
+                                    data-type="text"
+                                >
+                                    {faq.answer}
+                                </p>
+                            </Accordion>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     </section>

@@ -4,6 +4,7 @@ import { Font, type CssVariable } from 'astro:assets';
 // import { SEO } from 'astro-seo';
 // import { defaultSeo } from '@data/seo';
 import Icon from '../components/Icon/Icon.astro';
+import site from '../data/site.json';
 
 // Include ALL 3 font CSS variables declared in your astro.config.mjs
 const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-rd-condensed'];
@@ -49,35 +50,33 @@ const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-r
                         data-editable="source"
                         data-path="src/layouts/Layout.astro"
                         data-key="footerTradingHeading"
+                        data-type="text"
                         class="text-body font-medium tracking-widest text-[var(--color-gold)] uppercase"
                     >
                         TRADING HOURS
                     </h5>
 
-                    <div class="space-y-3 text-sm text-white/90">
-                        {/* Mon-Thu */}
-                        <div
-                            class="flex flex-col space-y-1 lg:max-w-xs lg:flex-row lg:items-center lg:justify-between lg:space-y-0"
-                        >
-                            <span>Mon-Thu</span>
-                            <span>12:00pm - 10:30pm</span>
-                        </div>
-
-                        {/* Fri-Sat */}
-                        <div
-                            class="flex flex-col space-y-1 lg:max-w-xs lg:flex-row lg:items-center lg:justify-between lg:space-y-0"
-                        >
-                            <span>Fri-Sat</span>
-                            <span>12:00pm - 12:00am</span>
-                        </div>
-
-                        {/* Sun */}
-                        <div
-                            class="flex flex-col space-y-1 lg:max-w-xs lg:flex-row lg:items-center lg:justify-between lg:space-y-0"
-                        >
-                            <span>Sun</span>
-                            <span>12:00pm - 10:30pm</span>
-                        </div>
+                    {/* Trading hours live in src/data/site.json */}
+                    <div
+                        class="space-y-3 text-sm text-white/90"
+                        data-editable="array"
+                        data-prop="@data[site].hours"
+                    >
+                        {
+                            site.hours.map((row) => (
+                                <div
+                                    class="flex flex-col space-y-1 lg:max-w-xs lg:flex-row lg:items-center lg:justify-between lg:space-y-0"
+                                    data-editable="array-item"
+                                >
+                                    <span data-editable="text" data-prop="days" data-type="span">
+                                        {row.days}
+                                    </span>
+                                    <span data-editable="text" data-prop="time" data-type="span">
+                                        {row.time}
+                                    </span>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
 
@@ -91,22 +90,34 @@ const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-r
                             data-editable="source"
                             data-path="src/layouts/Layout.astro"
                             data-key="footerContactHeading"
+                            data-type="text"
                             class="text-body font-medium tracking-widest text-[var(--color-gold)] uppercase"
                         >
                             CONTACT US
                         </h5>
 
                         <p>
-                            <a href="tel:+27118848899" class="hover:text-gold transition-colors">
-                                +27 11 884 8899
+                            <a
+                                href={`tel:${site.phone.replace(/[^+\d]/g, '')}`}
+                                class="hover:text-gold transition-colors"
+                            >
+                                <span
+                                    data-editable="text"
+                                    data-prop="@data[site].phone"
+                                    data-type="span">{site.phone}</span
+                                >
                             </a>
                         </p>
                         <p class="font-medium tracking-wide uppercase">
                             <a
-                                href="mailto:ADMIN@PIGALLE.CO.ZA"
+                                href={`mailto:${site.email}`}
                                 class="hover:text-gold transition-colors"
                             >
-                                ADMIN@PIGALLE.CO.ZA
+                                <span
+                                    data-editable="text"
+                                    data-prop="@data[site].email"
+                                    data-type="span">{site.email}</span
+                                >
                             </a>
                         </p>
                     </div>
@@ -117,6 +128,7 @@ const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-r
                             data-editable="source"
                             data-path="src/layouts/Layout.astro"
                             data-key="footerSocialHeading"
+                            data-type="text"
                             class="text-body font-medium tracking-widest text-[var(--color-gold)] uppercase"
                         >
                             FOLLOW US
@@ -204,7 +216,12 @@ const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-r
                     class="col-span-12 flex items-center justify-center lg:col-span-6 lg:justify-end"
                 >
                     <p class="text-xs text-white/60">
-                        © 2026 Pigalle by Villamoura <span class="text-gold mx-1">X</span> Goodbye Friday
+                        <span
+                            data-editable="text"
+                            data-prop="@data[site].copyright"
+                            data-type="span">{site.copyright}</span
+                        >
+                        <span class="text-gold mx-1">X</span> Goodbye Friday
                     </p>
                 </div>
             </div>

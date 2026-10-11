@@ -1,0 +1,23 @@
+{
+    "phone": "+27 11 884 8899",
+    "whatsapp": "+27 84 556 7786",
+    "email": "admin@pigalle.co.za",
+    "addressLine1": "UO9, Michelangelo Towers,",
+    "addressLine2": "Maude St, Sandton, 2196",
+    "mapsUrl": "https://maps.google.com/?q=Pigalle+Restaurant-Sandton",
+    "hours": [
+        {
+            "days": "Mon-Thu",
+            "time": "12:00pm - 10:30pm"
+        },
+        {
+            "days": "Fri-Sat",
+            "time": "12:00pm - 12:00am"
+        },
+        {
+            "days": "Sun",
+            "time": "12:00pm - 10:30pm"
+        }
+    ],
+    "copyright": "© 2026 Pigalle by Villamoura"
+}

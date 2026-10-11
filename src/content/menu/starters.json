@@ -1,6 +1,8 @@
 {
     "categoryName": "Starters",
     "displayOrder": 1,
+    "image": "/src/assets/images/home/7.png",
+    "imageAlt": "Starters at Pigalle",
     "items": [
         {
             "name": "Pan-Seared Scallops",

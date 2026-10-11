@@ -1,6 +1,8 @@
 {
     "categoryName": "Salads",
     "displayOrder": 3,
+    "image": "/src/assets/images/home/7.png",
+    "imageAlt": "Salads at Pigalle",
     "items": [
         {
             "name": "Greek Salad",

@@ -2,12 +2,21 @@ paths:
   uploads: src/assets/images
   static: public
 
-# Registers src/data/home.json as a CloudCannon data source under the key "home".
-# This makes its fields resolvable via @data[home].<field> in data-prop attributes,
+# Registers each src/data/*.json file as a CloudCannon data source under its key.
+# This makes its fields resolvable via @data[<key>].<field> in data-prop attributes,
 # and exposes the file in the CloudCannon sidebar under Data.
 data_config:
   home:
     path: src/data/home.json
+  about:
+    path: src/data/about.json
+  book:
+    path: src/data/book.json
+  contact:
+    path: src/data/contact.json
+  # Shared contact details, trading hours and copyright (footer, Contact and Book pages)
+  site:
+    path: src/data/site.json
 
 # Clean global configuration inputs to stop unwanted <p> tags without listing every file key
 _inputs:
@@ -29,13 +38,57 @@ _inputs:
   '*Image':
     type: image
     options:
-      path: src/assets/uploads
+      path: src/assets/images
 
   # Dynamic Catch-All Rule: covers keys ending in 'ImageSrc' (e.g. aboutImageSrc, eventsImageSrc)
   '*ImageSrc':
     type: image
     options:
-      path: src/assets/uploads
+      path: src/assets/images
+
+  # FAQ entries on the home page (src/data/home.json)
+  faqs:
+    type: array
+    label: FAQs
+    options:
+      structures:
+        values:
+          - value:
+              question: ''
+              answer: ''
+  question:
+    type: text
+  answer:
+    type: textarea
+
+  # Shared site details (src/data/site.json)
+  phone:
+    type: text
+  whatsapp:
+    type: text
+  email:
+    type: email
+  addressLine1:
+    type: text
+  addressLine2:
+    type: text
+  mapsUrl:
+    type: url
+  copyright:
+    type: text
+  hours:
+    type: array
+    label: Trading Hours
+    options:
+      structures:
+        values:
+          - value:
+              days: ''
+              time: ''
+  days:
+    type: text
+  time:
+    type: text
 
 collections_config:
   menu:
@@ -53,6 +106,14 @@ collections_config:
       displayOrder:
         type: number
         label: Display Order
+      image:
+        type: image
+        label: Category Image
+        options:
+          path: src/assets/images
+      imageAlt:
+        type: text
+        label: Category Image Alt Text
       items:
         type: array
         label: Menu Items

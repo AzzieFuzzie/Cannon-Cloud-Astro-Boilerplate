@@ -8,13 +8,13 @@ const menuCollection = defineCollection({
         z.object({
             categoryName: z.string(),
             displayOrder: z.number().optional(),
+            image: z.string().optional(),
+            imageAlt: z.string().optional(),
             items: z.array(
                 z.object({
                     name: z.string(),
                     description: z.string().optional(),
                     price: z.string()
-                    // If you ever want CloudCannon images here to auto-optimize via Astro:
-                    // image: image().optional()
                 })
             )
         })

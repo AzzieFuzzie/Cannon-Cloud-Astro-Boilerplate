@@ -12,5 +12,28 @@
 
     "eventsImageSrc": "/src/assets/images/home/3.png",
     "eventsImageAlt": "Private event setup",
-    "eventsImageTitle": "Private Events"
+    "eventsImageTitle": "Private Events",
+
+    "faqs": [
+        {
+            "question": "Do I need a reservation?",
+            "answer": "Reservations are recommended, especially for evenings and weekends. Walk-ins are welcome and will be seated subject to availability."
+        },
+        {
+            "question": "What cuisine do you serve?",
+            "answer": "Our menu brings together Portuguese and Mediterranean-inspired dishes with a classic South African twist, including fresh seafood and flame-grilled favourites."
+        },
+        {
+            "question": "Do you cater for dietary requirements?",
+            "answer": "We are happy to accommodate most dietary requirements. Please let our team know when making your reservation so we can prepare the best experience for you."
+        },
+        {
+            "question": "Can I host a private event at Pigalle?",
+            "answer": "Yes. We host birthdays, corporate events, pre-wedding occasions and more. Contact us to discuss your plans and available options."
+        },
+        {
+            "question": "Where are you located?",
+            "answer": "You can find us in the heart of Sandton at Nelson Mandela Square. Visit our booking page for directions and reservation details."
+        }
+    ]
 }

@@ -1,6 +1,8 @@
 {
     "categoryName": "Chicken & Chooza",
     "displayOrder": 7,
+    "image": "/src/assets/images/home/7.png",
+    "imageAlt": "Chicken & Chooza at Pigalle",
     "items": [
         {
             "name": "Portuguese Peri Peri Chicken Full",

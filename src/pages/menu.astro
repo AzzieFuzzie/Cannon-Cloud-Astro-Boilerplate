@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import about from '../data/about.json';
 
 const slugify = (str: string) =>
     str
@@ -10,42 +12,107 @@ const slugify = (str: string) =>
         .replace(/(^-|-$)/g, '');
 
 const menuCategories = (await getCollection('menu'))
-    .filter((c) => c.data.items.length > 0) // hide empty categories automatically
+    .filter((c) => c.data.items.length > 0)
     .sort((a, b) => (a.data.displayOrder ?? 0) - (b.data.displayOrder ?? 0))
-    .map((c) => ({ ...c, slug: slugify(c.data.categoryName) }));
+    .map((c) => ({
+        ...c,
+        slug: slugify(c.data.categoryName),
+        // CloudCannon path to this category's JSON file, used by the editable regions below
+        cmsFile: `@file[/${c.filePath ?? `src/content/menu/${c.id}.json`}]`
+    }));
 ---
 
 <Layout title="Menu">
-    <nav class="sticky top-0 z-10 flex gap-4 overflow-x-auto bg-white/90 py-3 backdrop-blur">
+    <div class="bg-cream min-h-screen font-lato text-black">
+        <!-- Category nav -->
+        <nav
+            id="menu-nav"
+            class="bg-cream/95 sticky top-0 z-(--z-index-header) flex cursor-grab items-baseline overflow-x-auto px-(--grid-margin) py-unit-sm backdrop-blur select-none [scrollbar-width:none] md:cursor-auto md:flex-wrap md:justify-center md:gap-y-xxtiny md:overflow-visible md:py-small [&::-webkit-scrollbar]:hidden"
+        >
+            {
+                menuCategories.map((c, i) => (
+                    <>
+                        {i > 0 && (
+                            <span
+                                class="text-muted mx-xtiny text-action select-none md:mx-tiny"
+                                aria-hidden="true"
+                            >
+                                /
+                            </span>
+                        )}
+                        <a
+                            href={`#${c.slug}`}
+                            data-nav-link={c.slug}
+                            class="text-muted font-rd-narrow text-heading-h5 whitespace-nowrap transition-colors duration-(--transition-duration) ease-(--ease) hover:text-black data-[active=true]:text-black md:text-heading-h3"
+                        >
+                            {c.data.categoryName}
+                        </a>
+                    </>
+                ))
+            }
+        </nav>
+
         {
-            menuCategories.map((c) => (
-                <a href={`#${c.slug}`} class="text-sm font-medium whitespace-nowrap">
-                    {c.data.categoryName}
-                </a>
+            menuCategories.map((category) => (
+                <section
+                    id={category.slug}
+                    class="scroll-mt-medium px-(--grid-margin) pt-xsmall pb-small md:grid md:scroll-mt-large md:grid-cols-12 md:items-start md:gap-x-gutter md:pt-small md:pb-medium"
+                >
+                    <Image
+                        class="mb-xsmall aspect-665/440 max-h-[30vh] w-full object-cover md:sticky md:top-large md:col-span-5 md:mb-0 md:aspect-square md:max-h-none"
+                        data-editable="image"
+                        data-prop-src={`${category.cmsFile}.image`}
+                        data-prop-alt={`${category.cmsFile}.imageAlt`}
+                        src={category.data.image ?? about.aboutHeroImage}
+                        alt={category.data.imageAlt ?? category.data.categoryName}
+                        data-animation="image_reveal_horizontal"
+                        width={1000}
+                        height={1000}
+                    />
+
+                    <ul
+                        class="divide-line border-line divide-y border-b md:col-span-6 md:col-start-7"
+                        data-editable="array"
+                        data-prop={`${category.cmsFile}.items`}
+                    >
+                        {category.data.items.map((item) => (
+                            <li
+                                class="py-tiny first:pt-xtiny md:py-xsmall md:first:pt-0"
+                                data-editable="array-item"
+                            >
+                                <h3
+                                    class="mb-xxtiny font-rd-narrow text-heading-h4 leading-tight md:text-heading-h3"
+                                    data-editable="text"
+                                    data-prop="name"
+                                    data-type="text"
+                                >
+                                    {item.name}
+                                </h3>
+                                <div class="flex items-start justify-between gap-xsmall">
+                                    {item.description && (
+                                        <p
+                                            class="max-w-[85%] text-action leading-relaxed md:max-w-[55%]"
+                                            data-editable="text"
+                                            data-prop="description"
+                                            data-type="text"
+                                        >
+                                            {item.description}
+                                        </p>
+                                    )}
+                                    <span
+                                        class="ml-auto shrink-0 text-body-base font-bold"
+                                        data-editable="text"
+                                        data-prop="price"
+                                        data-type="span"
+                                    >
+                                        {item.price}
+                                    </span>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
             ))
         }
-    </nav>
-
-    {
-        menuCategories.map((category) => (
-            <section id={category.slug} class="mb-12 scroll-mt-24">
-                <h2 class="mb-6 border-b pb-2 text-2xl font-semibold">
-                    {category.data.categoryName}
-                </h2>
-                <div class="grid gap-6">
-                    {category.data.items.map((item) => (
-                        <div class="flex items-start justify-between">
-                            <div>
-                                <h3 class="text-lg font-medium">{item.name}</h3>
-                                {item.description && (
-                                    <p class="mt-1 text-sm text-gray-600">{item.description}</p>
-                                )}
-                            </div>
-                            <span class="ml-4 text-lg font-semibold">{item.price}</span>
-                        </div>
-                    ))}
-                </div>
-            </section>
-        ))
-    }
+    </div>
 </Layout>

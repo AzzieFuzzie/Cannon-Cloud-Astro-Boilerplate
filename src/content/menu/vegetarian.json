@@ -1,6 +1,8 @@
 {
     "categoryName": "Vegetarian",
     "displayOrder": 9,
+    "image": "/src/assets/images/home/7.png",
+    "imageAlt": "Vegetarian at Pigalle",
     "items": [
         {
             "name": "Vegetarian Platter",

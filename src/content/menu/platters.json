@@ -1,6 +1,8 @@
 {
     "categoryName": "Platters & Combos",
     "displayOrder": 5,
+    "image": "/src/assets/images/home/7.png",
+    "imageAlt": "Platters & Combos at Pigalle",
     "items": [
         {
             "name": "Shellfish Platter",

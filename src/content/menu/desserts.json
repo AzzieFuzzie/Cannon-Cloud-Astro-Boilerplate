@@ -1,6 +1,8 @@
 {
     "categoryName": "Desserts",
     "displayOrder": 11,
+    "image": "/src/assets/images/home/7.png",
+    "imageAlt": "Desserts at Pigalle",
     "items": [
         {
             "name": "Ice Cream Nut Cake",

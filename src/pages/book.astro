@@ -1,38 +1,56 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Image from '../components/Image/Image.astro';
-import home from '../data/home.json';
+import { Image } from 'astro:assets';
+import book from '../data/book.json';
+import site from '../data/site.json';
+
+const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
 ---
 
 <Layout title="Reservation">
-    <div class="container py-fluid-xl">
-        <section
-            class="flex h-screen w-screen flex-col items-center justify-center bg-[url('https:images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&auto=format&fit=crop&q=85')] text-center text-white"
-        >
-            <p
-                class="heading-h1 mb-fluid-xs font-medium tracking-widest uppercase"
+    <div class="">
+        <!-- Intro image -->
+        <div class="mb-xsmall min-h-screen min-w-screen">
+            <Image
+                class="h-full w-full object-cover"
+                data-editable="image"
+                data-prop-src="@data[book].heroImage"
+                data-prop-alt="@data[book].heroImageAlt"
+                data-prop-title="@data[book].heroImageTitle"
+                src={book.heroImage}
+                title={book.heroImageTitle}
+                alt={book.heroImageAlt}
+                data-animation="image_reveal_horizontal"
+                width={2000}
+                height={1000}
+            />
+        </div>
+
+        <!-- Intro text + contacts -->
+        <section class="flex flex-col items-center px-(--grid-margin) pb-medium text-center">
+            <h1
+                class="mb-xsmall font-rd-narrow text-heading-h1 leading-none"
                 data-editable="source"
                 data-path="src/pages/book.astro"
                 data-key="heroHeading"
                 data-type="text"
             >
                 Book Your Experience
-            </p>
+            </h1>
+
             <p
-                class="body-base mt-fluid-md max-w-[42ch]"
+                class="mb-xtiny max-w-[48ch] text-body-base leading-relaxed"
                 data-editable="source"
                 data-path="src/pages/book.astro"
                 data-key="heroDescription"
                 data-type="text"
             >
-                Experience an unforgettable dining journey in the heart of Sandton. Complete the
-                form below to request your reservation, or connect with our maître d' directly.
+                Secure your table at Pigalle Villamoura Sandton and experience an unforgettable
+                dining journey.
             </p>
-        </section>
 
-        <section class="section-spacing-xl flex flex-col items-center justify-center text-center">
-            <h2
-                class="heading-h5 mb-fluid-sm"
+            <p
+                class="mb-small max-w-[48ch] text-body-base leading-relaxed text-black/60"
                 data-editable="source"
                 data-path="src/pages/book.astro"
                 data-key="bookingHeading"
@@ -40,44 +58,44 @@ import home from '../data/home.json';
             >
                 Complete the form below to book your reservation, or connect with our maître d'
                 directly.
-            </h2>
-            <div class="space-y-2 text-sm">
-                <p>
-                    <a
-                        class="heading-h4"
-                        href="tel:+27118848899"
-                        data-editable="source"
-                        data-path="src/pages/book.astro"
-                        data-key="primaryPhone"
-                        data-type="text"
+            </p>
+
+            <div class="flex flex-wrap items-baseline justify-center gap-y-xxtiny">
+                {
+                    /* Contact details come from src/data/site.json so the link always matches the text */
+                }
+                <a
+                    href={toTel(site.phone)}
+                    class="font-rd-narrow text-heading-h4 whitespace-nowrap transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                >
+                    <span data-editable="text" data-prop="@data[site].phone" data-type="span"
+                        >{site.phone}</span
                     >
-                        +27 11 884 8899
-                    </a>
-                </p>
-                <p>
-                    <a
-                        class="heading-h4"
-                        href="tel:+27845567786"
-                        data-editable="source"
-                        data-path="src/pages/book.astro"
-                        data-key="secondaryPhone"
-                        data-type="text"
+                </a>
+                <span
+                    class="text-muted mx-xtiny text-action select-none md:mx-tiny"
+                    aria-hidden="true">/</span
+                >
+                <a
+                    href={toTel(site.whatsapp)}
+                    class="font-rd-narrow text-heading-h4 whitespace-nowrap transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                >
+                    <span data-editable="text" data-prop="@data[site].whatsapp" data-type="span"
+                        >{site.whatsapp}</span
                     >
-                        +27 84 556 7786
-                    </a>
-                </p>
-                <p>
-                    <a
-                        class="heading-h4 uppercase"
-                        href="mailto:info@pigalle.co.za"
-                        data-editable="source"
-                        data-path="src/pages/book.astro"
-                        data-key="emailAddress"
-                        data-type="text"
+                </a>
+                <span
+                    class="text-muted mx-xtiny text-action select-none md:mx-tiny"
+                    aria-hidden="true">/</span
+                >
+                <a
+                    href={`mailto:${site.email}`}
+                    class="font-rd-narrow text-heading-h4 whitespace-nowrap transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                >
+                    <span data-editable="text" data-prop="@data[site].email" data-type="span"
+                        >{site.email}</span
                     >
-                        info@pigalle.co.za
-                    </a>
-                </p>
+                </a>
             </div>
         </section>
     </div>

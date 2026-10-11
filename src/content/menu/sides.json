@@ -1,6 +1,8 @@
 {
     "categoryName": "Sides",
     "displayOrder": 10,
+    "image": "/src/assets/images/home/7.png",
+    "imageAlt": "Sides at Pigalle",
     "items": [
         {
             "name": "Chooza Masala Chips",

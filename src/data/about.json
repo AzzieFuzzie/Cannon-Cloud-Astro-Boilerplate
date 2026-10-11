@@ -1,0 +1,17 @@
+{
+    "aboutHeroImage": "/src/assets/images/home/7.png",
+    "aboutHeroImageAlt": "Pigalle dining room",
+    "aboutHeroImageTitle": "Pigalle Hero Image",
+
+    "aboutGalleryImage": "/src/assets/images/home/4.png",
+    "aboutGalleryImageAlt": "Seaabout platter",
+    "aboutGalleryImageTitle": "Our about",
+
+    "aboutGalleryImage1": "/src/assets/images/home/5.png",
+    "aboutGalleryImageAlt1": "Seaabout platter",
+    "aboutGalleryImageTitle1": "Our about",
+
+    "aboutGalleryImage2": "/src/assets/images/home/6.png",
+    "aboutGalleryImageAlt2": "Seaabout platter",
+    "aboutGalleryImageTitle2": "Our about"
+}

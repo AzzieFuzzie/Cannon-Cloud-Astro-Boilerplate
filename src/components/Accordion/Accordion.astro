@@ -3,9 +3,11 @@ interface Props {
     label: string;
     class?: string;
     name?: string;
+    // CloudCannon data-prop path for the label, makes it editable in the Visual Editor
+    labelProp?: string;
 }
 
-const { label, name, class: propsClass, ...rest } = Astro.props;
+const { label, name, labelProp, class: propsClass, ...rest } = Astro.props;
 
 const classes = ['c-accordion', propsClass];
 ---
@@ -13,7 +15,15 @@ const classes = ['c-accordion', propsClass];
 <c-accordion class:list={classes} {...rest}>
     <details class="c-accordion_details" name={name}>
         <summary class="c-accordion_summary">
-            <span>{label}</span>
+            {
+                labelProp ? (
+                    <span data-editable="text" data-prop={labelProp} data-type="span">
+                        {label}
+                    </span>
+                ) : (
+                    <span>{label}</span>
+                )
+            }
             <span class="c-accordion_icon" aria-hidden="true">&darr;</span>
         </summary>
         <div class="c-accordion_content" data-accordion="content">

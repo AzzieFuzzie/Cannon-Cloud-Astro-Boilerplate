@@ -1,6 +1,8 @@
 {
     "categoryName": "Pastas",
     "displayOrder": 8,
+    "image": "/src/assets/images/home/7.png",
+    "imageAlt": "Pastas at Pigalle",
     "items": [
         {
             "name": "Chicken Alfredo",
