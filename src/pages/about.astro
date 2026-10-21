@@ -1,24 +1,35 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Image from 'astro/components/Image.astro';
 import Button from '../components/Button/Button.astro';
+import DataImage from '../components/DataImage/DataImage.astro';
+import Decor from '../components/Decor/Decor.astro';
+import Reveal from '../components/Reveal/Reveal.astro';
+import TextReveal from '../components/TextReveal/TextReveal.astro';
 import about from '../data/about.json';
+
+import avocado from '../assets/svgs/avocado.svg';
+import halaalIcon from '../assets/svgs/halaal_icon.svg';
+import teamIcon from '../assets/svgs/team_icon.svg';
+import tomato from '../assets/svgs/tomato.svg';
 ---
 
 <Layout title="About Us">
     <section class="">
-        <section class="relative mb-small h-[calc(100vh_-_var(--nav-height))]">
-            <h1
-                class="heading-h1 absolute bottom-0 left-0 z-10 mb-xtiny ml-tiny max-w-[clamp(15ch,50vw,20ch)] text-white"
-                data-editable="source"
-                data-path="src/pages/about.astro"
-                data-key="heroHeading"
-                data-type="text"
-            >
-                A taste of passion in the heart of Pigalle
-            </h1>
+        {/* Hero: sticks to the top while the rest of the page scrolls over it */}
+        <section class="sticky top-0 h-[calc(100vh_-_var(--nav-height))]">
+            <TextReveal type="chars" class="absolute bottom-0 left-0 z-10 mb-xtiny ml-tiny">
+                <h1
+                    class="heading-h1 max-w-[clamp(15ch,50vw,20ch)] text-white"
+                    data-editable="source"
+                    data-path="src/pages/about.astro"
+                    data-key="heroHeading"
+                    data-type="text"
+                >
+                    A taste of passion in the heart of Pigalle
+                </h1>
+            </TextReveal>
 
-            <Image
+            <DataImage
                 class="h-full w-full object-cover"
                 data-editable="image"
                 data-prop-src="@data[about].aboutHeroImage"
@@ -27,157 +38,188 @@ import about from '../data/about.json';
                 src={about.aboutHeroImage}
                 title={about.aboutHeroImageTitle}
                 alt={about.aboutHeroImageAlt}
-                data-animation="image_reveal_horizontal"
-                width={1000}
-                height={1000}
+                sizes="100vw"
+                loading="eager"
             />
         </section>
 
-        <!-- Hero / Heading Section -->
-        <section class="mb-small flex flex-col items-center justify-center px-tiny">
-            <h2
-                class="heading-h2 mb-tiny max-w-[clamp(30ch,50vw,50ch)] md:text-center"
-                data-editable="source"
-                data-path="src/pages/about.astro"
-                data-key="storyIntro"
-                data-type="text"
-            >
-                Step into our Johannesburg sanctuary and dive into culinary bliss amidst the cozy
-                elegance of our dining area.
-            </h2>
+        {/* Everything below slides over the hero */}
+        <div class="relative z-10 overflow-x-clip bg-(--color-grey) pt-small">
+            <!-- Hero / Heading Section -->
+            <section class="mb-small flex flex-col items-center justify-center px-tiny">
+                <TextReveal type="fill">
+                    <h2
+                        class="heading-h2 mb-tiny max-w-[clamp(30ch,50vw,50ch)] md:text-center"
+                        data-editable="source"
+                        data-path="src/pages/about.astro"
+                        data-key="storyIntro"
+                        data-type="text"
+                    >
+                        Step into our Johannesburg sanctuary and dive into culinary bliss amidst the
+                        cozy elegance of our dining area.
+                    </h2>
+                </TextReveal>
 
-            <p
-                class="body-base mx-auto mb-tiny max-w-2xl"
-                data-editable="source"
-                data-path="src/pages/about.astro"
-                data-key="storyDescription"
-                data-type="text"
-            >
-                Prepare your taste buds for a luscious dining experience at Pigalle where our
-                masterpieces are crafted with soul and passion, delivering flavours that will leave
-                you craving more.
-            </p>
+                <TextReveal>
+                    <p
+                        class="body-base mx-auto mb-tiny max-w-2xl"
+                        data-editable="source"
+                        data-path="src/pages/about.astro"
+                        data-key="storyDescription"
+                        data-type="text"
+                    >
+                        Prepare your taste buds for a luscious dining experience at Pigalle where
+                        our masterpieces are crafted with soul and passion, delivering flavours that
+                        will leave you craving more.
+                    </p>
+                </TextReveal>
 
-            <Button>
-                <span
-                    data-editable="source"
-                    data-path="src/pages/about.astro"
-                    data-key="storyButton"
-                    data-type="span">Make a Reservation</span
-                >
-            </Button>
-        </section>
-        <!-- Image Grid Section (12-Column Layout) -->
-        <div class="grid-layout mb-small items-center px-tiny">
-            <!-- Image 1 -->
+                <Reveal type="fade">
+                    <Button>
+                        <span
+                            data-editable="source"
+                            data-path="src/pages/about.astro"
+                            data-key="storyButton"
+                            data-type="span">Make a Reservation</span
+                        >
+                    </Button>
+                </Reveal>
+            </section>
+
+            {
+                /* Gallery: 1 per row on phones, 2 on tablets, 3 on desktop; portrait 3:4 like the photos */
+            }
             <div
-                class="col-span-4 col-start-1 mb-tiny h-[400px] overflow-hidden sm:col-span-4 sm:col-start-1"
+                class="relative mb-small grid grid-cols-1 gap-small px-tiny sm:grid-cols-2 md:grid-cols-3"
             >
-                <Image
-                    class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                    data-editable="image"
-                    data-prop-src="@data[about].aboutGalleryImage"
-                    data-prop-alt="@data[about].aboutGalleryImageAlt"
-                    data-prop-title="@data[about].aboutGalleryImageTitle"
-                    src={about.aboutGalleryImage}
-                    title={about.aboutGalleryImageTitle}
-                    alt={about.aboutGalleryImageAlt}
-                    data-animation="image_reveal_horizontal"
-                    width={1000}
-                    height={1000}
-                />
+                <Reveal type="clip-x" class="aspect-3/4">
+                    <DataImage
+                        class="h-full w-full object-cover hover:scale-105"
+                        data-editable="image"
+                        data-prop-src="@data[about].aboutGalleryImage"
+                        data-prop-alt="@data[about].aboutGalleryImageAlt"
+                        data-prop-title="@data[about].aboutGalleryImageTitle"
+                        src={about.aboutGalleryImage}
+                        title={about.aboutGalleryImageTitle}
+                        alt={about.aboutGalleryImageAlt}
+                        sizes="(max-width: 699px) 100vw, (max-width: 999px) 50vw, 33vw"
+                    />
+                </Reveal>
+
+                <Reveal type="clip-x" class="aspect-3/4" delay={0.1}>
+                    <DataImage
+                        class="h-full w-full object-cover"
+                        data-editable="image"
+                        data-prop-src="@data[about].aboutGalleryImage1"
+                        data-prop-alt="@data[about].aboutGalleryImageAlt1"
+                        data-prop-title="@data[about].aboutGalleryImageTitle1"
+                        src={about.aboutGalleryImage1}
+                        title={about.aboutGalleryImageTitle1}
+                        alt={about.aboutGalleryImageAlt1}
+                        sizes="(max-width: 699px) 100vw, (max-width: 999px) 50vw, 33vw"
+                    />
+                </Reveal>
+
+                <Reveal type="clip-x" class="aspect-3/4" delay={0.2}>
+                    <DataImage
+                        class="h-full w-full object-cover"
+                        data-editable="image"
+                        data-prop-src="@data[about].aboutGalleryImage2"
+                        data-prop-alt="@data[about].aboutGalleryImageAlt2"
+                        data-prop-title="@data[about].aboutGalleryImageTitle2"
+                        src={about.aboutGalleryImage2}
+                        title={about.aboutGalleryImageTitle2}
+                        alt={about.aboutGalleryImageAlt2}
+                        sizes="(max-width: 699px) 100vw, (max-width: 999px) 50vw, 33vw"
+                    />
+                </Reveal>
+
+                <Decor src={tomato} speed={0.1} rotate={25} class="-top-[10vh] -left-[5vw]" />
+                <Decor src={avocado} speed={-0.1} rotate={-20} class="-right-[3vw] bottom-[2vh]" />
             </div>
 
-            <!-- Image 2 (Slightly offset or balanced) -->
-            <div
-                class="col-span-4 col-start-1 mb-xtiny h-[400px] overflow-hidden sm:col-span-4 sm:col-start-5"
+            <section
+                class="mb-medium flex w-screen flex-col px-tiny md:items-center md:justify-center"
             >
-                <Image
-                    class="h-full w-full object-cover"
-                    data-editable="image"
-                    data-prop-src="@data[about].aboutGalleryImage1"
-                    data-prop-alt="@data[about].aboutGalleryImageAlt1"
-                    data-prop-title="@data[about].aboutGalleryImageTitle1"
-                    src={about.aboutGalleryImage1}
-                    title={about.aboutGalleryImageTitle1}
-                    alt={about.aboutGalleryImageAlt1}
-                    data-animation="image_reveal_horizontal"
-                    width={1000}
-                    height={1000}
-                />
-            </div>
+                <!-- Bottom Editorial Content Section -->
+                <div class="md:max-w-[clamp(30ch,50vw,70ch)] md:text-center">
+                    <TextReveal type="fill">
+                        <h2
+                            class="heading-h2 mb-tiny"
+                            data-editable="source"
+                            data-path="src/pages/about.astro"
+                            data-key="valuesHeading"
+                            data-type="text"
+                        >
+                            We take pride in our food, as we source the best ingredients locally and
+                            internationally.
+                        </h2>
+                    </TextReveal>
+                </div>
+                {
+                    /* Icon beside its text; the two blocks sit side by side from 1000px, stacked below */
+                }
+                <div class="grid w-full max-w-[900px] grid-cols-1 gap-x-xsmall md:grid-cols-2">
+                    <div class="body-base mb-small flex items-start gap-tiny text-left">
+                        <Reveal type="fade" class="shrink-0">
+                            {/* The icon's white background drops out against the page colour */}
+                            <img
+                                src={halaalIcon.src}
+                                alt=""
+                                width="52"
+                                height="51"
+                                loading="lazy"
+                                class="h-[50px] w-auto mix-blend-multiply"
+                            />
+                        </Reveal>
+                        <TextReveal class="max-w-[35ch]">
+                            <p
+                                data-editable="source"
+                                data-path="src/pages/about.astro"
+                                data-key="valuesDescription"
+                                data-type="text"
+                            >
+                                Our restaurant is Fully Halaal and NIHT certified and driven by
+                                passion and the love for good food.
+                            </p>
+                        </TextReveal>
+                    </div>
+                    <div class="body-base mb-small flex items-start gap-tiny text-left">
+                        <Reveal type="fade" class="shrink-0">
+                            <img
+                                src={teamIcon.src}
+                                alt=""
+                                width="50"
+                                height="51"
+                                loading="lazy"
+                                class="h-[50px] w-auto mix-blend-multiply"
+                            />
+                        </Reveal>
+                        <TextReveal class="max-w-[35ch]">
+                            <p
+                                data-editable="source"
+                                data-path="src/pages/about.astro"
+                                data-key="teamDescription"
+                                data-type="text"
+                            >
+                                Our eager team of staff are always happy and ready to ensure your
+                                comfort and satisfaction when you are dining with us.
+                            </p>
+                        </TextReveal>
+                    </div>
+                </div>
 
-            <!-- Image 3 -->
-            <div
-                class="col-span-4 col-start-1 mb-xtiny h-[400px] overflow-hidden sm:col-span-4 sm:col-start-9"
-            >
-                <Image
-                    class="h-full w-full"
-                    data-editable="image"
-                    data-prop-src="@data[about].aboutGalleryImage2"
-                    data-prop-alt="@data[about].aboutGalleryImageAlt2"
-                    data-prop-title="@data[about].aboutGalleryImageTitle2"
-                    src={about.aboutGalleryImage2}
-                    title={about.aboutGalleryImageTitle2}
-                    alt={about.aboutGalleryImageAlt2}
-                    data-animation="image_reveal_horizontal"
-                    width={1000}
-                    height={1000}
-                />
-            </div>
+                <Reveal type="fade">
+                    <Button class="align-self-center text-center">
+                        <span
+                            data-editable="source"
+                            data-path="src/pages/about.astro"
+                            data-key="valuesButton"
+                            data-type="span">Our Story</span
+                        >
+                    </Button>
+                </Reveal>
+            </section>
         </div>
-
-        <section class="mb-medium flex w-screen flex-col px-tiny md:items-center md:justify-center">
-            <!-- Bottom Editorial Content Section -->
-            <div class="md:max-w-[clamp(30ch,50vw,70ch)] md:text-center">
-                <h2
-                    class="heading-h2 mb-tiny"
-                    data-editable="source"
-                    data-path="src/pages/about.astro"
-                    data-key="valuesHeading"
-                    data-type="text"
-                >
-                    We take pride in our food, as we source the best ingredients locally and
-                    internationally.
-                </h2>
-            </div>
-            <div class="grid-layout w-screen">
-                <div
-                    class="body-base col-span-4 col-start-1 row-start-1 mb-tiny sm:col-span-3 sm:col-start-3 sm:row-start-2"
-                >
-                    <p
-                        data-editable="source"
-                        data-path="src/pages/about.astro"
-                        data-key="valuesDescription"
-                        data-type="text"
-                    >
-                        Our restaurant is Fully Halaal and NIHT certified and driven by passion and
-                        the love for good food.
-                    </p>
-                </div>
-                <div
-                    class="body-base col-span-4 col-start-1 row-start-2 mb-small sm:col-start-2 sm:col-start-7"
-                >
-                    <p
-                        data-editable="source"
-                        data-path="src/pages/about.astro"
-                        data-key="teamDescription"
-                        data-type="text"
-                    >
-                        Our eager team of staff are always happy and ready to ensure your comfort
-                        and satisfaction when you are dining with us.
-                    </p>
-                </div>
-            </div>
-
-            <Button class="align-self-center text-center">
-                <span
-                    data-editable="source"
-                    data-path="src/pages/about.astro"
-                    data-key="valuesButton"
-                    data-type="span">Our Story</span
-                >
-            </Button>
-        </section>
     </section>
 </Layout>

@@ -1,0 +1,78 @@
+---
+import logo from '../../assets/svgs/logo.svg';
+
+interface Props {
+    class?: string;
+}
+
+const { class: propsClass, ...rest } = Astro.props;
+
+// One list for both layouts: inline on desktop, the full-screen menu on mobile
+const links = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'Our Story' },
+    { href: '/menu', label: 'Menu' },
+    { href: '/contact', label: 'Contact' },
+    { href: '/book', label: 'Book a Reservation', cta: true }
+];
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const classes = ['c-header', propsClass];
+---
+
+<c-header class:list={classes} {...rest}>
+    <header class="c-header_inner">
+        {/* Logo and toggle sit above the open menu */}
+        <div class="c-header_bar">
+            <a href="/" class="c-header_logo">
+                <img
+                    src={logo.src}
+                    alt="Pigalle by Villamoura"
+                    width={logo.width}
+                    height={logo.height}
+                />
+            </a>
+
+            <button
+                type="button"
+                class="c-header_toggle"
+                aria-expanded="false"
+                aria-controls="site-nav"
+                aria-label="Open menu"
+                data-header="toggle"
+            >
+                <span class="c-header_line"></span>
+                <span class="c-header_line"></span>
+            </button>
+        </div>
+
+        <nav id="site-nav" class="c-header_nav" aria-label="Main" data-lenis-prevent>
+            <ul class="c-header_list">
+                {
+                    links.map(({ href, label, cta }, index) => (
+                        <li class:list={['c-header_item', cta && '-cta']} style={`--i: ${index}`}>
+                            <a
+                                href={href}
+                                class="c-header_link"
+                                aria-current={path === href ? 'page' : undefined}
+                                data-header="link"
+                            >
+                                {/* Slides up out of the item in the mobile menu */}
+                                <span class="c-header_label">{label}</span>
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
+    </header>
+</c-header>
+
+<style>
+    @import 'Header.css';
+</style>
+
+<script>
+    import('./Header.ts');
+</script>

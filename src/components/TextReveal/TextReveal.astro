@@ -1,0 +1,25 @@
+---
+interface Props {
+    // lines: masked lines rise · chars: characters turn in · fill: characters fade in with the scroll
+    type?: 'lines' | 'chars' | 'fill';
+    // Delay in seconds
+    delay?: number;
+    class?: string;
+}
+
+const { type = 'lines', delay, class: propsClass, ...rest } = Astro.props;
+
+const classes = ['c-text-reveal', propsClass];
+---
+
+<c-text-reveal class:list={classes} data-type={type} data-delay={delay} {...rest}>
+    <slot />
+</c-text-reveal>
+
+<style>
+    @import 'TextReveal.css';
+</style>
+
+<script>
+    import('./TextReveal.ts');
+</script>

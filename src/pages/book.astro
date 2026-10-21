@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import { Image } from 'astro:assets';
+import DataImage from '../components/DataImage/DataImage.astro';
+import TextReveal from '../components/TextReveal/TextReveal.astro';
 import book from '../data/book.json';
 import site from '../data/site.json';
 
@@ -9,10 +10,15 @@ const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
 
 <Layout title="Reservation">
     <div class="">
-        <!-- Intro image -->
-        <div class="mb-xsmall min-h-screen min-w-screen">
-            <Image
-                class="h-full w-full object-cover"
+        {
+            /* Intro: half-screen image with the heading and description on top.
+            It sticks to the top while the booking section scrolls over it */
+        }
+        <section
+            class="sticky top-0 flex min-h-[50vh] flex-col items-center justify-center overflow-hidden px-(--grid-margin) py-small text-center text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.2)]"
+        >
+            <DataImage
+                class="pointer-events-none absolute inset-0 h-full w-full object-cover"
                 data-editable="image"
                 data-prop-src="@data[book].heroImage"
                 data-prop-alt="@data[book].heroImageAlt"
@@ -20,35 +26,40 @@ const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
                 src={book.heroImage}
                 title={book.heroImageTitle}
                 alt={book.heroImageAlt}
-                data-animation="image_reveal_horizontal"
-                width={2000}
-                height={1000}
+                sizes="100vw"
+                loading="eager"
             />
-        </div>
 
-        <!-- Intro text + contacts -->
-        <section class="flex flex-col items-center px-(--grid-margin) pb-medium text-center">
-            <h1
-                class="mb-xsmall font-rd-narrow text-heading-h1 leading-none"
-                data-editable="source"
-                data-path="src/pages/book.astro"
-                data-key="heroHeading"
-                data-type="text"
-            >
-                Book Your Experience
-            </h1>
+            <div class="relative z-10 flex flex-col items-center">
+                <TextReveal type="chars">
+                    <h1
+                        class="heading-h1"
+                        data-editable="source"
+                        data-path="src/pages/book.astro"
+                        data-key="heroHeading"
+                        data-type="text"
+                    >
+                        Book Your Experience
+                    </h1>
+                </TextReveal>
 
-            <p
-                class="mb-xtiny max-w-[48ch] text-body-base leading-relaxed"
-                data-editable="source"
-                data-path="src/pages/book.astro"
-                data-key="heroDescription"
-                data-type="text"
-            >
-                Secure your table at Pigalle Villamoura Sandton and experience an unforgettable
-                dining journey.
-            </p>
+                <p
+                    class="mt-xsmall max-w-[clamp(30ch,70%,50ch)] text-body-base leading-relaxed"
+                    data-editable="source"
+                    data-path="src/pages/book.astro"
+                    data-key="heroDescription"
+                    data-type="text"
+                >
+                    Secure your table at Pigalle Villamoura Sandton and experience an unforgettable
+                    dining journey.
+                </p>
+            </div>
+        </section>
 
+        {/* Booking: contacts and the Dineplan form */}
+        <section
+            class="relative z-10 flex flex-col items-center bg-(--color-grey) px-(--grid-margin) py-small text-center"
+        >
             <p
                 class="mb-small max-w-[48ch] text-body-base leading-relaxed text-black/60"
                 data-editable="source"
@@ -96,6 +107,16 @@ const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
                         >{site.email}</span
                     >
                 </a>
+            </div>
+
+            {/* The "form below" the intro text refers to */}
+            <div class="mt-small h-[600px] w-full max-w-[650px] sm:h-[520px]">
+                <iframe
+                    src="https://account.dineplan.com/widget/v3/frame/mnpTxlcs"
+                    title="Book a table at Pigalle"
+                    loading="lazy"
+                    class="h-full w-full rounded-[10px] border-2 border-(--color-accent-grey) sm:border-[5px]"
+                ></iframe>
             </div>
         </section>
     </div>

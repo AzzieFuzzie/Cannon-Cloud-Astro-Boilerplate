@@ -7,82 +7,114 @@
         {
             "name": "Prawns - 7 Queens",
             "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
-            "price": "325"
+            "price": "325",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Prawns - 6 King Giants",
             "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
-            "price": "495"
+            "price": "495",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Tiger Giant Prawns (3 pieces)",
             "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
-            "price": "600"
+            "price": "600",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Medium Langoustines (6 pieces)",
             "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
-            "price": "900"
+            "price": "900",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Large Langoustines (5 pieces)",
             "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
-            "price": "1250"
+            "price": "1250",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "XL Langoustines (4 pieces)",
             "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
-            "price": "1500"
+            "price": "1500",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Grilled Lobster",
             "description": "2 baby lobsters grilled and finished with our signature Pigalle basting.",
-            "price": "675"
+            "price": "675",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Lobster Thermidor",
             "description": "2 baby lobsters finished with a rich creamy mushroom sauce, parmesan and subtle sweet notes, then baked until golden.",
-            "price": "720"
+            "price": "720",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Falklands Calamari Full Portion",
             "description": "Grilled in signature garlic lemon butter or Peri-Peri sauce served with savoury rice and chips.",
-            "price": "320"
+            "price": "320",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Baby Kingklip",
             "description": "Kingklip on the bone finished with lemon butter sauce served with savoury rice and seasonal stir-fried vegetables.",
-            "price": "395"
+            "price": "395",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Kingklip Fillet",
             "description": "Fresh kingklip fillet grilled to perfection and served with buttery mash and seasonal stir-fried vegetables.",
-            "price": "305"
+            "price": "305",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Seabass Fillet",
             "description": "Fresh seabass fillet grilled to perfection and served with buttery mash and seasonal stir-fried vegetables.",
-            "price": "275"
+            "price": "275",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Grilled Sole",
             "description": "Served with savoury rice and stir-fried vegetables.",
-            "price": "325"
+            "price": "325",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Fried Hake",
             "description": "Golden fried hake served with chips and tartar sauce.",
-            "price": "245"
+            "price": "245",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Teriyaki Salmon",
             "description": "Seared Norwegian salmon served with a buttery mash and julienne vegetables, pickled ginger and topped with a teriyaki glaze.",
-            "price": "390"
+            "price": "390",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Mozambican Prawn Curry",
             "description": "Ten prawns cooked in a rich Mozambican coconut curry and served with rice.",
-            "price": "320"
+            "price": "320",
+            "image": "",
+            "imageAlt": ""
         }
     ]
 }

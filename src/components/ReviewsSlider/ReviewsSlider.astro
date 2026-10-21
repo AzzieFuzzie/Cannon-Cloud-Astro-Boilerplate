@@ -1,0 +1,65 @@
+---
+interface Review {
+    text: string;
+    author: string;
+}
+
+interface Props {
+    reviews: Review[];
+    // Seconds between slides
+    interval?: number;
+    class?: string;
+}
+
+const { reviews, interval = 3.5, class: propsClass, ...rest } = Astro.props;
+
+const classes = ['c-reviews-slider', propsClass];
+---
+
+{
+    reviews.length > 0 && (
+        <c-reviews-slider class:list={classes} data-interval={interval} {...rest}>
+            <div class="c-reviews-slider_quote" aria-hidden="true">
+                &ldquo;
+            </div>
+
+            <div class="c-reviews-slider_viewport">
+                <ul class="c-reviews-slider_track" data-reviews-slider="track">
+                    {reviews.map((review, index) => (
+                        <li
+                            class:list={['c-reviews-slider_slide', index === 0 && 'is-active']}
+                            data-reviews-slider="slide"
+                        >
+                            <blockquote>
+                                <p class="c-reviews-slider_text heading-h3">{review.text}</p>
+                                <footer class="c-reviews-slider_author heading-h6">
+                                    &ndash; {review.author}
+                                </footer>
+                            </blockquote>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <div class="c-reviews-slider_dots">
+                {reviews.map((_, index) => (
+                    <button
+                        type="button"
+                        class:list={['c-reviews-slider_dot', index === 0 && 'is-active']}
+                        data-reviews-slider="dot"
+                        aria-label={`Go to review ${index + 1}`}
+                        aria-current={index === 0 ? 'true' : 'false'}
+                    />
+                ))}
+            </div>
+        </c-reviews-slider>
+    )
+}
+
+<style>
+    @import 'ReviewsSlider.css';
+</style>
+
+<script>
+    import('./ReviewsSlider.ts');
+</script>

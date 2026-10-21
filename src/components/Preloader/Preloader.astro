@@ -1,0 +1,25 @@
+---
+interface Props {
+    class?: string;
+}
+
+const { class: propsClass, ...rest } = Astro.props;
+
+const classes = ['c-preloader', propsClass];
+---
+
+{/* data-lenis-prevent keeps the smooth scroll from moving the page underneath */}
+<c-preloader class:list={classes} data-lenis-prevent aria-hidden="true" {...rest}>
+    {/* The outer element is the mask the number slides out of */}
+    <p class="c-preloader_number heading-h1">
+        <span class="c-preloader_inner" data-preloader="number">0%</span>
+    </p>
+</c-preloader>
+
+<style>
+    @import 'Preloader.css';
+</style>
+
+<script>
+    import('./Preloader.ts');
+</script>

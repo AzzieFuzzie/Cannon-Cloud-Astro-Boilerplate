@@ -1,0 +1,189 @@
+---
+import { Image } from 'astro:assets';
+import { resolveImage } from '@scripts/utils/image';
+import Reveal from '../Reveal/Reveal.astro';
+
+interface MenuItem {
+    name: string;
+    description?: string;
+    price: string;
+    image?: string;
+    imageAlt?: string;
+}
+
+interface MenuCategory {
+    slug: string;
+    name: string;
+    image?: string;
+    imageAlt?: string;
+    items: MenuItem[];
+    // CloudCannon path to the category's data file, e.g. "@file[/src/content/menu/starters.json]"
+    cmsFile?: string;
+}
+
+interface Props {
+    categories: MenuCategory[];
+    class?: string;
+}
+
+const { categories, class: propsClass, ...rest } = Astro.props;
+
+const classes = ['c-menu', propsClass];
+
+const SIZES = '(max-width: 600px) 90vw, (max-width: 1440px) 50vw, 600px';
+const WIDTHS = [480, 800, 1200];
+
+// Per category: the image stack (category image first, then one per item that has its own)
+// and, for each item, which image in that stack it shows
+const sections = categories.map((category) => {
+    const images: { src: ImageMetadata | string; alt: string; isCategory: boolean }[] = [];
+
+    if (category.image) {
+        images.push({
+            src: resolveImage(category.image),
+            alt: category.imageAlt ?? category.name,
+            isCategory: true
+        });
+    }
+
+    const items = category.items.map((item) => {
+        if (!item.image) return { ...item, imageIndex: 0 };
+
+        images.push({
+            src: resolveImage(item.image),
+            alt: item.imageAlt ?? item.name,
+            isCategory: false
+        });
+
+        return { ...item, imageIndex: images.length - 1 };
+    });
+
+    return { ...category, images, items };
+});
+---
+
+<c-menu class:list={classes} {...rest}>
+    {/* Category buttons */}
+    <nav class="c-menu_nav" data-menu="nav" aria-label="Menu categories">
+        <ul class="c-menu_tabs" data-menu="tabs">
+            {
+                sections.map((section, index) => (
+                    <>
+                        {index > 0 && (
+                            <li class="c-menu_slash heading-h3" aria-hidden="true">
+                                /
+                            </li>
+                        )}
+                        <li>
+                            <button
+                                type="button"
+                                class:list={['c-menu_tab heading-h3', index === 0 && 'is-active']}
+                                data-menu="tab"
+                                data-category={section.slug}
+                                aria-controls={`menu-${section.slug}`}
+                                aria-current={index === 0 ? 'true' : 'false'}
+                            >
+                                {section.name}
+                            </button>
+                        </li>
+                    </>
+                ))
+            }
+        </ul>
+    </nav>
+
+    {/* One section per category; only the active one is displayed */}
+    {
+        sections.map((section, index) => (
+            <section
+                id={`menu-${section.slug}`}
+                class:list={['c-menu_section', index === 0 && 'is-active']}
+                data-menu="section"
+                data-category={section.slug}
+                aria-label={section.name}
+            >
+                {/* Image stack: stays in view while the items scroll */}
+                {section.images.length > 0 && (
+                    <div class="c-menu_media">
+                        {section.images.map((image, imageIndex) => {
+                            const attrs = {
+                                class: 'c-menu_image',
+                                alt: image.alt,
+                                'data-menu': 'image',
+                                loading: index === 0 && imageIndex === 0 ? 'eager' : 'lazy',
+                                // Only the category image is editable in place; item images are edited in the data panel
+                                ...(image.isCategory && section.cmsFile
+                                    ? {
+                                          'data-editable': 'image',
+                                          'data-prop-src': `${section.cmsFile}.image`,
+                                          'data-prop-alt': `${section.cmsFile}.imageAlt`
+                                      }
+                                    : {})
+                            } as const;
+
+                            return typeof image.src === 'string' ? (
+                                <img src={image.src} {...attrs} />
+                            ) : (
+                                <Image src={image.src} widths={WIDTHS} sizes={SIZES} {...attrs} />
+                            );
+                        })}
+                    </div>
+                )}
+
+                <ul
+                    class="c-menu_items"
+                    data-editable={section.cmsFile ? 'array' : undefined}
+                    data-prop={section.cmsFile ? `${section.cmsFile}.items` : undefined}
+                >
+                    {section.items.map((item) => (
+                        <li
+                            class="c-menu_item"
+                            data-menu="item"
+                            data-image={item.imageIndex}
+                            data-editable={section.cmsFile ? 'array-item' : undefined}
+                        >
+                            <h3
+                                class="c-menu_name heading-h3"
+                                data-editable="text"
+                                data-prop="name"
+                                data-type="text"
+                            >
+                                {item.name}
+                            </h3>
+                            <div class="c-menu_row">
+                                {item.description && (
+                                    <p
+                                        class="c-menu_description body-base"
+                                        data-editable="text"
+                                        data-prop="description"
+                                        data-type="text"
+                                    >
+                                        {item.description}
+                                    </p>
+                                )}
+                                <span
+                                    class="c-menu_price body-base"
+                                    data-editable="text"
+                                    data-prop="price"
+                                    data-type="span"
+                                >
+                                    {item.price}
+                                </span>
+                            </div>
+                            {/* Divider line draws in from the left */}
+                            <Reveal type="line" class="c-menu_line" />
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        ))
+    }
+</c-menu>
+
+<style>
+    @import 'Menu.css';
+</style>
+
+<script>
+    import('./Menu.ts');
+</script>

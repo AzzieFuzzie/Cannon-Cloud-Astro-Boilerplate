@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import { resolveImage } from '@scripts/utils/image';
+
+/**
+ * An image whose path comes from a data file (src/data/*.json, src/content/**).
+ * Files under src/assets/images are optimised by Astro (WebP, several widths);
+ * anything else (remote URL, file in /public) is rendered as a plain <img>.
+ */
+interface Props {
+    src: string;
+    alt?: string;
+    // Widths to generate; Astro never upscales beyond the original
+    widths?: number[];
+    sizes?: string;
+    loading?: 'eager' | 'lazy';
+    class?: string;
+    [key: string]: any;
+}
+
+const {
+    src,
+    alt = '',
+    widths = [480, 800, 1200, 1600],
+    sizes = '100vw',
+    loading = 'lazy',
+    ...rest
+} = Astro.props;
+
+const image = resolveImage(src);
+---
+
+{
+    typeof image === 'string' ? (
+        <img src={image} alt={alt} loading={loading} decoding="async" {...rest} />
+    ) : (
+        <Image src={image} alt={alt} widths={widths} sizes={sizes} loading={loading} {...rest} />
+    )
+}

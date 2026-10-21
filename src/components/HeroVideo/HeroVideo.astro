@@ -1,0 +1,70 @@
+---
+/**
+ * Looping background video streamed from Mux.
+ *
+ * The player is created once and kept alive between page changes, so coming back to a page
+ * with the same video resumes instantly instead of starting a new stream.
+ * With `warm`, nothing is shown: the stream is only prepared in the background
+ * (used in the layout so the first visit to the home page is quick too).
+ */
+interface Props {
+    // Mux playback ID (the part of the stream URL before ".m3u8")
+    playbackId: string;
+    maxResolution?: string;
+    // Video time (s) used for the poster image; playback also starts there so the two match.
+    // Not 0 by default: many clips open on a black frame.
+    posterTime?: number;
+    warm?: boolean;
+    class?: string;
+}
+
+const {
+    playbackId,
+    maxResolution = '1080p',
+    posterTime = 0.5,
+    warm = false,
+    class: propsClass,
+    ...rest
+} = Astro.props;
+
+const classes = ['c-hero-video', propsClass];
+// Shown until the stream is playing
+const poster = `https://image.mux.com/${playbackId}/thumbnail.webp?time=${posterTime}&width=1920`;
+---
+
+{
+    warm ? (
+        <c-hero-video
+            class="c-hero-video"
+            data-playback-id={playbackId}
+            data-max-resolution={maxResolution}
+            data-poster-time={posterTime}
+            data-warm
+            hidden
+        />
+    ) : (
+        <c-hero-video
+            class:list={classes}
+            data-playback-id={playbackId}
+            data-max-resolution={maxResolution}
+            data-poster-time={posterTime}
+            {...rest}
+        >
+            <img
+                class="c-hero-video_poster"
+                src={poster}
+                alt=""
+                loading="eager"
+                fetchpriority="high"
+            />
+        </c-hero-video>
+    )
+}
+
+<style>
+    @import 'HeroVideo.css';
+</style>
+
+<script>
+    import('./HeroVideo.ts');
+</script>

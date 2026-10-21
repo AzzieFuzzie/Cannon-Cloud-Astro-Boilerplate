@@ -7,6 +7,7 @@
 /* utilities */
 @import './utilities.css';
 @import './typography.css';
+@import './animations.css';
 
 /* Global styles */
 :root {
@@ -41,7 +42,7 @@ body {
 
 /* Define a transition duration during page visits */
 html.is-changing .transition-fade {
-    transition: opacity 0.25s;
+    transition: opacity var(--transition-duration) var(--ease);
     opacity: 1;
 }
 /* Define the styles for the unloaded pages */

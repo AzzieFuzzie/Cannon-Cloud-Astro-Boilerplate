@@ -1,0 +1,42 @@
+---
+interface Props {
+    // An imported image, e.g. `import mint from '../assets/svgs/mint.svg'`
+    src: ImageMetadata;
+    // Locomotive Scroll parallax speed
+    speed?: number;
+    // Degrees turned while the element crosses the viewport
+    rotate?: number;
+    // Positioning classes; the parent needs `relative`
+    class?: string;
+}
+
+const { src, speed = 0.1, rotate = 20, class: propsClass, ...rest } = Astro.props;
+
+const classes = ['c-decor', propsClass];
+---
+
+<div
+    class:list={classes}
+    style={`--decor-rotate: ${rotate}deg;`}
+    aria-hidden="true"
+    data-scroll
+    data-scroll-speed={speed}
+    data-scroll-css-progress
+    {...rest}
+>
+    <div class="c-decor_inner c-reveal -scale" data-scroll>
+        <img
+            class="c-decor_img"
+            src={src.src}
+            width={src.width}
+            height={src.height}
+            alt=""
+            loading="lazy"
+            decoding="async"
+        />
+    </div>
+</div>
+
+<style>
+    @import 'Decor.css';
+</style>

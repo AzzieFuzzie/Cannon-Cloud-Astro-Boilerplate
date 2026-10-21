@@ -1,0 +1,30 @@
+---
+import type { HTMLTag } from 'astro/types';
+
+interface Props {
+    type?: 'fade' | 'scale' | 'line' | 'clip-x' | 'clip-y';
+    tag?: HTMLTag;
+    // Delay in seconds
+    delay?: number;
+    // Hold the reveal until the image inside has loaded (on by default for the clip reveals)
+    waitForImage?: boolean;
+    class?: string;
+    [key: string]: any;
+}
+
+const {
+    type = 'fade',
+    tag: Tag = 'div',
+    delay,
+    waitForImage = type === 'clip-x' || type === 'clip-y',
+    class: propsClass,
+    ...rest
+} = Astro.props;
+
+const classes = ['c-reveal', `-${type}`, waitForImage && '-await-image', propsClass];
+const style = delay ? `--reveal-delay: ${delay}s;` : undefined;
+---
+
+<Tag class:list={classes} style={style} data-scroll {...rest}>
+    <slot />
+</Tag>

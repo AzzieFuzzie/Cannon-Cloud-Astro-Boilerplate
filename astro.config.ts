@@ -39,7 +39,10 @@ export default defineConfig({
                 '@swup/preload-plugin',
                 '@swup/scripts-plugin',
                 'swup',
-                'nanostores'
+                'nanostores',
+                'gsap',
+                'gsap/ScrollTrigger',
+                'gsap/SplitText'
             ]
         },
         build: {

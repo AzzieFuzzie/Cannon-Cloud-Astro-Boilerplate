@@ -7,12 +7,16 @@
         {
             "name": "Vegetarian Platter",
             "description": "Halloumi, grilled tomatoes, spinach and butternut served with rice and chips.",
-            "price": "175"
+            "price": "175",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Mozambican Vegetable & Chickpea Curry",
             "description": "Vegetables and chickpeas simmered in a fragrant Mozambican curry and served with basmati rice.",
-            "price": "150"
+            "price": "150",
+            "image": "",
+            "imageAlt": ""
         }
     ]
 }

@@ -1,0 +1,35 @@
+/*
+ * Decorative illustration with parallax.
+ * Locomotive Scroll moves the outer element (data-scroll-speed) and exposes
+ * its scroll progress as --progress (data-scroll-css-progress).
+ */
+@layer components {
+    .c-decor {
+        position: absolute;
+        z-index: var(--z-index-above);
+        width: 15vw;
+        pointer-events: none;
+
+        @media (max-width: 999px) {
+            width: 28vw;
+        }
+
+        @media (max-width: 699px) {
+            width: 40vw;
+        }
+    }
+
+    .c-decor_inner {
+        --reveal-scale: 0.2;
+        transform-origin: bottom center;
+    }
+
+    .c-decor_img {
+        width: 100%;
+        height: auto;
+
+        @media (prefers-reduced-motion: no-preference) {
+            rotate: calc(var(--progress, 0) * var(--decor-rotate, 0deg));
+        }
+    }
+}

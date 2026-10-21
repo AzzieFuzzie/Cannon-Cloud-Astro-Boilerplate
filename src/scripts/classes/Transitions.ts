@@ -4,10 +4,17 @@ import SwupPreloadPlugin from '@swup/preload-plugin';
 import SwupScriptsPlugin from '@swup/scripts-plugin';
 import Swup from 'swup';
 import { Scroll } from '@scripts/classes/Scroll';
+import { $ready } from '@scripts/stores/ready';
+import { markLoadedReveals, waitForImages, waitForVideos } from '@scripts/utils/imageLoad';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export class Transitions {
     static readonly READY_CLASS = 'is-ready';
     static readonly TRANSITION_CLASS = 'is-transitioning';
+    // Longest a page change waits for the next page's first-screen images (ms)
+    static readonly IMAGE_TIMEOUT = 1000;
+    // Longest a page change waits for a first-screen video to start playing (ms)
+    static readonly VIDEO_TIMEOUT = 1200;
 
     private onVisitStartBind: any;
     private beforeContentReplaceBind: any;
@@ -118,6 +125,8 @@ export class Transitions {
      * @param visit: VisitType
      */
     beforeContentReplace() {
+        // Hold the next page's reveal animations until it has faded in
+        $ready.set(false);
         Scroll?.destroy();
     }
 
@@ -128,9 +137,21 @@ export class Transitions {
      * @see https://swup.js.org/hooks/#content-replace
      * @param visit: VisitType
      */
-    onContentReplace(visit: VisitType) {
+    async onContentReplace(visit: VisitType) {
         Scroll?.init();
         this.updateDocumentAttributes(visit);
+        markLoadedReveals();
+        ScrollTrigger.refresh();
+
+        // Swup waits for this hook, so the page only fades in once its first screen is complete
+        await Promise.all([
+            waitForImages(document, {
+                firstScreenOnly: true,
+                timeout: Transitions.IMAGE_TIMEOUT
+            }),
+            // A background video would otherwise sit on its first frame while the page fades in
+            waitForVideos(document, { timeout: Transitions.VIDEO_TIMEOUT })
+        ]);
     }
 
     /**
@@ -152,5 +173,6 @@ export class Transitions {
     onAnimationInEnd() {
         document.documentElement.classList.remove(Transitions.TRANSITION_CLASS);
         document.documentElement.classList.add(Transitions.READY_CLASS);
+        $ready.set(true);
     }
 }

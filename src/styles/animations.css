@@ -1,0 +1,12 @@
+/*
+ * Scroll animations
+ *
+ * - Simple reveals: <Reveal type="fade | scale | line | clip-x | clip-y"> (src/components/Reveal)
+ * - Text reveals:   <TextReveal type="lines | chars | fill"> (src/components/TextReveal)
+ * - Parallax:       <Decor> or `data-scroll data-scroll-speed="…"` (Locomotive Scroll)
+ *
+ * Shared timings live in tailwind.css (--transition-duration-*, --ease, --ease-out)
+ * and are mirrored for GSAP in src/scripts/config.ts (MOTION).
+ */
+
+@import '../components/Reveal/Reveal.css';

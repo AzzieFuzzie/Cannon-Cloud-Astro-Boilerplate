@@ -73,6 +73,8 @@
     --transition-duration-slowest: 1s;
 
     --ease: cubic-bezier(0.645, 0.045, 0.355, 1);
+    --ease-out: cubic-bezier(0.19, 1, 0.22, 1);
+    --ease-reveal: cubic-bezier(0.76, 0, 0.24, 1);
 
     --z-index-modal: 200;
     --z-index-header: 100;

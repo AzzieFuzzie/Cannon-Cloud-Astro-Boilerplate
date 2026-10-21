@@ -7,22 +7,30 @@
         {
             "name": "Chicken Alfredo",
             "description": "Tender chicken strips and mushrooms folded through a rich parmesan cream sauce.",
-            "price": "190"
+            "price": "190",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Creamy Pesto",
             "description": "Homemade basil pesto.",
-            "price": "150"
+            "price": "150",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Baked Chicken Pasta",
             "description": "Spicy Napolitana sauce, peppadews, chicken and jalapeños topped with melted cheese.",
-            "price": "190"
+            "price": "190",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Arrabbiata",
             "description": "Tomatoes, basil and chilli.",
-            "price": "145"
+            "price": "145",
+            "image": "",
+            "imageAlt": ""
         }
     ]
 }

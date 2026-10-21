@@ -7,17 +7,23 @@
         {
             "name": "Greek Salad",
             "description": "Crisp lettuce, cocktail tomatoes, Kalamata olives and Danish feta tossed in a traditional dressing.",
-            "price": "135"
+            "price": "135",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Pear And Almond",
             "description": "Poached pear, caramelised almonds, cucumber and seasonal greens finished with honey dressing.",
-            "price": "145"
+            "price": "145",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "House Salad",
             "description": "Crisp lettuce, cocktail tomatoes, onions and green peppers tossed in a vinaigrette dressing.",
-            "price": "120"
+            "price": "120",
+            "image": "",
+            "imageAlt": ""
         }
     ]
 }

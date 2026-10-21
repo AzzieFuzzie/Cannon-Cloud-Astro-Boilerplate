@@ -1,9 +1,10 @@
 import { ComponentElement } from '@locomotivemtl/component-manager';
+import { MOTION } from '@scripts/config';
 
 export class Accordion extends HTMLElement {
     static CLASS_ACTIVE = 'is-active';
-    static EASING = 'cubic-bezier(0.33, 1, 0.68, 1)';
-    static DURATION = 300;
+    static EASING = MOTION.cssEase.out;
+    static DURATION = MOTION.duration.fast * 1000;
 
     private $summary: HTMLElement | null = null;
     private $content: HTMLElement | null = null;

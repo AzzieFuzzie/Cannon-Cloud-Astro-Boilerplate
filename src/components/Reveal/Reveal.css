@@ -1,0 +1,70 @@
+/*
+ * Scroll reveals driven by Locomotive Scroll's `is-inview` class.
+ * They are held while <html> has `is-loading` (preloader or page transition).
+ * A reveal with `-await-image` also waits for `is-loaded`, set in src/scripts/utils/imageLoad.ts
+ * once its image has loaded and decoded.
+ * The clip reveals also settle the image inside from slightly zoomed in while the mask opens.
+ */
+@layer components {
+    @media (prefers-reduced-motion: no-preference) {
+        .c-reveal {
+            transition-property: opacity, transform, clip-path;
+            transition-duration: var(--reveal-duration, var(--transition-duration-slowest));
+            transition-timing-function: var(--ease-out);
+            transition-delay: var(--reveal-delay, 0s);
+
+            &.-fade {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            &.-scale {
+                transform: scale(var(--reveal-scale, 0.85));
+            }
+
+            &.-line {
+                transform: scaleX(0);
+                transform-origin: left center;
+            }
+
+            &.-clip-x {
+                clip-path: inset(0% 100% 0% 0%);
+            }
+
+            &.-clip-y {
+                clip-path: inset(100% 0% 0% 0%);
+            }
+
+            /* A wipe needs a slow start and a soft landing; expo-out is over too soon */
+            &.-clip-x,
+            &.-clip-y {
+                transition-duration: var(--reveal-duration, 1.4s);
+                transition-timing-function: var(--ease-reveal);
+
+                /* Runs a little longer than the mask so the image is still settling as it opens.
+                   `scale` is listed apart so a hover:scale-* zoom stays quick. */
+                img {
+                    transform: scale(1.2);
+                    transition:
+                        transform 1.6s var(--ease-reveal) var(--reveal-delay, 0s),
+                        scale var(--transition-duration-slow) var(--ease-out);
+                }
+            }
+        }
+
+        html:not(.is-loading) .c-reveal.is-inview:not(.-await-image),
+        html:not(.is-loading) .c-reveal.-await-image.is-inview.is-loaded {
+            opacity: 1;
+            transform: none;
+            clip-path: inset(0% 0% 0% 0%);
+        }
+
+        /* Clip reveals only, so images inside the other reveals keep their own transforms */
+        html:not(.is-loading) .c-reveal:is(.-clip-x, .-clip-y).is-inview:not(.-await-image) img,
+        html:not(.is-loading)
+            .c-reveal:is(.-clip-x, .-clip-y).-await-image.is-inview.is-loaded
+            img {
+            transform: none;
+        }
+    }
+}

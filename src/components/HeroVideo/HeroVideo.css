@@ -1,0 +1,18 @@
+@layer components {
+    .c-hero-video {
+        display: block;
+        overflow: hidden;
+
+        &[hidden] {
+            display: none;
+        }
+    }
+
+    .c-hero-video_poster {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

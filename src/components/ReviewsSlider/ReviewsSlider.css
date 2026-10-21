@@ -1,0 +1,86 @@
+@layer components {
+    .c-reviews-slider {
+        display: block;
+        width: 100%;
+    }
+
+    .c-reviews-slider_quote {
+        height: var(--spacing-small);
+        margin-bottom: var(--spacing-xsmall);
+        font-family: serif;
+        font-size: utopia.clamp(100, 120);
+        line-height: 1;
+        text-align: center;
+    }
+
+    .c-reviews-slider_viewport {
+        overflow: clip;
+    }
+
+    .c-reviews-slider_track {
+        display: flex;
+        will-change: transform;
+    }
+
+    .c-reviews-slider_slide {
+        flex: 0 0 calc(100% / 3);
+        color: var(--color-accent-grey);
+        text-align: center;
+        opacity: 0.6;
+        transition:
+            color var(--transition-duration) var(--ease),
+            opacity var(--transition-duration-slower) var(--ease),
+            transform var(--transition-duration-slow) var(--ease-out);
+
+        @media (max-width: 699px) {
+            flex-basis: 100%;
+        }
+
+        &.is-active {
+            color: var(--color-black);
+            opacity: 1;
+        }
+
+        /* Neighbours peek in from the sides */
+        &.is-prev {
+            transform: translateX(-50%);
+        }
+
+        &.is-next {
+            transform: translateX(50%);
+        }
+    }
+
+    .c-reviews-slider_text {
+        display: -webkit-box;
+        overflow: hidden;
+        margin-bottom: var(--spacing-small);
+        padding-bottom: 0.2em;
+        line-height: 1.2;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+    }
+
+    .c-reviews-slider_author {
+        margin-bottom: var(--spacing-xsmall);
+    }
+
+    .c-reviews-slider_dots {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-tiny);
+    }
+
+    .c-reviews-slider_dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--color-accent-grey);
+        cursor: pointer;
+        transition: background-color var(--transition-duration) var(--ease);
+
+        &.is-active {
+            background-color: var(--color-black);
+        }
+    }
+}

@@ -1,8 +1,9 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import { Image } from 'astro:assets';
+import DataImage from '../components/DataImage/DataImage.astro';
 import contact from '../data/contact.json';
 import site from '../data/site.json';
+import Reveal from '../components/Reveal/Reveal.astro';
 
 const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
 
@@ -27,19 +28,20 @@ const mapQuery = encodeURIComponent(
                 Get in touch with us
             </h2>
 
-            <Image
-                class="mb-small aspect-665/440 w-full object-cover md:mb-0 md:aspect-square"
-                data-editable="image"
-                data-prop-src="@data[contact].heroImage"
-                data-prop-alt="@data[contact].heroImageAlt"
-                data-prop-title="@data[contact].heroImageTitle"
-                src={contact.heroImage}
-                title={contact.heroImageTitle}
-                alt={contact.heroImageAlt}
-                data-animation="image_reveal_horizontal"
-                width={1000}
-                height={1000}
-            />
+            <Reveal type="clip-x" class="mb-small w-full md:mb-0">
+                <DataImage
+                    class="aspect-665/440 w-full object-cover md:aspect-square"
+                    data-editable="image"
+                    data-prop-src="@data[contact].heroImage"
+                    data-prop-alt="@data[contact].heroImageAlt"
+                    data-prop-title="@data[contact].heroImageTitle"
+                    src={contact.heroImage}
+                    title={contact.heroImageTitle}
+                    alt={contact.heroImageAlt}
+                    sizes="(max-width: 999px) 100vw, 40vw"
+                    loading="eager"
+                />
+            </Reveal>
         </div>
 
         <!-- Right: details + map -->

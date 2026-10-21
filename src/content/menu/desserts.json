@@ -7,37 +7,51 @@
         {
             "name": "Ice Cream Nut Cake",
             "description": "Homemade vanilla ice cream layered with crushed biscuits and toasted nuts finished with a warm chocolate sauce.",
-            "price": "130"
+            "price": "130",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Crème Brûlée",
             "description": "Vanilla pod-infused baked custard with a caramelised sugar crust.",
-            "price": "120"
+            "price": "120",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Chocolate Fondant",
             "description": "Rich molten chocolate fondant served with velvety vanilla ice cream.",
-            "price": "135"
+            "price": "135",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Coffee Pavlova",
             "description": "House-made meringue topped with whipped cream and toffee caramel syrup.",
-            "price": "130"
+            "price": "130",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Paan Sorvette",
             "description": "Paan-flavoured kulfi ice cream drizzled with sweet syrup and paan sweets.",
-            "price": "105"
+            "price": "105",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Malva Pudding & Custard",
             "description": "Traditional South African malva pudding served warm with silky crème anglaise.",
-            "price": "115"
+            "price": "115",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Baked Cheesecake",
             "description": "Served with a berry compote.",
-            "price": "135"
+            "price": "135",
+            "image": "",
+            "imageAlt": ""
         }
     ]
 }

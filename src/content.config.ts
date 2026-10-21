@@ -14,7 +14,10 @@ const menuCollection = defineCollection({
                 z.object({
                     name: z.string(),
                     description: z.string().optional(),
-                    price: z.string()
+                    price: z.string(),
+                    // Shown in the sticky image panel when the item is hovered or tapped
+                    image: z.string().optional(),
+                    imageAlt: z.string().optional()
                 })
             )
         })

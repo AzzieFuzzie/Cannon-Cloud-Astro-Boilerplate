@@ -1,0 +1,37 @@
+@layer components {
+    .c-preloader {
+        position: fixed;
+        inset: 0;
+        z-index: calc(var(--z-index-modal) + 1);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: var(--spacing-medium);
+        background-color: var(--color-grey);
+        color: var(--color-black);
+
+        will-change: transform;
+
+        /* Safety net: lift the overlay by itself if the script never runs */
+        animation: c-preloader-fallback 0s linear 8s forwards;
+    }
+
+    .c-preloader_number {
+        overflow: hidden;
+        /* Room for the glyphs, which overshoot a line-height of 1 */
+        padding-block: 0.1em;
+        /* Equal-width digits, so the number does not wobble while it counts */
+        font-variant-numeric: tabular-nums;
+    }
+
+    .c-preloader_inner {
+        display: block;
+        will-change: transform;
+    }
+
+    @keyframes c-preloader-fallback {
+        to {
+            visibility: hidden;
+        }
+    }
+}

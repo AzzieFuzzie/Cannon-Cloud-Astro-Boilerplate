@@ -7,57 +7,79 @@
         {
             "name": "Chooza Masala Chips",
             "description": "French Chips smothered in our signature Chooza sauce.",
-            "price": "65"
+            "price": "65",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Naan",
             "description": "Tandoor baked and brushed with butter, garlic butter or plain.",
-            "price": "42"
+            "price": "42",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Buttery Mash",
             "description": "",
-            "price": "50"
+            "price": "50",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Aromatic Rice",
             "description": "",
-            "price": "50"
+            "price": "50",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Stir-Fried Vegetables",
             "description": "",
-            "price": "55"
+            "price": "55",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "House Salad",
             "description": "Tomatoes, lettuce, onions and green peppers.",
-            "price": "55"
+            "price": "55",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Onion Rings",
             "description": "",
-            "price": "50"
+            "price": "50",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Chips",
             "description": "",
-            "price": "55"
+            "price": "55",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Creamy Spinach",
             "description": "",
-            "price": "65"
+            "price": "65",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Butternut",
             "description": "",
-            "price": "55"
+            "price": "55",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Round Chips",
             "description": "",
-            "price": "60"
+            "price": "60",
+            "image": "",
+            "imageAlt": ""
         }
     ]
 }

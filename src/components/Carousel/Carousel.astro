@@ -1,0 +1,68 @@
+---
+import DataImage from '../DataImage/DataImage.astro';
+
+interface CarouselImage {
+    image: string;
+    alt?: string;
+}
+
+interface Props {
+    images: CarouselImage[];
+    sizes?: string;
+    class?: string;
+}
+
+const {
+    images,
+    sizes = '(max-width: 600px) 650px, (max-width: 1440px) 50vw, 700px',
+    class: propsClass,
+    ...rest
+} = Astro.props;
+
+const classes = ['c-carousel', propsClass];
+---
+
+{
+    images.length > 0 && (
+        <c-carousel class:list={classes} {...rest}>
+            <div class="c-carousel_slides">
+                {images.map((item, index) => (
+                    <div
+                        class:list={['c-carousel_slide', index === 0 && 'is-active']}
+                        data-carousel="slide"
+                        aria-hidden={index === 0 ? 'false' : 'true'}
+                    >
+                        <DataImage
+                            class="c-carousel_image"
+                            src={item.image}
+                            alt={item.alt ?? ''}
+                            sizes={sizes}
+                        />
+                    </div>
+                ))}
+            </div>
+
+            {images.length > 1 && (
+                <div class="c-carousel_controls text-action">
+                    <button type="button" class="c-carousel_button" data-carousel="prev">
+                        Prev
+                    </button>
+                    <button type="button" class="c-carousel_button" data-carousel="next">
+                        Next
+                    </button>
+                    <span class="c-carousel_counter" data-carousel="counter" aria-live="polite">
+                        1/{images.length}
+                    </span>
+                </div>
+            )}
+        </c-carousel>
+    )
+}
+
+<style>
+    @import 'Carousel.css';
+</style>
+
+<script>
+    import('./Carousel.ts');
+</script>

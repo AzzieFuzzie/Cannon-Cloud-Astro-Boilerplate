@@ -1,0 +1,44 @@
+@layer components {
+    .c-marquee {
+        overflow: clip;
+        width: 100%;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .c-marquee_track {
+        display: flex;
+        width: max-content;
+    }
+
+    .c-marquee_group {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+    }
+
+    .c-marquee_image {
+        width: 250px;
+        height: 375px;
+        margin-right: var(--spacing-tiny);
+        object-fit: cover;
+    }
+
+    /* The track holds two identical groups, so moving it by half its width loops seamlessly */
+    @media (prefers-reduced-motion: no-preference) {
+        .c-marquee_track {
+            animation: c-marquee var(--marquee-duration, 35s) linear infinite;
+            will-change: transform;
+
+            .c-marquee.-reverse & {
+                animation-direction: reverse;
+            }
+        }
+    }
+
+    @keyframes c-marquee {
+        to {
+            transform: translate3d(-50%, 0, 0);
+        }
+    }
+}

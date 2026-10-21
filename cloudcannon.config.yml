@@ -46,6 +46,11 @@ _inputs:
     options:
       path: src/assets/images
 
+  # Mux playback ID of the home page background video (src/data/home.json)
+  heroVideoPlaybackId:
+    type: text
+    label: Hero Video (Mux playback ID)
+
   # FAQ entries on the home page (src/data/home.json)
   faqs:
     type: array
@@ -60,6 +65,47 @@ _inputs:
     type: text
   answer:
     type: textarea
+
+  # Guest reviews slider on the home page (src/data/home.json)
+  reviews:
+    type: array
+    label: Reviews
+    options:
+      structures:
+        values:
+          - value:
+              text: ''
+              author: ''
+  text:
+    type: textarea
+  author:
+    type: text
+
+  # Image lists on the home page (src/data/home.json): food carousel and image marquee
+  foodGallery:
+    type: array
+    label: Food Carousel
+    options:
+      structures:
+        values:
+          - value:
+              image: ''
+              alt: ''
+  marquee:
+    type: array
+    label: Image Marquee
+    options:
+      structures:
+        values:
+          - value:
+              image: ''
+              alt: ''
+  image:
+    type: image
+    options:
+      path: src/assets/images
+  alt:
+    type: text
 
   # Shared site details (src/data/site.json)
   phone:
@@ -106,24 +152,29 @@ collections_config:
       displayOrder:
         type: number
         label: Display Order
+      # Used by the category and by every item in it (the item image is shown when the item is hovered or tapped)
       image:
         type: image
-        label: Category Image
+        label: Image
         options:
           path: src/assets/images
       imageAlt:
         type: text
-        label: Category Image Alt Text
+        label: Image Alt Text
       items:
         type: array
         label: Menu Items
         options:
           structures:
-            value:
-              name: ''
-              description: ''
-              price: ''
-              dietary: []
+            values:
+              - label: Menu Item
+                value:
+                  name: ''
+                  description: ''
+                  price: ''
+                  image: ''
+                  imageAlt: ''
+                  dietary: []
       name:
         type: text
       description:

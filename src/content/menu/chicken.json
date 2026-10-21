@@ -7,42 +7,58 @@
         {
             "name": "Portuguese Peri Peri Chicken Full",
             "description": "Flame grilled over an open fire and served with round chips.",
-            "price": "330"
+            "price": "330",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Portuguese Peri Peri Chicken Half",
             "description": "Flame grilled over an open fire and served with round chips.",
-            "price": "180"
+            "price": "180",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Portuguese Peri Peri Chicken Fillets",
             "description": "Two flame-grilled fillets served with round chips.",
-            "price": "190"
+            "price": "190",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Chooza Chicken",
             "description": "Baby chicken marinated in our signature Chooza sauce and char-grilled served with chips.",
-            "price": "330"
+            "price": "330",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Chooza Boneless Chicken",
             "description": "Seven tender chicken cubes finished with Chooza sauce and served with house salad and chips.",
-            "price": "190"
+            "price": "190",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Chooza Chicken Wings",
             "description": "Four full wings char-grilled in Chooza sauce served with chips.",
-            "price": "150"
+            "price": "150",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Chooza Chilli Lemon Prawns",
             "description": "Six pan-fried prawns topped with a house chilli, lemon and coriander sauce.",
-            "price": "175"
+            "price": "175",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Beef Kebab",
             "description": "Two char-grilled beef kebabs served with chips and house salad.",
-            "price": "200"
+            "price": "200",
+            "image": "",
+            "imageAlt": ""
         }
     ]
 }

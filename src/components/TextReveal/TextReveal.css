@@ -1,0 +1,12 @@
+@layer components {
+    .c-text-reveal {
+        display: block;
+    }
+
+    /* Hide the text until the component script has set its starting state */
+    @media (prefers-reduced-motion: no-preference) {
+        .c-text-reveal:not(:defined) {
+            visibility: hidden;
+        }
+    }
+}

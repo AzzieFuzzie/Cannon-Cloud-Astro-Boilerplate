@@ -1,0 +1,213 @@
+/*
+ * One list of links: inline on desktop, a full-screen menu behind a hamburger below 1000px.
+ * Header.ts only toggles `is-open`; every animation lives here.
+ */
+@layer components {
+    .c-header {
+        display: block;
+        position: relative;
+        z-index: var(--z-index-header);
+    }
+
+    .c-header_bar {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: var(--nav-height);
+    }
+
+    .c-header_logo {
+        display: block;
+
+        img {
+            width: auto;
+            height: 32px;
+        }
+    }
+
+    .c-header_link {
+        display: block;
+        transition: opacity var(--transition-duration) var(--ease);
+
+        &[aria-current='page'] {
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+            text-decoration-thickness: 1px;
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+
+    /* Book a Reservation: a pill, in both layouts */
+    .c-header_item.-cta .c-header_link {
+        display: inline-block;
+        padding: 0.6em 1.2em;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        font-family: var(--font-lato);
+        font-size: var(--text-body-base);
+        line-height: 1;
+        text-transform: uppercase;
+        transition:
+            background-color var(--transition-duration) var(--ease),
+            color var(--transition-duration) var(--ease);
+
+        @media (hover: hover) {
+            &:hover {
+                opacity: 1;
+                background-color: var(--color-black);
+                color: var(--color-white);
+            }
+        }
+    }
+
+    /* =========================================================================
+       Desktop: logo left, links inline on the right
+       ========================================================================= */
+    @media (min-width: 1000px) {
+        .c-header_inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: var(--nav-height);
+            padding-inline: var(--grid-margin);
+        }
+
+        .c-header_toggle {
+            display: none;
+        }
+
+        .c-header_list {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-gutter);
+            font-size: var(--text-body-base);
+            text-transform: uppercase;
+        }
+    }
+
+    /* =========================================================================
+       Mobile: hamburger + full-screen menu
+       ========================================================================= */
+    @media (max-width: 999px) {
+        .c-header_bar {
+            padding-inline: var(--grid-margin);
+        }
+
+        /* 44px tap target, with the two lines aligned to the page margin */
+        .c-header_toggle {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 6px;
+            width: 44px;
+            height: 44px;
+            margin-right: -10px;
+            padding-right: 10px;
+            cursor: pointer;
+        }
+
+        .c-header_line {
+            display: block;
+            width: 24px;
+            height: 2px;
+            border-radius: 2px;
+            background-color: currentColor;
+        }
+
+        /* The two lines meet in the middle and cross into an X */
+        .c-header.is-open .c-header_line:first-child {
+            transform: translateY(4px) rotate(45deg);
+        }
+
+        .c-header.is-open .c-header_line:last-child {
+            transform: translateY(-4px) rotate(-45deg);
+        }
+
+        .c-header_nav {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            overflow-y: auto;
+            padding-top: var(--nav-height);
+            background-color: var(--color-grey);
+            visibility: hidden;
+            clip-path: inset(0% 0% 100% 0%);
+        }
+
+        .c-header.is-open .c-header_nav {
+            visibility: visible;
+            clip-path: inset(0% 0% 0% 0%);
+        }
+
+        .c-header_list {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-xtiny);
+            padding: var(--spacing-small) var(--grid-margin);
+        }
+
+        /* Each item is the mask its link slides out of */
+        .c-header_item {
+            overflow: hidden;
+
+            &.-cta {
+                margin-top: var(--spacing-xsmall);
+            }
+        }
+
+        .c-header_link {
+            font-family: var(--font-rd-narrow, serif);
+            font-size: var(--text-heading-h2);
+            line-height: 1.2;
+        }
+    }
+
+    @media (max-width: 999px) and (prefers-reduced-motion: no-preference) {
+        .c-header_line {
+            transition: transform var(--transition-duration) var(--ease-reveal);
+        }
+
+        /* Closing: the wipe runs, then the menu is hidden */
+        .c-header_nav {
+            transition:
+                clip-path var(--transition-duration-slower) var(--ease-reveal),
+                visibility 0s linear var(--transition-duration-slower);
+        }
+
+        .c-header.is-open .c-header_nav {
+            transition:
+                clip-path var(--transition-duration-slower) var(--ease-reveal),
+                visibility 0s;
+        }
+
+        .c-header_link {
+            translate: 0 100%;
+            transition:
+                translate var(--transition-duration-slow) var(--ease-reveal),
+                opacity var(--transition-duration) var(--ease);
+        }
+
+        /* The pill keeps its hover colours as well as the slide */
+        .c-header_item.-cta .c-header_link {
+            transition:
+                translate var(--transition-duration-slow) var(--ease-reveal),
+                background-color var(--transition-duration) var(--ease),
+                color var(--transition-duration) var(--ease);
+        }
+
+        /* Opening: the links rise one after another once the wipe is under way */
+        .c-header.is-open .c-header_link {
+            translate: 0 0;
+            transition-delay: calc(0.25s + var(--i, 0) * 0.06s), 0s;
+        }
+    }
+}
