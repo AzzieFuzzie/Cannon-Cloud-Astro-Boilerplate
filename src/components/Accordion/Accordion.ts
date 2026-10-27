@@ -1,10 +1,10 @@
 import { ComponentElement } from '@locomotivemtl/component-manager';
-import { MOTION } from '@scripts/config';
 
 export class Accordion extends HTMLElement {
     static CLASS_ACTIVE = 'is-active';
-    static EASING = MOTION.cssEase.out;
-    static DURATION = MOTION.duration.fast * 1000;
+    // As the FAQ on pigalle.co.za: opens in 0.5s power2.out, closes in 0.4s power2.inOut
+    static OPEN = { duration: 500, easing: 'cubic-bezier(0.5, 1, 0.89, 1)' };
+    static CLOSE = { duration: 400, easing: 'cubic-bezier(0.45, 0, 0.55, 1)' };
 
     private $summary: HTMLElement | null = null;
     private $content: HTMLElement | null = null;
@@ -39,15 +39,30 @@ export class Accordion extends HTMLElement {
     // =============================================================================
     private bindEvents(): void {
         this.$summary?.addEventListener('click', this.onClick);
+        this.$details?.addEventListener('toggle', this.onToggle);
     }
 
     private unbindEvents(): void {
         this.$summary?.removeEventListener('click', this.onClick);
+        this.$details?.removeEventListener('toggle', this.onToggle);
     }
 
     // =============================================================================
     // Callbacks
     // =============================================================================
+    /**
+     * Accordions that share a `name` are exclusive: opening one makes the browser close the others
+     * on its own, without going through close(). Keep the closed one's state (and icon) in step.
+     */
+    private onToggle = (): void => {
+        if (this.$details?.open || this.isAnimating()) return;
+
+        this.cancelAnimation();
+        this.$details?.classList.remove(Accordion.CLASS_ACTIVE);
+        this.$details!.style.height = '';
+        this.style.overflow = '';
+    };
+
     private onClick = (e: Event): void => {
         e.preventDefault();
 
@@ -70,16 +85,14 @@ export class Accordion extends HTMLElement {
         }
     }
 
-    private createAnimation(startHeight: string, endHeight: string): Animation {
+    private createAnimation(
+        startHeight: string,
+        endHeight: string,
+        timing: { duration: number; easing: string }
+    ): Animation {
         this.cancelAnimation();
 
-        return this.animate(
-            { height: [startHeight, endHeight] },
-            {
-                duration: Accordion.DURATION,
-                easing: Accordion.EASING
-            }
-        );
+        return this.animate({ height: [startHeight, endHeight] }, timing);
     }
 
     private prepareForAnimation(): void {
@@ -105,7 +118,7 @@ export class Accordion extends HTMLElement {
         const startHeight = `${this.$details!.offsetHeight}px`;
         const endHeight = `${this.$summary!.offsetHeight}px`;
 
-        this.animation = this.createAnimation(startHeight, endHeight);
+        this.animation = this.createAnimation(startHeight, endHeight, Accordion.CLOSE);
         this.animation.onfinish = () => this.onAnimationFinish(false);
         this.animation.oncancel = () => this.onCloseCancel();
 
@@ -123,7 +136,7 @@ export class Accordion extends HTMLElement {
             const startHeight = `${this.$details!.offsetHeight}px`;
             const endHeight = `${this.$summary!.offsetHeight + this.$content!.offsetHeight}px`;
 
-            this.animation = this.createAnimation(startHeight, endHeight);
+            this.animation = this.createAnimation(startHeight, endHeight, Accordion.OPEN);
             this.animation.onfinish = () => this.onAnimationFinish(true);
             this.animation.oncancel = () => this.onExpandCancel();
         });

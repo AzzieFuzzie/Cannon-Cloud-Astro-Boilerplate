@@ -24,7 +24,20 @@ const classes = ['c-accordion', propsClass];
                     <span>{label}</span>
                 )
             }
-            <span class="c-accordion_icon" aria-hidden="true">&darr;</span>
+            {/* Plus that turns into a cross when open */}
+            <svg
+                class="c-accordion_icon"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 22 23"
+                width="22"
+                height="23"
+                fill="currentColor"
+            >
+                <path
+                    d="M0.261719 12.4793V10.8271H10.1748V0.914062H11.8269V10.8271H21.74V12.4793H11.8269V22.3923H10.1748V12.4793H0.261719Z"
+                ></path>
+            </svg>
         </summary>
         <div class="c-accordion_content" data-accordion="content">
             <slot />

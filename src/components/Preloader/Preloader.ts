@@ -9,8 +9,10 @@ export class Preloader extends HTMLElement {
     static TIMEOUT = 4000;
     // Counting from 0 to 100 takes at least this long (s), however fast the page loads
     static COUNT_DURATION = 1.2;
-    // How far into the curtain lift the page's reveal animations are released (s)
-    static READY_OFFSET = 0.3;
+    // How long before the curtain is fully up the page's reveal animations are released (s).
+    // Released earlier, they play (and mostly finish) behind the curtain. Released here, the curtain
+    // is almost at rest, so the long frame of restyling the page doesn't show as a jump either.
+    static READY_BEFORE_END = 0.2;
 
     private $number: HTMLElement | null = null;
     private total = 0;
@@ -168,8 +170,8 @@ export class Preloader extends HTMLElement {
                 },
                 `-=${MOTION.duration.fast}`
             )
-            // The page's reveals start while the curtain is still lifting
-            .call(() => $ready.set(true), [], `<${Preloader.READY_OFFSET}`);
+            // The page's reveals start as the curtain clears the screen
+            .call(() => $ready.set(true), [], `-=${Preloader.READY_BEFORE_END}`);
     }
 }
 

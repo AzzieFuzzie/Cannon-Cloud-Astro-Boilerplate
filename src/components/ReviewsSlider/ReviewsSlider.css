@@ -15,6 +15,14 @@
 
     .c-reviews-slider_viewport {
         overflow: clip;
+        /* Sideways drags move the slider; up and down still scroll the page */
+        touch-action: pan-y;
+        cursor: grab;
+        user-select: none;
+
+        &.is-dragging {
+            cursor: grabbing;
+        }
     }
 
     .c-reviews-slider_track {
@@ -55,10 +63,16 @@
         display: -webkit-box;
         overflow: hidden;
         margin-bottom: var(--spacing-small);
-        padding-bottom: 0.2em;
-        line-height: 1.2;
+        /* Tall enough for descenders (g, y) without bottom padding, which would let the top of
+           the first hidden line peek out under the ellipsis */
+        line-height: 1.25;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 5;
+
+        /* Phones: anything past four lines ends in an ellipsis */
+        @media (max-width: 699px) {
+            -webkit-line-clamp: 4;
+        }
     }
 
     .c-reviews-slider_author {

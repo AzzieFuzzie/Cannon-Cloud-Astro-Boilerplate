@@ -8,50 +8,50 @@
             "name": "Ice Cream Nut Cake",
             "description": "Homemade vanilla ice cream layered with crushed biscuits and toasted nuts finished with a warm chocolate sauce.",
             "price": "130",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/ice-cream-nut-cake.jpg",
+            "imageAlt": "Ice cream nut cake with crushed biscuits, toasted nuts and chocolate sauce"
         },
         {
             "name": "Crème Brûlée",
             "description": "Vanilla pod-infused baked custard with a caramelised sugar crust.",
             "price": "120",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/creme-brulee.jpg",
+            "imageAlt": "Vanilla pod crème brûlée with a caramelised sugar crust"
         },
         {
             "name": "Chocolate Fondant",
             "description": "Rich molten chocolate fondant served with velvety vanilla ice cream.",
             "price": "135",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/chocolate-fondant.jpg",
+            "imageAlt": "Warm chocolate fondant served with vanilla ice cream"
         },
         {
             "name": "Coffee Pavlova",
             "description": "House-made meringue topped with whipped cream and toffee caramel syrup.",
             "price": "130",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/coffee-pavlova.jpg",
+            "imageAlt": "Coffee pavlova with whipped cream and fresh fruit"
         },
         {
             "name": "Paan Sorvette",
             "description": "Paan-flavoured kulfi ice cream drizzled with sweet syrup and paan sweets.",
             "price": "105",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/paan-sorvette.jpg",
+            "imageAlt": "Paan-flavoured kulfi ice cream drizzled with sweet syrup"
         },
         {
             "name": "Malva Pudding & Custard",
             "description": "Traditional South African malva pudding served warm with silky crème anglaise.",
             "price": "115",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/malva-pudding.jpg",
+            "imageAlt": "Classic South African malva pudding"
         },
         {
             "name": "Baked Cheesecake",
             "description": "Served with a berry compote.",
             "price": "135",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/cheesecake.jpg",
+            "imageAlt": "Baked cheesecake with berry compote"
         }
     ]
 }

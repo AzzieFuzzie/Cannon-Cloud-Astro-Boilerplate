@@ -1,17 +1,14 @@
 {
-    "aboutHeroImage": "/src/assets/images/home/7.png",
-    "aboutHeroImageAlt": "Pigalle dining room",
+    "aboutHeroImage": "/src/assets/images/about/story-hero.jpg",
+    "aboutHeroImageAlt": "Violinist performing at Pigalle",
     "aboutHeroImageTitle": "Pigalle Hero Image",
-
-    "aboutGalleryImage": "/src/assets/images/home/4.png",
-    "aboutGalleryImageAlt": "Seaabout platter",
+    "aboutGalleryImage": "/src/assets/images/about/story-1.jpg",
+    "aboutGalleryImageAlt": "Live violinist performing in the Pigalle dining room",
     "aboutGalleryImageTitle": "Our about",
-
-    "aboutGalleryImage1": "/src/assets/images/home/5.png",
-    "aboutGalleryImageAlt1": "Seaabout platter",
+    "aboutGalleryImage1": "/src/assets/images/about/story-2.jpg",
+    "aboutGalleryImageAlt1": "A smiling Pigalle waiter",
     "aboutGalleryImageTitle1": "Our about",
-
-    "aboutGalleryImage2": "/src/assets/images/home/6.png",
-    "aboutGalleryImageAlt2": "Seaabout platter",
+    "aboutGalleryImage2": "/src/assets/images/about/story-3.jpg",
+    "aboutGalleryImageAlt2": "A table set for dinner in the Pigalle dining room",
     "aboutGalleryImageTitle2": "Our about"
 }

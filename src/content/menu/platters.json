@@ -8,22 +8,22 @@
             "name": "Shellfish Platter",
             "description": "A luxurious seafood selection featuring three queen prawns, three langoustines and a baby lobster. Served with savoury rice and chips.",
             "price": "960",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/shellfish-platter.jpg",
+            "imageAlt": "Shellfish platter with queen prawns, langoustines and baby lobster"
         },
         {
             "name": "Seafood Platter for Two",
             "description": "An indulgent feast of mussels, kingklip fillet, grilled calamari, langoustines, queen prawns and baby lobster. Served with savoury rice and chips.",
             "price": "1265",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/seafood-platter-for-two.jpg",
+            "imageAlt": "Seafood platter for two with lobster and langoustines"
         },
         {
             "name": "Pigalle Platter",
             "description": "A refined combination of three langoustines and three queen prawns. Served with savoury rice and chips.",
             "price": "675",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/pigalle-platter.jpg",
+            "imageAlt": "Pigalle platter of langoustines and queen prawns with rice and chips"
         },
         {
             "name": "Surf and turf",

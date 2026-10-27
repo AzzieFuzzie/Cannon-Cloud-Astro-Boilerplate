@@ -54,10 +54,11 @@ export class TextReveal extends HTMLElement {
     /**
      * Run a callback once the element has scrolled into view and the page is revealed
      */
-    private onEnter(callback: () => void): void {
+    private onEnter(callback: () => void, start: string = MOTION.trigger.start): void {
         ScrollTrigger.create({
             trigger: this,
             ...MOTION.trigger,
+            start,
             onEnter: () => {
                 this.cancelReady = whenReady(callback);
             }
@@ -65,7 +66,8 @@ export class TextReveal extends HTMLElement {
     }
 
     /**
-     * Masked lines rise into place
+     * Masked lines rise into place, as on des.obys.agency: 1.3s power4.out, 0.1s apart, no fade.
+     * Lines start 120% down so letter tails (g, y) are fully hidden before they move.
      */
     private revealLines($target: Element): void {
         let tween: gsap.core.Tween | null = null;
@@ -78,10 +80,10 @@ export class TextReveal extends HTMLElement {
             autoSplit: true,
             onSplit: (self) => {
                 tween = gsap.from(self.lines, {
-                    yPercent: 100,
-                    duration: MOTION.duration.base,
-                    stagger: MOTION.stagger,
-                    ease: MOTION.ease.out,
+                    yPercent: 120,
+                    duration: 1.1,
+                    stagger: 0.1,
+                    ease: 'power4.out',
                     delay: this.delay,
                     paused: !hasEntered
                 });
@@ -90,14 +92,15 @@ export class TextReveal extends HTMLElement {
             }
         });
 
+        // Starts as soon as the paragraph enters the screen
         this.onEnter(() => {
             hasEntered = true;
             tween?.play();
-        });
+        }, 'top bottom');
     }
 
     /**
-     * Characters turn and slide in
+     * Characters turn and slide in, all together (Title.js on pigalle.co.za: 1.8s expo.out)
      */
     private revealChars($target: Element): void {
         const split = SplitText.create($target, { type: 'words, chars' });
@@ -108,9 +111,7 @@ export class TextReveal extends HTMLElement {
             rotateY: 90,
             xPercent: -80,
             autoAlpha: 0,
-            duration: MOTION.duration.slow,
-            // Spread over a fixed time so long headings do not drag
-            stagger: { amount: MOTION.duration.fast },
+            duration: 1.8,
             ease: MOTION.ease.out,
             delay: this.delay,
             paused: true
@@ -121,6 +122,7 @@ export class TextReveal extends HTMLElement {
 
     /**
      * Characters fade up to full strength as the text scrolls through the viewport
+     * (TextReveal.js on pigalle.co.za: power1.out, 0.08s apart, scrubbed)
      */
     private fill($target: Element): void {
         const split = SplitText.create($target, { type: 'words, chars' });
@@ -130,7 +132,7 @@ export class TextReveal extends HTMLElement {
             { opacity: 0.1 },
             {
                 opacity: 1,
-                ease: MOTION.ease.none,
+                ease: 'power1.out',
                 stagger: MOTION.stagger,
                 scrollTrigger: {
                     trigger: this,

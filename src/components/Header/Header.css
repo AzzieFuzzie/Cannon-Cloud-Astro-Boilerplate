@@ -9,6 +9,12 @@
         z-index: var(--z-index-header);
     }
 
+    /* The open menu covers the page, so it has to sit above everything on it, including
+       the sticky menu-category bar (which shares --z-index-header). The preloader stays above. */
+    .c-header.is-open {
+        z-index: var(--z-index-modal);
+    }
+
     .c-header_bar {
         position: relative;
         z-index: 2;
@@ -21,9 +27,10 @@
     .c-header_logo {
         display: block;
 
+        /* 40px on phones up to 56px on wide screens (the bar is 80px tall) */
         img {
             width: auto;
-            height: 32px;
+            height: clamp(40px, 3.6vw, 56px);
         }
     }
 

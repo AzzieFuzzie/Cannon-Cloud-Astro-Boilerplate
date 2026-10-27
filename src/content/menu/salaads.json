@@ -8,15 +8,15 @@
             "name": "Greek Salad",
             "description": "Crisp lettuce, cocktail tomatoes, Kalamata olives and Danish feta tossed in a traditional dressing.",
             "price": "135",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/greek-salad.jpg",
+            "imageAlt": "Greek salad with cocktail tomatoes, olives and Danish feta"
         },
         {
             "name": "Pear And Almond",
             "description": "Poached pear, caramelised almonds, cucumber and seasonal greens finished with honey dressing.",
             "price": "145",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/pear-and-almond-salad.jpg",
+            "imageAlt": "Poached pear and caramelised almond salad with seasonal greens"
         },
         {
             "name": "House Salad",

@@ -10,7 +10,9 @@
         align-items: center;
         justify-content: space-between;
         gap: var(--spacing-gutter);
-        padding: 12px 0;
+        padding: var(--spacing-xtiny) 0;
+        font-family: var(--font-lato);
+        font-size: var(--text-heading-h5);
         user-select: none;
         cursor: pointer;
         transition: opacity var(--transition-duration) var(--ease);
@@ -28,11 +30,12 @@
 
     .c-accordion_icon {
         flex-shrink: 0;
-        transform: rotateX(0);
-        transition: transform var(--transition-duration) var(--ease);
+        width: 20px;
+        height: 20px;
+        transition: rotate 0.3s var(--ease-quad-in-out);
 
         .c-accordion_details.is-active & {
-            transform: rotateX(180deg);
+            rotate: 45deg;
         }
     }
 

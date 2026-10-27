@@ -1,92 +1,116 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import DataImage from '../components/DataImage/DataImage.astro';
-import contact from '../data/contact.json';
-import site from '../data/site.json';
+import Marquee from '../components/Marquee/Marquee.astro';
 import Reveal from '../components/Reveal/Reveal.astro';
+import TextReveal from '../components/TextReveal/TextReveal.astro';
+import contact from '../data/contact.json';
+import home from '../data/home.json';
+import site from '../data/site.json';
+
+import facebook from '../assets/svgs/facebook.svg';
+import instagram from '../assets/svgs/instagram.svg';
+import linkedin from '../assets/svgs/linkden.svg';
+import x from '../assets/svgs/x.svg';
 
 const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
 
 const mapQuery = encodeURIComponent(
     'UO9, Michelangelo Towers, Maude St, Sandton, 2196 (Pigalle by Villamoura)'
 );
+
+const socials = [
+    { label: 'Facebook', href: 'https://facebook.com', icon: facebook },
+    { label: 'Instagram', href: 'https://www.instagram.com/pigallevillamoura/', icon: instagram },
+    { label: 'X', href: 'https://x.com', icon: x },
+    { label: 'LinkedIn', href: 'https://linkedin.com', icon: linkedin }
+];
+
+// Small label above a large bold value, as on pigalle.co.za.
+// normal-case: links are uppercase site-wide (typography.css), but emails and addresses read better as written
+const labelClass = 'body-base mb-xxtiny';
+const valueClass =
+    'text-heading-h5 font-bold normal-case transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60';
 ---
 
-<Layout title="Contact">
+<Layout title="Contact" hideFooter>
+    {
+        /* Hero: banner photo with the heading centred on top.
+        It sticks to the top while the rest of the page scrolls over it */
+    }
     <section
-        class="sm:grid-layout min-h-screen px-(--grid-margin) pt-small pb-medium sm:items-start md:pt-medium"
+        class="sticky top-0 flex h-[clamp(260px,42vh,460px)] items-center justify-center overflow-hidden px-(--grid-margin) text-center text-white"
     >
-        <!-- Left: heading + image -->
-        <div class="flex flex-col items-center justify-center md:top-large md:col-span-5">
-            <h2
-                class="mb-xsmall max-w-[clamp(5ch,50%,10ch)] text-center"
+        <DataImage
+            class="pointer-events-none absolute inset-0 h-full w-full object-cover object-[center_30%]"
+            data-editable="image"
+            data-prop-src="@data[contact].heroImage"
+            data-prop-alt="@data[contact].heroImageAlt"
+            data-prop-title="@data[contact].heroImageTitle"
+            src={contact.heroImage}
+            title={contact.heroImageTitle}
+            alt={contact.heroImageAlt}
+            sizes="100vw"
+            loading="eager"
+        />
+        {/* Light shade so the white heading reads on any photo */}
+        <div class="absolute inset-0 bg-black/20" aria-hidden="true"></div>
+
+        <TextReveal type="chars" class="relative z-10">
+            <h1
+                class="heading-h1"
                 data-editable="source"
                 data-path="src/pages/contact.astro"
                 data-key="pageHeading"
                 data-type="text"
             >
                 Get in touch with us
-            </h2>
+            </h1>
+        </TextReveal>
+    </section>
 
-            <Reveal type="clip-x" class="mb-small w-full md:mb-0">
-                <DataImage
-                    class="aspect-665/440 w-full object-cover md:aspect-square"
-                    data-editable="image"
-                    data-prop-src="@data[contact].heroImage"
-                    data-prop-alt="@data[contact].heroImageAlt"
-                    data-prop-title="@data[contact].heroImageTitle"
-                    src={contact.heroImage}
-                    title={contact.heroImageTitle}
-                    alt={contact.heroImageAlt}
-                    sizes="(max-width: 999px) 100vw, 40vw"
-                    loading="eager"
-                />
-            </Reveal>
-        </div>
-
-        <!-- Right: details + map -->
-        <div
-            class="flex flex-col justify-center text-center sm:items-start sm:justify-start sm:text-left md:col-span-6 md:col-start-7 md:pt-[calc(var(--text-heading-h2)*1.25+var(--spacing-xsmall))]"
+    {/* Everything below slides over the hero, so it needs its own background */}
+    <div class="relative z-10 bg-(--color-grey)">
+        {/* Details: phone and email on the left; socials, address and map on the right */}
+        <section
+            class="mx-auto grid max-w-[900px] grid-cols-1 gap-x-gutter gap-y-small px-(--grid-margin) pt-small pb-medium sm:grid-cols-2"
         >
-            <ul class="">
-                <li class="py-tiny first:pt-0 md:py-xsmall">
-                    <h4
-                        class="mb-xxtiny text-heading-h6 tracking-wider text-black/60 uppercase"
+            <ul class="flex flex-col gap-xsmall">
+                <li>
+                    <p
+                        class={labelClass}
                         data-editable="source"
                         data-path="src/pages/contact.astro"
                         data-key="phoneLabel"
                         data-type="text"
                     >
                         Phone
-                    </h4>
+                    </p>
                     {
                         /* Contact details come from src/data/site.json so the link always matches the text */
                     }
-                    <a
-                        href={toTel(site.phone)}
-                        class="body-base transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
-                    >
+                    <a href={toTel(site.phone)} class={valueClass}>
                         <span data-editable="text" data-prop="@data[site].phone" data-type="span"
                             >{site.phone}</span
                         >
                     </a>
                 </li>
 
-                <li class="py-tiny md:py-xsmall">
-                    <h4
-                        class="mb-xxtiny text-heading-h6 tracking-wider text-black/60 uppercase"
+                <li>
+                    <p
+                        class={labelClass}
                         data-editable="source"
                         data-path="src/pages/contact.astro"
                         data-key="whatsappLabel"
                         data-type="text"
                     >
-                        Whatsapp
-                    </h4>
+                        WhatsApp
+                    </p>
                     <a
                         href={`https://wa.me/${site.whatsapp.replace(/\D/g, '')}`}
                         target="_blank"
                         rel="noopener"
-                        class="body-base transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                        class={valueClass}
                     >
                         <span data-editable="text" data-prop="@data[site].whatsapp" data-type="span"
                             >{site.whatsapp}</span
@@ -94,64 +118,140 @@ const mapQuery = encodeURIComponent(
                     </a>
                 </li>
 
-                <li class="py-tiny md:py-xsmall">
-                    <h4
-                        class="mb-xxtiny text-heading-h6 tracking-wider text-black/60 uppercase"
+                <li>
+                    <p
+                        class={labelClass}
                         data-editable="source"
                         data-path="src/pages/contact.astro"
                         data-key="emailLabel"
                         data-type="text"
                     >
                         Email
-                    </h4>
-                    <a
-                        href={`mailto:${site.email}`}
-                        class="body-base transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
-                    >
+                    </p>
+                    <a href={`mailto:${site.email}`} class={valueClass}>
                         <span data-editable="text" data-prop="@data[site].email" data-type="span"
                             >{site.email}</span
                         >
                     </a>
                 </li>
 
-                <li class="py-tiny md:py-xsmall">
-                    <h4
-                        class="mb-xxtiny text-heading-h6 tracking-wider text-black/60 uppercase"
+                <li>
+                    <p
+                        class={labelClass}
+                        data-editable="source"
+                        data-path="src/pages/contact.astro"
+                        data-key="hoursLabel"
+                        data-type="text"
+                    >
+                        Trading Hours
+                    </p>
+                    {
+                        /* Trading hours live in src/data/site.json (the footer, hidden on this page, uses them too) */
+                    }
+                    <ul
+                        class="flex max-w-[24rem] flex-col gap-xxtiny text-heading-h5 font-bold"
+                        data-editable="array"
+                        data-prop="@data[site].hours"
+                    >
+                        {
+                            site.hours.map((row) => (
+                                <li
+                                    class="flex justify-between gap-tiny"
+                                    data-editable="array-item"
+                                >
+                                    <span data-editable="text" data-prop="days" data-type="span">
+                                        {row.days}
+                                    </span>
+                                    <span data-editable="text" data-prop="time" data-type="span">
+                                        {row.time}
+                                    </span>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="flex flex-col gap-small">
+                <div>
+                    <p
+                        class={labelClass}
+                        data-editable="source"
+                        data-path="src/pages/contact.astro"
+                        data-key="socialLabel"
+                        data-type="text"
+                    >
+                        Follow us
+                    </p>
+                    <ul class="mt-xtiny flex items-center gap-tiny">
+                        {
+                            socials.map(({ label, href, icon }) => (
+                                <li>
+                                    <a
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={label}
+                                        class="block transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                                    >
+                                        {/* The icon files are white (made for the black footer); brightness-0 turns them black */}
+                                        <img
+                                            src={icon.src}
+                                            alt=""
+                                            width="28"
+                                            height="28"
+                                            class="size-7 brightness-0"
+                                        />
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+
+                <div>
+                    <p
+                        class={labelClass}
                         data-editable="source"
                         data-path="src/pages/contact.astro"
                         data-key="addressLabel"
                         data-type="text"
                     >
                         Address
-                    </h4>
+                    </p>
                     <a
                         href={site.mapsUrl}
                         target="_blank"
                         rel="noopener"
-                        class="body-base block leading-snug transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                        class={`block ${valueClass}`}
                     >
                         <span
-                            class="block"
                             data-editable="text"
                             data-prop="@data[site].addressLine1"
                             data-type="span">{site.addressLine1}</span
                         >
                         <span
-                            class="block"
                             data-editable="text"
                             data-prop="@data[site].addressLine2"
                             data-type="span">{site.addressLine2}</span
                         >
                     </a>
-                </li>
-            </ul>
 
-            <iframe
-                title="Map to Pigalle by Villamoura"
-                src={`https://maps.google.com/maps?hl=en&q=${mapQuery}&z=15&output=embed`}
-                class="mt-small aspect-4/3 w-[50%] border-0 grayscale-[0.6] md:aspect-video"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </section>
+                    <Reveal type="fade" class="mt-xtiny">
+                        <iframe
+                            title="Map to Pigalle by Villamoura"
+                            src={`https://maps.google.com/maps?hl=en&q=${mapQuery}&z=15&output=embed`}
+                            class="aspect-2/1 w-full max-w-[360px] rounded-[4px] border-0"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </Reveal>
+                </div>
+            </div>
+        </section>
+
+        {/* Image marquee: the same images as the home page (src/data/home.json) */}
+        <section class="pb-medium">
+            <Marquee images={home.marquee} />
+        </section>
+    </div>
 </Layout>

@@ -29,7 +29,9 @@ html {
     font-weight: 500;
 }
 
+/* Image reveals slide in from 30% to the side; never let that widen the page */
 body {
+    overflow-x: clip;
     background: var(--color-grey);
     color: var(--color-primary);
 }

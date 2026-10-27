@@ -1,60 +1,127 @@
 {
     "heading": "Pigalle by Villamoura the home of Exceptional Seafood and Grills",
     "taglineHeading": "Nestled in the heart of Sandton at Nelson Mandela Square, Pigalle by Villamoura offers more than just a meal — it’s an experience.",
-
     "heroVideoPlaybackId": "NfIIb02VK5Q2dFP3yFW01jvFZ02HI98JD8SNaM4CQRzUCs",
-
-    "aboutImageSrc": "/src/assets/images/home/1.png",
-    "aboutImageAlt": "Pigalle dining room",
+    "aboutImageSrc": "/src/assets/images/home/about.jpg",
+    "aboutImageAlt": "Guests sharing fresh oysters at Pigalle",
     "aboutImageTitle": "About Pigalle",
-
     "foodGallery": [
-        { "image": "/src/assets/images/home/2.png", "alt": "Seafood platter" },
-        { "image": "/src/assets/images/home/8.png", "alt": "" },
-        { "image": "/src/assets/images/home/9.png", "alt": "" }
+        {
+            "image": "/src/assets/images/home/gallery-1.jpg",
+            "alt": "Tandoori-dusted prawns with papino and coriander salsa"
+        },
+        {
+            "image": "/src/assets/images/home/gallery-2.jpg",
+            "alt": "Warm chocolate dessert with vanilla ice cream"
+        },
+        {
+            "image": "/src/assets/images/home/gallery-3.jpg",
+            "alt": "Char-grilled beef kebabs with chips and salad"
+        }
     ],
-
-    "eventsImageSrc": "/src/assets/images/home/3.png",
-    "eventsImageAlt": "Private event setup",
+    "eventsImageSrc": "/src/assets/images/home/events.jpg",
+    "eventsImageAlt": "A colourful mocktail served at Pigalle",
     "eventsImageTitle": "Private Events",
-
     "reviews": [
-        { "text": "Placeholder review. Replace with a real guest review.", "author": "Guest name" },
-        { "text": "Placeholder review. Replace with a real guest review.", "author": "Guest name" },
-        { "text": "Placeholder review. Replace with a real guest review.", "author": "Guest name" }
+        {
+            "text": "A very pleasant eating experience. What is a little bit difficult to find as there are no signs and many of the security guards did not know the place. The service was excellent, and the waiters were very courteous. The manager came to check if everything was OK, which is really exceptional. The food was very tasty and the portions generous. The free tasting of the butternut soup was a nice addition. Just note – that a 10% service charges charge is included in your bill, but they still placed at the bottom for gratuity. Usually a service charges levied then they should be no gratuity.",
+            "author": "Sulaimaan Ibn Umar"
+        },
+        {
+            "text": "Pigalle in Sandton exceeded all my expectations. From the moment we were seated, the atmosphere was warm and stylish, with a décor that feels both elegant and inviting. The food was absolutely amazing—each dish arrived beautifully presented and packed with flavor, making it a memorable dining experience. Our waiter, Mr. Charls, was a standout. His easy smile and friendly demeanor made conversation effortless, and he checked in just enough to ensure everything was perfect without being intrusive. A gentleman who appeared to be either the owner or the manager also stopped by to ask how we were enjoying our meal. His genuine interest and attentive service added a special touch, especially since it was my first visit. To top it all off, it was my birthday, and the team surprised me with a gorgeous ice‑cream dessert that was as delightful as the rest of the night. Feeling blessed to have discovered Pigalle, I can’t wait to return and enjoy more of their culinary delights. Highly recommended for anyone looking for great food, excellent service, and a celebratory vibe. 5/5*⭐️⭐️⭐️⭐️⭐️",
+            "author": "manjit singh"
+        },
+        {
+            "text": "Great service from Sabelo. He went out of our way to make our Anniversary special. Thank you for the wonderful experience and delicious food!",
+            "author": "lutfiyya ebrahim"
+        },
+        {
+            "text": "Pigalle Restaurant in Sandton offers a refined dining experience, perfect for those looking to enjoy a blend of Mediterranean and continental cuisine in an elegant setting. The restaurant boasts a sophisticated ambiance, with stylish decor and attentive service. The menu features a wide range of dishes, from fresh seafood to premium steaks, all prepared with high-quality ingredientsl. Pigalle is ideal for special occasions or an indulgent night out, with its luxurious atmosphere and exceptional culinary offerings making it a standout in Sandton's vibrant dining scene. Book ahead, we did a last minute booking and were seated kind of outside the restaurant. That was not so nice but the food made up for it.",
+            "author": "Paul Govender"
+        },
+        {
+            "text": "5 star venue for sure. Not only because of the great setup and service. The food is just so consistently good. My pictures show a few visits, each time served so consistently. The escargot is bang on perfect, exactly as I like it all the time. The butternut soup pre starter is divine. You just cannot go wrong with any seafood here, all of it. Their years of experience shows on the plates and the well polished service. A must visit in gauteng.",
+            "author": "Dan Moodley"
+        }
     ],
-
     "marquee": [
-        { "image": "/src/assets/images/home/10.png", "alt": "" },
-        { "image": "/src/assets/images/home/11.png", "alt": "" },
-        { "image": "/src/assets/images/home/12.png", "alt": "" },
-        { "image": "/src/assets/images/home/13.png", "alt": "" },
-        { "image": "/src/assets/images/home/14.png", "alt": "" },
-        { "image": "/src/assets/images/home/15.png", "alt": "" },
-        { "image": "/src/assets/images/home/16.png", "alt": "" },
-        { "image": "/src/assets/images/home/17.png", "alt": "" }
+        {
+            "image": "/src/assets/images/home/marquee-01.jpg",
+            "alt": "Mint mocktail"
+        },
+        {
+            "image": "/src/assets/images/home/marquee-02.jpg",
+            "alt": "Baked cheesecake with berry compote"
+        },
+        {
+            "image": "/src/assets/images/home/marquee-03.jpg",
+            "alt": "Paan sorvette"
+        },
+        {
+            "image": "/src/assets/images/home/marquee-04.jpg",
+            "alt": "Kingklip fillet with buttery mash"
+        },
+        {
+            "image": "/src/assets/images/home/marquee-05.jpg",
+            "alt": "Lobster thermidor with rice and chips"
+        },
+        {
+            "image": "/src/assets/images/home/marquee-06.jpg",
+            "alt": "Chicken wrap"
+        },
+        {
+            "image": "/src/assets/images/home/marquee-07.jpg",
+            "alt": "Malva pudding with vanilla ice cream"
+        },
+        {
+            "image": "/src/assets/images/home/marquee-08.jpg",
+            "alt": "Warm chocolate dessert with vanilla ice cream"
+        },
+        {
+            "image": "/src/assets/images/home/marquee-09.jpg",
+            "alt": "Blue Red Bull mocktail"
+        },
+        {
+            "image": "/src/assets/images/home/marquee-10.jpg",
+            "alt": "Slow-cooked beef with mash"
+        },
+        {
+            "image": "/src/assets/images/menu/tomahawk.jpg",
+            "alt": "Chilli oven-roasted tomahawk steak"
+        },
+        {
+            "image": "/src/assets/images/menu/langoustines.jpg",
+            "alt": "Langoustines in lemon butter sauce"
+        },
+        {
+            "image": "/src/assets/images/menu/creme-brulee.jpg",
+            "alt": "Vanilla pod crème brûlée"
+        },
+        {
+            "image": "/src/assets/images/menu/pear-and-almond-salad.jpg",
+            "alt": "Poached pear and caramelised almond salad"
+        }
     ],
-
     "faqs": [
         {
-            "question": "Do I need a reservation?",
-            "answer": "Reservations are recommended, especially for evenings and weekends. Walk-ins are welcome and will be seated subject to availability."
+            "question": "Do I need to make a reservation?",
+            "answer": "Reservations are recommended, especially on weekends, but walk-ins are always welcome."
         },
         {
-            "question": "What cuisine do you serve?",
-            "answer": "Our menu brings together Portuguese and Mediterranean-inspired dishes with a classic South African twist, including fresh seafood and flame-grilled favourites."
+            "question": "Is your restaurant kid-friendly?",
+            "answer": "Absolutely! We have a kids’ menu and high chairs available for young diners."
         },
         {
-            "question": "Do you cater for dietary requirements?",
-            "answer": "We are happy to accommodate most dietary requirements. Please let our team know when making your reservation so we can prepare the best experience for you."
+            "question": "Do you accommodate food allergies?",
+            "answer": "Yes, please inform our staff about any allergies, and we will do our best to accommodate your needs."
         },
         {
-            "question": "Can I host a private event at Pigalle?",
-            "answer": "Yes. We host birthdays, corporate events, pre-wedding occasions and more. Contact us to discuss your plans and available options."
+            "question": "Do you offer takeaways or deliveries?",
+            "answer": "We offer both takeaway and delivery through selected food delivery services."
         },
         {
-            "question": "Where are you located?",
-            "answer": "You can find us in the heart of Sandton at Nelson Mandela Square. Visit our booking page for directions and reservation details."
+            "question": "Can I host a private event at your restaurant?",
+            "answer": "Yes! We have spaces available for private parties and corporate events. Please contact us to discuss options and availability."
         }
     ]
 }

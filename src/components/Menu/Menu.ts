@@ -11,6 +11,8 @@ export class Menu extends HTMLElement {
     static CLIP_VISIBLE = 'inset(0% 0% 0% 0%)';
     // Hovering has to rest on an item this long (ms) before its image is shown
     static HOVER_DELAY = 100;
+    // A category button within this share of the row's width from either edge is scrolled to the middle
+    static TAB_EDGE_MARGIN = 0.2;
 
     private $nav: HTMLElement | null = null;
     private $tabsList: HTMLElement | null = null;
@@ -212,14 +214,23 @@ export class Menu extends HTMLElement {
     }
 
     /**
-     * Bring the active button to the middle of the row when the row scrolls sideways
+     * Bring the active button to the middle of the row when the row scrolls sideways,
+     * but only when it sits near or past an edge: a button already comfortably in view stays put,
+     * so a tap never causes a small, pointless nudge
      */
     private centerTab($tab: HTMLElement): void {
         const $list = this.$tabsList;
         if (!$list || $list.scrollWidth <= $list.clientWidth) return;
 
+        const width = $list.clientWidth;
+        const margin = width * Menu.TAB_EDGE_MARGIN;
+        const start = $tab.offsetLeft - $list.scrollLeft;
+        const end = start + $tab.offsetWidth;
+
+        if (start >= margin && end <= width - margin) return;
+
         $list.scrollTo({
-            left: $tab.offsetLeft - ($list.clientWidth - $tab.offsetWidth) / 2,
+            left: $tab.offsetLeft - (width - $tab.offsetWidth) / 2,
             behavior: this.prefersReducedMotion() ? 'auto' : 'smooth'
         });
     }

@@ -44,12 +44,12 @@ import tomato from '../assets/svgs/tomato.svg';
         </section>
 
         {/* Everything below slides over the hero */}
-        <div class="relative z-10 overflow-x-clip bg-(--color-grey) pt-small">
+        <div class="relative z-10 overflow-x-clip bg-(--color-grey) pt-medium">
             <!-- Hero / Heading Section -->
-            <section class="mb-small flex flex-col items-center justify-center px-tiny">
+            <section class="mb-medium flex flex-col items-center justify-center px-tiny">
                 <TextReveal type="fill">
                     <h2
-                        class="heading-h2 mb-tiny max-w-[clamp(30ch,50vw,50ch)] md:text-center"
+                        class="heading-h2 mb-xsmall max-w-[clamp(30ch,50vw,50ch)] md:text-center"
                         data-editable="source"
                         data-path="src/pages/about.astro"
                         data-key="storyIntro"
@@ -62,7 +62,7 @@ import tomato from '../assets/svgs/tomato.svg';
 
                 <TextReveal>
                     <p
-                        class="body-base mx-auto mb-tiny max-w-2xl"
+                        class="body-base mx-auto mb-small max-w-2xl"
                         data-editable="source"
                         data-path="src/pages/about.astro"
                         data-key="storyDescription"
@@ -75,7 +75,7 @@ import tomato from '../assets/svgs/tomato.svg';
                 </TextReveal>
 
                 <Reveal type="fade">
-                    <Button>
+                    <Button href="/book">
                         <span
                             data-editable="source"
                             data-path="src/pages/about.astro"
@@ -90,11 +90,11 @@ import tomato from '../assets/svgs/tomato.svg';
                 /* Gallery: 1 per row on phones, 2 on tablets, 3 on desktop; portrait 3:4 like the photos */
             }
             <div
-                class="relative mb-small grid grid-cols-1 gap-small px-tiny sm:grid-cols-2 md:grid-cols-3"
+                class="relative mb-large grid grid-cols-1 gap-small px-tiny sm:grid-cols-2 md:grid-cols-3"
             >
                 <Reveal type="clip-x" class="aspect-3/4">
                     <DataImage
-                        class="h-full w-full object-cover hover:scale-105"
+                        class="h-full w-full object-cover transition-[scale] duration-700 hover:scale-105"
                         data-editable="image"
                         data-prop-src="@data[about].aboutGalleryImage"
                         data-prop-alt="@data[about].aboutGalleryImageAlt"
@@ -139,13 +139,13 @@ import tomato from '../assets/svgs/tomato.svg';
             </div>
 
             <section
-                class="mb-medium flex w-screen flex-col px-tiny md:items-center md:justify-center"
+                class="mb-large flex w-screen flex-col px-tiny md:items-center md:justify-center"
             >
                 <!-- Bottom Editorial Content Section -->
                 <div class="md:max-w-[clamp(30ch,50vw,70ch)] md:text-center">
                     <TextReveal type="fill">
                         <h2
-                            class="heading-h2 mb-tiny"
+                            class="heading-h2 mb-small"
                             data-editable="source"
                             data-path="src/pages/about.astro"
                             data-key="valuesHeading"
@@ -159,8 +159,10 @@ import tomato from '../assets/svgs/tomato.svg';
                 {
                     /* Icon beside its text; the two blocks sit side by side from 1000px, stacked below */
                 }
-                <div class="grid w-full max-w-[900px] grid-cols-1 gap-x-xsmall md:grid-cols-2">
-                    <div class="body-base mb-small flex items-start gap-tiny text-left">
+                <div
+                    class="mb-small grid w-full max-w-[900px] grid-cols-1 gap-x-xsmall gap-y-small md:grid-cols-2"
+                >
+                    <div class="body-base flex items-start gap-tiny text-left">
                         <Reveal type="fade" class="shrink-0">
                             {/* The icon's white background drops out against the page colour */}
                             <img
@@ -184,7 +186,7 @@ import tomato from '../assets/svgs/tomato.svg';
                             </p>
                         </TextReveal>
                     </div>
-                    <div class="body-base mb-small flex items-start gap-tiny text-left">
+                    <div class="body-base flex items-start gap-tiny text-left">
                         <Reveal type="fade" class="shrink-0">
                             <img
                                 src={teamIcon.src}
@@ -210,12 +212,12 @@ import tomato from '../assets/svgs/tomato.svg';
                 </div>
 
                 <Reveal type="fade">
-                    <Button class="align-self-center text-center">
+                    <Button href="/menu" class="align-self-center text-center">
                         <span
                             data-editable="source"
                             data-path="src/pages/about.astro"
                             data-key="valuesButton"
-                            data-type="span">Our Story</span
+                            data-type="span">View Our Menu</span
                         >
                     </Button>
                 </Reveal>

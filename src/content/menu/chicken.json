@@ -8,57 +8,57 @@
             "name": "Portuguese Peri Peri Chicken Full",
             "description": "Flame grilled over an open fire and served with round chips.",
             "price": "330",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/port-chicken.jpg",
+            "imageAlt": "Full Portuguese peri peri chicken grilled over an open flame with round chips"
         },
         {
             "name": "Portuguese Peri Peri Chicken Half",
             "description": "Flame grilled over an open fire and served with round chips.",
             "price": "180",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/port-chicken.jpg",
+            "imageAlt": "Half Portuguese peri peri chicken grilled over an open flame"
         },
         {
             "name": "Portuguese Peri Peri Chicken Fillets",
             "description": "Two flame-grilled fillets served with round chips.",
             "price": "190",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/port-chicken.jpg",
+            "imageAlt": "Peri peri chicken grilled over an open flame with round chips"
         },
         {
             "name": "Chooza Chicken",
             "description": "Baby chicken marinated in our signature Chooza sauce and char-grilled served with chips.",
             "price": "330",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/chooza-chicken.jpg",
+            "imageAlt": "Baby chicken in house-made Chooza sauce, char-grilled, with chips"
         },
         {
             "name": "Chooza Boneless Chicken",
             "description": "Seven tender chicken cubes finished with Chooza sauce and served with house salad and chips.",
             "price": "190",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/chooza-boneless-chicken.jpg",
+            "imageAlt": "Tender chicken cubes in Chooza sauce"
         },
         {
             "name": "Chooza Chicken Wings",
             "description": "Four full wings char-grilled in Chooza sauce served with chips.",
             "price": "150",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/chooza-chicken-wings.jpg",
+            "imageAlt": "Chicken wings char-grilled in Chooza sauce"
         },
         {
             "name": "Chooza Chilli Lemon Prawns",
             "description": "Six pan-fried prawns topped with a house chilli, lemon and coriander sauce.",
             "price": "175",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/chooza-chilli-lemon-prawns.jpg",
+            "imageAlt": "Pan-fried prawns in chilli, lemon and coriander sauce"
         },
         {
             "name": "Beef Kebab",
             "description": "Two char-grilled beef kebabs served with chips and house salad.",
             "price": "200",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/beef-kebab.jpg",
+            "imageAlt": "Two char-grilled beef kebabs served with chips and salad"
         }
     ]
 }

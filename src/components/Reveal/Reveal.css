@@ -3,7 +3,7 @@
  * They are held while <html> has `is-loading` (preloader or page transition).
  * A reveal with `-await-image` also waits for `is-loaded`, set in src/scripts/utils/imageLoad.ts
  * once its image has loaded and decoded.
- * The clip reveals also settle the image inside from slightly zoomed in while the mask opens.
+ * Eases, durations and distances match pigalle.co.za (src/app/animations in the Pigalle repo).
  */
 @layer components {
     @media (prefers-reduced-motion: no-preference) {
@@ -13,42 +13,46 @@
             transition-timing-function: var(--ease-out);
             transition-delay: var(--reveal-delay, 0s);
 
+            /* Fade.js: 0.4s sine.out after a 0.4s pause */
             &.-fade {
                 opacity: 0;
-                transform: translateY(40px);
+                transition-duration: var(--reveal-duration, 0.4s);
+                transition-timing-function: var(--ease-sine-out);
+                transition-delay: calc(0.4s + var(--reveal-delay, 0s));
             }
 
+            /* Parallax.js (decorations): 0.75s expo.out */
             &.-scale {
                 transform: scale(var(--reveal-scale, 0.85));
+                transition-duration: var(--reveal-duration, 0.75s);
             }
 
+            /* Divider lines: 1.3s, same curve as the line CSS on pigalle.co.za */
             &.-line {
                 transform: scaleX(0);
                 transform-origin: left center;
+                transition-duration: var(--reveal-duration, 1.3s);
+                transition-timing-function: var(--ease);
             }
 
+            /* ImageRevealHorizontal.js: the mask opens while the image slides in 30% from the right,
+               1.5s expo.inOut */
             &.-clip-x {
                 clip-path: inset(0% 100% 0% 0%);
+                transform: translateX(30%);
             }
 
+            /* ImageRevealVertical.js: same from below, fading in */
             &.-clip-y {
                 clip-path: inset(100% 0% 0% 0%);
+                transform: translateY(30%);
+                opacity: 0;
             }
 
-            /* A wipe needs a slow start and a soft landing; expo-out is over too soon */
             &.-clip-x,
             &.-clip-y {
-                transition-duration: var(--reveal-duration, 1.4s);
-                transition-timing-function: var(--ease-reveal);
-
-                /* Runs a little longer than the mask so the image is still settling as it opens.
-                   `scale` is listed apart so a hover:scale-* zoom stays quick. */
-                img {
-                    transform: scale(1.2);
-                    transition:
-                        transform 1.6s var(--ease-reveal) var(--reveal-delay, 0s),
-                        scale var(--transition-duration-slow) var(--ease-out);
-                }
+                transition-duration: var(--reveal-duration, 1.5s);
+                transition-timing-function: var(--ease-expo-in-out);
             }
         }
 
@@ -57,14 +61,6 @@
             opacity: 1;
             transform: none;
             clip-path: inset(0% 0% 0% 0%);
-        }
-
-        /* Clip reveals only, so images inside the other reveals keep their own transforms */
-        html:not(.is-loading) .c-reveal:is(.-clip-x, .-clip-y).is-inview:not(.-await-image) img,
-        html:not(.is-loading)
-            .c-reveal:is(.-clip-x, .-clip-y).-await-image.is-inview.is-loaded
-            img {
-            transform: none;
         }
     }
 }

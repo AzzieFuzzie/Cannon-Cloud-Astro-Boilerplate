@@ -8,8 +8,8 @@
             "name": "Chilli Oven Tomahawk 800g",
             "description": "800g Tomahawk steak marinated in chilli olive oil, oven-roasted, finished on the grill, and served with buttery mash.",
             "price": "700",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/tomahawk.jpg",
+            "imageAlt": "Chilli oven-roasted 800g tomahawk steak"
         },
         {
             "name": "Black Angus Sirloin on the Bone 500g",
@@ -36,22 +36,22 @@
             "name": "Rib-Eye 300g",
             "description": "Succulent rib-eye steak flame grilled and served with seasoned chips.",
             "price": "395",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/rib-eye.jpg",
+            "imageAlt": "300g rib-eye steak with seasoned chips"
         },
         {
             "name": "Fillet 250g",
             "description": "Premium beef fillet grilled to perfection and served with seasoned chips.",
             "price": "350",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/fillet.jpg",
+            "imageAlt": "Flame-grilled 250g fillet steak, sliced"
         },
         {
             "name": "Fillet on the Bone 500g",
             "description": "Flame-grilled fillet on the bone with rich flavour and buttery tenderness and served with chips.",
             "price": "480",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/fillet-on-the-bone.jpg",
+            "imageAlt": "Flame-grilled fillet on the bone"
         },
         {
             "name": "Sirloin 200g",
@@ -78,15 +78,15 @@
             "name": "Portuguese Fillet Steak",
             "description": "250g fillet steak in creamy garlic sauce served with round chips and an optional fried egg.",
             "price": "390",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/portuguese-fillet-steak.jpg",
+            "imageAlt": "Portuguese fillet steak in creamy garlic sauce with round chips"
         },
         {
             "name": "Lamb Cutlets",
             "description": "Four grilled lamb chops served with mash and seasonal stir-fried vegetables.",
             "price": "315",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/lamb-cutlets.jpg",
+            "imageAlt": "Char-grilled lamb chops with chips"
         },
         {
             "name": "Lamb Shank",

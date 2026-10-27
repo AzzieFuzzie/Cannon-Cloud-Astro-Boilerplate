@@ -12,11 +12,16 @@ import Marquee from '../components/Marquee/Marquee.astro';
 import Reveal from '../components/Reveal/Reveal.astro';
 import ReviewsSlider from '../components/ReviewsSlider/ReviewsSlider.astro';
 import TextReveal from '../components/TextReveal/TextReveal.astro';
+import { getGoogleReviews } from '@scripts/utils/googleReviews';
 
 import mint from '../assets/svgs/mint.svg';
 import rosemary from '../assets/svgs/rosemary.svg';
 import seedPlant from '../assets/svgs/seed_plant.svg';
 import wheat from '../assets/svgs/wheat.svg';
+
+// Five-star Google reviews first, topped up to five from src/data/home.json (as the Pigalle app does)
+const googleReviews = await getGoogleReviews();
+const reviews = [...googleReviews, ...home.reviews].slice(0, 5);
 ---
 
 <Layout title="Home">
@@ -212,15 +217,15 @@ import wheat from '../assets/svgs/wheat.svg';
                 />
             </div>
 
-            <div class="py-fluid-xl relative z-10 col-span-3 col-start-2 sm:col-start-7">
-                <div class="px-fluid-sm max-w-[40rem] lg:px-0">
+            <div class="relative z-10 col-span-3 col-start-2 py-large sm:col-start-7">
+                <div class="max-w-[40rem] px-xsmall lg:px-0">
                     <TextReveal type="chars">
                         <h2
                             data-editable="source"
                             data-path="src/pages/index.astro"
                             data-key="eventsHeading"
                             data-type="text"
-                            class="heading-h2 font-serif leading-tight text-white"
+                            class="heading-h2 mb-xsmall font-serif leading-tight text-white"
                         >
                             Private Events
                         </h2>
@@ -239,7 +244,7 @@ import wheat from '../assets/svgs/wheat.svg';
                         </p>
                     </TextReveal>
 
-                    <Reveal type="fade" class="pt-fluid-xs">
+                    <Reveal type="fade" class="pt-small">
                         <a
                             class="hover:text-accent-grey hover:border-accent-grey inline-block border-b border-white pb-1 text-xs font-semibold tracking-widest text-white uppercase transition-colors"
                             href="/book/"
@@ -259,7 +264,8 @@ import wheat from '../assets/svgs/wheat.svg';
         </Reveal>
 
         <section class="relative mb-large" aria-labelledby="faq-heading">
-            <div class="mx-auto max-w-[clamp(50ch,70vw,80ch)]">
+            {/* Side margin so the questions and icons don't touch the screen edges on phones */}
+            <div class="mx-auto max-w-[clamp(50ch,70vw,80ch)] px-(--grid-margin) md:px-0">
                 <TextReveal type="chars">
                     <h2
                         id="faq-heading"
@@ -276,11 +282,7 @@ import wheat from '../assets/svgs/wheat.svg';
                 {
                     /* FAQs live in src/data/home.json so questions can be added, removed and reordered */
                 }
-                <div
-                    class="border-t border-black/20"
-                    data-editable="array"
-                    data-prop="@data[home].faqs"
-                >
+                <div data-editable="array" data-prop="@data[home].faqs">
                     {
                         home.faqs.map((faq) => (
                             <div data-editable="array-item">
@@ -295,7 +297,10 @@ import wheat from '../assets/svgs/wheat.svg';
                                     </p>
                                 </Accordion>
                                 {/* Divider line draws in from the left */}
-                                <Reveal type="line" class="h-px bg-black/20" />
+                                <Reveal
+                                    type="line"
+                                    class="h-px bg-(--color-accent-grey) [--reveal-duration:1.5s]"
+                                />
                             </div>
                         ))
                     }
@@ -316,9 +321,9 @@ import wheat from '../assets/svgs/wheat.svg';
             />
         </section>
 
-        {/* Reviews Section: reviews live in src/data/home.json */}
+        {/* Reviews Section: live Google reviews, then the ones in src/data/home.json */}
         <section class="container mb-large" aria-label="Guest reviews">
-            <ReviewsSlider reviews={home.reviews} />
+            <ReviewsSlider reviews={reviews} />
         </section>
 
         {/* Image marquee: images live in src/data/home.json */}

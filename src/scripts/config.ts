@@ -35,10 +35,10 @@ const MOTION = Object.freeze({
     stagger: 0.08,
     // Same line as the Locomotive Scroll triggerRootMargin in Scroll.ts
     trigger: {
-        start: 'top 85%',
+        start: 'top 90%',
         once: true
     },
-    triggerRootMargin: '0px 0px -15% 0px'
+    triggerRootMargin: '0px 0px -10% 0px'
 });
 
 export { config, CUSTOM_EVENTS, MOTION };

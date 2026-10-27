@@ -18,7 +18,7 @@ const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
             class="sticky top-0 flex min-h-[50vh] flex-col items-center justify-center overflow-hidden px-(--grid-margin) py-small text-center text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.2)]"
         >
             <DataImage
-                class="pointer-events-none absolute inset-0 h-full w-full object-cover"
+                class="pointer-events-none absolute inset-0 h-full w-full object-cover object-[center_45%]"
                 data-editable="image"
                 data-prop-src="@data[book].heroImage"
                 data-prop-alt="@data[book].heroImageAlt"
@@ -29,6 +29,8 @@ const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
                 sizes="100vw"
                 loading="eager"
             />
+            {/* Shade so the white heading reads on the bright tablecloth */}
+            <div class="absolute inset-0 bg-black/30" aria-hidden="true"></div>
 
             <div class="relative z-10 flex flex-col items-center">
                 <TextReveal type="chars">
@@ -77,7 +79,7 @@ const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
                 }
                 <a
                     href={toTel(site.phone)}
-                    class="font-rd-narrow text-heading-h4 whitespace-nowrap transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                    class="font-rd-narrow text-heading-h4 whitespace-nowrap normal-case transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
                 >
                     <span data-editable="text" data-prop="@data[site].phone" data-type="span"
                         >{site.phone}</span
@@ -89,7 +91,7 @@ const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
                 >
                 <a
                     href={toTel(site.whatsapp)}
-                    class="font-rd-narrow text-heading-h4 whitespace-nowrap transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                    class="font-rd-narrow text-heading-h4 whitespace-nowrap normal-case transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
                 >
                     <span data-editable="text" data-prop="@data[site].whatsapp" data-type="span"
                         >{site.whatsapp}</span
@@ -101,7 +103,7 @@ const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
                 >
                 <a
                     href={`mailto:${site.email}`}
-                    class="font-rd-narrow text-heading-h4 whitespace-nowrap transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
+                    class="font-rd-narrow text-heading-h4 whitespace-nowrap normal-case transition-opacity duration-(--transition-duration) ease-(--ease) hover:opacity-60"
                 >
                     <span data-editable="text" data-prop="@data[site].email" data-type="span"
                         >{site.email}</span
@@ -111,11 +113,16 @@ const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
 
             {/* The "form below" the intro text refers to */}
             <div class="mt-small h-[600px] w-full max-w-[650px] sm:h-[520px]">
+                {
+                    /* The widget is styled by Dineplan, so its scrollbars can only be switched off from
+                    the frame itself (scrolling="no", as on pigalle.co.za); the box is sized to fit it */
+                }
                 <iframe
                     src="https://account.dineplan.com/widget/v3/frame/mnpTxlcs"
                     title="Book a table at Pigalle"
                     loading="lazy"
-                    class="h-full w-full rounded-[10px] border-2 border-(--color-accent-grey) sm:border-[5px]"
+                    scrolling="no"
+                    class="h-full w-full overflow-hidden rounded-[10px] border-2 border-(--color-accent-grey) sm:border-[5px]"
                 ></iframe>
             </div>
         </section>
