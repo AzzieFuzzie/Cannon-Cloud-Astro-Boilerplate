@@ -16,18 +16,44 @@ type PlayerOptions = {
 // One player per video, kept alive for the whole visit (also while it is off the page)
 const players = new Map<string, MuxPlayer>();
 
-const createPlayer = ({
-    playbackId,
-    maxResolution,
-    preload,
-    posterTime
-}: PlayerOptions): MuxPlayer => {
-    const $player = document.createElement('mux-background-video') as MuxPlayer;
-    const $video = $player.video;
+/**
+ * A plain muted, looping, inline <video> playing the stream with the browser's own HLS support.
+ * The Mux element needs Media Source Extensions, which iPhones don't have (before iOS 17.1 at all,
+ * and after that only as ManagedMediaSource), so there it would never play.
+ */
+const createNativePlayer = ({ playbackId, maxResolution, preload }: PlayerOptions): MuxPlayer => {
+    const $video = document.createElement('video');
 
-    $player.setAttribute('max-resolution', maxResolution);
-    $player.setAttribute('preload', preload);
-    $player.setAttribute('src', `https://stream.mux.com/${playbackId}.m3u8`);
+    // iOS only autoplays a video that is muted and inline, set as attributes before the source
+    $video.muted = true;
+    $video.setAttribute('muted', '');
+    $video.setAttribute('playsinline', '');
+    $video.loop = true;
+    $video.disableRemotePlayback = true;
+    $video.preload = preload;
+    $video.src = `https://stream.mux.com/${playbackId}.m3u8?max_resolution=${maxResolution}`;
+
+    return Object.assign($video, { video: $video });
+};
+
+const usesNativeHls = (): boolean =>
+    !('MediaSource' in window) &&
+    document.createElement('video').canPlayType('application/vnd.apple.mpegurl') !== '';
+
+const createPlayer = (options: PlayerOptions): MuxPlayer => {
+    const { playbackId, maxResolution, preload, posterTime } = options;
+    let $player: MuxPlayer;
+
+    if (usesNativeHls()) {
+        $player = createNativePlayer(options);
+    } else {
+        $player = document.createElement('mux-background-video') as MuxPlayer;
+        $player.setAttribute('max-resolution', maxResolution);
+        $player.setAttribute('preload', preload);
+        $player.setAttribute('src', `https://stream.mux.com/${playbackId}.m3u8`);
+    }
+
+    const $video = $player.video;
 
     // Read by waitForVideos() so a page change waits for the reveal below
     $player.setAttribute('data-await-reveal', '');
@@ -121,15 +147,18 @@ export class HeroVideo extends HTMLElement {
         this.$player = players.get(playbackId) ?? createPlayer({ ...options, preload: 'auto' });
 
         this.append(this.$player);
-        this.$player.video.play().catch(() => {
-            // Autoplay can be refused (e.g. low power mode); the poster stays visible
-        });
+        this.play();
+
+        // Phones pause background videos when the tab is hidden and don't always resume them
+        document.addEventListener('visibilitychange', this.onVisibilityChange);
     }
 
     disconnectedCallback() {
         this.cancelReady?.();
         this.cancelReady = null;
         if (this.warmTimeout) window.clearTimeout(this.warmTimeout);
+        document.removeEventListener('visibilitychange', this.onVisibilityChange);
+        this.unbindGesture();
 
         // Keep the player (and what it has buffered) for the next time this video is shown
         this.$player?.video.pause();
@@ -138,8 +167,41 @@ export class HeroVideo extends HTMLElement {
     }
 
     // =============================================================================
+    // Events
+    // =============================================================================
+    private onVisibilityChange = (): void => {
+        if (document.visibilityState === 'visible') this.play();
+    };
+
+    // A touch counts as permission to play, even in Low Power Mode
+    private onGesture = (): void => {
+        this.unbindGesture();
+        this.play();
+    };
+
+    private bindGesture(): void {
+        window.addEventListener('pointerdown', this.onGesture, { passive: true, capture: true });
+        window.addEventListener('touchend', this.onGesture, { passive: true, capture: true });
+    }
+
+    private unbindGesture(): void {
+        window.removeEventListener('pointerdown', this.onGesture, { capture: true });
+        window.removeEventListener('touchend', this.onGesture, { capture: true });
+    }
+
+    // =============================================================================
     // Methods
     // =============================================================================
+    /**
+     * Autoplay can be refused (iOS Low Power Mode, Android data saver): the poster stays
+     * and the video starts on the visitor's first touch instead
+     */
+    private play(): void {
+        this.$player?.video.play().catch((error: DOMException) => {
+            if (error.name === 'NotAllowedError') this.bindGesture();
+        });
+    }
+
     /**
      * Prepare the stream without showing or playing it.
      * With preload="metadata" the player fetches the playlists but no video data until it plays.

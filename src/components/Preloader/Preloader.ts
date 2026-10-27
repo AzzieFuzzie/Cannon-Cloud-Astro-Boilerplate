@@ -88,7 +88,12 @@ export class Preloader extends HTMLElement {
 
         this.total = $images.length + 1;
 
-        document.fonts.ready.then(this.onAssetLoaded, this.onAssetLoaded);
+        // Load every web font now, not only those the browser has started on: fonts.ready can
+        // resolve before the italic is requested, and each late font re-lays out the hero text
+        Promise.all([...document.fonts].map((font) => font.load())).then(
+            this.onAssetLoaded,
+            this.onAssetLoaded
+        );
 
         $images.forEach(($image) => waitForImage($image).then(this.onAssetLoaded));
 
