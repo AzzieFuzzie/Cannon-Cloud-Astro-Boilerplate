@@ -1,0 +1,78 @@
+{
+    "categoryName": "Appetizers",
+    "displayOrder": 2,
+    "image": "/src/assets/images/menu/pigalle/appetizers-img-270of284-atvw.jpg",
+    "imageAlt": "CalamariGrilled Falklands calamari tubes in garlic lemon sauce",
+    "items": [
+        {
+            "name": "Falklands Calamari Tubes (Grilled)",
+            "description": "Grilled In A Garlic Lemon Sauce or Peri Peri Sauce.",
+            "price": "145",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Prawns Tandoori",
+            "description": "Dusted In Tandoori Spice Sautéed, Accompanied By A Papino And Coriander Salsa.",
+            "price": "160",
+            "image": "/src/assets/images/menu/pigalle/appetizers-img-54of284-aorb.jpg",
+            "imageAlt": "Tandoori-dusted prawns with papino and coriander salsa"
+        },
+        {
+            "name": "Trinchado",
+            "description": "Beef Fillet Cubes Grilled And Smothered In Our Authentic Portuguese Sauce.",
+            "price": "150",
+            "image": "/src/assets/images/menu/pigalle/appetizers-trinchado-axuy.jpg",
+            "imageAlt": "Beef fillet cubes in authentic Portuguese sauce"
+        },
+        {
+            "name": "Chicken Livers",
+            "description": "Grilled In A Mild Peri-Peri Sauce.",
+            "price": "105",
+            "image": "/src/assets/images/menu/pigalle/appetizers-piggale-shootday3-121-aqc0.jpg",
+            "imageAlt": "Grilled chicken livers in mild peri-peri sauce"
+        },
+        {
+            "name": "Halloumi",
+            "description": "Seasoned And Deep-Fried Or Grilled, Served With A Brinjal Chutney.",
+            "price": "115",
+            "image": "/src/assets/images/menu/pigalle/appetizers-piggale-shootday3-117-aqc0.jpg",
+            "imageAlt": "Deep-fried halloumi served with brinjal chutney"
+        },
+        {
+            "name": "Asian Edamame",
+            "description": "Grilled Edamame Beans Tossed In A Spicy Asian Teriyaki Dressing.",
+            "price": "105",
+            "image": "/src/assets/images/menu/pigalle/appetizers-697acfcc3c9caf34589ee2c0-axrp.jpg",
+            "imageAlt": "Grilled edamame beans tossed in spicy Asian teriyaki dressing"
+        },
+        {
+            "name": "Oysters",
+            "description": "Served On A Bed Of Ice",
+            "price": "85",
+            "image": "/src/assets/images/menu/pigalle/appetizers-pigalle-shootday2-39-axrm.jpg",
+            "imageAlt": "Fresh oysters served on a bed of ice"
+        },
+        {
+            "name": "Butternut soup",
+            "description": "Silky, Spiced And Creamy.",
+            "price": "115",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Mussel",
+            "description": "Fresh mussels prepared in a fragrant garlic and herb broth",
+            "price": "145",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Mezze Platter",
+            "description": "A generous sharing platter of calamari, halloumi, tandoori prawns & mini beef kebabs.",
+            "price": "445",
+            "image": "/src/assets/images/menu/pigalle/appetizers-piggale-shootday3-126-aqc1.jpg",
+            "imageAlt": "Mezze platter with chicken livers, trinchado, calamari and halloumi"
+        }
+    ]
+}

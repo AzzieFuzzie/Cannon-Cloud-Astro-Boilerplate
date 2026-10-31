@@ -1,19 +1,26 @@
 {
     "categoryName": "Vegetarian",
-    "displayOrder": 9,
-    "image": "/src/assets/images/home/7.png",
-    "imageAlt": "Vegetarian at Pigalle",
+    "displayOrder": 8,
+    "image": "/src/assets/images/menu/pigalle/vegetarian-piggale-shootday3-116-1-atv2.jpg",
+    "imageAlt": "Mozambican Vegetable And Chickpea Curry",
     "items": [
         {
+            "name": "Melanzane",
+            "description": "Brinjal Served With Red Pepper, Mushrooms, And Cottage Cheese, Drizzled With Walnut Pesto.",
+            "price": "150",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
             "name": "Vegetarian Platter",
-            "description": "Halloumi, grilled tomatoes, spinach and butternut served with rice and chips.",
+            "description": "Halloumi Cheese, Grilled Tomatoes, Spinach And Butternut Served With Rice And Fries.",
             "price": "175",
             "image": "",
             "imageAlt": ""
         },
         {
-            "name": "Mozambican Vegetable & Chickpea Curry",
-            "description": "Vegetables and chickpeas simmered in a fragrant Mozambican curry and served with basmati rice.",
+            "name": "Mozambican Vegetable And Chickpea Curry",
+            "description": "Vegetables and chickpeas simmered in a fragrant Mozambican curry and served with basmati rice",
             "price": "150",
             "image": "",
             "imageAlt": ""

@@ -1,57 +1,57 @@
 {
     "categoryName": "Desserts",
-    "displayOrder": 11,
-    "image": "/src/assets/images/home/7.png",
-    "imageAlt": "Desserts at Pigalle",
+    "displayOrder": 10,
+    "image": "/src/assets/images/menu/pigalle/desserts-img-10of284-aqcv.jpg",
+    "imageAlt": "Ice cream nut cake with crushed biscuits, toasted nuts and chocolate sauce",
     "items": [
         {
             "name": "Ice Cream Nut Cake",
             "description": "Homemade vanilla ice cream layered with crushed biscuits and toasted nuts finished with a warm chocolate sauce.",
             "price": "130",
-            "image": "/src/assets/images/menu/ice-cream-nut-cake.jpg",
-            "imageAlt": "Ice cream nut cake with crushed biscuits, toasted nuts and chocolate sauce"
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Crème Brûlée",
             "description": "Vanilla pod-infused baked custard with a caramelised sugar crust.",
             "price": "120",
-            "image": "/src/assets/images/menu/creme-brulee.jpg",
-            "imageAlt": "Vanilla pod crème brûlée with a caramelised sugar crust"
+            "image": "/src/assets/images/menu/pigalle/desserts-pigalle-shootday1-03-aji1.jpg",
+            "imageAlt": "Vanilla pod crème brûlée with blow-torched topping"
         },
         {
             "name": "Chocolate Fondant",
             "description": "Rich molten chocolate fondant served with velvety vanilla ice cream.",
             "price": "135",
-            "image": "/src/assets/images/menu/chocolate-fondant.jpg",
+            "image": "/src/assets/images/menu/pigalle/desserts-piggale-shootday3-018-atv0.jpg",
             "imageAlt": "Warm chocolate fondant served with vanilla ice cream"
         },
         {
             "name": "Coffee Pavlova",
             "description": "House-made meringue topped with whipped cream and toffee caramel syrup.",
             "price": "130",
-            "image": "/src/assets/images/menu/coffee-pavlova.jpg",
-            "imageAlt": "Coffee pavlova with whipped cream and fresh fruit"
+            "image": "/src/assets/images/menu/pigalle/desserts-2--cy9.jpg",
+            "imageAlt": "Coffee Pavlova"
         },
         {
-            "name": "Paan Sorvette",
-            "description": "Paan-flavoured kulfi ice cream drizzled with sweet syrup and paan sweets.",
+            "name": "Paan Sorvete (Ice-Cream)",
+            "description": "Paan Flavored Kulfi Ice Cream Drizzled With Sweet Syrup.",
             "price": "105",
-            "image": "/src/assets/images/menu/paan-sorvette.jpg",
-            "imageAlt": "Paan-flavoured kulfi ice cream drizzled with sweet syrup"
+            "image": "/src/assets/images/menu/pigalle/desserts-paan-axur.jpg",
+            "imageAlt": "Paan flavoured kulfi ice cream drizzled with sweet syrup"
         },
         {
-            "name": "Malva Pudding & Custard",
-            "description": "Traditional South African malva pudding served warm with silky crème anglaise.",
+            "name": "Malva Pudding and Custard",
+            "description": "Classic South African Pudding Drenched In Syrup And Served With House Made Crème Anglaise.",
             "price": "115",
-            "image": "/src/assets/images/menu/malva-pudding.jpg",
-            "imageAlt": "Classic South African malva pudding"
+            "image": "/src/assets/images/menu/pigalle/desserts-malva-axus.jpg",
+            "imageAlt": "Classic South African malva pudding with house-made crème anglaise"
         },
         {
             "name": "Baked Cheesecake",
-            "description": "Served with a berry compote.",
+            "description": "Served With White Balsamic Strawberry Compote.",
             "price": "135",
-            "image": "/src/assets/images/menu/cheesecake.jpg",
-            "imageAlt": "Baked cheesecake with berry compote"
+            "image": "/src/assets/images/menu/pigalle/desserts-piggale-shootday3-001-1-atv0.jpg",
+            "imageAlt": "Baked cheesecake with white balsamic strawberry compote"
         }
     ]
 }

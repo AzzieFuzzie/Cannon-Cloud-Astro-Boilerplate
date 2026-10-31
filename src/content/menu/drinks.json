@@ -1,0 +1,50 @@
+{
+    "categoryName": "Drinks",
+    "displayOrder": 11,
+    "image": "/src/assets/images/menu/pigalle/drinks-pigalle-shootday1-37-aji3.jpg",
+    "imageAlt": "Kola Tonic And Lemonade.",
+    "items": [
+        {
+            "name": "Soft Drinks",
+            "description": "Appletiser, Grapetiser, Coke, Coke Zero, Crème Soda, Fanta Orange, Lipton Peach, Sprite, Sprite Zero, Stoney, Dry Lemonade, Ginger Ale.",
+            "price": "45",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Kola Tonic And Lemonade.",
+            "description": "Kola Tonic And Lemonade.",
+            "price": "50",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Passion Fruit And Lemonade.",
+            "description": "Passion Fruit And Lemonade.",
+            "price": "50",
+            "image": "/src/assets/images/menu/pigalle/drinks-mojito-axub.jpg",
+            "imageAlt": "Passion Fruit And Lemonade."
+        },
+        {
+            "name": "Redbull",
+            "description": "Redbull",
+            "price": "50",
+            "image": "/src/assets/images/menu/pigalle/drinks-mojito-axub.jpg",
+            "imageAlt": "Redbull"
+        },
+        {
+            "name": "Milkshakes",
+            "description": "Chocolate, Vanilla, Strawberry.",
+            "price": "65",
+            "image": "/src/assets/images/menu/pigalle/drinks-redbull-addl.jpg",
+            "imageAlt": "Milkshakes"
+        },
+        {
+            "name": "Juices",
+            "description": "Fruit Cocktail, Orange, Strawberry.",
+            "price": "45",
+            "image": "/src/assets/images/menu/pigalle/drinks-img-197of284-2-atvy.jpg",
+            "imageAlt": "Juices"
+        }
+    ]
+}

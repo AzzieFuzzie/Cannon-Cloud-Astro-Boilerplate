@@ -1,120 +1,169 @@
 {
     "categoryName": "Seafood",
     "displayOrder": 4,
-    "image": "/src/assets/images/home/7.png",
-    "imageAlt": "Seafood at Pigalle",
+    "image": "/src/assets/images/menu/pigalle/seafood-piggale-shootday3-089-aji1.jpg",
+    "imageAlt": "Seven queen prawns prepared in lemon garlic sauce with rice and chips",
     "items": [
         {
-            "name": "Prawns - 7 Queens",
-            "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
+            "name": "7 Queens Prawns",
+            "description": "All seafood Is Prepared In Your Choice Of Lemon Garlic, Lemon Butter Or Peri Peri And Served With Rice And Chips.",
             "price": "325",
-            "image": "/src/assets/images/menu/queen-prawns.jpg",
-            "imageAlt": "Queen prawns in lemon garlic sauce"
+            "image": "",
+            "imageAlt": ""
         },
         {
-            "name": "Prawns - 6 King Giants",
-            "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
+            "name": "6 King giants Prawns",
+            "description": "All seafood Is Prepared In Your Choice Of Lemon Garlic, Lemon Butter Or Peri Peri And Served With Rice And Chips.",
             "price": "495",
-            "image": "/src/assets/images/menu/king-giant-prawns.jpg",
-            "imageAlt": "Six king giant prawns served with rice"
+            "image": "/src/assets/images/menu/pigalle/seafood-img-45of284-aqcu.jpg",
+            "imageAlt": "Six king giant prawns in peri peri sauce served with rice and chips"
         },
         {
             "name": "Tiger Giant Prawns (3 pieces)",
-            "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
+            "description": "All seafood Is Prepared In Your Choice Of Lemon Garlic, Lemon Butter Or Peri Peri And Served With Rice And Chips.",
             "price": "600",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Medium Langoustines (6 pieces)",
-            "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
+            "description": "All seafood Is Prepared In Your Choice Of Lemon Garlic, Lemon Butter Or Peri Peri And Served With Rice And Chips.",
             "price": "900",
-            "image": "/src/assets/images/menu/langoustines.jpg",
-            "imageAlt": "Langoustines in lemon butter sauce"
+            "image": "/src/assets/images/menu/pigalle/seafood-langoustine-axuz.jpg",
+            "imageAlt": "Langoustines in lemon butter sauce served with rice and chips"
         },
         {
             "name": "Large Langoustines (5 pieces)",
-            "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
+            "description": "All seafood Is Prepared In Your Choice Of Lemon Garlic, Lemon Butter Or Peri Peri And Served With Rice And Chips.",
             "price": "1250",
-            "image": "/src/assets/images/menu/langoustines.jpg",
-            "imageAlt": "Langoustines in lemon butter sauce"
+            "image": "/src/assets/images/menu/pigalle/seafood-langoustine-axuz.jpg",
+            "imageAlt": "Langoustines in lemon butter sauce served with rice and chips"
         },
         {
-            "name": "XL Langoustines (4 pieces)",
-            "description": "Served with aromatic rice and chips, and choice of Signature Lemon Garlic, Lemon Butter or Peri Peri sauce.",
+            "name": "Extra Large Langoustines (4 pieces)",
+            "description": "All seafood Is Prepared In Your Choice Of Lemon Garlic, Lemon Butter Or Peri Peri And Served With Rice And Chips.",
             "price": "1500",
-            "image": "/src/assets/images/menu/langoustines.jpg",
-            "imageAlt": "Langoustines in lemon butter sauce"
+            "image": "/src/assets/images/menu/pigalle/seafood-langoustine-axuz.jpg",
+            "imageAlt": "Langoustines in lemon butter sauce served with rice and chips"
         },
         {
-            "name": "Grilled Lobster",
-            "description": "2 baby lobsters grilled and finished with our signature Pigalle basting.",
-            "price": "675",
-            "image": "/src/assets/images/menu/grilled-lobster.jpg",
-            "imageAlt": "Lobster grilled with Pigalle basting, served with rice and chips"
-        },
-        {
-            "name": "Lobster Thermidor",
-            "description": "2 baby lobsters finished with a rich creamy mushroom sauce, parmesan and subtle sweet notes, then baked until golden.",
-            "price": "720",
-            "image": "/src/assets/images/menu/lobster-thermidor.jpg",
-            "imageAlt": "Lobster thermidor topped with parmesan, served with rice and chips"
-        },
-        {
-            "name": "Falklands Calamari Full Portion",
-            "description": "Grilled in signature garlic lemon butter or Peri-Peri sauce served with savoury rice and chips.",
+            "name": "Falklands Calamari Tubes Full Portion",
+            "description": "Grilled in signature garlic lemon butter or Peri-Peri sauce served with savoury rice and chips",
             "price": "320",
-            "image": "/src/assets/images/menu/calamari.jpg",
-            "imageAlt": "Grilled Falklands calamari in garlic lemon sauce"
+            "image": "/src/assets/images/menu/pigalle/appetizers-img-270of284-atvw.jpg",
+            "imageAlt": "Seared Full portion grilled Falklands calamari tubes in garlic lemon sauceorwegian salmon with julienne veg and teriyaki sauce"
         },
         {
             "name": "Baby Kingklip",
-            "description": "Kingklip on the bone finished with lemon butter sauce served with savoury rice and seasonal stir-fried vegetables.",
+            "description": "Kingklip on the bone finished with lemon butter sauce served with savoury rice and seasonal stir-fried vegetables",
             "price": "395",
-            "image": "",
-            "imageAlt": ""
+            "image": "/src/assets/images/menu/pigalle/seafood-kingklip-axuz.jpg",
+            "imageAlt": "Baby kingklip on the bone drizzled with lemon butter sauce"
         },
         {
-            "name": "Kingklip Fillet",
-            "description": "Fresh kingklip fillet grilled to perfection and served with buttery mash and seasonal stir-fried vegetables.",
-            "price": "305",
-            "image": "/src/assets/images/menu/kingklip.jpg",
-            "imageAlt": "Kingklip fillet served with buttery mash and vegetables"
-        },
-        {
-            "name": "Seabass Fillet",
-            "description": "Fresh seabass fillet grilled to perfection and served with buttery mash and seasonal stir-fried vegetables.",
-            "price": "275",
-            "image": "",
-            "imageAlt": ""
-        },
-        {
-            "name": "Grilled Sole",
-            "description": "Served with savoury rice and stir-fried vegetables.",
-            "price": "325",
-            "image": "",
-            "imageAlt": ""
-        },
-        {
-            "name": "Fried Hake",
-            "description": "Golden fried hake served with chips and tartar sauce.",
-            "price": "245",
+            "name": "Kingklip Fille",
+            "description": "Kingklip Fille",
+            "price": "",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Teriyaki Salmon",
-            "description": "Seared Norwegian salmon served with a buttery mash and julienne vegetables, pickled ginger and topped with a teriyaki glaze.",
+            "description": "Seared Norwegian Salmon Served With Julienne Veg, Pickled Ginger And Teriyaki Sauce.",
             "price": "390",
-            "image": "/src/assets/images/menu/teriyaki-salmon.jpg",
-            "imageAlt": "Seared Norwegian salmon with teriyaki glaze and buttery mash"
+            "image": "/src/assets/images/menu/pigalle/seafood-copyofpiggale-shootday3-034-aqcu.jpg",
+            "imageAlt": "Seared Norwegian salmon with julienne veg and teriyaki sauce"
         },
         {
-            "name": "Mozambican Prawn Curry",
-            "description": "Ten prawns cooked in a rich Mozambican coconut curry and served with rice.",
+            "name": "Grilled Sole",
+            "description": "Served With Savoury Rice And Stir-Fried Vegetables.",
             "price": "320",
-            "image": "/src/assets/images/menu/prawn-curry.jpg",
-            "imageAlt": "Prawns in Mozambican coconut curry served with rice"
+            "image": "/src/assets/images/menu/pigalle/seafood-copyofpiggale-shootday3-034-aqcu.jpg",
+            "imageAlt": "Grilled sole served with savoury rice and stir-fried vegetables"
+        },
+        {
+            "name": "Chilli Lemon Prawn Curry",
+            "description": "10 Pan-Fried Prawns Topped With Our Chilli Cilantro Sauce And Fresh Micro Greens Served With Rice.",
+            "price": "320",
+            "image": "/src/assets/images/menu/pigalle/seafood-img-78of284-aqcu.jpg",
+            "imageAlt": "Prawns in Mozambican coconut curry served with basmati rice"
+        },
+        {
+            "name": "Prawn Curry",
+            "description": "10 Prawns Cooked In A Coconut Mozambican Curry Served With Rice.",
+            "price": "320",
+            "image": "/src/assets/images/menu/pigalle/seafood-piggale-shootday3-041-1-aji3.jpg",
+            "imageAlt": "Prawns in Mozambican coconut curry served with basmati rice"
+        },
+        {
+            "name": "Grilled Line Fish Filleted",
+            "description": "Grilled Line Fish Served With Mash And Stir Fried Veg.",
+            "price": "300",
+            "image": "/src/assets/images/menu/pigalle/seafood-copyofpiggale-shootday3-034-aqcu.jpg",
+            "imageAlt": "Grilled Line Fish Filleted"
+        },
+        {
+            "name": "Lobster (Plain Grilled)",
+            "description": "Tender Lobster Expertly Grilled And Complemented By Our Speciality Pigalle Basting And Served With Rice And Fries.",
+            "price": "675",
+            "image": "/src/assets/images/menu/pigalle/seafood-piggale-shootday3-055-aqcv.jpg",
+            "imageAlt": "Whole lobster grilled with Pigalle basting, served with rice and fries"
+        },
+        {
+            "name": "Lobster (Thermidor)",
+            "description": "Juicy Lobster Topped With A Creamy Mushroom And Black Cherry Sauce, Topped With Parmesan Cheese.",
+            "price": "720",
+            "image": "/src/assets/images/menu/pigalle/seafood-thermidor-axuy.jpg",
+            "imageAlt": "Lobster thermidor with creamy mushroom and black cherry sauce topped with parmesan"
+        },
+        {
+            "name": "Shellfish Platter",
+            "description": "A luxurious seafood selection featuring three queen prawns, three langoustines and a baby lobster..",
+            "price": "960",
+            "image": "/src/assets/images/menu/pigalle/seafood-shellfishplatter-axut.jpg",
+            "imageAlt": "Shellfish platter with queen prawns, langoustines and baby lobster"
+        },
+        {
+            "name": "Seafood Platter For 2",
+            "description": "An indulgent feast of mussels, kingklip fillet, grilled calamari, langoustines, queen prawns and baby lobster.",
+            "price": "1265",
+            "image": "/src/assets/images/menu/pigalle/seafood-seafoodplatterfor2-ayza.jpg",
+            "imageAlt": "Seafood platter for two with mussels, line fish, calamari, langoustines and lobster"
+        },
+        {
+            "name": "Pigalle Platter",
+            "description": "A refined combination of three langoustines and three queen prawns.",
+            "price": "675",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Surf and Turf",
+            "description": "A 250g fillet steak with 3 queen prawns.",
+            "price": "450",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Steak and Prawns",
+            "description": "200g rump or sirloin and 3 queens.",
+            "price": "305",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Prawns and Calamari",
+            "description": "5 queen Prawns and calamari.",
+            "price": "375",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Fish and Prawns",
+            "description": "Kingklip fillet and 3 queens.",
+            "price": "395",
+            "image": "/src/assets/images/menu/pigalle/seafood-pigalleplatter-axut.jpg",
+            "imageAlt": "Fish and Prawns"
         }
     ]
 }

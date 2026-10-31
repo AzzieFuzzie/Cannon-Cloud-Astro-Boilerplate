@@ -17,7 +17,7 @@ interface MenuCategory {
     image?: string;
     imageAlt?: string;
     items: MenuItem[];
-    // CloudCannon path to the category's data file, e.g. "@file[/src/content/menu/starters.json]"
+    // CloudCannon path to the category's data file, e.g. "@file[/src/content/menu/sushi.json]"
     cmsFile?: string;
 }
 
@@ -70,7 +70,7 @@ const sections = categories.map((category) => {
                 sections.map((section, index) => (
                     <>
                         {index > 0 && (
-                            <li class="c-menu_slash heading-h3" aria-hidden="true">
+                            <li class="c-menu_slash" aria-hidden="true">
                                 /
                             </li>
                         )}

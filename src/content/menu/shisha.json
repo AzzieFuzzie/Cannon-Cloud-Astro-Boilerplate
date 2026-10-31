@@ -1,0 +1,29 @@
+{
+    "categoryName": "Shisha",
+    "displayOrder": 14,
+    "image": "/src/assets/images/menu/pigalle/shisha-img-282of284-aqcw.jpg",
+    "imageAlt": "Classic Shisha",
+    "items": [
+        {
+            "name": "Classic Shisha",
+            "description": "Available Flavours: Paan Kiwi, Marbella, Lady Killer, Double Apple, Gum Mint, Mandela's 27, Mint, Mango Lassi, Sheikh Money, El Frasco",
+            "price": "350",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Special Shisha",
+            "description": "Available Flavours: Paan Kiwi, Marbella, Lady Killer, Double Apple, Gum Mint, Mandela's 27, Mint, Mango Lassi, Sheikh Money, El Frasco",
+            "price": "550",
+            "image": "/src/assets/images/menu/pigalle/shisha-img-279of284-aqcx.jpg",
+            "imageAlt": "Special Shisha"
+        },
+        {
+            "name": "Extra Head",
+            "description": "Additional head available for extended sessions.",
+            "price": "150",
+            "image": "/src/assets/images/menu/pigalle/shisha-img-277of284-2-atv4.jpg",
+            "imageAlt": "Extra Head"
+        }
+    ]
+}

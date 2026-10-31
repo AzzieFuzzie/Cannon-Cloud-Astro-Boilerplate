@@ -1,0 +1,64 @@
+{
+    "categoryName": "Chooza",
+    "displayOrder": 7,
+    "image": "/src/assets/images/menu/pigalle/chooza-pigalle-shootday1-68-aqcp.jpg",
+    "imageAlt": "Baby chicken in house-made chooza sauce char-grilled with fries",
+    "items": [
+        {
+            "name": "Chooza Chicken",
+            "description": "Baby Chicken In Our Home Made Chooza Sauce Char-Grilled And Served With Fries.",
+            "price": "330",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Chooza Boneless Chicken",
+            "description": "8 Tender Chicken Cubes Topped With Our Chooza Sauce Served With A Salad And Fries.",
+            "price": "190",
+            "image": "/src/assets/images/menu/pigalle/chooza-pigalle-shootday1-65-aqcp.jpg",
+            "imageAlt": "Tender chicken cubes in chooza sauce with salad and fries"
+        },
+        {
+            "name": "Chooza Chicken Wings",
+            "description": "6 Wings Prepared In Our Chooza Sauce And Char-Grilled.",
+            "price": "150",
+            "image": "/src/assets/images/menu/pigalle/chooza-img-105of284-aqcm.jpg",
+            "imageAlt": "Six chicken wings in chooza sauce char-grilled"
+        },
+        {
+            "name": "Chooza Chilli Lemon Prawns",
+            "description": "6 Pan-Fried Prawns Topped With Our Chilli Cilantro Sauce And Fresh Micro Greens.",
+            "price": "175",
+            "image": "/src/assets/images/menu/pigalle/chooza-chillilemonchoozaprawn-axuz.jpg",
+            "imageAlt": "Pan-fried prawns in chilli cilantro sauce with fresh micro greens"
+        },
+        {
+            "name": "Beef Kebab",
+            "description": "2 Beef Kebab Char-Grilled To Perfection Served With Fries And A Salad.",
+            "price": "200",
+            "image": "/src/assets/images/menu/pigalle/chooza-img-63of284-aqct.jpg",
+            "imageAlt": "Two char-grilled beef kebabs served with fries and salad"
+        },
+        {
+            "name": "Chooza Lamb Chops",
+            "description": "4 Lamb Chops Carefully Marinated And Char-Grilled, Served With A Side Of Fries.",
+            "price": "305",
+            "image": "/src/assets/images/menu/pigalle/chooza-img-96of284-1-atv2.jpg",
+            "imageAlt": "Four marinated char-grilled lamb chops with fries"
+        },
+        {
+            "name": "Chooza Masala Fries",
+            "description": "French Fries Smothered In Our In-House Chooza Sauce.",
+            "price": "65",
+            "image": "/src/assets/images/menu/pigalle/chooza-img-36of284-atws.jpg",
+            "imageAlt": "Chooza Masala Fries"
+        },
+        {
+            "name": "Naan",
+            "description": "Tandoor baked and brushed with butter, garlic butter or plain.",
+            "price": "42",
+            "image": "/src/assets/images/menu/pigalle/chooza-pigalle-shootday1-79-aqcp.jpg",
+            "imageAlt": "Naan"
+        }
+    ]
+}

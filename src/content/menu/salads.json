@@ -1,0 +1,29 @@
+{
+    "categoryName": "Salads",
+    "displayOrder": 3,
+    "image": "/src/assets/images/menu/pigalle/salads-piggale-shootday3-150-atwx.jpg",
+    "imageAlt": "Greek salad with cocktail tomato, olives, Danish feta and traditional dressing",
+    "items": [
+        {
+            "name": "Greek Salad",
+            "description": "Cocktail Tomato, Lettuce, Kalamata Olives, Danish Feta And Traditional Dressing.",
+            "price": "135",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Pear And Almond",
+            "description": "Poached Pear, Caramelized Almonds, Salad Greens, Cucumber, Cocktail Tomato, Served With Grape Salad.",
+            "price": "145",
+            "image": "/src/assets/images/menu/pigalle/salads-piggale-shootday3-144-aqc0.jpg",
+            "imageAlt": "Poached pear and caramelised almond salad with greens and grape"
+        },
+        {
+            "name": "House Salad",
+            "description": "Crisp lettuce, cocktail tomatoes, onions and green peppers tossed in a vinaigrette dressing",
+            "price": "120",
+            "image": "",
+            "imageAlt": ""
+        }
+    ]
+}

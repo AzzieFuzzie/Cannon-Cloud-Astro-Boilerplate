@@ -1,0 +1,57 @@
+{
+    "categoryName": "Sushi",
+    "displayOrder": 1,
+    "image": "/src/assets/images/menu/pigalle/sushi-img-138of284-aorl.jpg",
+    "imageAlt": "California roll with avocado and cucumber at Pigalle",
+    "items": [
+        {
+            "name": "California Roll (4 piece)",
+            "description": "Delicious fusion of flavors with creamy avocado and crisp cucumber all wrapped in seasoned sushi rice. Prawn, Salmon or Vegetarian.",
+            "price": "140",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Chicago Roll (4 piece)",
+            "description": "Panko rock shrimp and cream cheese dressed with Teriyaki, sweet chilli jam, crispy tempura crumbs and mayo. Topped with crunchy garlic flakes & spring onions.",
+            "price": "150",
+            "image": "/src/assets/images/menu/pigalle/sushi-img-147of284-1-atvw.jpg",
+            "imageAlt": "Chicago roll with panko rock shrimp, cream cheese and teriyaki at Pigalle"
+        },
+        {
+            "name": "Fish And Chips (4 piece)",
+            "description": "Crispy Hake and pickled radish in an avocado California Roll topped with mini potato crisps, peas, spicy mayo and Teriyaki dressing.",
+            "price": "150",
+            "image": "/src/assets/images/menu/pigalle/sushi-img-169of284-aorl.jpg",
+            "imageAlt": "Fish and chips sushi roll with hake, pickled radish and spicy mayo"
+        },
+        {
+            "name": "Philadelphia Roll (4 piece)",
+            "description": "Cream Cheese Smoked Salmon And Avocado Roll Dressed With Spring Onion, Japanese Mayo, Seven Spices And Teriyaki.",
+            "price": "140",
+            "image": "/src/assets/images/menu/pigalle/sushi-img-136of284-atvw.jpg",
+            "imageAlt": "Philadelphia roll with cream cheese, smoked salmon and avocado"
+        },
+        {
+            "name": "Rock Shrimp Tempura (4 piece)",
+            "description": "Crispy Shrimp Tempura On A Salmon California Roll Dressed With Creamy Mayo.",
+            "price": "150",
+            "image": "/src/assets/images/menu/pigalle/sushi-img-149of284-atvw.jpg",
+            "imageAlt": "Rock shrimp tempura roll on a salmon California roll"
+        },
+        {
+            "name": "Sriracha Roll (4 piece)",
+            "description": "Fresh salmon, avocado and cucumber wrapped in seasoned sushi rice and finished with spicy sriracha mayo.",
+            "price": "175",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Dragon Roll (4 piece)",
+            "description": "Prawn, salmon and avocado roll topped with avocado, Japanese mayo and teriyaki glaze.",
+            "price": "170",
+            "image": "",
+            "imageAlt": ""
+        }
+    ]
+}

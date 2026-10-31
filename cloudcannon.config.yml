@@ -144,7 +144,7 @@ collections_config:
     name: Menu Categories
     schemas:
       default:
-        path: src/content/menu/starters.json
+        path: src/content/menu/salads.json
     _inputs:
       categoryName:
         type: text
