@@ -6,13 +6,16 @@ interface Props {
     speed?: number;
     // Degrees turned while the element crosses the viewport
     rotate?: number;
+    // The side the artwork is cut off on (avocado, mint...). It is drawn to run off that edge of
+    // the screen, so it turns on that edge, and less, to keep the cut out of sight.
+    edge?: 'left' | 'right';
     // Positioning classes; the parent needs `relative`
     class?: string;
 }
 
-const { src, speed = 0.1, rotate = 20, class: propsClass, ...rest } = Astro.props;
+const { src, speed = 0.1, rotate = 20, edge, class: propsClass, ...rest } = Astro.props;
 
-const classes = ['c-decor', propsClass];
+const classes = ['c-decor', edge && `-edge-${edge}`, propsClass];
 ---
 
 <div

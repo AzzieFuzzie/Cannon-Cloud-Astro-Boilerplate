@@ -121,8 +121,11 @@ export class TextReveal extends HTMLElement {
     }
 
     /**
-     * Characters fade up to full strength as the text scrolls through the viewport
-     * (TextReveal.js on pigalle.co.za: power1.out, 0.08s apart, scrubbed)
+     * Characters fade up to full strength as the text scrolls through the viewport.
+     * Tied straight to the scroll (no scrub smoothing: the smooth scroll already eases it, and a
+     * second ease made the text trail behind) and linear, so each character keeps pace with the
+     * page. It starts as the text comes up from the bottom and finishes once all of it sits above
+     * the middle of the screen: about twice the old distance, so a quick flick still shows it.
      */
     private fill($target: Element): void {
         const split = SplitText.create($target, { type: 'words, chars' });
@@ -132,13 +135,13 @@ export class TextReveal extends HTMLElement {
             { opacity: 0.1 },
             {
                 opacity: 1,
-                ease: 'power1.out',
+                ease: 'none',
                 stagger: MOTION.stagger,
                 scrollTrigger: {
                     trigger: this,
-                    start: 'top 95%',
-                    end: 'top 60%',
-                    scrub: 0.2
+                    start: 'top 85%',
+                    end: 'bottom 55%',
+                    scrub: true
                 }
             }
         );

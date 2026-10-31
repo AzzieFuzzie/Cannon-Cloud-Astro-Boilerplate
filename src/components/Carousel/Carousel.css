@@ -7,8 +7,7 @@
     /* Slides are stacked in one grid cell and crossfaded */
     .c-carousel_slides {
         display: grid;
-        aspect-ratio: 665 / 700;
-        max-height: 800px;
+        aspect-ratio: 3 / 2;
         overflow: hidden;
     }
 

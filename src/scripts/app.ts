@@ -2,6 +2,7 @@ import '@mux/mux-background-video/html';
 import { Transitions } from '@scripts/classes/Transitions';
 import { Scroll } from '@scripts/classes/Scroll';
 import { $ready } from '@scripts/stores/ready';
+import { showDecorInView } from '@scripts/utils/decor';
 import { watchImageReveals } from '@scripts/utils/imageLoad';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -34,6 +35,9 @@ if (startAtTop) Scroll.scrollTo(0, { immediate: true, force: true });
 
 // Image reveals wait for their image
 watchImageReveals();
+
+// Decorations on screen behind the preloader are already in place when it lifts
+showDecorInView();
 
 // Trigger positions shift once the web fonts are in
 document.fonts.ready.then(() => ScrollTrigger.refresh());

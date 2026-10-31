@@ -45,6 +45,51 @@ export const markLoadedReveals = (root: ParentNode = document): void => {
 };
 
 /**
+ * Start loading lazy images about a screen before they scroll into view, and decode them.
+ * Chrome looks well ahead by itself; Safari waits until an image is nearly on screen,
+ * so it would appear blank for a moment. Run it whenever new page content is added.
+ */
+let nearbyObserver: IntersectionObserver | null = null;
+
+export const preloadNearbyImages = (root: ParentNode = document): void => {
+    nearbyObserver?.disconnect();
+    nearbyObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(({ isIntersecting, target }) => {
+                if (!isIntersecting) return;
+
+                const $image = target as HTMLImageElement;
+                observer.unobserve($image);
+                $image.loading = 'eager';
+                $image.decode().catch(() => {});
+            });
+        },
+        { rootMargin: '100% 0px' }
+    );
+
+    root.querySelectorAll<HTMLImageElement>('img[loading="lazy"]').forEach(($image) => {
+        nearbyObserver?.observe($image);
+    });
+
+    // A marquee's images slide in from the side, where the page clips them, so they never count
+    // as near; decode them all once the marquee itself is a screen away
+    root.querySelectorAll('.c-marquee').forEach(($marquee) => {
+        const marqueeObserver = new IntersectionObserver(
+            ([entry], observer) => {
+                if (!entry?.isIntersecting) return;
+
+                observer.disconnect();
+                $marquee.querySelectorAll('img').forEach(($image) => {
+                    $image.decode().catch(() => {});
+                });
+            },
+            { rootMargin: '100% 0px' }
+        );
+        marqueeObserver.observe($marquee);
+    });
+};
+
+/**
  * Mark a reveal as loaded when its image finishes (or fails).
  * `load` does not bubble, so one capture listener on the document covers every page.
  */
@@ -65,6 +110,7 @@ export const watchImageReveals = (): void => {
     document.addEventListener('error', onImageSettled, true);
 
     markLoadedReveals();
+    preloadNearbyImages();
 };
 
 /**

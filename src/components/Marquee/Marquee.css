@@ -24,11 +24,19 @@
         object-fit: cover;
     }
 
-    /* The track holds two identical groups, so moving it by half its width loops seamlessly */
+    /* The track holds two identical groups, so moving it by half its width loops seamlessly.
+       It only runs while near the screen (Locomotive's is-inview, as Marquee.js on pigalle.co.za).
+       will-change stays on: switching it with is-inview made the browser rebuild and repaint the
+       whole strip as it came into view, which showed as blank images for a moment. */
     @media (prefers-reduced-motion: no-preference) {
         .c-marquee_track {
             animation: c-marquee var(--marquee-duration, 35s) linear infinite;
+            animation-play-state: paused;
             will-change: transform;
+
+            .c-marquee.is-inview & {
+                animation-play-state: running;
+            }
 
             .c-marquee.-reverse & {
                 animation-direction: reverse;

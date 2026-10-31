@@ -21,18 +21,29 @@ const classes = ['c-marquee', direction === 'right' && '-reverse', propsClass];
 
 {
     images.length > 0 && (
-        <div class:list={classes} style={`--marquee-duration: ${duration}s;`} {...rest}>
+        <div
+            class:list={classes}
+            style={`--marquee-duration: ${duration}s;`}
+            data-scroll
+            data-scroll-repeat
+            data-scroll-offset="-50%,-50%"
+            {...rest}
+        >
             <div class="c-marquee_track">
                 {/* The group is rendered twice so the loop is seamless; the copy is hidden from assistive tech */}
                 {[0, 1].map((copy) => (
                     <div class="c-marquee_group" aria-hidden={copy === 1 ? 'true' : undefined}>
                         {images.map((item) => (
+                            /* Not lazy: an image moving in from the side would only start loading
+                            once it was on screen, and show blank until it arrived */
                             <DataImage
                                 class="c-marquee_image"
                                 src={item.image}
                                 alt={copy === 1 ? '' : (item.alt ?? '')}
                                 widths={[250, 500]}
                                 sizes="250px"
+                                loading="eager"
+                                fetchpriority="low"
                             />
                         ))}
                     </div>

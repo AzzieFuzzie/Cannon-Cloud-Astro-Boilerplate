@@ -35,7 +35,7 @@ const reviews = [...googleReviews, ...home.reviews].slice(0, 5);
                     class="heading-h1 text-right text-white"
                     data-editable="source"
                     data-key="slogan"
-                    data-type="text"
+                    data-type="span"
                     data-path="src/pages/index.astro"
                 >
                     Pigalle <em>by</em> Villamoura <em>the</em> home <em>of</em> Exceptional Seafood
@@ -68,7 +68,7 @@ const reviews = [...googleReviews, ...home.reviews].slice(0, 5);
                     </h2>
                 </TextReveal>
                 <Reveal type="fade">
-                    <Button class="text-center text-black" href="/about" target="_blank">
+                    <Button class="text-center text-black" href="/about">
                         <span
                             data-editable="source"
                             data-path="src/pages/index.astro"
@@ -102,7 +102,8 @@ const reviews = [...googleReviews, ...home.reviews].slice(0, 5);
                         src={mint}
                         speed={0.1}
                         rotate={25}
-                        class="-bottom-[8vh] -left-[5vw] max-sm:-right-[5vw] max-sm:-bottom-[5vh] max-sm:left-auto"
+                        edge="left"
+                        class="-bottom-[8vh] -left-[5vw] max-sm:-bottom-[5vh] max-sm:-left-[8vw]"
                     />
                 </div>
 
@@ -159,7 +160,7 @@ const reviews = [...googleReviews, ...home.reviews].slice(0, 5);
                         src={rosemary}
                         speed={-0.1}
                         rotate={-20}
-                        class="-right-[3vw] bottom-[2vh]"
+                        class="-right-[3vw] bottom-[2vh] max-sm:right-[1vw]"
                     />
                 </div>
 
@@ -197,11 +198,17 @@ const reviews = [...googleReviews, ...home.reviews].slice(0, 5);
             </div>
         </section>
 
-        {/* Private Events Section */}
+        {
+            /* Private Events Section: Scale.js on pigalle.co.za, 0.8s power3.out after 0.2s
+            (the decorations' expo.out did nearly all the growing in the first tenth of a second).
+            It starts once a quarter is on screen, so on a phone it isn't over while only the top edge shows */
+        }
         <Reveal
             type="scale"
             tag="section"
-            class="grid-layout relative mb-large min-h-screen w-full items-center justify-items-center overflow-hidden text-white"
+            delay={0.2}
+            data-scroll-offset="25%,0"
+            class="grid-layout relative mb-large min-h-screen w-full items-center overflow-hidden px-(--grid-margin) text-white [--reveal-duration:0.8s] [--reveal-ease:var(--ease-power3-out)]"
         >
             <div class="absolute inset-0 z-0">
                 <DataImage
@@ -217,15 +224,21 @@ const reviews = [...googleReviews, ...home.reviews].slice(0, 5);
                 />
             </div>
 
-            <div class="relative z-10 col-span-3 col-start-2 py-large sm:col-start-7">
-                <div class="max-w-[40rem] px-xsmall lg:px-0">
+            {
+                /* On the page grid, as on pigalle.co.za: full width on phones, columns 7–11 on
+                tablets, 8–10 from 1000px */
+            }
+            <div
+                class="relative z-10 col-span-4 py-large sm:col-span-5 sm:col-start-7 md:col-span-3 md:col-start-8"
+            >
+                <div>
                     <TextReveal type="chars">
                         <h2
                             data-editable="source"
                             data-path="src/pages/index.astro"
                             data-key="eventsHeading"
                             data-type="text"
-                            class="heading-h2 mb-xsmall font-serif leading-tight text-white"
+                            class="heading-h2 mb-xsmall leading-tight text-white"
                         >
                             Private Events
                         </h2>
@@ -327,7 +340,7 @@ const reviews = [...googleReviews, ...home.reviews].slice(0, 5);
         </section>
 
         {/* Image marquee: images live in src/data/home.json */}
-        <section class="pb-large">
+        <section class="pb-small">
             <Marquee images={home.marquee} />
         </section>
     </div>

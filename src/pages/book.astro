@@ -1,9 +1,13 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import DataImage from '../components/DataImage/DataImage.astro';
+import Decor from '../components/Decor/Decor.astro';
 import TextReveal from '../components/TextReveal/TextReveal.astro';
 import book from '../data/book.json';
 import site from '../data/site.json';
+
+import blueberry from '../assets/svgs/blueberry.svg';
+import plant from '../assets/svgs/plant.svg';
 
 const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
 ---
@@ -125,6 +129,25 @@ const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
                     class="h-full w-full overflow-hidden rounded-[10px] border-2 border-(--color-accent-grey) sm:border-[5px]"
                 ></iframe>
             </div>
+
+            {
+                /* From 1000px only: blueberries by the contact details, a leaf beside the form,
+                both running off the screen edge (as on pigalle.co.za) */
+            }
+            <Decor
+                src={blueberry}
+                speed={0.1}
+                rotate={-15}
+                edge="right"
+                class="top-[5%] -right-[5vw] max-md:hidden"
+            />
+            <Decor
+                src={plant}
+                speed={-0.1}
+                rotate={15}
+                edge="left"
+                class="top-[40%] -left-[5vw] max-md:hidden"
+            />
         </section>
     </div>
 </Layout>

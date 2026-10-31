@@ -23,9 +23,9 @@ import tomato from '../assets/svgs/tomato.svg';
                     data-editable="source"
                     data-path="src/pages/about.astro"
                     data-key="heroHeading"
-                    data-type="text"
+                    data-type="span"
                 >
-                    A taste of passion in the heart of Pigalle
+                    <em>A</em> Taste <em>of</em> Passion <em>in the</em> Heart <em>of</em> Johannesburg
                 </h1>
             </TextReveal>
 
@@ -134,8 +134,20 @@ import tomato from '../assets/svgs/tomato.svg';
                     />
                 </Reveal>
 
-                <Decor src={tomato} speed={0.1} rotate={25} class="-top-[10vh] -left-[5vw]" />
-                <Decor src={avocado} speed={-0.1} rotate={-20} class="-right-[3vw] bottom-[2vh]" />
+                <Decor
+                    src={tomato}
+                    speed={0.1}
+                    rotate={25}
+                    edge="left"
+                    class="-top-[10vh] -left-[5vw] max-sm:-left-[10vw]"
+                />
+                <Decor
+                    src={avocado}
+                    speed={-0.1}
+                    rotate={-20}
+                    edge="right"
+                    class="-right-[5vw] bottom-[2vh] max-sm:-right-[10vw]"
+                />
             </div>
 
             <section

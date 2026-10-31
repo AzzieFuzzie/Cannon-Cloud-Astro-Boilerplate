@@ -25,6 +25,7 @@
             &.-scale {
                 transform: scale(var(--reveal-scale, 0.85));
                 transition-duration: var(--reveal-duration, 0.75s);
+                transition-timing-function: var(--reveal-ease, var(--ease-out));
             }
 
             /* Divider lines: 1.3s, same curve as the line CSS on pigalle.co.za */

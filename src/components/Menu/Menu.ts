@@ -7,7 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export class Menu extends HTMLElement {
     static CLASS_ACTIVE = 'is-active';
-    static CLIP_HIDDEN = 'inset(100% 0% 0% 0%)';
+    // Opens from the left, like the image reveals on the other pages (Reveal.css -clip-x)
+    static CLIP_HIDDEN = 'inset(0% 100% 0% 0%)';
     static CLIP_VISIBLE = 'inset(0% 0% 0% 0%)';
     // Hovering has to rest on an item this long (ms) before its image is shown
     static HOVER_DELAY = 100;

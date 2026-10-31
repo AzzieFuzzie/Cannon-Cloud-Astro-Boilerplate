@@ -36,41 +36,65 @@
 
     .c-header_link {
         display: block;
-        transition: opacity var(--transition-duration) var(--ease);
+    }
 
-        &[aria-current='page'] {
-            text-decoration: underline;
-            text-underline-offset: 0.3em;
-            text-decoration-thickness: 1px;
-        }
+    /* The buttons' line (Button.css), the other way round: it draws in from the left on hover
+       and wipes away to the right on the way out. The current page keeps it. */
+    .c-header_label {
+        position: relative;
+        display: inline-block;
 
-        @media (hover: hover) {
-            &:hover {
-                opacity: 0.6;
-            }
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -0.15em;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transform-origin: right center;
+            pointer-events: none;
         }
     }
 
-    /* Book a Reservation: a pill, in both layouts */
-    .c-header_item.-cta .c-header_link {
-        display: inline-block;
-        padding: 0.6em 1.2em;
-        border: 1px solid currentColor;
-        border-radius: 999px;
-        font-family: var(--font-lato);
-        font-size: var(--text-body-base);
-        line-height: 1;
-        text-transform: uppercase;
-        transition:
-            background-color var(--transition-duration) var(--ease),
-            color var(--transition-duration) var(--ease);
+    .c-header_link[aria-current='page'] .c-header_label::after {
+        transform: scaleX(1);
+    }
 
-        @media (hover: hover) {
-            &:hover {
-                opacity: 1;
-                background-color: var(--color-black);
-                color: var(--color-white);
-            }
+    @media (hover: hover) {
+        .c-header_link:hover .c-header_label::after {
+            transform: scaleX(1);
+            transform-origin: left center;
+        }
+    }
+
+    /* Book a table: in the light italic of the hero's "by / the / of", a little larger than the
+       other links and not uppercase. Like the buttons, its line shows and wipes away on hover. */
+    .c-header_item.-cta .c-header_link {
+        font-family: var(--font-rd-condensed, serif);
+        font-size: 1.35em;
+        font-style: italic;
+        font-weight: 300;
+        line-height: 1;
+        text-transform: none;
+    }
+
+    .c-header_item.-cta .c-header_label::after {
+        transform: scaleX(1);
+        transform-origin: left center;
+    }
+
+    @media (hover: hover) {
+        .c-header_item.-cta .c-header_link:hover .c-header_label::after {
+            transform: scaleX(0);
+            transform-origin: right center;
+        }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .c-header_label::after {
+            transition: transform var(--transition-duration-slower) var(--ease);
         }
     }
 
@@ -162,9 +186,11 @@
             padding: var(--spacing-small) var(--grid-margin);
         }
 
-        /* Each item is the mask its link slides out of */
+        /* Each item is the mask its link slides out of; the padding keeps the line under the
+           label inside the mask */
         .c-header_item {
             overflow: hidden;
+            padding-bottom: var(--spacing-xtiny);
 
             &.-cta {
                 margin-top: var(--spacing-xsmall);
@@ -174,6 +200,12 @@
         .c-header_link {
             font-family: var(--font-rd-narrow, serif);
             font-size: var(--text-heading-h2);
+            line-height: 1.2;
+        }
+
+        /* The italic keeps the menu's size, with the same lift it has on desktop */
+        .c-header_item.-cta .c-header_link {
+            font-size: calc(var(--text-heading-h2) * 1.1);
             line-height: 1.2;
         }
     }
@@ -198,23 +230,13 @@
 
         .c-header_link {
             translate: 0 100%;
-            transition:
-                translate var(--transition-duration-slow) var(--ease-reveal),
-                opacity var(--transition-duration) var(--ease);
-        }
-
-        /* The pill keeps its hover colours as well as the slide */
-        .c-header_item.-cta .c-header_link {
-            transition:
-                translate var(--transition-duration-slow) var(--ease-reveal),
-                background-color var(--transition-duration) var(--ease),
-                color var(--transition-duration) var(--ease);
+            transition: translate var(--transition-duration-slow) var(--ease-reveal);
         }
 
         /* Opening: the links rise one after another once the wipe is under way */
         .c-header.is-open .c-header_link {
             translate: 0 0;
-            transition-delay: calc(0.25s + var(--i, 0) * 0.06s), 0s;
+            transition-delay: calc(0.25s + var(--i, 0) * 0.06s);
         }
     }
 }

@@ -11,7 +11,7 @@
 
     /* Inline text formatting */
     em {
-        font-family: var(--font-rd-italic, serif);
+        font-family: var(--font-rd-condensed, serif);
         font-style: italic;
     }
 

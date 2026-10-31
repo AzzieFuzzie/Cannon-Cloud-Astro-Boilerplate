@@ -8,15 +8,15 @@
     "foodGallery": [
         {
             "image": "/src/assets/images/home/gallery-1.jpg",
-            "alt": "Tandoori-dusted prawns with papino and coriander salsa"
+            "alt": "Grilled prawn platter with chips on a white tablecloth"
         },
         {
             "image": "/src/assets/images/home/gallery-2.jpg",
-            "alt": "Warm chocolate dessert with vanilla ice cream"
+            "alt": "Flame-grilled chicken, prawns and chips spread across the table"
         },
         {
             "image": "/src/assets/images/home/gallery-3.jpg",
-            "alt": "Char-grilled beef kebabs with chips and salad"
+            "alt": "Chocolate fondant with vanilla ice cream"
         }
     ],
     "eventsImageSrc": "/src/assets/images/home/events.jpg",
@@ -46,60 +46,52 @@
     ],
     "marquee": [
         {
-            "image": "/src/assets/images/home/marquee-01.jpg",
-            "alt": "Mint mocktail"
+            "image": "/src/assets/images/home/marquee/sushi-chopsticks.jpg",
+            "alt": "Sushi roll lifted with chopsticks in the dining room"
         },
         {
-            "image": "/src/assets/images/home/marquee-02.jpg",
-            "alt": "Baked cheesecake with berry compote"
+            "image": "/src/assets/images/home/marquee/gold-oysters.jpg",
+            "alt": "Gold-leaf oysters on crushed ice"
         },
         {
-            "image": "/src/assets/images/home/marquee-03.jpg",
-            "alt": "Paan sorvette"
+            "image": "/src/assets/images/home/marquee/creme-brulee-spoonful.jpg",
+            "alt": "Spoonful of crème brûlée in the candlelit dining room"
         },
         {
-            "image": "/src/assets/images/home/marquee-04.jpg",
-            "alt": "Kingklip fillet with buttery mash"
+            "image": "/src/assets/images/home/marquee/salad-toss.jpg",
+            "alt": "Salad tossed at the table"
         },
         {
-            "image": "/src/assets/images/home/marquee-05.jpg",
-            "alt": "Lobster thermidor with rice and chips"
+            "image": "/src/assets/images/home/marquee/espresso-martini.jpg",
+            "alt": "Espresso martini"
         },
         {
-            "image": "/src/assets/images/home/marquee-06.jpg",
-            "alt": "Chicken wrap"
+            "image": "/src/assets/images/home/marquee/creme-brulee-crack.jpg",
+            "alt": "Spoons breaking into crème brûlée"
         },
         {
-            "image": "/src/assets/images/home/marquee-07.jpg",
-            "alt": "Malva pudding with vanilla ice cream"
+            "image": "/src/assets/images/home/marquee/sushi-dining-room.jpg",
+            "alt": "Sushi platters beneath the dining room chandeliers"
         },
         {
-            "image": "/src/assets/images/home/marquee-08.jpg",
-            "alt": "Warm chocolate dessert with vanilla ice cream"
+            "image": "/src/assets/images/home/marquee/sharing-platter-close.jpg",
+            "alt": "Sharing platter with calamari, beef and halloumi"
         },
         {
-            "image": "/src/assets/images/home/marquee-09.jpg",
-            "alt": "Blue Red Bull mocktail"
+            "image": "/src/assets/images/home/marquee/flaming-cocktail.jpg",
+            "alt": "Flaming red cocktail by the window"
         },
         {
-            "image": "/src/assets/images/home/marquee-10.jpg",
-            "alt": "Slow-cooked beef with mash"
+            "image": "/src/assets/images/home/marquee/chips-and-dip.jpg",
+            "alt": "Chips dipped in sauce beside grilled chicken"
         },
         {
-            "image": "/src/assets/images/menu/tomahawk.jpg",
-            "alt": "Chilli oven-roasted tomahawk steak"
+            "image": "/src/assets/images/home/marquee/iced-tea.jpg",
+            "alt": "Iced tea served by the window"
         },
         {
-            "image": "/src/assets/images/menu/langoustines.jpg",
-            "alt": "Langoustines in lemon butter sauce"
-        },
-        {
-            "image": "/src/assets/images/menu/creme-brulee.jpg",
-            "alt": "Vanilla pod crème brûlée"
-        },
-        {
-            "image": "/src/assets/images/menu/pear-and-almond-salad.jpg",
-            "alt": "Poached pear and caramelised almond salad"
+            "image": "/src/assets/images/home/marquee/garlic-naan.jpg",
+            "alt": "Garlic naan on the table"
         }
     ],
     "faqs": [

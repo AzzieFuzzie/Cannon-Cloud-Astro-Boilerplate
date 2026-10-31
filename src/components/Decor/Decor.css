@@ -19,17 +19,38 @@
         }
     }
 
+    /* Grows from its own centre: at 20% it must still be on screen, or it never counts as in
+       view and never grows */
     .c-decor_inner {
         --reveal-scale: 0.2;
         transform-origin: bottom center;
     }
 
+    /* Already on screen when the page appeared: shown as it is (src/scripts/utils/decor.ts) */
+    .c-decor_inner.c-reveal.is-shown {
+        transform: none;
+        transition: none;
+    }
+
     .c-decor_img {
         width: 100%;
         height: auto;
+        transform-origin: var(--decor-edge, center) center;
 
         @media (prefers-reduced-motion: no-preference) {
-            rotate: calc(var(--progress, 0) * var(--decor-rotate, 0deg));
+            rotate: calc(var(--progress, 0) * var(--decor-rotate, 0deg) * var(--decor-turn, 1));
         }
+    }
+
+    /* Artwork cut off on one side: it turns on that edge, and a little less, so the straight cut
+       stays past the screen edge (the page positions it there) */
+    .c-decor.-edge-left {
+        --decor-edge: left;
+        --decor-turn: 0.4;
+    }
+
+    .c-decor.-edge-right {
+        --decor-edge: right;
+        --decor-turn: 0.4;
     }
 }

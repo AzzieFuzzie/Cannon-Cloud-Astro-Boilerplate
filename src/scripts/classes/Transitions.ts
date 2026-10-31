@@ -5,7 +5,13 @@ import SwupScriptsPlugin from '@swup/scripts-plugin';
 import Swup from 'swup';
 import { Scroll } from '@scripts/classes/Scroll';
 import { $ready } from '@scripts/stores/ready';
-import { markLoadedReveals, waitForImages, waitForVideos } from '@scripts/utils/imageLoad';
+import {
+    markLoadedReveals,
+    preloadNearbyImages,
+    waitForImages,
+    waitForVideos
+} from '@scripts/utils/imageLoad';
+import { showDecorInView } from '@scripts/utils/decor';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export class Transitions {
@@ -141,6 +147,8 @@ export class Transitions {
         Scroll?.init();
         this.updateDocumentAttributes(visit);
         markLoadedReveals();
+        preloadNearbyImages();
+        showDecorInView();
         ScrollTrigger.refresh();
 
         // Swup waits for this hook, so the page only fades in once its first screen is complete
