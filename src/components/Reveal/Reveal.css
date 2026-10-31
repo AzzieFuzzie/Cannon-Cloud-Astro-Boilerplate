@@ -13,12 +13,12 @@
             transition-timing-function: var(--ease-out);
             transition-delay: var(--reveal-delay, 0s);
 
-            /* Fade.js: 0.4s sine.out after a 0.4s pause */
+            /* Fade.js: 0.4s sine.out after a 0.4s pause (--reveal-pause sets the pause) */
             &.-fade {
                 opacity: 0;
                 transition-duration: var(--reveal-duration, 0.4s);
                 transition-timing-function: var(--ease-sine-out);
-                transition-delay: calc(0.4s + var(--reveal-delay, 0s));
+                transition-delay: calc(var(--reveal-pause, 0.4s) + var(--reveal-delay, 0s));
             }
 
             /* Parallax.js (decorations): 0.75s expo.out */

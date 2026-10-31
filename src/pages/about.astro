@@ -41,6 +41,7 @@ import tomato from '../assets/svgs/tomato.svg';
                 src={about.aboutHeroImage}
                 title={about.aboutHeroImageTitle}
                 alt={about.aboutHeroImageAlt}
+                widths={[640, 960, 1280, 1920, 2560]}
                 sizes="100vw"
                 loading="eager"
             />
@@ -77,7 +78,10 @@ import tomato from '../assets/svgs/tomato.svg';
                     </p>
                 </TextReveal>
 
-                <Reveal type="fade" data-track-area="about-story">
+                {
+                    /* Waits for the paragraph above to settle, so it comes last when both are in view */
+                }
+                <Reveal type="fade" class="[--reveal-pause:0.6s]" data-track-area="about-story">
                     <Button href="/book/">
                         <span
                             data-editable="source"
@@ -172,13 +176,15 @@ import tomato from '../assets/svgs/tomato.svg';
                     </TextReveal>
                 </div>
                 {
-                    /* Icon beside its text; the two blocks sit side by side from 1000px, stacked below */
+                    /* Icon beside its text; the two blocks sit side by side from 1000px, stacked below.
+                    In reading order: the icon first, its text 0.1s later, the second block 0.15s after the
+                    first. Both start at the same point (top 90%) so the delays line up */
                 }
                 <div
                     class="mb-small grid w-full max-w-[900px] grid-cols-1 gap-x-xsmall gap-y-small md:grid-cols-2"
                 >
                     <div class="body-base flex items-start gap-tiny text-left">
-                        <Reveal type="fade" class="shrink-0">
+                        <Reveal type="fade" class="shrink-0 [--reveal-pause:0s]">
                             {/* The icon's white background drops out against the page colour */}
                             <img
                                 src={halaalIcon.src}
@@ -189,7 +195,7 @@ import tomato from '../assets/svgs/tomato.svg';
                                 class="h-[50px] w-auto mix-blend-multiply"
                             />
                         </Reveal>
-                        <TextReveal class="max-w-[35ch]">
+                        <TextReveal class="max-w-[35ch]" delay={0.1} start="top 90%">
                             <p
                                 data-editable="source"
                                 data-path="src/pages/about.astro"
@@ -202,7 +208,7 @@ import tomato from '../assets/svgs/tomato.svg';
                         </TextReveal>
                     </div>
                     <div class="body-base flex items-start gap-tiny text-left">
-                        <Reveal type="fade" class="shrink-0">
+                        <Reveal type="fade" class="shrink-0 [--reveal-pause:0s]" delay={0.15}>
                             <img
                                 src={teamIcon.src}
                                 alt=""
@@ -212,7 +218,7 @@ import tomato from '../assets/svgs/tomato.svg';
                                 class="h-[50px] w-auto mix-blend-multiply"
                             />
                         </Reveal>
-                        <TextReveal class="max-w-[35ch]">
+                        <TextReveal class="max-w-[35ch]" delay={0.25} start="top 90%">
                             <p
                                 data-editable="source"
                                 data-path="src/pages/about.astro"
@@ -226,7 +232,8 @@ import tomato from '../assets/svgs/tomato.svg';
                     </div>
                 </div>
 
-                <Reveal type="fade">
+                {/* After the values text above, like the reservation button */}
+                <Reveal type="fade" class="[--reveal-pause:0.6s]">
                     <Button href="/menu/" class="align-self-center text-center">
                         <span
                             data-editable="source"

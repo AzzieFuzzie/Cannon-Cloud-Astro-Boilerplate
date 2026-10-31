@@ -4,15 +4,24 @@ interface Props {
     type?: 'lines' | 'chars' | 'fill';
     // Delay in seconds
     delay?: number;
+    // Lines only: when it starts (a ScrollTrigger start). By default as soon as the text enters the
+    // screen; 'top 90%' matches the fade reveals, to keep it in step with one beside it
+    start?: string;
     class?: string;
 }
 
-const { type = 'lines', delay, class: propsClass, ...rest } = Astro.props;
+const { type = 'lines', delay, start, class: propsClass, ...rest } = Astro.props;
 
 const classes = ['c-text-reveal', propsClass];
 ---
 
-<c-text-reveal class:list={classes} data-type={type} data-delay={delay} {...rest}>
+<c-text-reveal
+    class:list={classes}
+    data-type={type}
+    data-delay={delay}
+    data-start={start}
+    {...rest}
+>
     <slot />
 </c-text-reveal>
 

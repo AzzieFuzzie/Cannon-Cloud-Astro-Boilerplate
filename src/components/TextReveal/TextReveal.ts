@@ -95,7 +95,7 @@ export class TextReveal extends HTMLElement {
         const show = () => this.classList.add(TextReveal.CLASS_SHOWN);
 
         if (type === 'lines') {
-            this.onEnter(show, 'top bottom');
+            this.onEnter(show, this.dataset.start ?? 'top bottom');
         } else if (type === 'fill') {
             this.onEnter(show, 'top 85%');
         } else {
@@ -134,7 +134,7 @@ export class TextReveal extends HTMLElement {
         this.onEnter(() => {
             hasEntered = true;
             tween?.play();
-        }, 'top bottom');
+        }, this.dataset.start ?? 'top bottom');
     }
 
     /**
