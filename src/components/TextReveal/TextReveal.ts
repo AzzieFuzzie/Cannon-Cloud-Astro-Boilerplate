@@ -2,6 +2,7 @@ import { ComponentElement } from '@locomotivemtl/component-manager';
 import { MOTION } from '@scripts/config';
 import { $mediaStatus } from '@scripts/stores/deviceStatus';
 import { whenReady } from '@scripts/stores/ready';
+import { whenLowPowerKnown } from '@scripts/utils/lowPower';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
@@ -11,8 +12,12 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 type TextRevealType = 'lines' | 'chars' | 'fill';
 
 export class TextReveal extends HTMLElement {
+    static CLASS_LIGHT = '-light';
+    static CLASS_SHOWN = 'is-shown';
+
     private ctx: gsap.Context | null = null;
     private cancelReady: (() => void) | null = null;
+    private isActive = false;
 
     // =============================================================================
     // Lifecycle
@@ -22,11 +27,36 @@ export class TextReveal extends HTMLElement {
         if ((window as any).inEditorMode) return;
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+        this.isActive = true;
+
+        // The frame rate is known well before the preloader lifts
+        whenLowPowerKnown().then((lowPower) => {
+            if (this.isActive) this.setup(lowPower);
+        });
+    }
+
+    disconnectedCallback() {
+        this.isActive = false;
+        this.cancelReady?.();
+        this.cancelReady = null;
+
+        // Kills every tween, ScrollTrigger and SplitText created in the context
+        this.ctx?.revert();
+        this.ctx = null;
+        this.classList.remove(TextReveal.CLASS_LIGHT, TextReveal.CLASS_SHOWN);
+    }
+
+    // =============================================================================
+    // Methods
+    // =============================================================================
+    private setup(lowPower: boolean): void {
         const type = (this.dataset.type ?? 'lines') as TextRevealType;
         const $target = this.firstElementChild ?? this;
 
         this.ctx = gsap.context(() => {
-            if (type === 'chars') {
+            if (lowPower) {
+                this.fadeIn(type);
+            } else if (type === 'chars') {
                 this.revealChars($target);
             } else if (type === 'fill') {
                 this.fill($target);
@@ -36,18 +66,6 @@ export class TextReveal extends HTMLElement {
         }, this);
     }
 
-    disconnectedCallback() {
-        this.cancelReady?.();
-        this.cancelReady = null;
-
-        // Kills every tween, ScrollTrigger and SplitText created in the context
-        this.ctx?.revert();
-        this.ctx = null;
-    }
-
-    // =============================================================================
-    // Methods
-    // =============================================================================
     private get delay(): number {
         return parseFloat(this.dataset.delay ?? '0') || 0;
     }
@@ -64,6 +82,25 @@ export class TextReveal extends HTMLElement {
                 this.cancelReady = whenReady(callback);
             }
         });
+    }
+
+    /**
+     * Low Power Mode: the block fades in with a CSS transition (TextReveal.css), which the
+     * compositor runs at full rate, at the moment the split version would have started
+     */
+    private fadeIn(type: TextRevealType): void {
+        this.style.setProperty('--text-reveal-delay', `${this.delay}s`);
+        this.classList.add(TextReveal.CLASS_LIGHT);
+
+        const show = () => this.classList.add(TextReveal.CLASS_SHOWN);
+
+        if (type === 'lines') {
+            this.onEnter(show, 'top bottom');
+        } else if (type === 'fill') {
+            this.onEnter(show, 'top 85%');
+        } else {
+            this.onEnter(show);
+        }
     }
 
     /**

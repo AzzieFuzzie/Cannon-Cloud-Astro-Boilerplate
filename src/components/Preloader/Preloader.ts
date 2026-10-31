@@ -2,6 +2,7 @@ import { ComponentElement } from '@locomotivemtl/component-manager';
 import { MOTION } from '@scripts/config';
 import { $ready } from '@scripts/stores/ready';
 import { getImages, waitForImage } from '@scripts/utils/imageLoad';
+import { isLowPower } from '@scripts/utils/lowPower';
 import gsap from 'gsap';
 
 export class Preloader extends HTMLElement {
@@ -21,6 +22,7 @@ export class Preloader extends HTMLElement {
     private target = 0;
     private timeout: number | null = null;
     private isDone = false;
+    private timers: number[] = [];
 
     // =============================================================================
     // Lifecycle
@@ -41,6 +43,7 @@ export class Preloader extends HTMLElement {
     disconnectedCallback() {
         this.unbindEvents();
         if (this.timeout) window.clearTimeout(this.timeout);
+        this.timers.forEach((timer) => window.clearTimeout(timer));
         gsap.killTweensOf([this, this.progress]);
         if (this.$number) gsap.killTweensOf(this.$number);
     }
@@ -159,6 +162,11 @@ export class Preloader extends HTMLElement {
             return;
         }
 
+        if (isLowPower()) {
+            this.liftWithCss();
+            return;
+        }
+
         // The number slides up out of its mask, then the overlay lifts like a curtain
         gsap.timeline({ onComplete: () => this.remove() })
             .to(this.$number, {
@@ -177,6 +185,33 @@ export class Preloader extends HTMLElement {
             )
             // The page's reveals start as the curtain clears the screen
             .call(() => $ready.set(true), [], `-=${Preloader.READY_BEFORE_END}`);
+    }
+
+    /**
+     * Low Power Mode (src/scripts/utils/lowPower.ts): the same exit, with the curtain on a CSS
+     * transition so the compositor runs it at full rate, not GSAP at the capped 30fps
+     */
+    private liftWithCss(): void {
+        const { base, fast, slow } = MOTION.duration;
+        // When the curtain starts, as in the timeline above (it overlaps the number by `fast`)
+        const curtainStart = base - fast;
+
+        gsap.to(this.$number, { yPercent: -110, duration: base, ease: MOTION.ease.reveal });
+
+        this.addEventListener('transitionend', (e) => e.target === this && this.remove());
+
+        this.timers.push(
+            window.setTimeout(() => {
+                this.style.transition = `transform ${slow}s ${MOTION.cssEase.reveal}`;
+                this.style.transform = 'translate3d(0, -100%, 0)';
+            }, curtainStart * 1000),
+            window.setTimeout(
+                () => $ready.set(true),
+                (curtainStart + slow - Preloader.READY_BEFORE_END) * 1000
+            ),
+            // In case transitionend never comes
+            window.setTimeout(() => this.remove(), (curtainStart + slow + 0.5) * 1000)
+        );
     }
 }
 

@@ -37,7 +37,9 @@
         height: auto;
         transform-origin: var(--decor-edge, center) center;
 
-        @media (prefers-reduced-motion: no-preference) {
+        /* Not on touch screens: the turn follows a value the script writes on every frame, which
+           falls behind the scrolling page when frames are capped (Low Power Mode) */
+        @media (prefers-reduced-motion: no-preference) and (hover: hover) {
             rotate: calc(var(--progress, 0) * var(--decor-rotate, 0deg) * var(--decor-turn, 1));
         }
     }

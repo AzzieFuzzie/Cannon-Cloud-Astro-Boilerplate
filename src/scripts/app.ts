@@ -1,3 +1,5 @@
+// First, so the frame rate is timed from the start (Low Power Mode, src/scripts/utils/lowPower.ts)
+import '@scripts/utils/lowPower';
 import '@mux/mux-background-video/html';
 import { Transitions } from '@scripts/classes/Transitions';
 import { Scroll } from '@scripts/classes/Scroll';

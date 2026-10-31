@@ -8,5 +8,16 @@
         .c-text-reveal:not(:defined) {
             visibility: hidden;
         }
+
+        /* Low Power Mode (TextReveal.ts): the whole block fades in, run by the compositor,
+           instead of split characters or lines moved frame by frame */
+        .c-text-reveal.-light {
+            opacity: 0;
+            transition: opacity 0.6s var(--ease-sine-out) var(--text-reveal-delay, 0s);
+
+            &.is-shown {
+                opacity: 1;
+            }
+        }
     }
 }
