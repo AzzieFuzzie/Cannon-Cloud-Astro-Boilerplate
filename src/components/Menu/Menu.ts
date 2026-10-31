@@ -13,6 +13,8 @@ export class Menu extends HTMLElement {
     static CLIP_VISIBLE = 'inset(0% 0% 0% 0%)';
     // Hovering has to rest on an item this long (ms) before its image is shown
     static HOVER_DELAY = 100;
+    // Longest a new category waits for its image before opening anyway (ms)
+    static IMAGE_WAIT = 500;
     // A category button within this share of the row's width from either edge is scrolled to the middle
     static TAB_EDGE_MARGIN = 0.2;
 
@@ -26,6 +28,7 @@ export class Menu extends HTMLElement {
     private shownImages = new Map<HTMLElement, HTMLImageElement>();
     private wantedImages = new Map<HTMLElement, HTMLImageElement>();
     private swapId = 0;
+    private categoryId = 0;
 
     private hoverTimeout: number | null = null;
     private resizeObserver: ResizeObserver | null = null;
@@ -43,23 +46,22 @@ export class Menu extends HTMLElement {
         if (!this.$sections.length) return;
 
         // Each section starts on its first image
-        this.$sections.forEach(($section) => {
-            const $first = $section.querySelector<HTMLImageElement>('[data-menu="image"]');
-            if (!$first) return;
-
-            gsap.set($first, { clipPath: Menu.CLIP_VISIBLE, zIndex: 2 });
-            this.shownImages.set($section, $first);
-            this.wantedImages.set($section, $first);
-        });
+        this.$sections.forEach(($section) => this.resetImages($section));
 
         this.bindEvents();
 
-        // Once the page is revealed, fetch the open category's images so the first hover is instant
+        // Once the page is revealed, fetch the open category's images so the first hover is instant,
+        // and every other category's own image, so a category opens on its image, not an empty frame
         this.cancelReady = whenReady(() => {
-            const $active = this.$sections.find(($section) =>
-                $section.classList.contains(Menu.CLASS_ACTIVE)
-            );
-            if ($active) this.preloadImages($active);
+            this.$sections.forEach(($section) => {
+                if ($section.classList.contains(Menu.CLASS_ACTIVE)) {
+                    this.preloadImages($section);
+                    return;
+                }
+
+                const $first = $section.querySelector<HTMLImageElement>('[data-menu="image"]');
+                if ($first) $first.loading = 'eager';
+            });
         });
     }
 
@@ -147,7 +149,14 @@ export class Menu extends HTMLElement {
             $section.classList.contains(Menu.CLASS_ACTIVE)
         );
 
-        if (!$next || $next === $prev) return;
+        if (!$next) return;
+
+        // The open category clicked again: back to its own image, as when it was opened
+        if ($next === $prev) {
+            const $first = $next.querySelector<HTMLImageElement>('[data-menu="image"]');
+            if ($first) this.showImage($next, $first);
+            return;
+        }
 
         // Which dishes people look at (analytics.ts)
         track('menu_category_view', { category: $next.getAttribute('aria-label') ?? category });
@@ -161,41 +170,86 @@ export class Menu extends HTMLElement {
 
         gsap.killTweensOf(this.$sections);
 
-        const swap = () => {
+        const id = ++this.categoryId;
+        const reduced = this.prefersReducedMotion();
+
+        // The category's own image starts loading now, while the old category fades out, and the new
+        // one waits for it (up to a moment), so it never opens on an empty frame
+        const $first = $next.querySelector<HTMLImageElement>('[data-menu="image"]');
+        if ($first) $first.loading = 'eager';
+        const imageReady = $first
+            ? Promise.race([
+                  $first.decode().catch(() => {}),
+                  new Promise((resolve) => window.setTimeout(resolve, Menu.IMAGE_WAIT))
+              ])
+            : Promise.resolve();
+
+        const fadedOut = new Promise<void>((resolve) => {
+            if (!$prev || reduced) return resolve();
+
+            gsap.to($prev, {
+                autoAlpha: 0,
+                duration: 0.3,
+                ease: 'sine.inOut',
+                onComplete: resolve
+            });
+        });
+
+        Promise.all([fadedOut, imageReady]).then(() => {
+            // Another category was clicked in the meantime
+            if (id !== this.categoryId || !this.isConnected) return;
+
             if ($prev) {
                 $prev.classList.remove(Menu.CLASS_ACTIVE);
                 gsap.set($prev, { clearProps: 'opacity,visibility' });
             }
 
+            // A category always opens on its own image, not the last item image shown in it
+            this.resetImages($next);
             $next.classList.add(Menu.CLASS_ACTIVE);
             this.resetScroll();
             this.preloadImages($next);
 
+            // Eases in and settles up a few pixels: gentler than a quick straight fade
             gsap.fromTo(
                 $next,
-                { autoAlpha: 0 },
+                { autoAlpha: 0, y: 12 },
                 {
                     autoAlpha: 1,
-                    duration: this.prefersReducedMotion() ? 0 : MOTION.duration.fast,
-                    ease: MOTION.ease.inOut,
-                    clearProps: 'opacity,visibility'
+                    y: 0,
+                    duration: reduced ? 0 : 0.6,
+                    ease: 'power2.out',
+                    clearProps: 'opacity,visibility,transform'
                 }
             );
 
             // The page height changed with the new category
             ScrollTrigger.refresh();
-        };
+        });
+    }
 
-        if ($prev && !this.prefersReducedMotion()) {
-            gsap.to($prev, {
-                autoAlpha: 0,
-                duration: MOTION.duration.fast / 2,
-                ease: MOTION.ease.inOut,
-                onComplete: swap
+    /**
+     * Show a section's first image (the category's), at once, with the rest hidden under it
+     */
+    private resetImages($section: HTMLElement): void {
+        const $images = Array.from(
+            $section.querySelectorAll<HTMLImageElement>('[data-menu="image"]')
+        );
+        const $first = $images[0];
+        if (!$first) return;
+
+        gsap.killTweensOf($images);
+        $images.forEach(($image) => {
+            gsap.set($image, {
+                clipPath: $image === $first ? Menu.CLIP_VISIBLE : Menu.CLIP_HIDDEN,
+                zIndex: $image === $first ? 2 : 0
             });
-        } else {
-            swap();
-        }
+        });
+
+        // Cancels a swap still waiting for its image to load
+        this.swapId++;
+        this.shownImages.set($section, $first);
+        this.wantedImages.set($section, $first);
     }
 
     /**

@@ -47,7 +47,11 @@ const classify = ($link: HTMLAnchorElement): { event: string; params?: Params } 
     }
 
     if (url.hostname === 'wa.me') return { event: 'whatsapp_click' };
-    if (url.hostname.startsWith('maps.') || url.pathname.startsWith('/maps')) {
+    if (
+        url.hostname.startsWith('maps.') ||
+        url.pathname.startsWith('/maps') ||
+        url.hostname.endsWith('waze.com')
+    ) {
         return { event: 'directions_click' };
     }
 

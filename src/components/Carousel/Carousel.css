@@ -7,7 +7,8 @@
     /* Slides are stacked in one grid cell and crossfaded */
     .c-carousel_slides {
         display: grid;
-        aspect-ratio: 3 / 2;
+        /* Near square, the same frame as the About image on the home page */
+        aspect-ratio: 665 / 700;
         overflow: hidden;
     }
 

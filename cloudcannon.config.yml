@@ -120,6 +120,13 @@ _inputs:
     type: text
   mapsUrl:
     type: url
+  # Shown under the map on the contact page once filled in
+  parking:
+    type: textarea
+    comment: Where guests park, e.g. which garage or entrance and how long it is free
+  entrance:
+    type: textarea
+    comment: How to find the restaurant from the street or the parking, e.g. which lift or floor
   copyright:
     type: text
   hours:

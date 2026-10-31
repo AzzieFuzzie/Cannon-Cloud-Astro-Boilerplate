@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import DataImage from '../components/DataImage/DataImage.astro';
+import Button from '../components/Button/Button.astro';
 import Marquee from '../components/Marquee/Marquee.astro';
 import Reveal from '../components/Reveal/Reveal.astro';
 import TextReveal from '../components/TextReveal/TextReveal.astro';
@@ -18,6 +19,24 @@ const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
 const mapQuery = encodeURIComponent(
     'UO9, Michelangelo Towers, Maude St, Sandton, 2196 (Pigalle by Villamoura)'
 );
+
+// Turn-by-turn from wherever the guest is: Google Maps' directions and Waze open the route on a phone
+const destination = encodeURIComponent(
+    'Pigalle Restaurant, Michelangelo Towers, Maude St, Sandton'
+);
+const directions = [
+    {
+        label: 'Get directions',
+        href: `https://www.google.com/maps/dir/?api=1&destination=${destination}`
+    },
+    { label: 'Open in Waze', href: `https://waze.com/ul?q=${destination}&navigate=yes` }
+];
+
+// Parking and entrance notes, filled in in CloudCannon (src/data/site.json); each shows once it has text
+const findingUs = [
+    { key: 'parking', label: 'Parking', text: site.parking },
+    { key: 'entrance', label: 'Entrance', text: site.entrance }
+].filter((note) => note.text?.trim());
 
 const socials = [
     { label: 'Facebook', href: 'https://facebook.com', icon: facebook },
@@ -250,14 +269,44 @@ const valueClass =
                         >
                     </a>
 
+                    {/* Close enough to see the building and the streets around it */}
                     <Reveal type="fade" class="mt-xtiny">
                         <iframe
                             title="Map to Pigalle by Villamoura"
-                            src={`https://maps.google.com/maps?hl=en&q=${mapQuery}&z=15&output=embed`}
+                            src={`https://maps.google.com/maps?hl=en&q=${mapQuery}&z=17&output=embed`}
                             class="aspect-2/1 w-full max-w-[360px] rounded-[4px] border-0"
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </Reveal>
+
+                    <Reveal type="fade" class="mt-tiny flex flex-wrap gap-x-small gap-y-xtiny">
+                        {
+                            directions.map(({ label, href }) => (
+                                <Button href={href} target="_blank" class="text-black">
+                                    {label}
+                                </Button>
+                            ))
+                        }
+                    </Reveal>
+
+                    {
+                        findingUs.length > 0 && (
+                            <dl class="mt-small max-w-[360px]">
+                                {findingUs.map(({ key, label, text }) => (
+                                    <div class="mb-xtiny">
+                                        <dt class={labelClass}>{label}</dt>
+                                        <dd
+                                            class="body-base"
+                                            data-editable="text"
+                                            data-prop={`@data[site].${key}`}
+                                        >
+                                            {text}
+                                        </dd>
+                                    </div>
+                                ))}
+                            </dl>
+                        )
+                    }
                 </div>
             </div>
         </section>

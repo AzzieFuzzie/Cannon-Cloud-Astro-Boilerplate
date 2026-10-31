@@ -5,6 +5,8 @@
     "addressLine1": "UO9, Michelangelo Towers,",
     "addressLine2": "Maude St, Sandton, 2196",
     "mapsUrl": "https://maps.google.com/?q=Pigalle+Restaurant-Sandton",
+    "parking": "",
+    "entrance": "",
     "hours": [
         {
             "days": "Mon-Thu",

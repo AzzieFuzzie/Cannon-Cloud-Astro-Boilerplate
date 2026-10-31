@@ -23,7 +23,8 @@
         flex-wrap: wrap;
         align-items: baseline;
         justify-content: center;
-        max-width: 150ch;
+        /* As pigalle.co.za, where the rows break after "Chooza" */
+        max-width: 1200px;
         margin-inline: auto;
         text-align: center;
 
@@ -61,9 +62,13 @@
         }
     }
 
-    /* Body size, centred between the names */
+    /* Body size in a thin serif, centred between the names, as on pigalle.co.za */
     .c-menu_slash {
         align-self: center;
+        font-family: var(--font-rd-narrow, serif);
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1;
         margin-inline: var(--spacing-xtiny);
         color: var(--color-accent-grey);
         user-select: none;
