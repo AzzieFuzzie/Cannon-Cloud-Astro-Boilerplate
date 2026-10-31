@@ -202,8 +202,11 @@ export class Menu extends HTMLElement {
      * Start loading every image of a category (they are lazy until their category is opened)
      */
     private preloadImages($section: HTMLElement): void {
+        // Decoded too: the image frame never leaves the screen, so the page's nearby-image observer
+        // (imageLoad.ts) doesn't see these again, and a wipe onto undecoded pixels would flash
         $section.querySelectorAll<HTMLImageElement>('[data-menu="image"]').forEach(($image) => {
             $image.loading = 'eager';
+            $image.decode().catch(() => {});
         });
     }
 

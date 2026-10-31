@@ -111,6 +111,8 @@ const sections = categories.map((category) => {
                                 alt: image.alt,
                                 'data-menu': 'image',
                                 loading: index === 0 && imageIndex === 0 ? 'eager' : 'lazy',
+                                // Late rather than blank if Safari dropped its decoded pixels
+                                decoding: 'sync',
                                 // Only the category image is editable in place; item images are edited in the data panel
                                 ...(image.isCategory && section.cmsFile
                                     ? {

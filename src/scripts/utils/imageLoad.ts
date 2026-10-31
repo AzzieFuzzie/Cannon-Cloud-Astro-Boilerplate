@@ -53,22 +53,25 @@ let nearbyObserver: IntersectionObserver | null = null;
 let marqueeObserver: IntersectionObserver | null = null;
 
 export const preloadNearbyImages = (root: ParentNode = document): void => {
+    // Every time an image comes within a screen, not only the first: iOS Safari throws away the
+    // decoded pixels of off-screen images, and one that arrives undecoded flashes blank (or, with
+    // decoding="sync", stalls a frame) while it is decoded again
     nearbyObserver?.disconnect();
     nearbyObserver = new IntersectionObserver(
-        (entries, observer) => {
+        (entries) => {
             entries.forEach(({ isIntersecting, target }) => {
                 if (!isIntersecting) return;
 
                 const $image = target as HTMLImageElement;
-                observer.unobserve($image);
-                $image.loading = 'eager';
+                if ($image.loading === 'lazy') $image.loading = 'eager';
                 $image.decode().catch(() => {});
             });
         },
         { rootMargin: '100% 0px' }
     );
 
-    root.querySelectorAll<HTMLImageElement>('img[loading="lazy"]').forEach(($image) => {
+    // Marquee photos have their own observer below
+    root.querySelectorAll<HTMLImageElement>('img:not(.c-marquee_image)').forEach(($image) => {
         nearbyObserver?.observe($image);
     });
 

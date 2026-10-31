@@ -1,9 +1,22 @@
 @layer components {
     .c-marquee {
+        --marquee-item-width: 250px;
+        --marquee-item-height: 375px;
+        --marquee-gap: var(--spacing-tiny);
+        /* One group: every photo with its gap (--marquee-count is set in Marquee.astro) */
+        --marquee-shift: calc(
+            var(--marquee-count, 1) * (var(--marquee-item-width) + var(--marquee-gap))
+        );
+
         overflow: clip;
         width: 100%;
         pointer-events: none;
         user-select: none;
+
+        @media (max-width: 699px) {
+            --marquee-item-width: 180px;
+            --marquee-item-height: 270px;
+        }
     }
 
     .c-marquee_track {
@@ -18,35 +31,21 @@
     }
 
     .c-marquee_image {
-        width: 250px;
-        height: 375px;
-        margin-right: var(--spacing-tiny);
+        width: var(--marquee-item-width);
+        height: var(--marquee-item-height);
+        margin-right: var(--marquee-gap);
         object-fit: cover;
-
-        /* The strip is one moving layer as wide as both groups. Smaller photos keep it within
-           what a phone's GPU holds at once; past that, parts are dropped and redrawn, which
-           shows as a blink */
-        @media (max-width: 699px) {
-            width: 180px;
-            height: 270px;
-        }
     }
 
-    /* The track holds two identical groups, so moving it by half its width loops seamlessly.
-       It only runs while near the screen (Locomotive's is-inview, as Marquee.js on pigalle.co.za).
-       will-change stays on: switching it with is-inview made the browser rebuild and repaint the
-       whole strip as it came into view, which showed as blank images for a moment. */
+    /* Each photo moves left by one group's width and starts over, so the two identical groups
+       loop seamlessly. Every photo is its own small layer, all on the same clock: moving the whole
+       strip as one layer (about 14,000px wide on an iPhone) made Safari draw it in tiles, and the
+       tiles not drawn yet blinked as the strip came into view on a quick scroll. It never pauses
+       either: resuming made Safari rebuild the layers just as they came into view. */
     @media (prefers-reduced-motion: no-preference) {
-        .c-marquee_track {
+        .c-marquee_image {
             animation: c-marquee var(--marquee-duration, 35s) linear infinite;
-            animation-play-state: paused;
             will-change: transform;
-            /* Stops iOS Safari flickering the strip while it moves */
-            backface-visibility: hidden;
-
-            .c-marquee.is-inview & {
-                animation-play-state: running;
-            }
 
             .c-marquee.-reverse & {
                 animation-direction: reverse;
@@ -56,7 +55,7 @@
 
     @keyframes c-marquee {
         to {
-            transform: translate3d(-50%, 0, 0);
+            transform: translate3d(calc(var(--marquee-shift) * -1), 0, 0);
         }
     }
 }

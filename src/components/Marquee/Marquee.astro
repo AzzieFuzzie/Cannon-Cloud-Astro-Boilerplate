@@ -23,10 +23,7 @@ const classes = ['c-marquee', direction === 'right' && '-reverse', propsClass];
     images.length > 0 && (
         <div
             class:list={classes}
-            style={`--marquee-duration: ${duration}s;`}
-            data-scroll
-            data-scroll-repeat
-            data-scroll-offset="-50%,-50%"
+            style={`--marquee-duration: ${duration}s; --marquee-count: ${images.length};`}
             {...rest}
         >
             <div class="c-marquee_track">
