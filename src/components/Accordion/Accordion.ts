@@ -1,6 +1,7 @@
 import { ComponentElement } from '@locomotivemtl/component-manager';
 import { Scroll } from '@scripts/classes/Scroll';
 import { $mediaStatus } from '@scripts/stores/deviceStatus';
+import { track } from '@scripts/utils/analytics';
 
 export class Accordion extends HTMLElement {
     static CLASS_ACTIVE = 'is-active';
@@ -91,8 +92,14 @@ export class Accordion extends HTMLElement {
         this.keepInPlace(() => this.$details!.toggleAttribute('open', open));
         this.$details!.classList.toggle(Accordion.CLASS_ACTIVE, open);
 
+        if (open) this.trackOpen();
         this.dispatchCustomEvent(open ? 'accordion-opened' : 'accordion-closed');
         this.dispatchCustomEvent('accordion-animation-finished', { isOpen: open });
+    }
+
+    // Which questions guests open (analytics.ts)
+    private trackOpen(): void {
+        track('faq_open', { question: this.$summary?.textContent?.trim().slice(0, 100) });
     }
 
     // =============================================================================
@@ -177,6 +184,7 @@ export class Accordion extends HTMLElement {
             this.animation.oncancel = () => this.onExpandCancel();
         });
 
+        this.trackOpen();
         this.dispatchCustomEvent('accordion-opened');
     }
 

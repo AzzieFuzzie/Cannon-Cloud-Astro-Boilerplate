@@ -71,6 +71,28 @@
             }
         }
 
+        /* Phones and touch screens, -scale with -media-only: only the [data-reveal-media] inside
+           scales, not the whole section. Text animating inside a scaling layer makes the phone
+           repaint the full-screen layer on every frame; the photo alone is painted once and moved
+           by the compositor (will-change keeps that layer ready before it starts) */
+        @media (max-width: 699px), (hover: none) {
+            .c-reveal.-scale.-media-only {
+                transform: none;
+                transition: none;
+
+                [data-reveal-media] {
+                    transform: scale(var(--reveal-scale, 0.85));
+                    transition: transform var(--reveal-duration, 0.75s)
+                        var(--reveal-ease, var(--ease-out)) var(--reveal-delay, 0s);
+                    will-change: transform;
+                }
+            }
+
+            html:not(.is-loading) .c-reveal.-scale.-media-only.is-inview [data-reveal-media] {
+                transform: none;
+            }
+        }
+
         html:not(.is-loading) .c-reveal.is-inview:not(.-await-image),
         html:not(.is-loading) .c-reveal.-await-image.is-inview.is-loaded {
             opacity: 1;

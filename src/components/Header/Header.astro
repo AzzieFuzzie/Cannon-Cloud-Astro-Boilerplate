@@ -22,7 +22,7 @@ const classes = ['c-header', propsClass];
 ---
 
 <c-header class:list={classes} {...rest}>
-    <header class="c-header_inner">
+    <header class="c-header_inner" data-track-area="header">
         {/* Logo and toggle sit above the open menu */}
         <div class="c-header_bar">
             <a href="/" class="c-header_logo">
@@ -35,7 +35,12 @@ const classes = ['c-header', propsClass];
             </a>
 
             {/* Below 1000px booking stays in the bar, not only behind the hamburger */}
-            <a href="/book/" class="c-header_book" aria-label="Book a table">
+            <a
+                href="/book/"
+                class="c-header_book"
+                aria-label="Book a table"
+                data-track-area="header-mobile-bar"
+            >
                 <span class="c-header_label">Book</span>
             </a>
 

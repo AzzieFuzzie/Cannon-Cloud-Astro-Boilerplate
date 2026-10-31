@@ -4,6 +4,7 @@ import '@mux/mux-background-video/html';
 import { Transitions } from '@scripts/classes/Transitions';
 import { Scroll } from '@scripts/classes/Scroll';
 import { $ready } from '@scripts/stores/ready';
+import { trackPageView, watchClicks } from '@scripts/utils/analytics';
 import { showDecorInView } from '@scripts/utils/decor';
 import { watchImageReveals } from '@scripts/utils/imageLoad';
 import gsap from 'gsap';
@@ -40,6 +41,10 @@ watchImageReveals();
 
 // Decorations on screen behind the preloader are already in place when it lifts
 showDecorInView();
+
+// Analytics: the first page view (page changes are counted in Transitions) and tracked links
+trackPageView();
+watchClicks();
 
 // Trigger positions shift once the web fonts are in
 document.fonts.ready.then(() => ScrollTrigger.refresh());

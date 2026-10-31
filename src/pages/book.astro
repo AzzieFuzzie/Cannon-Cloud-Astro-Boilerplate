@@ -65,6 +65,7 @@ const toTel = (number: string) => `tel:${number.replace(/[^+\d]/g, '')}`;
         {/* Booking: contacts and the Dineplan form */}
         <section
             class="relative z-10 flex flex-col items-center bg-(--color-grey) px-(--grid-margin) py-small text-center"
+            data-track-area="book-contacts"
         >
             <p
                 class="mb-small max-w-[48ch] text-body-base leading-relaxed text-black/60"

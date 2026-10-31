@@ -2,6 +2,7 @@ import { ComponentElement } from '@locomotivemtl/component-manager';
 import { Scroll } from '@scripts/classes/Scroll';
 import { MOTION } from '@scripts/config';
 import { whenReady } from '@scripts/stores/ready';
+import { track } from '@scripts/utils/analytics';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -147,6 +148,9 @@ export class Menu extends HTMLElement {
         );
 
         if (!$next || $next === $prev) return;
+
+        // Which dishes people look at (analytics.ts)
+        track('menu_category_view', { category: $next.getAttribute('aria-label') ?? category });
 
         this.$tabs.forEach(($tab) => {
             const isActive = $tab.dataset.category === category;

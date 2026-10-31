@@ -11,6 +11,7 @@ import {
     waitForImages,
     waitForVideos
 } from '@scripts/utils/imageLoad';
+import { trackPageView } from '@scripts/utils/analytics';
 import { showDecorInView } from '@scripts/utils/decor';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -150,6 +151,8 @@ export class Transitions {
         preloadNearbyImages();
         showDecorInView();
         ScrollTrigger.refresh();
+        // The new page's title is in place by now (set by Swup when it replaced the content)
+        trackPageView();
 
         // Swup waits for this hook, so the page only fades in once its first screen is complete
         await Promise.all([

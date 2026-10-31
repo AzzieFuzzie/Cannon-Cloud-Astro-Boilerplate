@@ -207,10 +207,14 @@ const reviews = [...googleReviews, ...home.reviews].slice(0, 5);
             type="scale"
             tag="section"
             delay={0.2}
+            data-track-area="home-events"
             data-scroll-offset="25%,0"
-            class="grid-layout relative mb-large min-h-screen w-full items-center overflow-hidden px-(--grid-margin) text-white [--reveal-duration:0.8s] [--reveal-ease:var(--ease-power3-out)]"
+            class="-media-only grid-layout relative mb-large min-h-screen w-full items-center overflow-hidden px-(--grid-margin) text-white [--reveal-duration:0.8s] [--reveal-ease:var(--ease-power3-out)]"
         >
-            <div class="absolute inset-0 z-0">
+            {
+                /* On phones only this photo scales (-media-only in Reveal.css), not the text over it */
+            }
+            <div class="absolute inset-0 z-0" data-reveal-media>
                 <DataImage
                     class="h-full w-full object-cover object-center"
                     data-editable="image"
