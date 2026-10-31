@@ -16,7 +16,9 @@ const SERVER_ALLOWED_HOSTS = (ENVS?.SERVER_ALLOWED_HOSTS || '').split(',') || []
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://locomotive-astro-boilerplate.vercel.app',
+    site: 'https://pigalle.co.za',
+    // One URL per page (/menu/, not /menu): the host redirects the other (.cloudcannon/routing.json)
+    trailingSlash: 'always',
     vite: {
         css: {
             postcss: {

@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
 import Menu from '../components/Menu/Menu.astro';
 import about from '../data/about.json';
+import { getMenuSchema } from '@scripts/utils/schema';
 
 const slugify = (str: string) =>
     str
@@ -23,8 +24,18 @@ const menuCategories = (await getCollection('menu'))
         // CloudCannon path to this category's JSON file, used by the editable regions in the Menu component
         cmsFile: `@file[/${c.filePath ?? `src/content/menu/${c.id}.json`}]`
     }));
+
+// Dishes and prices as schema.org data ("<" escaped so the JSON can't close its script tag)
+const menuSchema = JSON.stringify(getMenuSchema(menuCategories, Astro.site!)).replace(
+    /</g,
+    '\\u003c'
+);
 ---
 
-<Layout title="Menu">
+<Layout
+    title="Menu"
+    description="Seafood, flame-grilled meats, platters, pasta and desserts: explore the Pigalle by Villamoura menu."
+>
+    <script is:inline slot="head" type="application/ld+json" set:html={menuSchema} />
     <Menu categories={menuCategories} />
 </Layout>

@@ -41,4 +41,18 @@
 
     .c-accordion_content {
     }
+
+    /* Phones and touch screens open without the height animation (Accordion.ts): the answer
+       fades in instead, which costs nothing while scrolling */
+    @media (prefers-reduced-motion: no-preference) and ((max-width: 699px) or (hover: none)) {
+        .c-accordion_details[open] .c-accordion_content {
+            animation: c-accordion-fade 0.3s var(--ease-sine-out);
+        }
+    }
+
+    @keyframes c-accordion-fade {
+        from {
+            opacity: 0;
+        }
+    }
 }

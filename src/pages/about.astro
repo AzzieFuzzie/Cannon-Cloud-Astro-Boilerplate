@@ -13,7 +13,10 @@ import teamIcon from '../assets/svgs/team_icon.svg';
 import tomato from '../assets/svgs/tomato.svg';
 ---
 
-<Layout title="About Us">
+<Layout
+    title="About Us"
+    description="The story of Pigalle by Villamoura: a taste of passion in the heart of Johannesburg."
+>
     <section class="">
         {/* Hero: sticks to the top while the rest of the page scrolls over it */}
         <section class="sticky top-0 h-[calc(100svh_-_var(--nav-height))]">
@@ -75,7 +78,7 @@ import tomato from '../assets/svgs/tomato.svg';
                 </TextReveal>
 
                 <Reveal type="fade">
-                    <Button href="/book">
+                    <Button href="/book/">
                         <span
                             data-editable="source"
                             data-path="src/pages/about.astro"
@@ -224,7 +227,7 @@ import tomato from '../assets/svgs/tomato.svg';
                 </div>
 
                 <Reveal type="fade">
-                    <Button href="/menu" class="align-self-center text-center">
+                    <Button href="/menu/" class="align-self-center text-center">
                         <span
                             data-editable="source"
                             data-path="src/pages/about.astro"

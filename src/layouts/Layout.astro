@@ -1,8 +1,10 @@
 ---
 import '@styles/main.css';
 import { Font, type CssVariable } from 'astro:assets';
-// import { SEO } from 'astro-seo';
-// import { defaultSeo } from '@data/seo';
+import { SEO } from 'astro-seo';
+import { getDefaultSeo } from '@data/seo';
+import { getSeo } from '@scripts/utils/seo';
+import { getRestaurantSchema } from '@scripts/utils/schema';
 import Header from '../components/Header/Header.astro';
 import Icon from '../components/Icon/Icon.astro';
 import HeroVideo from '../components/HeroVideo/HeroVideo.astro';
@@ -13,12 +15,22 @@ import logo from '../assets/svgs/logo.svg';
 
 interface Props {
     title?: string;
+    // For search results and link previews (src/data/seo.ts has the default)
+    description?: string;
     // Leave the footer out (the contact page shows the same details itself)
     hideFooter?: boolean;
 }
 
-const { title, hideFooter = false } = Astro.props;
+const { title, description, hideFooter = false } = Astro.props;
 const pageTitle = title ? `${title} | Pigalle by Villamoura` : 'Pigalle by Villamoura';
+const seo = getSeo(
+    { title: pageTitle, description },
+    await getDefaultSeo(),
+    pageTitle,
+    new URL(Astro.url.pathname, Astro.site)
+);
+// "<" escaped so the JSON can't close its script tag
+const restaurantSchema = JSON.stringify(getRestaurantSchema(Astro.site!)).replace(/</g, '\\u003c');
 
 // Include ALL 3 font CSS variables declared in your astro.config.mjs
 const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-rd-condensed'];
@@ -30,7 +42,10 @@ const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-r
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
+        <SEO {...seo} />
+        <script is:inline type="application/ld+json" set:html={restaurantSchema} />
+        {/* Page-specific head tags, e.g. the menu's schema.org data */}
+        <slot name="head" />
 
         <!-- Render all font variables dynamically -->
         {FONTS.map((font) => <Font cssVariable={font} preload />)}

@@ -71,7 +71,8 @@
 
     /* Book a table: in the light italic of the hero's "by / the / of", a little larger than the
        other links and not uppercase. Like the buttons, its line shows and wipes away on hover. */
-    .c-header_item.-cta .c-header_link {
+    .c-header_item.-cta .c-header_link,
+    .c-header_book {
         font-family: var(--font-rd-condensed, serif);
         font-size: 1.35em;
         font-style: italic;
@@ -80,13 +81,15 @@
         text-transform: none;
     }
 
-    .c-header_item.-cta .c-header_label::after {
+    .c-header_item.-cta .c-header_label::after,
+    .c-header_book .c-header_label::after {
         transform: scaleX(1);
         transform-origin: left center;
     }
 
     @media (hover: hover) {
-        .c-header_item.-cta .c-header_link:hover .c-header_label::after {
+        .c-header_item.-cta .c-header_link:hover .c-header_label::after,
+        .c-header_book:hover .c-header_label::after {
             transform: scaleX(0);
             transform-origin: right center;
         }
@@ -110,7 +113,8 @@
             padding-inline: var(--grid-margin);
         }
 
-        .c-header_toggle {
+        .c-header_toggle,
+        .c-header_book {
             display: none;
         }
 
@@ -129,6 +133,21 @@
     @media (max-width: 999px) {
         .c-header_bar {
             padding-inline: var(--grid-margin);
+        }
+
+        /* Beside the hamburger, at the body size the inline links have on desktop */
+        .c-header_book {
+            display: block;
+            margin-right: var(--spacing-tiny);
+            margin-left: auto;
+            padding-block: 12px;
+            font-size: calc(var(--text-body-base) * 1.35);
+            white-space: nowrap;
+        }
+
+        /* The open menu has its own Book a table */
+        .c-header.is-open .c-header_book {
+            visibility: hidden;
         }
 
         /* 44px tap target, with the two lines aligned to the page margin */

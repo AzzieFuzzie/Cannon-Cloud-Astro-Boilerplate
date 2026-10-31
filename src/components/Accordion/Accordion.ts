@@ -1,4 +1,5 @@
 import { ComponentElement } from '@locomotivemtl/component-manager';
+import { $mediaStatus } from '@scripts/stores/deviceStatus';
 
 export class Accordion extends HTMLElement {
     static CLASS_ACTIVE = 'is-active';
@@ -68,12 +69,30 @@ export class Accordion extends HTMLElement {
 
         if (this.isAnimating()) return;
 
+        // Phones and touch screens: animating the height re-lays out the whole page below on
+        // every frame, which stutters there. It opens and closes at once; the answer fades in (CSS).
+        if ($mediaStatus.get().isTouchOrSmall) {
+            this.toggleInstantly();
+            return;
+        }
+
         if (this.isOpen()) {
             this.close();
         } else {
             this.open();
         }
     };
+
+    private toggleInstantly(): void {
+        const open = !this.isOpen();
+
+        // Opening sets the attribute, so the browser closes the other accordions in the group
+        this.$details!.toggleAttribute('open', open);
+        this.$details!.classList.toggle(Accordion.CLASS_ACTIVE, open);
+
+        this.dispatchCustomEvent(open ? 'accordion-opened' : 'accordion-closed');
+        this.dispatchCustomEvent('accordion-animation-finished', { isOpen: open });
+    }
 
     // =============================================================================
     // Animation Methods

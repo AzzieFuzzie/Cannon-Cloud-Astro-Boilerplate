@@ -1,5 +1,6 @@
 import { ComponentElement } from '@locomotivemtl/component-manager';
 import { MOTION } from '@scripts/config';
+import { $mediaStatus } from '@scripts/stores/deviceStatus';
 import { whenReady } from '@scripts/stores/ready';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -128,6 +129,28 @@ export class TextReveal extends HTMLElement {
      * the middle of the screen: about twice the old distance, so a quick flick still shows it.
      */
     private fill($target: Element): void {
+        // Phones and touch screens: tied to the scroll, every character is restyled on each scroll
+        // frame, which stutters there. Instead the words fade up once, on their own clock, as the
+        // text comes into view.
+        if ($mediaStatus.get().isTouchOrSmall) {
+            const split = SplitText.create($target, { type: 'words' });
+            const tween = gsap.fromTo(
+                split.words,
+                { opacity: 0.1 },
+                {
+                    opacity: 1,
+                    duration: 0.6,
+                    ease: 'sine.out',
+                    // About a second and a half from the first word to the last, however long
+                    stagger: { amount: 1.5 },
+                    paused: true
+                }
+            );
+
+            this.onEnter(() => tween.play(), 'top 85%');
+            return;
+        }
+
         const split = SplitText.create($target, { type: 'words, chars' });
 
         gsap.fromTo(

@@ -10,10 +10,10 @@ const { class: propsClass, ...rest } = Astro.props;
 // One list for both layouts: inline on desktop, the full-screen menu on mobile
 const links = [
     { href: '/', label: 'Home' },
-    { href: '/about', label: 'Our Story' },
-    { href: '/menu', label: 'Menu' },
-    { href: '/contact', label: 'Contact' },
-    { href: '/book', label: 'Book a table', cta: true }
+    { href: '/about/', label: 'Our Story' },
+    { href: '/menu/', label: 'Menu' },
+    { href: '/contact/', label: 'Contact' },
+    { href: '/book/', label: 'Book a table', cta: true }
 ];
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -32,6 +32,11 @@ const classes = ['c-header', propsClass];
                     width={logo.width}
                     height={logo.height}
                 />
+            </a>
+
+            {/* Below 1000px booking stays in the bar, not only behind the hamburger */}
+            <a href="/book/" class="c-header_book" aria-label="Book a table">
+                <span class="c-header_label">Book</span>
             </a>
 
             <button
@@ -55,7 +60,9 @@ const classes = ['c-header', propsClass];
                             <a
                                 href={href}
                                 class="c-header_link"
-                                aria-current={path === href ? 'page' : undefined}
+                                aria-current={
+                                    path === (href.replace(/\/$/, '') || '/') ? 'page' : undefined
+                                }
                                 data-header="link"
                             >
                                 {/* Slides up out of the item in the mobile menu */}

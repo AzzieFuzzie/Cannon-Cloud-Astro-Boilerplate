@@ -40,8 +40,8 @@ const classes = ['c-marquee', direction === 'right' && '-reverse', propsClass];
                                 class="c-marquee_image"
                                 src={item.image}
                                 alt={copy === 1 ? '' : (item.alt ?? '')}
-                                widths={[250, 500]}
-                                sizes="250px"
+                                widths={[180, 250, 360, 500]}
+                                sizes="(max-width: 699px) 180px, 250px"
                                 loading="eager"
                                 fetchpriority="low"
                             />

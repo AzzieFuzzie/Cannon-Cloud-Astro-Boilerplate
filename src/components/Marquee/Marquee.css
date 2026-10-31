@@ -22,6 +22,14 @@
         height: 375px;
         margin-right: var(--spacing-tiny);
         object-fit: cover;
+
+        /* The strip is one moving layer as wide as both groups. Smaller photos keep it within
+           what a phone's GPU holds at once; past that, parts are dropped and redrawn, which
+           shows as a blink */
+        @media (max-width: 699px) {
+            width: 180px;
+            height: 270px;
+        }
     }
 
     /* The track holds two identical groups, so moving it by half its width loops seamlessly.
@@ -33,6 +41,8 @@
             animation: c-marquee var(--marquee-duration, 35s) linear infinite;
             animation-play-state: paused;
             will-change: transform;
+            /* Stops iOS Safari flickering the strip while it moves */
+            backface-visibility: hidden;
 
             .c-marquee.is-inview & {
                 animation-play-state: running;

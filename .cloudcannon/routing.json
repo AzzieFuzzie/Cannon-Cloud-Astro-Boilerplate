@@ -1,0 +1,8 @@
+{
+    "routes": [
+        { "from": "/about", "to": "/about/", "status": 301 },
+        { "from": "/menu", "to": "/menu/", "status": 301 },
+        { "from": "/book", "to": "/book/", "status": 301 },
+        { "from": "/contact", "to": "/contact/", "status": 301 }
+    ]
+}

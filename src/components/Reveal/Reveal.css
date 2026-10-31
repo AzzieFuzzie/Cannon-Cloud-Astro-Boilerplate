@@ -55,6 +55,20 @@
                 transition-duration: var(--reveal-duration, 1.5s);
                 transition-timing-function: var(--ease-expo-in-out);
             }
+
+            /* Phones and touch screens: the images only fade in. Animating clip-path repaints the
+               whole image every frame, which stutters while the page is scrolling; opacity doesn't */
+            @media (max-width: 699px), (hover: none) {
+                &.-clip-x,
+                &.-clip-y {
+                    clip-path: none;
+                    transform: none;
+                    opacity: 0;
+                    transition-property: opacity;
+                    transition-duration: 0.6s;
+                    transition-timing-function: var(--ease-sine-out);
+                }
+            }
         }
 
         html:not(.is-loading) .c-reveal.is-inview:not(.-await-image),
