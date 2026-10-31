@@ -1,4 +1,5 @@
 import { ComponentElement } from '@locomotivemtl/component-manager';
+import { Scroll } from '@scripts/classes/Scroll';
 import { $mediaStatus } from '@scripts/stores/deviceStatus';
 
 export class Accordion extends HTMLElement {
@@ -87,7 +88,7 @@ export class Accordion extends HTMLElement {
         const open = !this.isOpen();
 
         // Opening sets the attribute, so the browser closes the other accordions in the group
-        this.$details!.toggleAttribute('open', open);
+        this.keepInPlace(() => this.$details!.toggleAttribute('open', open));
         this.$details!.classList.toggle(Accordion.CLASS_ACTIVE, open);
 
         this.dispatchCustomEvent(open ? 'accordion-opened' : 'accordion-closed');
@@ -112,6 +113,22 @@ export class Accordion extends HTMLElement {
         this.cancelAnimation();
 
         return this.animate({ height: [startHeight, endHeight] }, timing);
+    }
+
+    /**
+     * Opening one accordion of a group makes the browser close the open one at once. When that
+     * one is higher up the page, everything below jumps up by its answer's height, including the
+     * question just clicked. Scroll by the same amount so the clicked question stays put.
+     */
+    private keepInPlace(change: () => void): void {
+        const top = this.$summary!.getBoundingClientRect().top;
+
+        change();
+
+        const shift = this.$summary!.getBoundingClientRect().top - top;
+        if (Math.abs(shift) < 1) return;
+
+        Scroll.scrollTo(window.scrollY + shift, { immediate: true, force: true });
     }
 
     private prepareForAnimation(): void {
@@ -147,7 +164,7 @@ export class Accordion extends HTMLElement {
     private open(): void {
         this.isExpanding = true;
         this.$details!.style.height = `${this.offsetHeight}px`;
-        this.$details!.setAttribute('open', '');
+        this.keepInPlace(() => this.$details!.setAttribute('open', ''));
         this.$details!.classList.add(Accordion.CLASS_ACTIVE);
         this.prepareForAnimation();
 

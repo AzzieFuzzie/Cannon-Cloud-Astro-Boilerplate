@@ -50,6 +50,7 @@ export const markLoadedReveals = (root: ParentNode = document): void => {
  * so it would appear blank for a moment. Run it whenever new page content is added.
  */
 let nearbyObserver: IntersectionObserver | null = null;
+let marqueeObserver: IntersectionObserver | null = null;
 
 export const preloadNearbyImages = (root: ParentNode = document): void => {
     nearbyObserver?.disconnect();
@@ -72,20 +73,25 @@ export const preloadNearbyImages = (root: ParentNode = document): void => {
     });
 
     // A marquee's images slide in from the side, where the page clips them, so they never count
-    // as near; decode them all once the marquee itself is a screen away
-    root.querySelectorAll('.c-marquee').forEach(($marquee) => {
-        const marqueeObserver = new IntersectionObserver(
-            ([entry], observer) => {
-                if (!entry?.isIntersecting) return;
+    // as near; decode them all whenever the marquee comes within a screen. Every time, not once:
+    // iOS Safari throws away the decoded pixels of off-screen images, and a strip that arrives
+    // undecoded on a quick scroll flickers while it is decoded again
+    marqueeObserver?.disconnect();
+    marqueeObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(({ isIntersecting, target }) => {
+                if (!isIntersecting) return;
 
-                observer.disconnect();
-                $marquee.querySelectorAll('img').forEach(($image) => {
+                target.querySelectorAll('img').forEach(($image) => {
                     $image.decode().catch(() => {});
                 });
-            },
-            { rootMargin: '100% 0px' }
-        );
-        marqueeObserver.observe($marquee);
+            });
+        },
+        { rootMargin: '100% 0px' }
+    );
+
+    root.querySelectorAll('.c-marquee').forEach(($marquee) => {
+        marqueeObserver?.observe($marquee);
     });
 };
 

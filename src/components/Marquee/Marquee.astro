@@ -35,7 +35,9 @@ const classes = ['c-marquee', direction === 'right' && '-reverse', propsClass];
                     <div class="c-marquee_group" aria-hidden={copy === 1 ? 'true' : undefined}>
                         {images.map((item) => (
                             /* Not lazy: an image moving in from the side would only start loading
-                            once it was on screen, and show blank until it arrived */
+                            once it was on screen, and show blank until it arrived. Decoded sync:
+                            an image painted before it is decoded (Safari drops the decoded pixels
+                            of off-screen images) is drawn late rather than blank for a frame */
                             <DataImage
                                 class="c-marquee_image"
                                 src={item.image}
@@ -44,6 +46,7 @@ const classes = ['c-marquee', direction === 'right' && '-reverse', propsClass];
                                 sizes="(max-width: 699px) 180px, 250px"
                                 loading="eager"
                                 fetchpriority="low"
+                                decoding="sync"
                             />
                         ))}
                     </div>
