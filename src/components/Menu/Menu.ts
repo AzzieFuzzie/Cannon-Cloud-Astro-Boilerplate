@@ -210,16 +210,15 @@ export class Menu extends HTMLElement {
             this.resetScroll();
             this.preloadImages($next);
 
-            // Eases in and settles up a few pixels: gentler than a quick straight fade
+            // A slow, eased fade: gentler than a quick straight one
             gsap.fromTo(
                 $next,
-                { autoAlpha: 0, y: 12 },
+                { autoAlpha: 0 },
                 {
                     autoAlpha: 1,
-                    y: 0,
                     duration: reduced ? 0 : 0.6,
                     ease: 'power2.out',
-                    clearProps: 'opacity,visibility,transform'
+                    clearProps: 'opacity,visibility'
                 }
             );
 

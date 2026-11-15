@@ -50,6 +50,11 @@ _inputs:
   heroVideoPlaybackId:
     type: text
     label: Hero Video (Mux playback ID)
+  # Second of the video shown as its still image while it loads (and where playback starts)
+  heroVideoPosterTime:
+    type: number
+    label: Hero Video Poster Frame (seconds)
+    comment: The moment of the video shown before it plays; preview any second at image.mux.com/<playback ID>/thumbnail.jpg?time=11
 
   # FAQ entries on the home page (src/data/home.json)
   faqs:

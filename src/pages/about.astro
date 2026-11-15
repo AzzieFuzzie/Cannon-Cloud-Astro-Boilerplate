@@ -50,7 +50,9 @@ import tomato from '../assets/svgs/tomato.svg';
         {/* Everything below slides over the hero */}
         <div class="relative z-10 overflow-x-clip bg-(--color-grey) pt-medium">
             <!-- Hero / Heading Section -->
-            <section class="mb-medium flex flex-col items-center justify-center px-tiny">
+            <section
+                class="mb-medium flex flex-col items-start justify-center px-tiny md:items-center"
+            >
                 <TextReveal type="fill">
                     <h2
                         class="heading-h2 mb-xsmall max-w-[clamp(30ch,50vw,50ch)] md:text-center"
@@ -66,7 +68,7 @@ import tomato from '../assets/svgs/tomato.svg';
 
                 <TextReveal>
                     <p
-                        class="body-base mx-auto mb-small max-w-2xl"
+                        class="body-base mb-small max-w-2xl md:text-center"
                         data-editable="source"
                         data-path="src/pages/about.astro"
                         data-key="storyDescription"
@@ -81,7 +83,11 @@ import tomato from '../assets/svgs/tomato.svg';
                 {
                     /* Waits for the paragraph above to settle, so it comes last when both are in view */
                 }
-                <Reveal type="fade" class="[--reveal-pause:0.6s]" data-track-area="about-story">
+                <Reveal
+                    type="fade"
+                    class="self-center [--reveal-pause:0.6s]"
+                    data-track-area="about-story"
+                >
                     <Button href="/book/">
                         <span
                             data-editable="source"
@@ -101,7 +107,7 @@ import tomato from '../assets/svgs/tomato.svg';
             >
                 <Reveal type="clip-x" class="aspect-3/4">
                     <DataImage
-                        class="h-full w-full object-cover transition-[scale] duration-700 hover:scale-105"
+                        class="h-full w-full object-cover"
                         data-editable="image"
                         data-prop-src="@data[about].aboutGalleryImage"
                         data-prop-alt="@data[about].aboutGalleryImageAlt"

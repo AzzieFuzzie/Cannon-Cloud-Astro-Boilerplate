@@ -28,8 +28,29 @@ const {
 } = Astro.props;
 
 const classes = ['c-hero-video', propsClass];
-// Shown until the stream is playing
-const poster = `https://image.mux.com/${playbackId}/thumbnail.webp?time=${posterTime}&width=1920`;
+
+// Shown until the stream is playing, in a size to suit the screen
+const thumbnail = (width: number, format = 'webp') =>
+    `https://image.mux.com/${playbackId}/thumbnail.${format}?time=${posterTime}&width=${width}`;
+const poster = thumbnail(1920);
+const posterSrcset = [640, 960, 1280, 1920, 2560]
+    .map((width) => `${thumbnail(width)} ${width}w`)
+    .join(', ');
+
+// A tiny copy of the same frame, built into the page: it fills the hero at once, so it is never
+// empty, even when the preloader stops waiting before the poster arrives on a slow connection
+const getPlaceholder = async (): Promise<string | undefined> => {
+    if (warm) return undefined;
+    try {
+        const response = await fetch(thumbnail(32, 'jpg'), { signal: AbortSignal.timeout(5000) });
+        if (!response.ok) return undefined;
+        const data = Buffer.from(await response.arrayBuffer()).toString('base64');
+        return `url(data:image/jpeg;base64,${data})`;
+    } catch {
+        return undefined;
+    }
+};
+const placeholder = await getPlaceholder();
 ---
 
 {
@@ -48,14 +69,19 @@ const poster = `https://image.mux.com/${playbackId}/thumbnail.webp?time=${poster
             data-playback-id={playbackId}
             data-max-resolution={maxResolution}
             data-poster-time={posterTime}
+            style={placeholder && `background-image: ${placeholder}`}
             {...rest}
         >
             <img
                 class="c-hero-video_poster"
                 src={poster}
+                srcset={posterSrcset}
+                sizes="100vw"
                 alt=""
                 loading="eager"
+                decoding="sync"
                 fetchpriority="high"
+                data-hero-video="poster"
             />
         </c-hero-video>
     )

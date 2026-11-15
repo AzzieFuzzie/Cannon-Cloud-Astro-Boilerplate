@@ -96,7 +96,11 @@ const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-r
         <Preloader />
 
         {/* Prepares the home page video in the background so it starts quickly from any page */}
-        <HeroVideo playbackId={home.heroVideoPlaybackId} warm />
+        <HeroVideo
+            playbackId={home.heroVideoPlaybackId}
+            posterTime={home.heroVideoPosterTime}
+            warm
+        />
 
         {/* Outside the Swup container, so it stays put on a page change */}
         <Header />

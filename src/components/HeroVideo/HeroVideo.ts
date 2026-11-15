@@ -144,6 +144,8 @@ export class HeroVideo extends HTMLElement {
             return;
         }
 
+        this.hideBrokenPoster();
+
         this.$player = players.get(playbackId) ?? createPlayer({ ...options, preload: 'auto' });
 
         this.append(this.$player);
@@ -192,6 +194,22 @@ export class HeroVideo extends HTMLElement {
     // =============================================================================
     // Methods
     // =============================================================================
+    /**
+     * A poster that can't load would show as a broken image over the placeholder behind it
+     */
+    private hideBrokenPoster(): void {
+        const $poster = this.querySelector<HTMLImageElement>('[data-hero-video="poster"]');
+        if (!$poster) return;
+
+        const hide = (): void => $poster.classList.add('is-broken');
+
+        if ($poster.complete && $poster.naturalWidth === 0) {
+            hide();
+        } else {
+            $poster.addEventListener('error', hide, { once: true });
+        }
+    }
+
     /**
      * Autoplay can be refused (iOS Low Power Mode, Android data saver): the poster stays
      * and the video starts on the visitor's first touch instead
