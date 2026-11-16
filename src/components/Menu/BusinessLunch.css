@@ -1,0 +1,249 @@
+/*
+ * Business Lunch: the parts Tailwind can't say well in markup (states, pseudo-elements, the grid).
+ * Menu.css is scoped to Menu.astro, so none of its rules reach this section: the category
+ * behaviour it needs (hidden until active, the grid, the sticky image, the image mask) is here.
+ */
+@layer components {
+    /* Only the open category is displayed (Menu.ts toggles is-active) */
+    .c-lunch {
+        display: none;
+
+        &.is-active {
+            display: grid;
+            grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+            column-gap: var(--grid-gutter);
+            align-items: start;
+            padding-inline: var(--grid-margin);
+        }
+    }
+
+    /* Image and opening times: 5 columns at 90% width, as the other categories' images, sticking
+       below the category buttons while the courses scroll (--menu-nav-height is set in Menu.ts) */
+    .c-lunch_aside {
+        position: sticky;
+        top: var(--menu-nav-height, 0px);
+        z-index: var(--z-index-above);
+        grid-column: 1 / span 5;
+        width: 90%;
+        background-color: var(--color-grey);
+
+        @media (max-width: 999px) {
+            width: 100%;
+        }
+
+        /* Phones: full width, with a strip of page colour under it so the dishes scrolling up
+           disappear a little before they reach it */
+        @media (max-width: 699px) {
+            grid-column: 1 / -1;
+            padding-bottom: var(--spacing-tiny);
+        }
+    }
+
+    .c-lunch_media {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 9 / 10;
+        max-height: calc(100vh - var(--menu-nav-height, 0px) - var(--spacing-small));
+        overflow: hidden;
+        background-color: var(--color-grey);
+
+        /* Phones: the same 30vh band as the other categories */
+        @media (max-width: 699px) {
+            aspect-ratio: auto;
+            height: 30vh;
+        }
+    }
+
+    /* The image stack: Menu.ts wipes each image in with clip-path when its dish is hovered or
+       tapped, like the other categories' images */
+    .c-lunch_media img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background-color: var(--color-grey);
+        clip-path: inset(0% 100% 0% 0%);
+
+        /* Before the script runs, show the lunch image */
+        &:first-child {
+            clip-path: inset(0% 0% 0% 0%);
+        }
+    }
+
+    /* Dishes show their image on hover or tap, as in the other categories */
+    .c-lunch_item {
+        cursor: pointer;
+    }
+
+    .c-lunch_body {
+        display: block;
+        grid-column: 6 / span 6;
+
+        @media (max-width: 999px) {
+            grid-column: 6 / -1;
+        }
+
+        @media (max-width: 699px) {
+            grid-column: 1 / -1;
+        }
+    }
+
+    /* Course picker: a grey line on each, the chosen one draws a black line in from the left */
+    .c-lunch_course {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xxtiny);
+        padding-block: var(--spacing-xtiny) var(--spacing-tiny);
+        border-top: 1px solid var(--color-accent-grey);
+        color: var(--color-accent-grey);
+        text-align: left;
+        text-transform: none;
+        cursor: pointer;
+        transition: color var(--transition-duration) var(--ease);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--color-black);
+            transform: scaleX(0);
+            transform-origin: right center;
+            transition: transform var(--transition-duration-slower) var(--ease);
+        }
+
+        &.is-active {
+            color: var(--color-black);
+
+            &::before {
+                transform: scaleX(1);
+                transform-origin: left center;
+            }
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                color: var(--color-black);
+            }
+        }
+
+        &:focus-visible {
+            outline: 1px solid currentColor;
+            outline-offset: 4px;
+        }
+    }
+
+    /* "01", "02", "03": phones only, where the names wrap and the numbers keep the row tidy */
+    .c-lunch_number {
+        font-size: 0.6875rem;
+        letter-spacing: 0.08em;
+
+        @media (min-width: 700px) {
+            display: none;
+        }
+    }
+
+    .c-lunch_course-name {
+        line-height: 1.1;
+    }
+
+    .c-lunch_course-price {
+        font-size: 0.75rem;
+        color: var(--color-light-grey);
+        transition: color var(--transition-duration) var(--ease);
+
+        strong {
+            font-weight: bold;
+        }
+
+        .c-lunch_course:not(.is-active) & {
+            color: var(--color-accent-grey);
+        }
+
+        .c-lunch_course.is-active & strong {
+            color: var(--color-black);
+        }
+    }
+
+    .c-lunch_item:first-child h4 {
+        padding-top: 0;
+    }
+
+    /* Terms: gold bullets */
+    .c-lunch_term {
+        list-style: disc;
+
+        &::marker {
+            color: var(--color-gold);
+        }
+    }
+
+    /* Two strokes: a cross when the terms are open, a plus when they're folded away */
+    .c-lunch_cross {
+        position: relative;
+        width: 0.75rem;
+        height: 0.75rem;
+        transform: rotate(0deg);
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: currentColor;
+        }
+
+        &::after {
+            transform: rotate(90deg);
+        }
+
+        &.is-open {
+            transform: rotate(45deg);
+        }
+    }
+
+    /* Book a table: the italic of the header's link, with its line hidden on hover */
+    .c-lunch_book {
+        position: relative;
+        padding-bottom: 0.15em;
+        font-family: var(--font-rd-condensed, serif);
+        font-size: clamp(1.5rem, 1.2rem + 0.8vw, 2rem);
+        font-style: italic;
+        font-weight: 300;
+        line-height: 1;
+        text-transform: none;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: currentColor;
+            transform: scaleX(1);
+            transform-origin: left center;
+        }
+
+        @media (hover: hover) {
+            &:hover::after {
+                transform: scaleX(0);
+                transform-origin: right center;
+            }
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .c-lunch_course::before {
+            transition: none;
+        }
+    }
+}

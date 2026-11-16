@@ -2,6 +2,8 @@
 import { Image } from 'astro:assets';
 import { resolveImage } from '@scripts/utils/image';
 import Reveal from '../Reveal/Reveal.astro';
+import BusinessLunch from './BusinessLunch.astro';
+import lunch from '../../data/business-lunch.json';
 
 interface MenuItem {
     name: string;
@@ -23,10 +25,14 @@ interface MenuCategory {
 
 interface Props {
     categories: MenuCategory[];
+    // Adds the Business Lunch set menu as the last category (first on phones and tablets)
+    businessLunch?: boolean;
     class?: string;
 }
 
-const { categories, class: propsClass, ...rest } = Astro.props;
+const { categories, businessLunch = false, class: propsClass, ...rest } = Astro.props;
+
+const LUNCH_SLUG = 'business-lunch';
 
 const classes = ['c-menu', propsClass];
 
@@ -88,6 +94,28 @@ const sections = categories.map((category) => {
                         </li>
                     </>
                 ))
+            }
+            {
+                businessLunch && (
+                    <>
+                        <li class="c-menu_slash -lunch" aria-hidden="true">
+                            /
+                        </li>
+                        <li class="-lunch">
+                            <button
+                                type="button"
+                                class="c-menu_tab heading-h3"
+                                data-menu="tab"
+                                data-category={LUNCH_SLUG}
+                                aria-controls={`menu-${LUNCH_SLUG}`}
+                                aria-current="false"
+                            >
+                                {lunch.tabName}
+                                <span class="c-menu_dot" aria-hidden="true" />
+                            </button>
+                        </li>
+                    </>
+                )
             }
         </ul>
     </nav>
@@ -180,6 +208,8 @@ const sections = categories.map((category) => {
             </section>
         ))
     }
+
+    {businessLunch && <BusinessLunch slug={LUNCH_SLUG} />}
 </c-menu>
 
 <style>

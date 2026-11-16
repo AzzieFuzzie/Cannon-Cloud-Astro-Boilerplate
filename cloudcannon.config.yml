@@ -17,6 +17,9 @@ data_config:
   # Shared contact details, trading hours and copyright (footer, Contact and Book pages)
   site:
     path: src/data/site.json
+  # Business Lunch set menu, the last category on the Menu page
+  businessLunch:
+    path: src/data/business-lunch.json
 
 # Clean global configuration inputs to stop unwanted <p> tags without listing every file key
 _inputs:

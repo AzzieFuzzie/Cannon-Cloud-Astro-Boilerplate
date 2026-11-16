@@ -1,0 +1,316 @@
+---
+/**
+ * The Business Lunch category of the menu: set-price courses rather than single dishes.
+ * Rendered by Menu.astro as one of its sections, so the category buttons, the fade between
+ * categories and the image wipe all come from Menu.ts; the course picker and the terms
+ * are in BusinessLunch.ts (no animations of its own).
+ */
+import { Image } from 'astro:assets';
+import { resolveImage } from '@scripts/utils/image';
+import lunch from '../../data/business-lunch.json';
+
+interface Props {
+    slug: string;
+    active?: boolean;
+}
+
+const { slug, active = false } = Astro.props;
+
+const DATA = '@data[businessLunch]';
+const defaultCourse = Math.min(Math.max(lunch.defaultCourse ?? 0, 0), lunch.courses.length - 1);
+const course = lunch.courses[defaultCourse];
+
+// The image stack, as in the other categories: the lunch image first, then one per dish that has
+// its own. Hovering or tapping a dish wipes its image in (Menu.ts); dishes without one keep the
+// lunch image. The same photo used twice is only loaded once.
+const images: { src: ImageMetadata | string; alt: string }[] = [
+    { src: resolveImage(lunch.image), alt: lunch.imageAlt }
+];
+const imagePaths = [lunch.image];
+
+function imageIndex(item: { name: string; image?: string; imageAlt?: string }): number {
+    if (!item.image) return 0;
+    const existing = imagePaths.indexOf(item.image);
+    if (existing !== -1) return existing;
+    imagePaths.push(item.image);
+    images.push({ src: resolveImage(item.image), alt: item.imageAlt || item.name });
+    return images.length - 1;
+}
+
+const groups = lunch.groups.map((group) => ({
+    ...group,
+    items: group.items.map((item) => ({ ...item, imageIndex: imageIndex(item) }))
+}));
+const upgrades = lunch.upgrades.map((item) => ({ ...item, imageIndex: imageIndex(item) }));
+
+function imageAttrs(index: number, alt: string) {
+    return {
+        class: 'c-menu_image',
+        alt,
+        'data-menu': 'image',
+        loading: active && index === 0 ? 'eager' : 'lazy',
+        decoding: 'sync',
+        // Only the lunch image is editable in place; dish images are edited in the data panel
+        ...(index === 0
+            ? {
+                  'data-editable': 'image',
+                  'data-prop-src': `${DATA}.image`,
+                  'data-prop-alt': `${DATA}.imageAlt`
+              }
+            : {})
+    } as const;
+}
+
+// Small uppercase labels (Starter, Choose one, Terms & conditions)
+const label = 'text-[0.6875rem] font-bold uppercase leading-none tracking-[0.14em]';
+---
+
+<section
+    id={`menu-${slug}`}
+    class:list={['c-menu_section c-lunch', active && 'is-active']}
+    data-menu="section"
+    data-category={slug}
+    aria-label={lunch.tabName}
+>
+    {/* Image and opening times: stay in view on wide screens while the courses scroll */}
+    <aside class="c-lunch_aside">
+        <div class="c-lunch_media">
+            {
+                images.map((image, index) =>
+                    typeof image.src === 'string' ? (
+                        <img src={image.src} {...imageAttrs(index, image.alt)} />
+                    ) : (
+                        <Image
+                            src={image.src}
+                            widths={[480, 800, 1200]}
+                            sizes="(max-width: 699px) 100vw, 40vw"
+                            {...imageAttrs(index, image.alt)}
+                        />
+                    )
+                )
+            }
+        </div>
+        <p
+            class:list={[
+                label,
+                'mt-xtiny flex justify-between gap-tiny text-(--color-light-grey) sm:justify-start'
+            ]}
+        >
+            <span data-editable="text" data-prop={`${DATA}.imageCaption`} data-type="span">
+                {lunch.imageCaption}
+            </span>
+            <span data-editable="text" data-prop={`${DATA}.hours`} data-type="span">
+                {lunch.hours}
+            </span>
+        </p>
+    </aside>
+
+    <c-business-lunch class="c-lunch_body" data-default-course={defaultCourse}>
+        {/* Intro */}
+        <header class="pt-small sm:pt-0">
+            <p class:list={[label, 'mb-xtiny flex items-center gap-[0.6em]']}>
+                <span class="size-[0.4rem] rounded-full bg-(--color-gold)" aria-hidden="true"
+                ></span>
+                <span>
+                    <span data-editable="text" data-prop={`${DATA}.days`} data-type="span"
+                        >{lunch.days}</span
+                    >
+                    ·
+                    <span data-editable="text" data-prop={`${DATA}.hours`} data-type="span"
+                        >{lunch.hours}</span
+                    >
+                </span>
+            </p>
+            <h2
+                class="heading-h3 mb-xtiny"
+                data-editable="text"
+                data-prop={`${DATA}.heading`}
+                data-type="text"
+            >
+                {lunch.heading}
+            </h2>
+            <p
+                class="body-base max-w-[38ch]"
+                data-editable="text"
+                data-prop={`${DATA}.intro`}
+                data-type="text"
+            >
+                {lunch.intro}
+            </p>
+            <button
+                type="button"
+                class="mt-xxtiny hidden cursor-pointer underline-offset-4 hover:underline sm:inline-block"
+                data-lunch="terms-link"
+                aria-controls={`${slug}-terms`}
+            >
+                Terms &amp; conditions
+            </button>
+            <p
+                class="mt-xxtiny text-[0.8125rem] text-(--color-light-grey)"
+                data-editable="text"
+                data-prop={`${DATA}.note`}
+                data-type="text"
+            >
+                {lunch.note}
+            </p>
+        </header>
+
+        {/* Course picker: one line per course, the chosen one drawn in black */}
+        <div
+            class="mt-small grid grid-cols-3 gap-x-xtiny"
+            role="radiogroup"
+            aria-label="Number of courses"
+        >
+            {
+                lunch.courses.map((c, index) => (
+                    <button
+                        type="button"
+                        role="radio"
+                        class:list={['c-lunch_course', index === defaultCourse && 'is-active']}
+                        aria-checked={index === defaultCourse ? 'true' : 'false'}
+                        data-lunch="course"
+                        data-index={index}
+                        data-summary={c.summary}
+                        data-groups={c.groups.join(' ')}
+                    >
+                        <span class="c-lunch_number" aria-hidden="true">
+                            {String(index + 1).padStart(2, '0')}
+                        </span>
+                        <span class="c-lunch_course-name heading-h3">{c.name}</span>
+                        <span class="c-lunch_course-price">
+                            <strong>{c.price}</strong>
+                            <span class="max-sm:hidden"> per person</span>
+                        </span>
+                    </button>
+                ))
+            }
+        </div>
+
+        <div class="border-y border-(--color-accent-grey) py-xtiny">
+            <p class="heading-h4 font-(family-name:--font-rd-narrow)" aria-live="polite">
+                <span class="inline-block" data-lunch="summary">{course.summary}</span>
+            </p>
+        </div>
+
+        {/* Dishes, by course */}
+        {
+            groups.map((group) => (
+                <div
+                    class="c-lunch_group"
+                    data-lunch="group"
+                    data-group={group.id}
+                    hidden={!course.groups.includes(group.id)}
+                >
+                    <div class="pt-small">
+                        <div
+                            class="mb-xtiny flex items-baseline justify-between gap-tiny"
+                            data-lunch="group-head"
+                        >
+                            <h3 class:list={[label, 'font-(family-name:--font-lato)']}>
+                                {group.title}
+                            </h3>
+                            <span class:list={[label, 'font-normal text-(--color-light-grey)']}>
+                                {group.hint}
+                            </span>
+                        </div>
+                        <ul>
+                            {group.items.map((item) => (
+                                <li
+                                    class="c-lunch_item"
+                                    data-menu="item"
+                                    data-image={item.imageIndex}
+                                >
+                                    <h4 class="heading-h3 pt-xsmall pb-xxtiny">{item.name}</h4>
+                                    <p class="body-base mb-xsmall max-w-[55%] max-sm:max-w-[85%]">
+                                        {item.description}
+                                    </p>
+                                    <div class="h-px bg-(--color-accent-grey)" />
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            ))
+        }
+
+        {/* Optional upgrades */}
+        <div class="pt-small">
+            <div class="mb-xtiny flex items-baseline justify-between gap-tiny">
+                <h3 class:list={[label, 'font-(family-name:--font-lato)']}>
+                    {lunch.upgradesTitle}
+                </h3>
+                <span class:list={[label, 'font-normal text-(--color-light-grey)']}>
+                    {lunch.upgradesHint}
+                </span>
+            </div>
+            <ul>
+                {
+                    upgrades.map((upgrade) => (
+                        <li class="c-lunch_item" data-menu="item" data-image={upgrade.imageIndex}>
+                            <h4 class="heading-h3 pt-xsmall pb-xxtiny">{upgrade.name}</h4>
+                            <div class="flex items-start justify-between gap-xtiny">
+                                <p class="body-base mb-xsmall max-w-[55%] max-sm:max-w-[75%]">
+                                    {upgrade.description}
+                                </p>
+                                <span class="body-base shrink-0 font-bold">{upgrade.price}</span>
+                            </div>
+                            <div class="h-px bg-(--color-accent-grey)" />
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+
+        {/* Terms: open to start with, folds away under the cross */}
+        <div class="mt-small border-y border-(--color-accent-grey)" data-lunch="terms">
+            <button
+                type="button"
+                class="flex w-full cursor-pointer items-center justify-between py-tiny"
+                aria-expanded="true"
+                aria-controls={`${slug}-terms`}
+                data-lunch="terms-toggle"
+            >
+                <span class={label}>Terms &amp; conditions</span>
+                <span class="c-lunch_cross is-open" aria-hidden="true" data-lunch="cross"></span>
+            </button>
+            <div id={`${slug}-terms`} class="overflow-hidden" data-lunch="terms-panel">
+                <ul class="space-y-[0.4em] pb-tiny pl-[1.1em]">
+                    {
+                        lunch.terms.map((term) => (
+                            <li class="c-lunch_term text-[0.8125rem] leading-snug text-(--color-light-grey)">
+                                {term}
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+
+        {/* Book */}
+        <div
+            class="flex flex-col items-start gap-xtiny py-small sm:flex-row sm:items-end sm:justify-between"
+        >
+            <p
+                class="max-w-[40ch] text-[0.8125rem] text-(--color-light-grey)"
+                data-editable="text"
+                data-prop={`${DATA}.ctaText`}
+                data-type="text"
+            >
+                {lunch.ctaText}
+            </p>
+            <a href="/book/" class="c-lunch_book" data-track-area="menu-business-lunch">
+                <span data-editable="text" data-prop={`${DATA}.ctaLabel`} data-type="span">
+                    {lunch.ctaLabel}
+                </span>
+            </a>
+        </div>
+    </c-business-lunch>
+</section>
+
+<style>
+    @import 'BusinessLunch.css';
+</style>
+
+<script>
+    import('./BusinessLunch.ts');
+</script>

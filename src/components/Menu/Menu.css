@@ -74,6 +74,29 @@
         user-select: none;
     }
 
+    /* Business Lunch: a gold dot after the name, like a footnote mark */
+    .c-menu_dot {
+        display: inline-block;
+        width: 0.4rem;
+        height: 0.4rem;
+        margin-left: 0.2em;
+        border-radius: 50%;
+        background-color: var(--color-gold);
+        vertical-align: super;
+    }
+
+    /* Below desktop, where the row scrolls sideways, Business Lunch comes first so it's seen
+       without scrolling: it and its slash move to the front, the slash now after it */
+    @media (max-width: 999px) {
+        .c-menu_tabs > .-lunch:not(.c-menu_slash) {
+            order: -2;
+        }
+
+        .c-menu_tabs > .c-menu_slash.-lunch {
+            order: -1;
+        }
+    }
+
     .c-menu_section {
         display: none;
 

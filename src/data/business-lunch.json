@@ -1,0 +1,160 @@
+{
+    "tabName": "Business Lunch",
+    "image": "/src/assets/images/menu/pigalle/chicken-portchicken-axur.jpg",
+    "imageAlt": "Flame-grilled Portuguese peri-peri chicken with chips and a side salad",
+    "imageCaption": "Weekdays only",
+    "days": "Monday – Friday",
+    "hours": "12:00 – 16:30",
+    "heading": "Business & Weekday Lunches",
+    "intro": "Perfect for client meetings, executive lunches, corporate gatherings & relaxed weekday dining.",
+    "note": "Excluding public holidays. Sit-down dining only.",
+    "courses": [
+        {
+            "name": "One Course",
+            "price": "R150",
+            "summary": "Main",
+            "groups": ["main"]
+        },
+        {
+            "name": "Two Course",
+            "price": "R275",
+            "summary": "Starter & Main, or Main & Dessert",
+            "groups": ["starter", "main", "dessert"]
+        },
+        {
+            "name": "Three Course",
+            "price": "R375",
+            "summary": "Starter, Main & Dessert",
+            "groups": ["starter", "main", "dessert"]
+        }
+    ],
+    "defaultCourse": 2,
+    "groups": [
+        {
+            "id": "starter",
+            "title": "Starter",
+            "hint": "Choose one",
+            "items": [
+                {
+                    "name": "Greek Salad",
+                    "description": "Fresh tomatoes, cucumber, olives, crisp lettuce and feta cheese, finished with a traditional dressing.",
+                    "image": "/src/assets/images/menu/greek-salad.jpg",
+                    "imageAlt": "Greek salad with tomatoes, cucumber, olives and feta"
+                },
+                {
+                    "name": "Portuguese Chicken Livers",
+                    "description": "Tender chicken livers sautéed in a rich Portuguese-style sauce and served with toasted bread.",
+                    "image": "/src/assets/images/menu/pigalle/appetizers-piggale-shootday3-121-aqc0.jpg",
+                    "imageAlt": "Chicken livers in a rich Portuguese-style sauce"
+                },
+                {
+                    "name": "Grilled Halloumi",
+                    "description": "Golden grilled halloumi cheese served with a fresh garnish.",
+                    "image": "/src/assets/images/menu/pigalle/appetizers-piggale-shootday3-117-aqc0.jpg",
+                    "imageAlt": "Golden grilled halloumi cheese"
+                },
+                {
+                    "name": "Calamari",
+                    "description": "Tender calamari tubes, grilled or lightly fried, served with lemon butter sauce.",
+                    "image": "/src/assets/images/menu/pigalle/appetizers-img-270of284-atvw.jpg",
+                    "imageAlt": "Tender calamari tubes with lemon butter sauce"
+                }
+            ]
+        },
+        {
+            "id": "main",
+            "title": "Main",
+            "hint": "Choose one",
+            "items": [
+                {
+                    "name": "Portuguese Peri-Peri Chicken (Half)",
+                    "description": "Flame-grilled over an open fire and served with round chips.",
+                    "image": "/src/assets/images/menu/pigalle/chicken-portchicken-axur.jpg",
+                    "imageAlt": "Flame-grilled half peri-peri chicken with round chips"
+                },
+                {
+                    "name": "Queen Prawns",
+                    "description": "Five queen prawns grilled in garlic butter, served with rice and chips.",
+                    "image": "/src/assets/images/menu/queen-prawns.jpg",
+                    "imageAlt": "Queen prawns grilled in garlic butter with rice and chips"
+                },
+                {
+                    "name": "Chooza Boneless Chicken",
+                    "description": "Six tender cubes of chicken grilled in our signature Chooza sauce and served with chips.",
+                    "image": "/src/assets/images/menu/pigalle/chooza-pigalle-shootday1-65-aqcp.jpg",
+                    "imageAlt": "Chicken cubes grilled in Chooza sauce with chips"
+                },
+                {
+                    "name": "200g Rump or Sirloin Steak",
+                    "description": "Char-grilled to your preference and served with chips.",
+                    "image": "/src/assets/images/menu/pigalle/meats-3-dtwp.jpg",
+                    "imageAlt": "Char-grilled 200g rump steak with chips"
+                },
+                {
+                    "name": "Chicken Alfredo Pasta",
+                    "description": "Penne pasta tossed in a rich, creamy parmesan sauce with tender grilled chicken strips.",
+                    "image": "",
+                    "imageAlt": ""
+                },
+                {
+                    "name": "Arrabbiata Pasta",
+                    "description": "Penne pasta in a classic Italian tomato sauce infused with garlic, chilli and fresh herbs.",
+                    "image": "",
+                    "imageAlt": ""
+                }
+            ]
+        },
+        {
+            "id": "dessert",
+            "title": "Dessert",
+            "hint": "Choose one",
+            "items": [
+                {
+                    "name": "Mini Ice Cream Nutcake Slice",
+                    "description": "Served with warm chocolate sauce.",
+                    "image": "/src/assets/images/menu/ice-cream-nut-cake.jpg",
+                    "imageAlt": "Ice cream nutcake slice with warm chocolate sauce"
+                },
+                {
+                    "name": "Crème Brûlée",
+                    "description": "Classic vanilla bean custard topped with a crisp caramelised sugar crust.",
+                    "image": "/src/assets/images/menu/pigalle/desserts-pigalle-shootday1-03-aji1.jpg",
+                    "imageAlt": "Vanilla crème brûlée with a caramelised sugar crust"
+                },
+                {
+                    "name": "Vanilla Ice-Cream",
+                    "description": "Served with warm chocolate sauce.",
+                    "image": "",
+                    "imageAlt": ""
+                }
+            ]
+        }
+    ],
+    "upgradesTitle": "Optional upgrades",
+    "upgradesHint": "Per guest",
+    "upgrades": [
+        {
+            "name": "Upgrade Your Steak",
+            "description": "Upgrade your 200g Rump or Sirloin to a 250g Fillet Steak.",
+            "price": "+90",
+            "image": "/src/assets/images/menu/pigalle/meats-fillet-axub.jpg",
+            "imageAlt": "Flame-grilled 250g fillet steak"
+        },
+        {
+            "name": "Add Queen Prawns",
+            "description": "Top up any main course with two additional Queen Prawns.",
+            "price": "+90",
+            "image": "/src/assets/images/menu/queen-prawns.jpg",
+            "imageAlt": "Queen prawns grilled in garlic butter"
+        }
+    ],
+    "terms": [
+        "Available Monday to Friday, 12:00 – 16:30. Excludes public holidays.",
+        "Valid for sit-down dining only. Menu items subject to availability.",
+        "Portions are individual meals for one guest and are not intended for sharing.",
+        "Upgrade charges apply where applicable.",
+        "Villamoura reserves the right to amend menu items, pricing and terms without prior notice."
+    ],
+    "ctaText": "Hosting a client or a team? Reserve ahead for weekday lunch.",
+    "ctaLabel": "Book a table"
+}
