@@ -7,6 +7,8 @@ interface Props {
     tabIndex?: string;
     isStatic?: boolean;
     ariaHidden?: boolean;
+    // The ↗ after the label; on by default for links that open in a new tab
+    arrow?: boolean;
 }
 
 const {
@@ -17,6 +19,7 @@ const {
     tabIndex,
     isStatic = false,
     ariaHidden = false,
+    arrow = target === '_blank',
     ...rest
 } = Astro.props;
 
@@ -43,7 +46,7 @@ const computedAriaHidden = ariaHidden ? 'true' : undefined;
         <span class="c-button_label">
             <slot />
         </span>
-        {Tag === 'a' && target === '_blank' && <span aria-hidden="true">&#x2197;</span>}
+        {Tag === 'a' && arrow && <span aria-hidden="true">&#x2197;</span>}
     </span>
 </Tag>
 

@@ -282,7 +282,12 @@ const valueClass =
                     <Reveal type="fade" class="mt-tiny flex flex-wrap gap-x-small gap-y-xtiny">
                         {
                             directions.map(({ label, href }) => (
-                                <Button href={href} target="_blank" class="text-black">
+                                <Button
+                                    href={href}
+                                    target="_blank"
+                                    arrow={false}
+                                    class="text-black"
+                                >
                                     {label}
                                 </Button>
                             ))

@@ -210,7 +210,8 @@
         }
     }
 
-    /* Book a table: the italic of the header's link, with its line hidden on hover */
+    /* Book a table: the italic of the header's link, with its line wiping away on hover
+       and drawing back in from the left, as in Header.css and Button.css */
     .c-lunch_book {
         position: relative;
         padding-bottom: 0.15em;
@@ -238,6 +239,12 @@
                 transform: scaleX(0);
                 transform-origin: right center;
             }
+        }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .c-lunch_book::after {
+            transition: transform var(--transition-duration-slower) var(--ease);
         }
     }
 
