@@ -57,7 +57,10 @@ const FONTS: CssVariable[] = ['--custom-lato', '--custom-rd-narrow', '--custom-r
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        {/* The gold "V" square from the logo */}
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="generator" content={Astro.generator} />
         <SEO {...seo} />
         <script is:inline type="application/ld+json" set:html={restaurantSchema} />
