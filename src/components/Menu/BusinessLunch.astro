@@ -186,9 +186,10 @@ const label = 'text-[0.6875rem] font-bold uppercase leading-none tracking-[0.14e
             }
         </div>
 
-        <div class="border-y border-(--color-accent-grey) py-xtiny">
+        {/* Block, not inline: split into masked lines and back, it keeps the same height */}
+        <div class="border-y border-(--color-accent-grey) py-xtiny [overflow-anchor:none]">
             <p class="heading-h4 font-(family-name:--font-rd-narrow)" aria-live="polite">
-                <span class="inline-block" data-lunch="summary">{course.summary}</span>
+                <span class="block" data-lunch="summary">{course.summary}</span>
             </p>
         </div>
 
@@ -261,19 +262,19 @@ const label = 'text-[0.6875rem] font-bold uppercase leading-none tracking-[0.14e
             </ul>
         </div>
 
-        {/* Terms: open to start with, folds away under the cross */}
+        {/* Terms: closed to start with, open under the cross */}
         <div class="mt-small border-y border-(--color-accent-grey)" data-lunch="terms">
             <button
                 type="button"
                 class="flex w-full cursor-pointer items-center justify-between py-tiny"
-                aria-expanded="true"
+                aria-expanded="false"
                 aria-controls={`${slug}-terms`}
                 data-lunch="terms-toggle"
             >
                 <span class={label}>Terms &amp; conditions</span>
-                <span class="c-lunch_cross is-open" aria-hidden="true" data-lunch="cross"></span>
+                <span class="c-lunch_cross" aria-hidden="true" data-lunch="cross"></span>
             </button>
-            <div id={`${slug}-terms`} class="overflow-hidden" data-lunch="terms-panel">
+            <div id={`${slug}-terms`} class="overflow-hidden" data-lunch="terms-panel" hidden>
                 <ul class="space-y-[0.4em] pb-tiny pl-[1.1em]">
                     {
                         lunch.terms.map((term) => (

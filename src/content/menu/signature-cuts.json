@@ -1,0 +1,29 @@
+{
+    "categoryName": "Signature Cuts",
+    "displayOrder": 6,
+    "image": "/src/assets/images/menu/pigalle/meats-8-c5uz.jpg",
+    "imageAlt": "Chilli oven tomahawk at Pigalle",
+    "items": [
+        {
+            "name": "Chilli Oven Tomahawk 800g",
+            "description": "800g Tomahawk steak marinated in chilli olive oil, oven-roasted, finished on the grill, and served with buttery mash. Finished with your choice of pepper crust, masala or BBQ basting.",
+            "price": "700",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Black Angus Prime Rib 450g",
+            "description": "Juicy, generously marbled prime rib, flame-grilled to your preference and served with chips. Finished with your choice of pepper crust, masala or BBQ basting.",
+            "price": "575",
+            "image": "/src/assets/images/menu/pigalle/meats-9-dtpq.jpg",
+            "imageAlt": "Black Angus Prime Rib 450g"
+        },
+        {
+            "name": "Black Angus Picanha 300g",
+            "description": "Traditional South American rump cap, renowned for its tenderness and distinctive flavour, served with chips. Finished with your choice of pepper crust, masala or BBQ basting.",
+            "price": "535",
+            "image": "/src/assets/images/menu/pigalle/meats-4-hqqk.jpg",
+            "imageAlt": "Black Angus Picanha 300g"
+        }
+    ]
+}

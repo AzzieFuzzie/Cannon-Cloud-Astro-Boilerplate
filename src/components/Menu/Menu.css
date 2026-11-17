@@ -23,7 +23,7 @@
         flex-wrap: wrap;
         align-items: baseline;
         justify-content: center;
-        /* As pigalle.co.za, where the rows break after "Chooza" */
+        /* Wide enough for the category names to wrap onto two balanced rows */
         max-width: 1200px;
         margin-inline: auto;
         text-align: center;

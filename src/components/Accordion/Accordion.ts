@@ -15,6 +15,8 @@ export class Accordion extends HTMLElement {
     private animation: Animation | null = null;
     private isClosing: boolean = false;
     private isExpanding: boolean = false;
+    // The `name` its <details> shared with the others of its group (one open at a time)
+    private group: string | null = null;
 
     constructor() {
         super();
@@ -29,6 +31,16 @@ export class Accordion extends HTMLElement {
     // =============================================================================
     connectedCallback() {
         if (!this.validateElements()) return;
+
+        // The browser snaps the open one of a named group shut the moment another opens, and
+        // everything below jumps. Take the group over so the open one can fold away smoothly.
+        // Without JavaScript the `name` stays and the browser keeps one open at a time.
+        this.group = this.$details!.getAttribute('name');
+        if (this.group) {
+            this.$details!.removeAttribute('name');
+            this.dataset.accordionGroup = this.group;
+        }
+
         this.bindEvents();
     }
 
@@ -88,8 +100,8 @@ export class Accordion extends HTMLElement {
     private toggleInstantly(): void {
         const open = !this.isOpen();
 
-        // Opening sets the attribute, so the browser closes the other accordions in the group
-        this.keepInPlace(() => this.$details!.toggleAttribute('open', open));
+        if (open) this.closeOthers(false);
+        this.$details!.toggleAttribute('open', open);
         this.$details!.classList.toggle(Accordion.CLASS_ACTIVE, open);
 
         if (open) this.trackOpen();
@@ -123,19 +135,50 @@ export class Accordion extends HTMLElement {
     }
 
     /**
-     * Opening one accordion of a group makes the browser close the open one at once. When that
-     * one is higher up the page, everything below jumps up by its answer's height, including the
-     * question just clicked. Scroll by the same amount so the clicked question stays put.
+     * Close the other open accordions of the group as this one opens.
+     * One still on screen folds away (animated, alongside this one opening; at once on phones),
+     * and whatever is below simply moves up with it. One scrolled off above the screen closes at
+     * once and the page scrolls by the height it lost, so nothing in view moves at all.
      */
-    private keepInPlace(change: () => void): void {
-        const top = this.$summary!.getBoundingClientRect().top;
+    private closeOthers(animated: boolean): void {
+        if (!this.group) return;
 
-        change();
+        const others = Array.from(
+            document.querySelectorAll<Accordion>(
+                `c-accordion[data-accordion-group="${CSS.escape(this.group)}"]`
+            )
+        ).filter((other) => other !== this && other.isOpen());
 
-        const shift = this.$summary!.getBoundingClientRect().top - top;
-        if (Math.abs(shift) < 1) return;
+        for (const other of others) {
+            const isAbove = other.getBoundingClientRect().bottom <= 0;
 
-        Scroll.scrollTo(window.scrollY + shift, { immediate: true, force: true });
+            if (isAbove) {
+                const before = other.offsetHeight;
+                other.closeNow();
+                const lost = before - other.offsetHeight;
+                if (lost > 0) {
+                    Scroll.scrollTo(window.scrollY - lost, { immediate: true, force: true });
+                }
+            } else if (animated && !other.isAnimating()) {
+                other.close();
+            } else {
+                other.closeNow();
+            }
+        }
+    }
+
+    /**
+     * Shut at once, no animation
+     */
+    public closeNow(): void {
+        this.cancelAnimation();
+        this.isClosing = false;
+        this.isExpanding = false;
+        this.$details!.removeAttribute('open');
+        this.$details!.classList.remove(Accordion.CLASS_ACTIVE);
+        this.$details!.style.height = '';
+        this.style.overflow = '';
+        this.dispatchCustomEvent('accordion-closed');
     }
 
     private prepareForAnimation(): void {
@@ -170,8 +213,9 @@ export class Accordion extends HTMLElement {
 
     private open(): void {
         this.isExpanding = true;
+        this.closeOthers(true);
         this.$details!.style.height = `${this.offsetHeight}px`;
-        this.keepInPlace(() => this.$details!.setAttribute('open', ''));
+        this.$details!.setAttribute('open', '');
         this.$details!.classList.add(Accordion.CLASS_ACTIVE);
         this.prepareForAnimation();
 

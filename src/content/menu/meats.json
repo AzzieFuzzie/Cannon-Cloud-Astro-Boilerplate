@@ -1,132 +1,76 @@
 {
-    "categoryName": "Meats",
-    "displayOrder": 5,
-    "image": "/src/assets/images/menu/pigalle/meats-8-c5uz.jpg",
-    "imageAlt": "Chilli Oven Tomahawk 800g",
+    "categoryName": "Prime Cuts",
+    "displayOrder": 7,
+    "image": "/src/assets/images/menu/pigalle/meats-ribeye-axur.jpg",
+    "imageAlt": "Rib-eye steak at Pigalle",
     "items": [
         {
-            "name": "Chilli Oven Tomahawk 800g",
-            "description": "800g Tomahawk steak marinated in chilli olive oil, oven-roasted, finished on the grill, and served with buttery mash.",
-            "price": "700",
+            "name": "Rib-Eye 300g",
+            "description": "Succulent rib-eye steak, flame-grilled and served with seasoned chips. Finished with your choice of pepper crust, masala or BBQ basting.",
+            "price": "395",
             "image": "",
             "imageAlt": ""
         },
         {
-            "name": "Black Angus Sirloin on the Bone 500g",
-            "description": "Richly marbled Black Angus sirloin on the bone, expertly aged for exceptional flavour served with chips.",
-            "price": "750",
-            "image": "/src/assets/images/menu/pigalle/meats-4-hqqk.jpg",
-            "imageAlt": "Black Angus Sirloin on the Bone 500g"
-        },
-        {
-            "name": "Black Angus Prime Rib 450g",
-            "description": "Juicy prime rib with generous marbling, flame grilled to your preference served with chips.",
-            "price": "575",
-            "image": "/src/assets/images/menu/pigalle/meats-9-dtpq.jpg",
-            "imageAlt": "Black Angus Prime Rib 450g"
-        },
-        {
-            "name": "Black Angus Picanha 300g",
-            "description": "Traditional South American rump cap renowned for its tenderness and distinctive flavour served with chips.",
-            "price": "530",
-            "image": "/src/assets/images/menu/pigalle/meats-9-dtpq.jpg",
-            "imageAlt": "Black Angus Picanha 300g"
-        },
-        {
-            "name": "Rib-Eye Steak 300g",
-            "description": "Succulent rib-eye steak flame grilled and served with seasoned chips.",
-            "price": "395",
-            "image": "/src/assets/images/menu/pigalle/meats-ribeye-axur.jpg",
-            "imageAlt": "300g rib-eye steak with seasoned chips"
-        },
-        {
             "name": "Fillet 250g",
-            "description": "Premium beef fillet grilled to perfection and served with seasoned chips.",
+            "description": "Premium beef fillet grilled to perfection and served with seasoned chips. Finished with your choice of pepper crust, masala or BBQ basting.",
             "price": "350",
             "image": "/src/assets/images/menu/pigalle/meats-fillet-axub.jpg",
-            "imageAlt": "Flame-grilled 250g fillet steak with freshly cut seasoned chips"
+            "imageAlt": "Fillet 250g"
         },
         {
-            "name": "Fillet On The Bone 600g",
-            "description": "Flame-grilled fillet on the bone with rich flavour and buttery tenderness and served with chips.",
+            "name": "Fillet on the Bone 500g",
+            "description": "Flame-grilled fillet on the bone, rich in flavour and buttery tenderness, served with chips. Finished with your choice of pepper crust, masala or BBQ basting.",
             "price": "480",
             "image": "/src/assets/images/menu/pigalle/meats-filletonbone-axub.jpg",
-            "imageAlt": "600g bone-in fillet steak flame-grilled with seasoned chips"
+            "imageAlt": "Fillet on the Bone 500g"
         },
         {
             "name": "Rump or Sirloin 200g",
-            "description": "Flame-grilled fillet on the bone with rich flavour and buttery tenderness and served with chips.",
-            "price": "390",
+            "description": "Flame-grilled to your preference and served with seasoned chips. Finished with your choice of pepper crust, masala or BBQ basting.",
+            "price": "240",
             "image": "/src/assets/images/menu/pigalle/meats-3-dtwp.jpg",
             "imageAlt": "Rump or Sirloin 200g"
         },
         {
-            "name": "Chilli Oven Fillet Steak 250g",
-            "description": "Tender Fillet Steak Oven-Baked With A Hint Of Chilli, Cooked To Your Liking For A Perfect Balance Of Flavour And Tenderness Served With Mash.",
+            "name": "Chilli Oven Fillet 250g",
+            "description": "Fillet steak marinated in chilli olive oil, oven-roasted, finished on the grill, and served with buttery mash.",
             "price": "390",
             "image": "/src/assets/images/menu/pigalle/meats-pigalle-shootday1-27-aji1.jpg",
-            "imageAlt": "Chilli Oven Fillet Steak 250g"
+            "imageAlt": "Chilli Oven Fillet 250g"
         },
         {
             "name": "Portuguese Fillet Steak",
-            "description": "A 250g Steak In A Creamy Garlic Sauce Served With Round Chips And The Option Of A Fried Egg.",
+            "description": "250g fillet steak in a creamy garlic sauce, served with round chips and an optional fried egg.",
             "price": "390",
             "image": "/src/assets/images/menu/pigalle/meats-portsteak-axur.jpg",
-            "imageAlt": "Portuguese fillet steak in creamy garlic sauce with round chips"
+            "imageAlt": "Portuguese Fillet Steak"
         },
         {
-            "name": "Lamb Cutlets",
-            "description": "4 Grilled Chops Served With Mash And Stir-Fried Vegetables.",
+            "name": "Lamb Chops",
+            "description": "Four grilled lamb chops served with mash and seasonal stir-fried vegetables.",
             "price": "315",
             "image": "/src/assets/images/menu/pigalle/meats-pigalle-shootday1-61-aorl.jpg",
-            "imageAlt": "Four grilled lamb chops served with mash and stir-fried vegetables"
+            "imageAlt": "Lamb Chops"
         },
         {
             "name": "Lamb Shank",
             "description": "Slow-cooked lamb shank served with mash and seasonal stir-fried vegetables.",
-            "price": "345",
+            "price": "330",
             "image": "/src/assets/images/menu/pigalle/meats-img-96of284-aqcn.jpg",
-            "imageAlt": "Braised lamb shank served with mash and stir-fried vegetables"
+            "imageAlt": "Lamb Shank"
         },
         {
-            "name": "Oxtail",
-            "description": "Slow Braised Oxtail Cooked In An In-House Gravy And Served With Mash & Vegetables.",
-            "price": "305",
-            "image": "/src/assets/images/menu/pigalle/meats-filletonbone-axub.jpg",
-            "imageAlt": "Slow-braised oxtail in house gravy served with mash and vegetables"
+            "name": "Chooza Beef Kebab",
+            "description": "Two char-grilled beef kebabs served with chips and house salad.",
+            "price": "205",
+            "image": "/src/assets/images/menu/pigalle/chooza-img-63of284-aqct.jpg",
+            "imageAlt": "Chooza Beef Kebab"
         },
         {
-            "name": "Portuguese Sauce",
-            "description": "Signature Sauces.",
-            "price": "45",
-            "image": "",
-            "imageAlt": ""
-        },
-        {
-            "name": "Cheese and Mushroom",
-            "description": "Signature Sauces.",
-            "price": "45",
-            "image": "",
-            "imageAlt": ""
-        },
-        {
-            "name": "Mushroom Sauce",
-            "description": "Signature Sauces.",
-            "price": "45",
-            "image": "",
-            "imageAlt": ""
-        },
-        {
-            "name": "Pepper Sauce",
-            "description": "Signature Sauces.",
+            "name": "Sauces (each)",
+            "description": "Mushroom, Pepper, Cheese or Portuguese.",
             "price": "50",
-            "image": "",
-            "imageAlt": ""
-        },
-        {
-            "name": "BBQ Sauce",
-            "description": "Signature Sauces.",
-            "price": "30",
             "image": "",
             "imageAlt": ""
         }

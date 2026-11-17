@@ -1,0 +1,64 @@
+{
+    "categoryName": "Platters",
+    "displayOrder": 5,
+    "image": "/src/assets/images/menu/pigalle/seafood-shellfishplatter-axut.jpg",
+    "imageAlt": "Shellfish platter at Pigalle",
+    "items": [
+        {
+            "name": "Shellfish Platter",
+            "description": "A luxurious seafood selection featuring three queen prawns, three langoustines and a baby lobster. Served with savoury rice and chips.",
+            "price": "975",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Seafood Platter for Two",
+            "description": "An indulgent feast of mussels, kingklip fillet, grilled calamari, langoustines, queen prawns and baby lobster. Served with savoury rice and chips.",
+            "price": "1275",
+            "image": "/src/assets/images/menu/pigalle/seafood-seafoodplatterfor2-ayza.jpg",
+            "imageAlt": "Seafood Platter for Two"
+        },
+        {
+            "name": "Pigalle Platter",
+            "description": "A refined combination of three langoustines and three queen prawns. Served with savoury rice and chips.",
+            "price": "690",
+            "image": "/src/assets/images/menu/pigalle/seafood-pigalleplatter-axut.jpg",
+            "imageAlt": "Pigalle Platter"
+        },
+        {
+            "name": "Millionaire’s Platter",
+            "description": "Six langoustines, two lobster thermidors, nine king prawns and one baby kingklip. Served with savoury rice and chips.",
+            "price": "2500",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Surf & Turf",
+            "description": "A 250g fillet steak with three queen prawns. Served with savoury rice and chips.",
+            "price": "450",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Steak and Prawns",
+            "description": "200g rump or sirloin and three queen prawns. Served with savoury rice and chips.",
+            "price": "315",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Prawns and Calamari",
+            "description": "Five queen prawns and calamari. Served with savoury rice and chips.",
+            "price": "375",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Fish and Prawns",
+            "description": "Kingklip fillet and three queen prawns. Served with savoury rice and chips.",
+            "price": "395",
+            "image": "",
+            "imageAlt": ""
+        }
+    ]
+}

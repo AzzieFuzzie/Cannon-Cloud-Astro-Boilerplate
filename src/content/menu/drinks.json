@@ -1,47 +1,54 @@
 {
-    "categoryName": "Drinks",
-    "displayOrder": 11,
+    "categoryName": "Cold Beverages",
+    "displayOrder": 13,
     "image": "/src/assets/images/menu/pigalle/drinks-pigalle-shootday1-37-aji3.jpg",
-    "imageAlt": "Kola Tonic And Lemonade.",
+    "imageAlt": "Cold drinks at Pigalle",
     "items": [
         {
             "name": "Soft Drinks",
-            "description": "Appletiser, Grapetiser, Coke, Coke Zero, Crème Soda, Fanta Orange, Lipton Peach, Sprite, Sprite Zero, Stoney, Dry Lemonade, Ginger Ale.",
+            "description": "Coke, Coke Zero, Crème Soda, Lipton Peach, Lipton Lemon, Sprite, Sprite Zero, Stoney and Ginger Ale.",
             "price": "45",
             "image": "",
             "imageAlt": ""
         },
         {
-            "name": "Kola Tonic And Lemonade.",
-            "description": "Kola Tonic And Lemonade.",
+            "name": "Kola Tonic & Lemonade",
+            "description": "",
             "price": "50",
             "image": "",
             "imageAlt": ""
         },
         {
-            "name": "Passion Fruit And Lemonade.",
-            "description": "Passion Fruit And Lemonade.",
+            "name": "Passion Fruit & Lemonade",
+            "description": "",
             "price": "50",
             "image": "/src/assets/images/menu/pigalle/drinks-mojito-axub.jpg",
-            "imageAlt": "Passion Fruit And Lemonade."
+            "imageAlt": "Passion Fruit & Lemonade"
         },
         {
-            "name": "Redbull",
-            "description": "Redbull",
+            "name": "Appletiser & Grapetiser",
+            "description": "",
             "price": "50",
-            "image": "/src/assets/images/menu/pigalle/drinks-mojito-axub.jpg",
-            "imageAlt": "Redbull"
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Red Bull",
+            "description": "",
+            "price": "50",
+            "image": "/src/assets/images/menu/pigalle/drinks-redbull-addl.jpg",
+            "imageAlt": "Red Bull"
         },
         {
             "name": "Milkshakes",
-            "description": "Chocolate, Vanilla, Strawberry.",
-            "price": "65",
-            "image": "/src/assets/images/menu/pigalle/drinks-redbull-addl.jpg",
-            "imageAlt": "Milkshakes"
+            "description": "Chocolate, Vanilla or Strawberry.",
+            "price": "70",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "Juices",
-            "description": "Fruit Cocktail, Orange, Strawberry.",
+            "description": "Pineapple, Orange or Strawberry.",
             "price": "45",
             "image": "/src/assets/images/menu/pigalle/drinks-img-197of284-2-atvy.jpg",
             "imageAlt": "Juices"

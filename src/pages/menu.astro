@@ -34,7 +34,7 @@ const menuSchema = JSON.stringify(getMenuSchema(menuCategories, Astro.site!)).re
 
 <Layout
     title="Menu"
-    description="Sushi, seafood, flame-grilled meats, chooza, desserts and mocktails: explore the Pigalle by Villamoura menu."
+    description="Sushi, seafood platters, prime steaks, peri-peri chicken, desserts, mocktails and shisha: explore the Pigalle by Villamoura menu."
 >
     <script is:inline slot="head" type="application/ld+json" set:html={menuSchema} />
     <Menu categories={menuCategories} businessLunch />

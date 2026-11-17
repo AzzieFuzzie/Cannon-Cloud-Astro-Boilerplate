@@ -38,6 +38,8 @@ export class BusinessLunch extends HTMLElement {
     private activeIndex = 0;
     private timeline: gsap.core.Timeline | null = null;
     private split: SplitText | null = null;
+    // The dishes changed height, so ScrollTrigger must re-measure once the animation is over
+    private needsRefresh = false;
 
     // =============================================================================
     // Lifecycle
@@ -154,8 +156,9 @@ export class BusinessLunch extends HTMLElement {
             this.$groups.forEach(($group) => {
                 $group.hidden = !wanted.has($group.dataset.group ?? '');
             });
-            // The page height changed
-            ScrollTrigger.refresh();
+            // The page height changed. Re-measuring every trigger costs a few frames on a phone,
+            // so it waits until the text and dishes have settled (stopCourseChange).
+            this.needsRefresh = true;
         };
 
         // A change still playing is cut short: its text and dishes go back to rest first
@@ -164,6 +167,7 @@ export class BusinessLunch extends HTMLElement {
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (reduced || (window as any).inEditorMode || !this.$summary) {
             swap();
+            this.refreshIfNeeded();
             return;
         }
 
@@ -192,7 +196,8 @@ export class BusinessLunch extends HTMLElement {
                         yPercent: 0,
                         duration: BusinessLunch.TEXT_IN_DURATION,
                         ease: 'power4.out',
-                        stagger: 0.1
+                        stagger: 0.1,
+                        force3D: true
                     },
                     0
                 )
@@ -214,7 +219,12 @@ export class BusinessLunch extends HTMLElement {
             .timeline({ onComplete: playIn })
             .to(
                 this.split.lines,
-                { yPercent: -120, duration: BusinessLunch.OUT_DURATION, ease: 'power3.in' },
+                {
+                    yPercent: -120,
+                    duration: BusinessLunch.OUT_DURATION,
+                    ease: 'power3.in',
+                    force3D: true
+                },
                 0
             )
             .to(
@@ -253,6 +263,14 @@ export class BusinessLunch extends HTMLElement {
         );
         gsap.killTweensOf($all);
         gsap.set($all, { clearProps: 'opacity,visibility' });
+
+        this.refreshIfNeeded();
+    }
+
+    private refreshIfNeeded(): void {
+        if (!this.needsRefresh) return;
+        this.needsRefresh = false;
+        ScrollTrigger.refresh();
     }
 
     /**

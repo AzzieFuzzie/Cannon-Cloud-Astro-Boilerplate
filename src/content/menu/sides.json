@@ -1,92 +1,85 @@
 {
     "categoryName": "Sides",
-    "displayOrder": 9,
-    "image": "/src/assets/images/menu/pigalle/salads-piggale-shootday3-150-atwx.jpg",
-    "imageAlt": "Masala Chips",
+    "displayOrder": 11,
+    "image": "/src/assets/images/menu/pigalle/chooza-img-36of284-atws.jpg",
+    "imageAlt": "Chooza masala chips at Pigalle",
     "items": [
         {
             "name": "Buttery Mash",
-            "description": "Buttery Mash",
+            "description": "",
             "price": "50",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Aromatic Rice",
-            "description": "Aromatic Rice",
+            "description": "",
             "price": "50",
             "image": "",
             "imageAlt": ""
         },
         {
-            "name": "Crunchy Stir Fried Vegetables",
-            "description": "Crunchy Stir Fried Vegetables",
+            "name": "Stir-Fried Vegetables",
+            "description": "",
             "price": "55",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "House Salad",
-            "description": "Tomatoes, Lettuce, Onions And Green Peppers.",
+            "description": "Tomatoes, lettuce, onions and green peppers.",
             "price": "55",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Onion Rings",
-            "description": "Onion Rings",
+            "description": "",
             "price": "50",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Chips",
-            "description": "Chips",
+            "description": "",
             "price": "55",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Creamy Spinach",
-            "description": "Creamy Spinach",
+            "description": "",
             "price": "65",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Butternut",
-            "description": "Butternut",
+            "description": "",
             "price": "55",
-            "image": "",
-            "imageAlt": ""
-        },
-        {
-            "name": "Creamy Spinach",
-            "description": "Creamy Spinach",
-            "price": "65",
-            "image": "",
-            "imageAlt": ""
-        },
-        {
-            "name": "Butternut",
-            "description": "Butternut",
-            "price": "55",
-            "image": "",
-            "imageAlt": ""
-        },
-        {
-            "name": "Masala Chips",
-            "description": "Masala Chips",
-            "price": "65",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Round Chips",
-            "description": "Round Chips",
+            "description": "",
             "price": "60",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Chooza Masala Chips",
+            "description": "Chips smothered in our signature Chooza sauce.",
+            "price": "65",
             "image": "/src/assets/images/menu/pigalle/chooza-img-36of284-atws.jpg",
-            "imageAlt": "Round Chips"
+            "imageAlt": "Chooza Masala Chips"
+        },
+        {
+            "name": "Naan",
+            "description": "Tandoor-baked naan, served plain or brushed with butter. Garlic butter +R7.",
+            "price": "42",
+            "image": "/src/assets/images/menu/pigalle/chooza-pigalle-shootday1-79-aqcp.jpg",
+            "imageAlt": "Tandoor-baked naan"
         }
     ]
 }

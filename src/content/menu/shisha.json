@@ -1,19 +1,19 @@
 {
     "categoryName": "Shisha",
-    "displayOrder": 14,
+    "displayOrder": 16,
     "image": "/src/assets/images/menu/pigalle/shisha-img-282of284-aqcw.jpg",
-    "imageAlt": "Classic Shisha",
+    "imageAlt": "Shisha lounge at Pigalle",
     "items": [
         {
             "name": "Classic Shisha",
-            "description": "Available Flavours: Paan Kiwi, Marbella, Lady Killer, Double Apple, Gum Mint, Mandela's 27, Mint, Mango Lassi, Sheikh Money, El Frasco",
-            "price": "350",
+            "description": "Flavours: Paan Kiwi, Marbella, Lady Killer, Double Apple, Gum Mint, Mandela’s 27, Mint, Mango Lassi, Sheikh Money and El Frasco. Only served to persons aged 18 and over.",
+            "price": "375",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Special Shisha",
-            "description": "Available Flavours: Paan Kiwi, Marbella, Lady Killer, Double Apple, Gum Mint, Mandela's 27, Mint, Mango Lassi, Sheikh Money, El Frasco",
+            "description": "Only served to persons aged 18 and over.",
             "price": "550",
             "image": "/src/assets/images/menu/pigalle/shisha-img-279of284-aqcx.jpg",
             "imageAlt": "Special Shisha"

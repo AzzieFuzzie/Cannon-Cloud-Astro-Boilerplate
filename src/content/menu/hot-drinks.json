@@ -1,148 +1,120 @@
 {
-    "categoryName": "Hot Drinks",
-    "displayOrder": 12,
+    "categoryName": "Hot Beverages",
+    "displayOrder": 14,
     "image": "/src/assets/images/menu/pigalle/hot-drinks-img-276of284-atv3.jpg",
-    "imageAlt": "Masala Tea",
+    "imageAlt": "Tea at Pigalle",
     "items": [
         {
             "name": "Karak Tea (Regular or Low Sugar)",
-            "description": "Karak Tea (Regular or Low Sugar)",
-            "price": "35",
+            "description": "",
+            "price": "39",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
+            "name": "Karak Coffee",
+            "description": "",
+            "price": "39",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Masala Tea",
-            "description": "Masala Tea",
-            "price": "35",
+            "description": "",
+            "price": "39",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Moroccan Mint Tea",
-            "description": "Moroccan Mint Tea",
+            "description": "",
             "price": "50",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-276of284-atv3.jpg",
-            "imageAlt": "Moroccan Mint Tea"
+            "imageAlt": "Tea"
         },
         {
             "name": "Green Tea",
-            "description": "Green Tea",
+            "description": "",
             "price": "40",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-276of284-atv3.jpg",
-            "imageAlt": "Green Tea"
+            "imageAlt": "Tea"
         },
         {
-            "name": "Ginger & Lemon Tea",
-            "description": "Ginger & Lemon Tea",
+            "name": "Ginger and Lemon Tea",
+            "description": "",
             "price": "40",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-276of284-atv3.jpg",
-            "imageAlt": "Ginger & Lemon Tea"
+            "imageAlt": "Tea"
         },
         {
             "name": "Rooibos Tea",
-            "description": "Rooibos Tea",
+            "description": "",
             "price": "40",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-276of284-atv3.jpg",
-            "imageAlt": "Rooibos Tea"
+            "imageAlt": "Tea"
         },
         {
             "name": "Five Roses Tea",
-            "description": "Five Roses Tea",
+            "description": "",
             "price": "40",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-276of284-atv3.jpg",
-            "imageAlt": "Five Roses Tea"
-        },
-        {
-            "name": "Turkish Coffee",
-            "description": "Turkish Coffee",
-            "price": "45",
-            "image": "/src/assets/images/menu/pigalle/hot-drinks-img-276of284-atv3.jpg",
-            "imageAlt": "Turkish Coffee"
+            "imageAlt": "Tea"
         },
         {
             "name": "Single Espresso",
-            "description": "Single Espresso",
-            "price": "30",
+            "description": "",
+            "price": "35",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-177of284-atv3.jpg",
-            "imageAlt": "Single Espresso"
+            "imageAlt": "Coffee"
         },
         {
             "name": "Double Espresso",
-            "description": "Double Espresso",
-            "price": "35",
+            "description": "",
+            "price": "45",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-177of284-atv3.jpg",
-            "imageAlt": "Double Espresso"
+            "imageAlt": "Coffee"
         },
         {
             "name": "Americano",
-            "description": "Americano",
-            "price": "40",
+            "description": "",
+            "price": "45",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-177of284-atv3.jpg",
-            "imageAlt": "Americano"
+            "imageAlt": "Coffee"
         },
         {
             "name": "Cappuccino",
-            "description": "Cappuccino",
-            "price": "45",
+            "description": "",
+            "price": "50",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-177of284-atv3.jpg",
-            "imageAlt": "Cappuccino"
+            "imageAlt": "Coffee"
         },
         {
             "name": "Cafe Latte",
-            "description": "Cafe Latte",
-            "price": "45",
-            "image": "/src/assets/images/menu/pigalle/hot-drinks-img-177of284-atv3.jpg",
-            "imageAlt": "Cafe Latte"
-        },
-        {
-            "name": "Macchiato",
-            "description": "Macchiato",
-            "price": "45",
-            "image": "/src/assets/images/menu/pigalle/hot-drinks-img-177of284-atv3.jpg",
-            "imageAlt": "Macchiato"
-        },
-        {
-            "name": "Affogato Coffee",
-            "description": "Affogato Coffee",
+            "description": "",
             "price": "50",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-177of284-atv3.jpg",
-            "imageAlt": "Affogato Coffee"
+            "imageAlt": "Coffee"
         },
         {
             "name": "Flat White",
-            "description": "Flat White",
+            "description": "",
             "price": "45",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-177of284-atv3.jpg",
-            "imageAlt": "Flat White"
-        },
-        {
-            "name": "Iced Coffee Frappe",
-            "description": "Iced Coffee Frappe",
-            "price": "65",
-            "image": "/src/assets/images/menu/pigalle/hot-drinks-pigalle-shootday2-48-atv3.jpg",
-            "imageAlt": "Iced Coffee Frappe"
+            "imageAlt": "Coffee"
         },
         {
             "name": "Cortado",
-            "description": "Cortado",
-            "price": "40",
+            "description": "",
+            "price": "45",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-177of284-atv3.jpg",
-            "imageAlt": "Cortado"
+            "imageAlt": "Coffee"
         },
         {
             "name": "Hot Chocolate",
-            "description": "Hot Chocolate",
+            "description": "",
             "price": "50",
             "image": "/src/assets/images/menu/pigalle/hot-drinks-img-180of284-1-aqcm.jpg",
             "imageAlt": "Hot Chocolate"
-        },
-        {
-            "name": "White Hot Chocolate",
-            "description": "White Hot Chocolate",
-            "price": "55",
-            "image": "/src/assets/images/menu/pigalle/hot-drinks-img-177of284-atv3.jpg",
-            "imageAlt": "White Hot Chocolate"
         }
     ]
 }

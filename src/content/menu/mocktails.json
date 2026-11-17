@@ -1,99 +1,92 @@
 {
     "categoryName": "Mocktails",
-    "displayOrder": 13,
+    "displayOrder": 15,
     "image": "/src/assets/images/menu/pigalle/mocktails-img-225of284-aorl.jpg",
-    "imageAlt": "Tangerine Mojito",
+    "imageAlt": "Mocktails at Pigalle",
     "items": [
         {
             "name": "Tangerine Mojito",
-            "description": "Tangerine Infused With Lemonade, Muddled Mint And Lemon.",
-            "price": "65",
+            "description": "Fresh tangerine infused with lemonade, muddled mint and lemon.",
+            "price": "69",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Passion Fruit Mojito",
-            "description": "Passion Fruit Infused With Fresh Mint, Lemon And Crushed Ice.",
-            "price": "65",
+            "description": "Granadilla, fresh mint, lemon and crushed ice.",
+            "price": "69",
             "image": "/src/assets/images/menu/pigalle/mocktails-img-214of284-aqcx.jpg",
             "imageAlt": "Passion Fruit Mojito"
         },
         {
-            "name": "Lavender Lemonade",
-            "description": "A Cloudy Lemonade Infused With Lavender Extract Topped With Ice.",
-            "price": "85",
-            "image": "/src/assets/images/menu/pigalle/mocktails-img-216of284-aorl.jpg",
-            "imageAlt": "Lavender Lemonade"
-        },
-        {
             "name": "Mint Mojito",
-            "description": "Muddled Mint And Lime, Lightly Sweetened And Finished With A Zesty Sparkle.",
-            "price": "65",
+            "description": "Muddled mint and lime, lightly sweetened and finished with a refreshing sparkle.",
+            "price": "69",
             "image": "/src/assets/images/menu/pigalle/mocktails-pigalle-shootday1-37-1-atvx.jpg",
             "imageAlt": "Mint Mojito"
         },
         {
             "name": "Blood Orange Sunset",
-            "description": "Blood Orange And Citrus, Delicately Brightened With Lime.",
-            "price": "65",
+            "description": "Blood orange and citrus delicately brightened with lime.",
+            "price": "69",
             "image": "/src/assets/images/menu/pigalle/mocktails-img-185of284-1-aqcx.jpg",
             "imageAlt": "Blood Orange Sunset"
         },
         {
             "name": "Cherry Lemonade",
-            "description": "Zesty, Sweet, And Perfectly Crisp.",
-            "price": "65",
+            "description": "Sweet cherry notes balanced with zesty lemonade.",
+            "price": "69",
             "image": "/src/assets/images/menu/pigalle/mocktails-cherrylemonade-1-axut.jpg",
             "imageAlt": "Cherry Lemonade"
         },
         {
+            "name": "Cherry Zero",
+            "description": "A reduced sugar cherry Coke mojito.",
+            "price": "69",
+            "image": "",
+            "imageAlt": ""
+        },
+        {
             "name": "Pigalle Purple Passion Fruit",
-            "description": "Fresh granadilla pulp layered over crushed ice with a hint of mint.",
+            "description": "Pigalle signature. Fresh granadilla pulp layered over crushed ice with a hint of mint.",
             "price": "85",
             "image": "/src/assets/images/menu/pigalle/mocktails-pigalle-shootday1-39-aqc1.jpg",
             "imageAlt": "Pigalle Purple Passion Fruit"
         },
         {
             "name": "Watermelon Lemonade",
-            "description": "Watermelon Infused With A Cloudy Lemonade And Mint.",
+            "description": "Pigalle signature. Fresh watermelon infused with cloudy lemonade and mint.",
             "price": "85",
             "image": "/src/assets/images/menu/pigalle/mocktails-img-205of284-1-aqcx.jpg",
             "imageAlt": "Watermelon Lemonade"
         },
         {
-            "name": "Mango RedBull",
-            "description": "Sweet mango blended with the energy of Red Bull.",
+            "name": "Mango Red Bull",
+            "description": "Pigalle signature. Sweet mango blended with the energy of Red Bull.",
             "price": "85",
             "image": "/src/assets/images/menu/pigalle/mocktails-redredbull-1-axus.jpg",
-            "imageAlt": "Mango RedBull"
+            "imageAlt": "Mango Red Bull"
         },
         {
             "name": "Piña Colada",
-            "description": "Fresh Pineapple And Creamy Coconut, Blended With Ice.",
+            "description": "Pigalle signature. Fresh pineapple and creamy coconut blended over ice.",
             "price": "85",
             "image": "/src/assets/images/menu/pigalle/mocktails-pinacolada-1-axut.jpg",
             "imageAlt": "Piña Colada"
         },
         {
-            "name": "Blueberry RedBull",
-            "description": "Juicy blueberries elevated with Red Bull.",
+            "name": "Blueberry Red Bull",
+            "description": "Pigalle signature. Juicy blueberries elevated with Red Bull.",
             "price": "85",
             "image": "/src/assets/images/menu/pigalle/mocktails-blueredbull-1-axus.jpg",
-            "imageAlt": "Blueberry RedBull"
+            "imageAlt": "Blueberry Red Bull"
         },
         {
             "name": "Strawberry Daiquiri",
-            "description": "Fresh strawberries blended with lime and crushed ice.",
+            "description": "Pigalle signature. Fresh strawberries blended with lime and crushed ice.",
             "price": "85",
             "image": "/src/assets/images/menu/pigalle/mocktails-pigalle-shootday2-01-aqcz.jpg",
             "imageAlt": "Strawberry Daiquiri"
-        },
-        {
-            "name": "Mango Grape Crusher",
-            "description": "Red Grapefruit Topped With Mango And Infused Lemon And Soda.",
-            "price": "85",
-            "image": "/src/assets/images/menu/pigalle/mocktails-img-207of284-1-atv3.jpg",
-            "imageAlt": "Mango Grape Crusher"
         }
     ]
 }

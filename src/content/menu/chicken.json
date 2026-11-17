@@ -1,29 +1,43 @@
 {
     "categoryName": "Chicken",
-    "displayOrder": 6,
+    "displayOrder": 8,
     "image": "/src/assets/images/menu/pigalle/chicken-portchicken-axur.jpg",
-    "imageAlt": "Full Portuguese peri peri chicken grilled over an open flame with round chips",
+    "imageAlt": "Portuguese peri-peri chicken at Pigalle",
     "items": [
         {
-            "name": "Portuguese Peri Peri Chicken Full",
-            "description": "Flame grilled over an open fire and served with round chips",
+            "name": "Portuguese Peri-Peri Chicken Full",
+            "description": "Flame grilled over an open fire and served with round chips.",
             "price": "330",
             "image": "",
             "imageAlt": ""
         },
         {
-            "name": "Portuguese Peri Peri Chicken Half",
-            "description": "Flame grilled over an open fire and served with round chips",
+            "name": "Portuguese Peri-Peri Chicken Half",
+            "description": "Flame grilled over an open fire and served with round chips.",
             "price": "180",
             "image": "/src/assets/images/menu/pigalle/chicken-portchicken-axur.jpg",
-            "imageAlt": "Half Portuguese peri peri chicken grilled over an open flame"
+            "imageAlt": "Portuguese Peri-Peri Chicken Half"
         },
         {
-            "name": "Portuguese Peri Peri Chicken Fillet",
-            "description": "Two flame-grilled fillets served with round chips",
+            "name": "Portuguese Peri-Peri Chicken Fillets",
+            "description": "Two flame-grilled fillets served with round chips.",
             "price": "190",
             "image": "/src/assets/images/menu/pigalle/chicken-portchicken-axur.jpg",
-            "imageAlt": "Two peri peri chicken fillets grilled over an open flame with round chips"
+            "imageAlt": "Portuguese Peri-Peri Chicken Fillets"
+        },
+        {
+            "name": "Chooza Boneless Chicken",
+            "description": "Seven tender chicken cubes, finished with Chooza sauce and served with house salad and chips.",
+            "price": "195",
+            "image": "/src/assets/images/menu/pigalle/chooza-pigalle-shootday1-65-aqcp.jpg",
+            "imageAlt": "Chooza Boneless Chicken"
+        },
+        {
+            "name": "Chooza Baby Chicken",
+            "description": "Baby chicken marinated in our signature Chooza sauce and char-grilled, served with chips.",
+            "price": "195",
+            "image": "/src/assets/images/menu/pigalle/chooza-pigalle-shootday1-68-aqcp.jpg",
+            "imageAlt": "Chooza Baby Chicken"
         }
     ]
 }

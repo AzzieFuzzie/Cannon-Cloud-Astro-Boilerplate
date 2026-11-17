@@ -2,25 +2,32 @@
     "categoryName": "Salads",
     "displayOrder": 3,
     "image": "/src/assets/images/menu/pigalle/salads-piggale-shootday3-150-atwx.jpg",
-    "imageAlt": "Greek salad with cocktail tomato, olives, Danish feta and traditional dressing",
+    "imageAlt": "Fresh salad at Pigalle",
     "items": [
         {
             "name": "Greek Salad",
-            "description": "Cocktail Tomato, Lettuce, Kalamata Olives, Danish Feta And Traditional Dressing.",
-            "price": "135",
+            "description": "Crisp lettuce, cocktail tomatoes, Kalamata olives and Danish feta tossed in a traditional dressing.",
+            "price": "140",
             "image": "",
             "imageAlt": ""
         },
         {
             "name": "Pear And Almond",
-            "description": "Poached Pear, Caramelized Almonds, Salad Greens, Cucumber, Cocktail Tomato, Served With Grape Salad.",
-            "price": "145",
+            "description": "Poached pear, caramelised almonds, cucumber and seasonal greens finished with honey dressing.",
+            "price": "150",
             "image": "/src/assets/images/menu/pigalle/salads-piggale-shootday3-144-aqc0.jpg",
-            "imageAlt": "Poached pear and caramelised almond salad with greens and grape"
+            "imageAlt": "Pear and almond salad"
+        },
+        {
+            "name": "Mango Prawn Salad",
+            "description": "Tandoor-spiced prawns, mango, caramelised almonds, cucumber and seasonal greens, topped with honey dressing and chilli flakes.",
+            "price": "195",
+            "image": "",
+            "imageAlt": ""
         },
         {
             "name": "House Salad",
-            "description": "Crisp lettuce, cocktail tomatoes, onions and green peppers tossed in a vinaigrette dressing",
+            "description": "Crisp lettuce, cocktail tomatoes, onions and green peppers, tossed in a vinaigrette dressing.",
             "price": "120",
             "image": "",
             "imageAlt": ""
