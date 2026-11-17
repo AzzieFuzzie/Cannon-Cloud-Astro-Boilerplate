@@ -22,7 +22,10 @@ interface Props {
 }
 
 const { title, description, hideFooter = false } = Astro.props;
-const pageTitle = title ? `${title} | Pigalle by Villamoura` : 'Pigalle by Villamoura';
+// Under 60 characters, so Google shows it whole instead of cutting it short with "..."
+const pageTitle = title
+    ? `${title} | Pigalle by Villamoura`
+    : 'Pigalle by Villamoura | Seafood, Grill & Sushi in Sandton';
 const seo = getSeo(
     { title: pageTitle, description },
     await getDefaultSeo(),

@@ -24,7 +24,7 @@ const googleReviews = await getGoogleReviews();
 const reviews = [...googleReviews, ...home.reviews].slice(0, 5);
 ---
 
-<Layout title="Home">
+<Layout>
     {/* Hero Section: sticks to the top while the rest of the page scrolls over it */}
     <section class="sticky top-0 h-[calc(100svh_-_var(--nav-height))] overflow-y-hidden">
         {

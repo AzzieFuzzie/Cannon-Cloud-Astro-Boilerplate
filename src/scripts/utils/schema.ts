@@ -57,7 +57,7 @@ export const getRestaurantSchema = (siteUrl: URL) => ({
         addressCountry: 'ZA'
     },
     hasMap: site.mapsUrl,
-    servesCuisine: ['Portuguese', 'Mediterranean', 'Seafood', 'Halaal'],
+    servesCuisine: ['Portuguese', 'Mediterranean', 'Seafood', 'Steakhouse', 'Sushi'],
     acceptsReservations: new URL('/book/', siteUrl).href,
     hasMenu: new URL('/menu/', siteUrl).href,
     openingHoursSpecification: site.hours.map(({ days, time }) => {

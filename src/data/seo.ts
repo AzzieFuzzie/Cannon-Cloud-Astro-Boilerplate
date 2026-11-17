@@ -25,7 +25,7 @@ export interface Seo {
 
 const TITLE = 'Pigalle by Villamoura';
 const DESCRIPTION =
-    'Portuguese and Mediterranean-inspired cuisine with a South African twist, at Michelangelo Towers, Sandton. Book a table at Pigalle by Villamoura.';
+    'Portuguese and Mediterranean-inspired seafood, prime steaks and sushi with a South African twist, at Michelangelo Towers, Sandton. Book a table today.';
 
 let defaultSeo: Seo | null = null;
 
